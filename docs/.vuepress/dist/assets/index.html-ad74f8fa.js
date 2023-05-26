@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-eed76176","path":"/docs/kaifa/vue/","title":"vue","lang":"en-US","frontmatter":{},"headers":[],"git":{},"filePathRelative":"docs/kaifa/vue/README.md"}');export{e as data};

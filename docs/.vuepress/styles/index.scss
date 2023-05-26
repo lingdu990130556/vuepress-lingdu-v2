@@ -1,0 +1,202 @@
+/* .vuepress/styles/index.styl */
+
+/*
+---
+pageClass: liuyanban-page-class
+---
+ */
+
+/*搜索框*/
+.search-box{
+  background-color: #c1f1f1;
+}
+
+
+/*留言板页面单独的样式配置*/
+.liuyanban-page-class {
+  /* 特定页面的 CSS */
+  max-width: 100%;
+  max-height: 100%;
+
+  .theme-default-content.content__default {
+    max-width: 70%;
+  }
+
+  .v[data-class=v] {
+    //margin 20px;
+    padding: 50px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  #留言板 {
+    position: fixed;
+    margin-left: -250px;
+    margin-top: 10px;
+    font-family: '华文隶书', serif;
+    font-size: 60px;
+  }
+
+  /* 加载背景图 */
+  background-image: url("/img/1.jpg");
+
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-attachment: fixed;
+  /* 让背景图基于容器大小伸缩 */
+  background-size: cover;
+  /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  background-color: #464646;
+  /*透明度*/
+  opacity: 1;
+
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  /*导航栏*/
+  .navbar {
+    background-color: #9adbbe70;
+  }
+  /*导航栏内容*/
+  .navbar .links {
+    background-color: rgba(154, 219, 190, 0);
+  }
+
+  .v[data-class=v] .vtime, .v[data-class=v] .vsys {
+    color: #584646
+  }
+}
+
+
+/*
+这是首页的单独样式
+ */
+.首页 {
+  /* 加载背景图 */
+  //background-image url("/lingdu/img/1.jpg");
+  //background-color: #ffffff;
+
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-attachment: fixed;
+  /* 让背景图基于容器大小伸缩 */
+  background-size: cover;
+  /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  //background-color: #464646;
+  /*透明度*/
+  opacity: 1;
+
+  //.home {
+  //  background-color: rgba(255, 255, 255, 0.53);
+  //  //background linear-gradient(to right, #f00, #fe9800, #fffb00, #6eff00, #00ff9a, #00a4ff, #6400ff);// 彩虹
+  //  //background linear-gradient(to right, #6db104, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #6db104);
+  //  opacity: 0.9;
+  //}
+
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  /*导航栏*/
+  .navbar {
+    background-color: #9adbbe70;
+  }
+  /*导航栏内容*/
+  .navbar .links {
+    background-color: rgba(154, 219, 190, 0);
+  }
+  .hero{
+    img{
+      height: auto;
+    }
+  }
+}
+
+
+.目录 {
+  .page {
+    /* 加载背景图 */
+    //background-image url("/lingdu/img/2.jpeg");
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+    /* 设置背景颜色，背景图加载过程中会显示背景色 */
+    //background-color: #464646;
+    /*透明度*/
+    opacity: 1;
+    height: 100%;
+  }
+
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  /*导航栏*/
+  .navbar {
+    background-color: #9adbbe70;
+  }
+  /*导航栏内容*/
+  .navbar .links {
+    background-color: rgba(154, 219, 190, 0);
+  }
+}
+/*自我介绍页独有样式*/
+.me{
+  .custom-block.tip{
+    background-color: #eeffdb;
+    border-color: #eeffdb;
+  }
+  .theme-default-content:not(.custom) img{
+    max-width: 10%;
+  }
+  #我{
+    color: #f2ff82;
+    position: center;
+  }
+
+  /* 加载背景图 */
+  background-image: url("/img/1.jpg");
+
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-attachment: fixed;
+  /* 让背景图基于容器大小伸缩 */
+  background-size: cover;
+  /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  background-color: #464646;
+  /*透明度*/
+  opacity: 1;
+
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  /*导航栏*/
+  .navbar {
+    background-color: #9adbbe70;
+  }
+  /*导航栏内容*/
+  .navbar .links {
+    background-color: rgba(154, 219, 190, 0);
+  }
+
+  .v[data-class=v] .vtime, .v[data-class=v] .vsys {
+    color: #584646
+  }
+
+}

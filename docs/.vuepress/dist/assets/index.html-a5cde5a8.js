@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-3233be9b","path":"/docs/kaifa/skywalking/","title":"skywalking","lang":"en-US","frontmatter":{},"headers":[],"git":{},"filePathRelative":"docs/kaifa/skywalking/README.md"}');export{a as data};

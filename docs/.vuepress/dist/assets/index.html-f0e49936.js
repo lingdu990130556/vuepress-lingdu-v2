@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-1574fe2f","path":"/docs/kaifa/sentinel/","title":"sentinel","lang":"en-US","frontmatter":{},"headers":[],"git":{},"filePathRelative":"docs/kaifa/sentinel/README.md"}');export{e as data};

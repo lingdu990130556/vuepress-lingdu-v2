@@ -1,0 +1,42 @@
+// 颜色
+$accentColor: #3eaf7c; // 重点色
+$textColor: #2c3e50; // 文本颜色
+$borderColor: rgba(234, 236, 239, 0); // 边框颜色
+$codeBgColor: #282c34; // 代码颜色
+$arrowBgColor: #ccc; // 箭头颜色
+$badgeTipColor: #42b983; // 提示容器颜色
+$badgeWarningColor: darken(#ffe564, 35%); // 警告容器颜色
+$badgeErrorColor: #DA5961; // 危险容器颜色
+
+// 布局
+$navbarHeight: 3.6rem; // 导航条的高度
+$sidebarWidth: 20rem; // 侧边栏的宽度
+$contentWidth: 740px; // 内容的宽度
+$homePageWidth: 960px; // 首页宽度
+
+// 响应式变化点
+$MQNarrow: 959px; // 窄
+$MQMobile: 719px; // 移动
+$MQMobileNarrow: 419px;// 移动狭窄
+
+//示例修改相关样式f12找到需要修改的地方找到对应class类拿过来直接用就行了
+.sidebar-group.is-sub-group > .sidebar-heading:not(.clickable){
+  opacity :1
+}
+
+// 阅读进度条样式配置
+$readingBgColor: transparent;
+$readingZIndex: 1000;
+$readingSize: 6px;
+$readingProgressColor: $accentColor;
+//$readingProgressImage: none
+//$readingProgressImage: linear-gradient(-120deg, #E50743 0%, #F9870F 15%, #E8ED30 30%, #3FA62E 45%, #3BB4D7 60%, #2F4D9E 75%, #71378A 80%)
+$readingProgressImage: linear-gradient(to right,
+        #f00,
+        #fe9800,
+        #fffb00,
+        #6eff00,
+        #00ff9a,
+        #00a4ff,
+        #6400ff
+)
