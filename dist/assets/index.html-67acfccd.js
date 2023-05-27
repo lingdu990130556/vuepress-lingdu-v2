@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-3c2182a8","path":"/docs/me/career/zhfxx/","title":"安徽臻峰信息科技有限公司","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"返回","slug":"返回","link":"#返回","children":[]}],"git":{"updatedTime":1685095423000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":1}]},"filePathRelative":"docs/me/career/zhfxx/README.md"}');export{e as data};

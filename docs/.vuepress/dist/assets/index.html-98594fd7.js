@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-eede2748","path":"/docs/kaifa/ogg/","title":"OGG","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"ogg→kafka","slug":"ogg→kafka","link":"#ogg→kafka","children":[]}],"git":{},"filePathRelative":"docs/kaifa/ogg/README.md"}');export{a as data};

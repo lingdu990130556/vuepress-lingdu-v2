@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-a5edaa20","path":"/docs/kaifa/redis/","title":"redis","lang":"en-US","frontmatter":{},"headers":[],"git":{},"filePathRelative":"docs/kaifa/redis/README.md"}');export{a as data};

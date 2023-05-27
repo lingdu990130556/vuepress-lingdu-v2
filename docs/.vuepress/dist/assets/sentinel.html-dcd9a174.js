@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-5a0a5534","path":"/docs/kaifa/sentinel/sentinel.html","title":"","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"sentinel 启动命令","slug":"sentinel-启动命令","link":"#sentinel-启动命令","children":[]}],"git":{},"filePathRelative":"docs/kaifa/sentinel/sentinel.md"}');export{e as data};

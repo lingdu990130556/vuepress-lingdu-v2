@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-e282004e","path":"/docs/me/qiuzhaoxin.html","title":"2012","lang":"en-US","frontmatter":{},"headers":[],"git":{},"filePathRelative":"docs/me/qiuzhaoxin.md"}');export{e as data};

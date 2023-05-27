@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-d986ef20","path":"/docs/kaifa/canal/","title":"Canal","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"canal→kafka","slug":"canal→kafka","link":"#canal→kafka","children":[]}],"git":{},"filePathRelative":"docs/kaifa/canal/README.md"}');export{a as data};

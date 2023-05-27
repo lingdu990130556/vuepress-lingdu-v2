@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-b75e9e40","path":"/docs/kaifa/maven/","title":"maven","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1685095423000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":1}]},"filePathRelative":"docs/kaifa/maven/README.md"}');export{e as data};

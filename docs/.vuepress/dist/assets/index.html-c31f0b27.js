@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-01560935","path":"/timeline/","title":"","lang":"en-US","frontmatter":{"isTimeLine":true,"sidebar":false,"isComment":false},"headers":[{"level":2,"title":"Time Line","slug":"time-line","link":"#time-line","children":[]}],"git":{},"filePathRelative":"timeline/README.md"}');export{e as data};

@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-20fecd1c","path":"/docs/kaifa/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html","title":"常用命令","lang":"en-US","frontmatter":{},"headers":[],"git":{},"filePathRelative":"docs/kaifa/linux/常用命令.md"}');export{a as data};

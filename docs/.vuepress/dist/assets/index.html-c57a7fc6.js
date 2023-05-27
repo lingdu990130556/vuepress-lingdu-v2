@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-c08f6d24","path":"/docs/kaifa/basics/","title":"〇°","lang":"en-US","frontmatter":{"pageClass":"目录"},"headers":[],"git":{},"filePathRelative":"docs/kaifa/basics/README.md"}');export{a as data};

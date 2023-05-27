@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-4c5dac12","path":"/docs/kaifa/kafka/SSL.html","title":"开启安全认证","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"脚本","slug":"脚本","link":"#脚本","children":[]}],"git":{"updatedTime":1685095423000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":1}]},"filePathRelative":"docs/kaifa/kafka/SSL.md"}');export{a as data};

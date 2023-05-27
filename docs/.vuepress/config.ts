@@ -28,6 +28,10 @@ import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 export default ({
 
     head,
+    description: 'lingdu',
+    // 目的地
+    dest: './dist',
+    base: '/lingdu/',
 
     plugins: [
 

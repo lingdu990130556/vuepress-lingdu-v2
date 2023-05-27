@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-0182cc8b","path":"/plugin/%E7%95%99%E8%A8%80%E6%9D%BF.html","title":"留言板","lang":"en-US","frontmatter":{"pageClass":"liuyanban-page-class"},"headers":[],"git":{},"filePathRelative":"plugin/留言板.md"}');export{a as data};
