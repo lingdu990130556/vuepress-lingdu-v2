@@ -67,7 +67,7 @@ export const navbarMy: NavbarConfig = [
     {
         text: '版本v2.x', children: [
             {text: "版本v1.x", link: "http://lingdu_dou.gitee.io/lingdu/"},
-            {text: "版本v2.x", link: "/"},
+            {text: "版本v2.x", link: "http://lingdu_dou.gitee.io/vuepress-lingdu-v2/"},
         ]
     },
     // {text: 'TimeLine', link: '/timeline/'},
