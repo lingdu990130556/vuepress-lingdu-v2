@@ -50,6 +50,8 @@ export default ({
             imgMark: true,
             // 启用图片大小
             imgSize: true,
+            // 启用自定义容器
+            container: true,
         }),
 
         // 代码块复制

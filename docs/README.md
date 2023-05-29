@@ -7,6 +7,7 @@ heroText: ⭕°
 tagline: 今天快乐
 ---
 
+
 ```card
 title: 书签
 desc: 书签
@@ -119,6 +120,13 @@ color: rgb(154 219 190 / 44%)
   "color": "rgb(154 219 190 / 44%)"
 }
 ```
+
+
+
+::: tip 网易云音乐
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1423366098&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430"></iframe>
+:::
 
 
 |网站|网名|网址|
