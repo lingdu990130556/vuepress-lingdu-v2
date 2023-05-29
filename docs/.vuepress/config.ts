@@ -10,6 +10,7 @@ import {head, navbarMy, sidebarMy} from './configs';
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 
 
+
 /*
     "@vuepress/client": "2.0.0-beta.62",
     "vue": "^3.3.4",
@@ -35,6 +36,8 @@ export default ({
 
     plugins: [
 
+
+        // markdown 增强
         mdEnhancePlugin({
             // 开启卡片支持
             card: true,
@@ -95,7 +98,7 @@ export default ({
         // 我们会将它作为一个 GitHub 仓库 源码地址
         // repo: 'vuejs/vuepress',
         // 你也可以直接将它设置为一个 URL
-        repo: 'https://gitee.com/lingdu_dou/lingdu',
+        repo: 'https://gitee.com/lingdu_dou/vuepress-lingdu-v2',
         // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
         // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
         repoLabel: '查看源码',
@@ -108,7 +111,7 @@ export default ({
         // 假如你的文档仓库和项目本身不在一个仓库：
         docsRepo: 'https://gitee.com/lingdu_dou/vuepress-lingdu-v2',
         // 假如文档不是放在仓库的根目录下：
-        docsDir: '../../tree/master/',
+        docsDir: '../../tree/master/docs/',
         // 假如文档放在一个特定的分支下：
         docsBranch: 'master',
         // 默认是 false, 设置为 true 来启用
@@ -160,7 +163,7 @@ function currentTime() {
     //如果格式是MM则需要此步骤，如果是M格式则此循环注释掉
     for (var i = 0; i < dateArr.length; i++) {
         if (dateArr[i] >= 1 && dateArr[i] <= 9) {
-            dateArr[i] = "0" + dateArr[i];
+            dateArr[i] = Number("0" + dateArr[i]);
         }
     }
     var strDate =

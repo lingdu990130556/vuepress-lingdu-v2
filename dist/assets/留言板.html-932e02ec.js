@@ -1,0 +1,1 @@
+import{_ as t,r as o,o as n,c,a as r,b as e,d as s}from"./app-b72cb43f.js";const _={},d=e("h1",{id:"留言板",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#留言板","aria-hidden":"true"},"#"),s(" 留言板")],-1);function l(i,h){const a=o("Valine");return n(),c("div",null,[d,r(a)])}const m=t(_,[["render",l],["__file","留言板.html.vue"]]);export{m as default};

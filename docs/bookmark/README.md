@@ -1,11 +1,13 @@
 # 书签
 
 ## chatGPT
-[https://alllinkai.com/(目前免费)](https://alllinkai.com/)  
+[博弈AI(目前免费 微信登录)](https://chat.bo-e.com/)
 
-[https://chat6.aichatos.com/(目前免费)](https://chat6.aichatos.com/)  
+[https://chat6.aichatos.com/(目前免费)](https://chat6.aichatos.com/)
 
-[https://chat.extkj.cn/(目前免费)](https://chat.extkj.cn/)  
+[https://chat.extkj.cn/(目前免费)](https://chat.extkj.cn/)
+
+[https://www.tomchat.online/(目前免费+收费)每天免费10次](https://www.tomchat.online/)
 
 [ChatSonic（来自Opera／注册即可使用／支持中文提问／每月限制提问1W字）](https://writesonic.com/chat)
 

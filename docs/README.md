@@ -15,6 +15,13 @@ link: /bookmark/
 color: rgb(154 219 190 / 44%)
 ```
 ```card
+title: 博弈AI
+desc: 博弈AI
+logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
+link: https://chat.bo-e.com/
+color: rgb(154 219 190 / 44%)
+```
+```card
 title: Markdown 增强
 desc: 为 VuePress2 提供更多 Markdown 增强功能
 logo: https://plugin-md-enhance.vuejs.press/logo.svg

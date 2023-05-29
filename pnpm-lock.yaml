@@ -14,6 +14,7 @@ specifiers:
   vuepress: 2.0.0-beta.62
   vuepress-plugin-copy-code2: ^2.0.0-beta.62
   vuepress-plugin-md-enhance: 2.0.0-beta.215
+  vuepress-plugin-reading-time2: 2.0.0-beta.216
 
 devDependencies:
   '@vuepress/bundler-vite': registry.npmmirror.com/@vuepress/bundler-vite/2.0.0-beta.62
@@ -29,6 +30,7 @@ devDependencies:
   vuepress: registry.npmmirror.com/vuepress/2.0.0-beta.62_tmgkgse4xh2c75hoply7kowk7i
   vuepress-plugin-copy-code2: registry.npmmirror.com/vuepress-plugin-copy-code2/2.0.0-beta.215_vuepress@2.0.0-beta.62
   vuepress-plugin-md-enhance: registry.npmmirror.com/vuepress-plugin-md-enhance/2.0.0-beta.215_vuepress@2.0.0-beta.62
+  vuepress-plugin-reading-time2: registry.npmmirror.com/vuepress-plugin-reading-time2/2.0.0-beta.216_vuepress@2.0.0-beta.62
 
 packages:
 
@@ -4276,6 +4278,33 @@ packages:
       - supports-color
     dev: true
 
+  registry.npmmirror.com/vuepress-plugin-reading-time2/2.0.0-beta.216_vuepress@2.0.0-beta.62:
+    resolution: {integrity: sha512-UxXiZl+FSaOm+PJoyBlVPW6Es3iOxhNwY/Cf4epdpyyzSNB+UQpWa3rBN6KezBp1/5fQBZr9CF4r22w7RAFZMg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuepress-plugin-reading-time2/-/vuepress-plugin-reading-time2-2.0.0-beta.216.tgz}
+    id: registry.npmmirror.com/vuepress-plugin-reading-time2/2.0.0-beta.216
+    name: vuepress-plugin-reading-time2
+    version: 2.0.0-beta.216
+    engines: {node: '>=16.0.0', npm: '>=8', pnpm: '>=7'}
+    peerDependencies:
+      vuepress: 2.0.0-beta.62
+      vuepress-vite: 2.0.0-beta.62
+      vuepress-webpack: 2.0.0-beta.62
+    peerDependenciesMeta:
+      vuepress:
+        optional: true
+      vuepress-vite:
+        optional: true
+      vuepress-webpack:
+        optional: true
+    dependencies:
+      '@vuepress/client': registry.npmmirror.com/@vuepress/client/2.0.0-beta.62
+      vue: registry.npmmirror.com/vue/3.3.4
+      vuepress: registry.npmmirror.com/vuepress/2.0.0-beta.62_tmgkgse4xh2c75hoply7kowk7i
+      vuepress-shared: registry.npmmirror.com/vuepress-shared/2.0.0-beta.216_vuepress@2.0.0-beta.62
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/vuepress-plugin-sass-palette/2.0.0-beta.215_vuepress@2.0.0-beta.62:
     resolution: {integrity: sha512-CK7MYvlr1qhKIQO84nau19axunmi6fOSbZGtaGBpDscQl/BfaBZs1svwoqcVutA7CBVQzqfWjsrk5Q8YGYpiXA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuepress-plugin-sass-palette/-/vuepress-plugin-sass-palette-2.0.0-beta.215.tgz}
     id: registry.npmmirror.com/vuepress-plugin-sass-palette/2.0.0-beta.215
@@ -4313,6 +4342,43 @@ packages:
     id: registry.npmmirror.com/vuepress-shared/2.0.0-beta.215
     name: vuepress-shared
     version: 2.0.0-beta.215
+    engines: {node: '>=16.0.0', npm: '>=8', pnpm: '>=7'}
+    peerDependencies:
+      vuepress: 2.0.0-beta.62
+      vuepress-vite: 2.0.0-beta.62
+      vuepress-webpack: 2.0.0-beta.62
+    peerDependenciesMeta:
+      vuepress:
+        optional: true
+      vuepress-vite:
+        optional: true
+      vuepress-webpack:
+        optional: true
+    dependencies:
+      '@vuepress/client': registry.npmmirror.com/@vuepress/client/2.0.0-beta.62
+      '@vuepress/shared': registry.npmmirror.com/@vuepress/shared/2.0.0-beta.62
+      '@vuepress/utils': registry.npmmirror.com/@vuepress/utils/2.0.0-beta.62
+      '@vueuse/core': registry.npmmirror.com/@vueuse/core/10.1.2_vue@3.3.4
+      cheerio: registry.npmmirror.com/cheerio/1.0.0-rc.12
+      dayjs: registry.npmmirror.com/dayjs/1.11.7
+      execa: registry.npmmirror.com/execa/7.1.1
+      fflate: registry.npmmirror.com/fflate/0.8.0
+      gray-matter: registry.npmmirror.com/gray-matter/4.0.3
+      semver: registry.npmmirror.com/semver/7.5.1
+      striptags: registry.npmmirror.com/striptags/3.2.0
+      vue: registry.npmmirror.com/vue/3.3.4
+      vue-router: registry.npmmirror.com/vue-router/4.2.1_vue@3.3.4
+      vuepress: registry.npmmirror.com/vuepress/2.0.0-beta.62_tmgkgse4xh2c75hoply7kowk7i
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - supports-color
+    dev: true
+
+  registry.npmmirror.com/vuepress-shared/2.0.0-beta.216_vuepress@2.0.0-beta.62:
+    resolution: {integrity: sha512-nnk3o9dzp77Lz4WHCy/2wrgNEEZxnOsZSujorcbXjY1NWSSvTlomeROx+Vljm4u5nxLd8HrdGLN5iQ9Az3QFTQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuepress-shared/-/vuepress-shared-2.0.0-beta.216.tgz}
+    id: registry.npmmirror.com/vuepress-shared/2.0.0-beta.216
+    name: vuepress-shared
+    version: 2.0.0-beta.216
     engines: {node: '>=16.0.0', npm: '>=8', pnpm: '>=7'}
     peerDependencies:
       vuepress: 2.0.0-beta.62
