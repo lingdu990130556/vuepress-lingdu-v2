@@ -8,6 +8,16 @@ tagline: 今天快乐
 ---
 
 
+<SiteInfo
+name="Mr.Hope's Blog"
+desc="Where there is light, there is hope"
+url="https://mrhope.site"
+logo="https://mrhope.site/logo.svg"
+repo="https://github.com/Mister-Hope/Mister-Hope.github.io"
+preview="https://theme-hope.vuejs.press/assets/image/mrhope.jpg"
+/>
+
+
 ```card
 title: 书签
 desc: 书签
@@ -44,6 +54,13 @@ link: https://v2.vuepress.vuejs.org/zh/
 color: rgb(154 219 190 / 44%)
 ```
 ```card
+title: 后来的我们
+desc: 
+logo: https://zyj_yida.gitee.io/source/img/ico/logo.png
+link: https://zhangyujie.top/blog/
+color: rgb(154 219 190 / 44%)
+```
+```card
 title: Java技术指北
 desc: 分享Java技术相关的东西，包括但不限于源码解析、面试宝典、日常问题排查、工作趣文等等。
 logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
@@ -72,6 +89,15 @@ color: rgb(154 219 190 / 44%)
   "desc": "Mr.理",
   "logo": "http://lingdu_dou.gitee.io/lingdu/img/logo.png",
   "link": "https://itwangxl.gitee.io/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "静水深流",
+  "desc": "为梦想而年轻，为年轻而坚定",
+  "logo": "https://slbblog.oss-cn-beijing.aliyuncs.com/head.jpeg",
+  "link": "https://slbyml.github.io/",
   "color": "rgb(154 219 190 / 44%)"
 }
 ```
@@ -142,7 +168,23 @@ color: rgb(154 219 190 / 44%)
 
 
 
+[//]: # (<BiliBili )
+
+[//]: # (aid="313718550" )
+
+[//]: # (cid="1131151039" )
+
+[//]: # (ratio="16:9" )
+
+[//]: # (time="60" )
+
+[//]: # (autoplay )
+
+[//]: # (page="1" />)
 
 
-
+<XiGua
+id="7238728608691585569"
+autoplay
+time="0" />
 

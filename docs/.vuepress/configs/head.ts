@@ -2,7 +2,7 @@ import type { HeadConfig } from '@vuepress/core'
 
 export const head: HeadConfig[] = [
   // 添加浏览器图标
-  ["link", {rel: "icon", href: "/img/logo.png"}],
+  ["link", {rel: "icon",href: '/img/logo.png', type: 'image/jpg'}],
   // 站点访问统计 百度
   [
     'script', {}, `

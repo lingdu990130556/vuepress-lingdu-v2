@@ -4,10 +4,18 @@ import {defaultTheme} from '@vuepress/theme-default';
 import {copyCodePlugin} from 'vuepress-plugin-copy-code2';
 // 本地搜索
 // import {searchPlugin} from '@vuepress/plugin-search';
+// 搜索
+// import { docsearchPlugin } from '@vuepress/plugin-docsearch';
 // 配置
 import {head, navbarMy, sidebarMy} from './configs';
 // markdown 增强
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
+// 根据组件文件或目录自动注册 Vue 组件
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { getDirname, path } from '@vuepress/utils'
+const __dirname = getDirname(import.meta.url)
+// 组件库
+import { componentsPlugin } from "vuepress-plugin-components";
 
 
 
@@ -36,6 +44,14 @@ export default ({
 
     plugins: [
 
+        componentsPlugin({
+            // 插件选项
+            components:["BiliBili","XiGua","SiteInfo"]
+        }),
+
+        // registerComponentsPlugin({
+        //     componentsDir: path.resolve(__dirname, './components'),
+        // }),
 
         // markdown 增强
         mdEnhancePlugin({
@@ -62,7 +78,7 @@ export default ({
                 '/': {
                     copy: '复制',
                     copied: '复制成功',
-                    hint: '<b>复&nbsp制&nbsp成&nbsp功<b><BR>@⭕°  '+currentTime()
+                    hint: '<b>复&nbsp制&nbsp成&nbsp功<b><BR>@⭕°  今天快乐'
                 }
             }
         }),
@@ -81,6 +97,31 @@ export default ({
         //         },
         //     },
         // }),
+        // 搜索
+        // docsearchPlugin({
+        //     appId: 'lingdu',
+        //     apiKey: 'lingdu',
+        //     indexName: 'lingdu',
+        //     locales: {
+        //         '/': {
+        //             placeholder: 'Search Documentation',
+        //             translations: {
+        //                 button: {
+        //                     buttonText: 'Search Documentation',
+        //                 },
+        //             },
+        //         },
+        //         '/zh/': {
+        //             placeholder: '搜索文档',
+        //             translations: {
+        //                 button: {
+        //                     buttonText: '搜索文档',
+        //                 },
+        //             },
+        //         },
+        //     },
+        // }),
+
     ],
 
     theme: defaultTheme({
@@ -142,46 +183,3 @@ export default ({
 })
 
 
-
-
-
-
-
-/**
- * 获取当前时间
- */
-function currentTime() {
-    var date = new Date();
-    var year = date.getFullYear(); //月份从0~11，所以加一
-    let month = date.getMonth();
-    console.log("month",month);
-    var dateArr = [
-        date.getMonth() + 1,
-        date.getDate(),
-        date.getHours(),
-        date.getMinutes(),
-        date.getSeconds(),
-    ];
-    //如果格式是MM则需要此步骤，如果是M格式则此循环注释掉
-    for (var i = 0; i < dateArr.length; i++) {
-        if (dateArr[i] >= 1 && dateArr[i] <= 9) {
-            dateArr[i] = Number("0" + dateArr[i]);
-        }
-    }
-    var strDate =
-        year +
-        "-" +
-        dateArr[0] +
-        "-" +
-        dateArr[1] +
-        " " +
-        dateArr[2] +
-        ":" +
-        dateArr[3] +
-        ":" +
-        dateArr[4];
-    //此处可以拿外部的变量接收  strDate:2022-05-01 13:25:30
-    //this.date = strDate;
-    console.log("strDate",strDate);
-    return strDate;
-}
