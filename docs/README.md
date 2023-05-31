@@ -8,26 +8,31 @@ tagline: 今天快乐
 ---
 
 
-<SiteInfo
-name="Mr.Hope's Blog"
-desc="Where there is light, there is hope"
-url="https://mrhope.site"
-logo="https://mrhope.site/logo.svg"
-repo="https://github.com/Mister-Hope/Mister-Hope.github.io"
-preview="https://theme-hope.vuejs.press/assets/image/mrhope.jpg"
-/>
+[//]: # (<SiteInfo)
+
+[//]: # (name="Mr.Hope's Blog")
+
+[//]: # (desc="Where there is light, there is hope")
+
+[//]: # (url="https://mrhope.site")
+
+[//]: # (logo="https://mrhope.site/logo.svg")
+
+[//]: # (repo="https://github.com/Mister-Hope/Mister-Hope.github.io")
+
+[//]: # (preview="https://theme-hope.vuejs.press/assets/image/mrhope.jpg")
+
+[//]: # (/>)
 
 
 ```card
 title: 书签
-desc: 书签
 logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
 link: /bookmark/
 color: rgb(154 219 190 / 44%)
 ```
 ```card
 title: 博弈AI
-desc: 博弈AI
 logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
 link: https://chat.bo-e.com/
 color: rgb(154 219 190 / 44%)
@@ -67,6 +72,16 @@ logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
 link: https://www.javanorth.cn/
 color: rgb(154 219 190 / 44%)
 ```
+
+<SiteInfo
+name="Hungry's Blog"
+desc="记录， 成为更好的自己。"
+url="http://linchenggu.gitee.io/blog/"
+logo="http://linchenggu.gitee.io/blog/avatar.jpg"
+repo="https://gitee.com/linchenggu/blog"
+preview="http://linchenggu.gitee.io/blog/avatar.jpg"
+/>
+
 ```card
 title: 汉格瑞
 desc: Hungry's Blog 记录， 成为更好的自己。
@@ -86,7 +101,6 @@ color: rgb(154 219 190 / 44%)
 ```card:json
 {
   "title": "Mr.理",
-  "desc": "Mr.理",
   "logo": "http://lingdu_dou.gitee.io/lingdu/img/logo.png",
   "link": "https://itwangxl.gitee.io/",
   "color": "rgb(154 219 190 / 44%)"
@@ -149,10 +163,13 @@ color: rgb(154 219 190 / 44%)
 
 
 
-::: tip 网易云音乐
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1423366098&auto=0&height=66"></iframe>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430"></iframe>
-:::
+[//]: # (::: tip 网易云音乐)
+
+[//]: # (<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1423366098&auto=0&height=66"></iframe>)
+
+[//]: # (<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430"></iframe>)
+
+[//]: # (:::)
 
 
 |网站|网名|网址|
@@ -183,8 +200,11 @@ color: rgb(154 219 190 / 44%)
 [//]: # (page="1" />)
 
 
-<XiGua
-id="7238728608691585569"
-autoplay
-time="0" />
+[//]: # (<XiGua)
+
+[//]: # (id="7238728608691585569")
+
+[//]: # (autoplay)
+
+[//]: # (time="0" />)
 

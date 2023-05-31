@@ -65,15 +65,6 @@ export const navbarMy: NavbarConfig = [
         ]
     },
     {
-        text: '版本v2.x', children: [
-            {text: "版本v1.x", link: "http://lingdu_dou.gitee.io/lingdu/"},
-            {text: "版本v2.x", link: "/"},
-        ]
-    },
-    // {text: 'TimeLine', link: '/timeline/'},
-    {text: "留言板", link: "/plugin/留言板.md"},
-    {text: "我", link: "/docs/me/"},
-    {
         text: "相关官方文档",
         children: [
             {text: "默认主题配置", link: "https://v2.vuepress.vuejs.org/zh/"},
@@ -105,6 +96,15 @@ export const navbarMy: NavbarConfig = [
             {text: "NiFi中文文档", link: "https://nifichina.gitee.io/"},
         ]
     },
+    {
+        text: '版本v2.x', children: [
+            {text: "版本v1.x", link: "http://lingdu_dou.gitee.io/lingdu/"},
+            {text: "版本v2.x", link: "/"},
+        ]
+    },
+    // {text: 'TimeLine', link: '/timeline/'},
+    {text: "留言板", link: "/plugin/留言板.md"},
+    {text: "我", link: "/docs/me/"},
     //******************************************************************************************************************
     // {
     //     text: '参考',

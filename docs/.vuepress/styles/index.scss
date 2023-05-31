@@ -6,6 +6,21 @@ pageClass: liuyanban-page-class
 ---
  */
 
+// 通知框
+.notice-wrapper{
+  --notice-width: auto;
+  .notice-title{
+    background: rgb(193, 241, 241);
+  }
+  .notice-content{
+    background: #eeffdb;
+    margin: auto;
+  }
+  height: auto;
+}
+
+
+
 /*搜索框*/
 .search-box{
   background-color: #c1f1f1;
