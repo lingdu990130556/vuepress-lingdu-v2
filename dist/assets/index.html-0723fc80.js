@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-d79b77bc","path":"/space/","title":"空间","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"space/README.md"}');export{e as data};

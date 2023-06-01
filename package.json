@@ -28,8 +28,5 @@
     "vuepress-plugin-components": "2.0.0-beta.216",
     "vuepress-plugin-copy-code2": "^2.0.0-beta.62",
     "vuepress-plugin-md-enhance": "2.0.0-beta.215"
-  },
-  "dependencies": {
-    "simple-git": "^3.19.0"
   }
 }
