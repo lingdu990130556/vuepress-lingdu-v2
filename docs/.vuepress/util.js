@@ -84,8 +84,8 @@ function setNavKeys(nav, a) {
 function getChildren(dirName) {
     const names = []
     let globPath = path.resolve(`./docs/${dirName}*.md`)
-    console.log('globPath:')
-    console.log(globPath)
+    // console.log('globPath:')
+    // console.log(globPath)
     glob.sync(globPath).forEach(file => {
         const name = path.parse(file).base
         // console.log('name:')
@@ -101,9 +101,9 @@ function getChildren(dirName) {
             names.push(lingdu)
         }
     })
-    console.log('///////////////////////////////////////////////////////////////////////////')
-    console.log(dirName)
-    console.log(names)
+    // console.log('///////////////////////////////////////////////////////////////////////////')
+    // console.log(dirName)
+    // console.log(names)
     return names
 }
 

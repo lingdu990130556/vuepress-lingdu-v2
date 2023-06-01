@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-8daa1a0e","path":"/","title":"","lang":"en-US","frontmatter":{"pageClass":"首页","home":true,"heroImage":"/img/logo.png","bgImage":"/img/1.jpg","heroText":"⭕°","tagline":"今天快乐"},"headers":[],"git":{"updatedTime":1685516498000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":5}]},"filePathRelative":"README.md"}');export{e as data};

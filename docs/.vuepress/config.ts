@@ -13,6 +13,7 @@ import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 // 根据组件文件或目录自动注册 Vue 组件
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { getDirname, path } from '@vuepress/utils'
+// @ts-ignore
 const __dirname = getDirname(import.meta.url)
 // 组件库
 import { componentsPlugin } from "vuepress-plugin-components";
