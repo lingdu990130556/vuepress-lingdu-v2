@@ -52,7 +52,7 @@ export default ({
                 notice: [
                     {
                         path: "/",
-                        title: '<div><button id="btnMove" type="button" class="notice-footer-action primary">〇°</button>点击按钮最小化</div>',
+                        title: '<div id="lingdu-tishi"><button id="btnMove" type="button" class="notice-footer-action primary">〇°</button></div>',
                         // content: "Notice Content",// 内容
                         content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430\"></iframe>",
                         // 全屏显示
