@@ -15,6 +15,7 @@ function showMessage() {
     y = initialTop; // 初始位置
     h = initialH; // 初始高度
     btnMove = document.getElementById("btnMove");
+    btnMove.onclick = delayedMove;
     ok=true;
 }
 
@@ -66,18 +67,36 @@ function moveDiv2() {
 /**
  * 监测点击按钮事件
  */
-btnMove.onclick = function () {
-    console.log("点击了。。。")
-    if(!ok){
-        return;
-    }
-    if (status === 1) {
-        timer = setInterval(moveDiv, 15); // 点击按钮后，每隔 50 毫秒执行一次移动操作
-        status = 0
-    } else {
-        timer = setInterval(moveDiv2, 15); // 点击按钮后，每隔 50 毫秒执行一次移动操作
-        status = 1
+// btnMove.onclick = function () {
+//     console.log("点击了。。。")
+//     if(!ok){
+//         return;
+//     }
+//     if (status === 1) {
+//         timer = setInterval(moveDiv, 15); // 点击按钮后，每隔 50 毫秒执行一次移动操作
+//         status = 0
+//     } else {
+//         timer = setInterval(moveDiv2, 15); // 点击按钮后，每隔 50 毫秒执行一次移动操作
+//         status = 1
+//
+//     }
+// };
 
-    }
-};
+function delayedMove() {
+    setTimeout(function () {
+        console.log("点击了。。。")
+        if(!ok){
+            return;
+        }
+        if (status === 1) {
+            timer = setInterval(moveDiv, 15); // 点击按钮后，每隔 50 毫秒执行一次移动操作
+            status = 0
+        } else {
+            timer = setInterval(moveDiv2, 15); // 点击按钮后，每隔 50 毫秒执行一次移动操作
+            status = 1
 
+        }
+    }, 0); // 延迟 2000 毫秒后执行
+}
+
+// btnMove.onclick = delayedMove;
