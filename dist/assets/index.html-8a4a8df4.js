@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-d79b77bc","path":"/space/","title":"空间","lang":"en-US","frontmatter":{"pageClass":"space"},"headers":[],"git":{"updatedTime":1685692556000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":2}]},"filePathRelative":"space/README.md"}');export{e as data};
