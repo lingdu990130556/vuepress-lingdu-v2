@@ -9,15 +9,14 @@ import {copyCodePlugin} from 'vuepress-plugin-copy-code2';
 // 配置
 import {head, navbarMy, sidebarMy} from './configs';
 // markdown 增强
-import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
+import {mdEnhancePlugin} from "vuepress-plugin-md-enhance";
 // 根据组件文件或目录自动注册 Vue 组件
-import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
-import { getDirname, path } from '@vuepress/utils'
+import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
+import {getDirname, path} from '@vuepress/utils'
 // @ts-ignore
 const __dirname = getDirname(import.meta.url)
 // 组件库
-import { componentsPlugin } from "vuepress-plugin-components";
-
+import {componentsPlugin} from "vuepress-plugin-components";
 
 
 /*
@@ -47,17 +46,19 @@ export default ({
 
         componentsPlugin({
             // 插件选项
-            components:["BiliBili","XiGua","SiteInfo"],
+            components: ["BiliBili", "XiGua", "SiteInfo"],
+            // 公告插件
             rootComponents: {
                 notice: [
                     {
                         path: "/",
-                        title: "〇°",
-                        // content: "Notice Content",
+                        title: '<div><button id="btnMove" type="button" class="notice-footer-action primary">〇°</button>点击按钮最小化</div>',
+                        // content: "Notice Content",// 内容
                         content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430\"></iframe>",
+                        // 全屏显示
                         fullscreen: false,
+                        // 需要确认才关闭否则延时关闭
                         confirm: true,
-
                     },
                 ],
             },
@@ -158,7 +159,7 @@ export default ({
         repo: 'https://gitee.com/lingdu_dou/vuepress-lingdu-v2',
         // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
         // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-        repoLabel: '查看源码',
+        repoLabel: 'Gitee源码',
         // 导航栏
         navbar: navbarMy,
         // 侧边栏

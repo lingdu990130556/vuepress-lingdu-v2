@@ -97,5 +97,6 @@ export const navbarMy: NavbarConfig = [
     {text: '空间', link: '/space/'},
     {text: "留言板", link: "/plugin/留言板.md"},
     {text: "我", link: "/docs/me/"},
+    {text: "GitHub源码", link: "https://github.com/lingdu990130556/vuepress-lingdu-v2/"},
 
 ]
