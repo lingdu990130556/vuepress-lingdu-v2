@@ -7,7 +7,7 @@ const commitMessage = '更新';
 const repoName = 'origin';
 // 远程仓库地址
 const repo = 'https://github.com/lingdu990130556/vuepress-lingdu-v2.git'
-// 分支名称
+// 分支名称 放在GitHub上的话可以与主分支区别开就能开启静态页面功能了
 const branch = 'main';
 // 启动方法
 const c=cmd();
@@ -21,8 +21,6 @@ function cmd(opts) {
     const path = require('path');
     // 更改当前工作目录到 dist
     process.chdir(path.join(__dirname, 'dist'));// 注意要cd到要提交的代码文件夹下或者把此脚本放在要提交的代码的文件夹下！！！！！！！！！！！！！！！！！！！！！！！！！！
-
-    // const child = spawn('git', ['push', '-f', 'origin', 'main']);
     console.log("正在初始化 Git 仓库。。。")
     let s=spawn('git',['init'],opts);// 初始化
     s.on('close', (code) => {

@@ -2,7 +2,7 @@ import type { HeadConfig } from '@vuepress/core'
 
 export const head: HeadConfig[] = [
   // 添加浏览器图标
-  ["link", {rel: "icon",href: '/img/logo.png', type: 'image/jpg'}],
+  // ["link", {rel: "icon",href: '/img/logo.png', type: 'image/jpg'}],
   // 站点访问统计 百度
   [
     'script', {}, `
@@ -16,24 +16,24 @@ export const head: HeadConfig[] = [
         </script>        
         `
   ],
-  // [
-  //   'link',
-  //   {
-  //     rel: 'icon',
-  //     type: 'image/png',
-  //     sizes: '16x16',
-  //     href: `/images/icons/favicon-16x16.png`,
-  //   },
-  // ],
-  // [
-  //   'link',
-  //   {
-  //     rel: 'icon',
-  //     type: 'image/png',
-  //     sizes: '32x32',
-  //     href: `/images/icons/favicon-32x32.png`,
-  //   },
-  // ],
+  [
+    'link',
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      href: `/vuepress-lingdu-v2/img/logo.png`,
+    },
+  ],
+  [
+    'link',
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: `/vuepress-lingdu-v2/img/logo.png`,
+    },
+  ],
   ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
   ['meta', { name: 'application-name', content: 'VuePress' }],
   ['meta', { name: 'apple-mobile-web-app-title', content: 'VuePress' }],
