@@ -1,4 +1,4 @@
-console.log("加载了。。。");
+// console.log("加载了。。。");
 
 
 const a=setTimeout(showMessage, 4000);  // 延迟 1000 毫秒（即 1 秒钟）后执行 showMessage 函数
@@ -28,7 +28,7 @@ function showMessage() {
      * 监测点击按钮事件
      */
     btnMove.onclick = function () {
-        console.log("点击了。。。")
+        // console.log("点击了。。。")
         if(!ok){
             return;
         }
@@ -60,6 +60,8 @@ function showMessage() {
 
         h += -4;
         myDiv.style.height = h + "px";
+        // 调整透明度
+        myDiv.style.opacity = 0.3;
 
         if (x - initialLeft >= 225) { // 如果达到执行次数上限，停止定时器
             clearInterval(timer);
@@ -78,6 +80,8 @@ function showMessage() {
 
         h += 4;
         myDiv.style.height = h + "px";
+        // 调整透明度
+        myDiv.style.opacity = 1;
 
         if (x - initialLeft <= 0) { // 如果达到执行次数上限，停止定时器
             clearInterval(timer);

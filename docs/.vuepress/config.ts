@@ -83,6 +83,8 @@ export default ({
             imgSize: true,
             // 启用自定义容器
             container: true,
+            // 开启标记
+            mark: true,
         }),
 
         // 代码块复制
