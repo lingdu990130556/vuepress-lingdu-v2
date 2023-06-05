@@ -46,7 +46,7 @@ export default ({
 
         componentsPlugin({
             // 插件选项
-            components: ["BiliBili", "XiGua", "SiteInfo"],
+            components: ["BiliBili", "XiGua", "SiteInfo","VideoPlayer"],
             // 公告插件
             rootComponents: {
                 notice: [

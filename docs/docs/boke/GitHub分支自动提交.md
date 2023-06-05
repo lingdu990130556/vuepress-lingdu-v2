@@ -147,6 +147,25 @@ const repo = '==https://github.com/lingdu990130556/vuepress-lingdu-v2.git=='
 // 分支名称 放在GitHub上的话可以与主分支区别开就能开启静态页面功能了  
 const branch = '==main==';  
 
+仓库结构: 
+```仓库结构
+├─ master   // 默认分支/主分支（存放代码）
+│   ├─ dist
+│   ├─ docs
+│   ├─ .gitignore
+│   ├─ git-commit.js
+│   └─ package.json
+└─ main     // 新建分支（存放打包后的静态页面代码）
+    ├─ assets
+    ├─ bookmark
+    ├─ docs
+    ├─ img
+    ├─ js
+    ├─ plugin
+    ├─ 404.html
+    └─ index.html
+```
+
 上面参数中深色部分为你自己的参数项，根据你自己实际情况变更
 :::
 

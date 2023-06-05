@@ -10,14 +10,14 @@ sidebarDepth: 4
 ## 嵌入页面
 /```md
 <div style="width: 150%;height: 600px;margin-left: -25%">
-    <iframe width="100%" height="600px" src="http://lingdu_dou.gitee.io/lingdu/"></iframe>
+    <iframe width="100%" height="600px" src="http://lingdu_dou.gitee.io/vuepress-lingdu-v2/"></iframe>
 </div>
 /```
 **效果如下**
 ```
 **效果如下**
 <div style="width: 150%;height: 600px;margin-left: -25%">
-  <iframe style="transform: scale(0.80,0.80)" width="100%" height="100%" src="http://lingdu_dou.gitee.io/lingdu/"></iframe>
+  <iframe style="transform: scale(0.80,0.80)" width="100%" height="100%" src="http://lingdu_dou.gitee.io/vuepress-lingdu-v2/"></iframe>
 </div>
 
 
