@@ -1,7 +1,7 @@
 /**
- * 延迟 4000 毫秒后执行 showMessage 函数
+ * 延迟 4000 毫秒后执行 showMessage 函数 【这里用一个对象接收就会只执行一次，否则跳转页面会执行多次】
  */
-setTimeout(resize, 4000);
+const constResize=setTimeout(resize, 4000);
 
 /**
  * 调整大小
