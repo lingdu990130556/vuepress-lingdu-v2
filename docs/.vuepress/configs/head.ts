@@ -8,7 +8,6 @@ export const head: HeadConfig[] = [
   // 站点访问统计 百度
   [
     'script', {}, `
-        <script>
           var _hmt = _hmt || [];
           (function() {
               var hm = document.createElement("script");
