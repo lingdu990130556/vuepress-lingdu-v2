@@ -46,7 +46,7 @@ export default ({
 
         componentsPlugin({
             // 插件选项
-            components: ["BiliBili", "XiGua", "SiteInfo","VideoPlayer"],
+            components: ["BiliBili", "XiGua", "SiteInfo","VideoPlayer","AudioPlayer"],
             // 公告插件
             rootComponents: {
                 notice: [
@@ -89,7 +89,7 @@ export default ({
 
         // 代码块复制
         copyCodePlugin({
-            fancy: true,
+            fancy: false,
             showInMobile: true,
             locales: {
                 '/': {
@@ -105,12 +105,6 @@ export default ({
         //     locales: {
         //         '/': {
         //             placeholder: '搜索',
-        //         },
-        //         '/zh/': {
-        //             placeholder: '搜索',
-        //         },
-        //         '/en/': {
-        //             placeholder: 'Search',
         //         },
         //     },
         // }),

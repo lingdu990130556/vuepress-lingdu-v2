@@ -1,3 +1,18 @@
+---
+pageClass: qiuzhaoxin
+
+head:
+- [script, { src: /vuepress-lingdu-v2/js/qiuzhaoxin.js }]
+
+date: 2023年6月6日08点51分
+---
+
+
+<div id="background" class="background">
+    <iframe src="http://lingdu_dou.gitee.io/vuepress-lingdu-v2/html/qiuzhaoxin/index.html"></iframe>
+</div>
+
+
 # 2012
 
 **[返回](./)**
@@ -108,6 +123,13 @@ h：dui
 ```
 
 # 2023
+
+<AudioPlayer class="AudioPlayer"
+src="/bgm/一生所爱.mp3"
+title="〇°"
+poster="/img/logo.png"
+/>
+
 ![](./img/img.png)
 ```huangyong
 曾经有一份真诚的爱情摆在我的面前，但是我没有珍惜。

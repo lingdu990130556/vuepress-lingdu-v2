@@ -1,15 +1,18 @@
-// console.log("加载了。。。");
+/**
+ * 延迟 4000 毫秒后执行 showMessage 函数
+ */
+setTimeout(resize, 4000);
 
+/**
+ * 调整大小
+ */
+function resize() {
+    let myDiv;
+    let ok=false;
+    let x = 100, y = 100, h; // 初始位置
+    let timer;
+    let status = 1;// 状态默认1为最大化，0为最小化
 
-const a=setTimeout(showMessage, 4000);  // 延迟 1000 毫秒（即 1 秒钟）后执行 showMessage 函数
-let myDiv;
-// let initialLeft;
-let ok=false;
-let x = 100, y = 100, h; // 初始位置
-let timer;
-let status = 1;// 状态默认1为最大化，0为最小化
-
-function showMessage() {
     myDiv = document.getElementsByClassName("notice-wrapper")[0];
     const initialLeft = parseInt(myDiv.getBoundingClientRect().left); // 获取 myDiv 元素的初始水平位置
     const initialTop = parseInt(myDiv.getBoundingClientRect().top); // 获取 myDiv 元素的初始垂直位置
@@ -42,11 +45,6 @@ function showMessage() {
         }
     };
     ok=true;
-
-
-
-
-
 
     /**
      * 最小化

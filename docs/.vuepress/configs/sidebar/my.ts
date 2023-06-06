@@ -39,7 +39,7 @@ export const sidebarMy: SidebarConfig = {
         {text: 'window',collapsible: true, children: getChildren('/docs/kaifa/window/')},
         {text: 'zookeeper',collapsible: true, children: getChildren('/docs/kaifa/zookeeper/')},
     ],
-    '/docs/me/':[{text:'关于我',children:['/docs/me/README.md']}],
+    // '/docs/me/':[{text:'关于我',children:['/docs/me/README.md']}],
 
 
 

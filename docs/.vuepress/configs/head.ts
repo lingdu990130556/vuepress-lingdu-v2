@@ -8,19 +8,19 @@ export const head: HeadConfig[] = [
   // 站点访问统计 百度
   [
     'script', {}, `
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?fddff21fe87378460c65d52a8ef00b27";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
+        <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?fddff21fe87378460c65d52a8ef00b27";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
         </script>        
         `
   ],
   ['link',{rel: 'icon',type: 'image/png',sizes: '16x16',href: `/vuepress-lingdu-v2/img/logo.png`,},],
   ['link',{rel: 'icon',type: 'image/png',sizes: '32x32',href: `/vuepress-lingdu-v2/img/logo.png`,},],
-  ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
   ['meta', { name: 'application-name', content: 'VuePress' }],
   ['meta', { name: 'apple-mobile-web-app-title', content: 'VuePress' }],
   ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
