@@ -125,7 +125,7 @@ h：dui
 # 2023
 
 <AudioPlayer class="AudioPlayer"
-src="/bgm/一生所爱.mp3"
+src="/bgm/生日快乐(松鼠Eunice).mp3"
 title="〇°"
 poster="/img/logo.png"
 />

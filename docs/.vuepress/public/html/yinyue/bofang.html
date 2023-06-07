@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>简单音乐播放器</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .current-lyric {
+            color: red;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        #lyrics-container {
+            height: 72px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+
+        }
+        .lyrics-line {
+            margin-top: 24px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: top 0.5s ease-out, opacity 0.5s ease-out;
+            /*background-color: rgba(84, 195, 0, 0.25);*/
+            text-shadow: 2px 2px 4px rgb(118, 191, 9);
+            font-size: 20px;
+            color: #3c9000;
+        }
+        .lyrics-line.showing {
+            opacity: 1;
+        }
+        .lyrics-line.active {
+            top: 0;
+        }
+
+        h1.rotating {
+            /*animation: rotate 1s linear infinite;*/
+            animation: rotate 0.549s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
+            /*color: red;*/
+
+            /* 设置元素相对于父元素定位 */
+            /*position: absolute;*/
+            /* 设置元素最左边为旋转支点 */
+            /*transform-origin: left center;*/
+            transform-origin: 49.99999% 50%;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+                color: rgb(118, 191, 9);
+            }
+            to {
+                transform: rotate(360deg);
+                color: rgb(11, 186, 250);
+            }
+        }
+
+
+        #play-btn i::before {
+            content: "\f04b"; /* Unicode 编码表示 Font Awesome 提供的播放图标 */
+        }
+        #pause-btn i::before {
+            content: "\f04c"; /* Unicode 编码表示 Font Awesome 提供的暂停图标 */
+        }
+        #play-btn,
+        #pause-btn {
+            /* 设置按钮位置 */
+            position: absolute;
+            /* 设置透明背景和无边框 */
+            background: none;
+            border: none;
+            /* 设置文本颜色 */
+            color: #76bf09;
+        }
+        #pause-btn {
+            /* 初始状态隐藏 */
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div style="margin: 20px auto; text-align: center;">
+        <h1>〇°</h1>
+        <audio id="music" src="生日快乐(松鼠Eunice).mp3"></audio>
+        <span><input type="range" id="progressBar" min="0" max="100" value="0"></span>
+        <span>
+            <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
+            <button id="pause-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
+        </span>
+<!--        <button onclick="playMusic()">播放</button>-->
+<!--        <button onclick="pauseMusic()">暂停</button>-->
+
+        <div id="timeDisplay" style="margin-top: 10px;">
+            <span style="color: #0bbafa" id="currentTimeDisplay">00:00</span>
+            <span style="color: #0bbafa"> / </span>
+            <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
+        </div>
+        <div id="lyrics-container" style="margin-top: 20px; padding: 20px; border: 0 solid #ccc;">
+            <div class="lyrics-line" data-time="00.80">原唱：yihuik苡慧</div>
+			<div class="lyrics-line" data-time="01.29">作词：钟引泓</div>
+			<div class="lyrics-line" data-time="01.78">作曲：钟引泓</div>
+			<div class="lyrics-line" data-time="02.34">编曲：百川Rebellious</div>
+			<div class="lyrics-line" data-time="02.71">翻唱：松鼠Eunice</div>
+			<div class="lyrics-line" data-time="03.07">美工：松鼠Eunice</div>
+			<div class="lyrics-line" data-time="03.44">贴唱：谁谁</div>
+			<div class="lyrics-line" data-time="03.81"></div>
+			<div class="lyrics-line" data-time="04.30">已经过了12点</div>
+			<div class="lyrics-line" data-time="06.32">所以赶快闭上眼</div>
+			<div class="lyrics-line" data-time="08.59">这是属于你的节</div>
+			<div class="lyrics-line" data-time="10.72">许下属于你的愿</div>
+			<div class="lyrics-line" data-time="12.93">考上梦想的大学</div>
+			<div class="lyrics-line" data-time="15.13">要赚好多好多钱</div>
+			<div class="lyrics-line" data-time="17.22">这三百六十五天</div>
+			<div class="lyrics-line" data-time="19.43">会有人为你思念</div>
+			<div class="lyrics-line" data-time="22.19">不管有没有人在你身边</div>
+			<div class="lyrics-line" data-time="25.98">都不能阻挡今夜的特别</div>
+			<div class="lyrics-line" data-time="30.58">快乐的心情一秒都别忽略</div>
+			<div class="lyrics-line" data-time="34.68">让所有心愿都完美实现</div>
+			<div class="lyrics-line" data-time="43.19">happy birthday to you</div>
+			<div class="lyrics-line" data-time="47.53">happy birthday to you</div>
+			<div class="lyrics-line" data-time="51.87">把所有的遗憾留在旧的一年</div>
+			<div class="lyrics-line" data-time="56.53">希望会出现在明天</div>
+			<div class="lyrics-line" data-time="60.57">祝你生日快乐</div>
+			<div class="lyrics-line" data-time="64.97">祝你生日快乐</div>
+			<div class="lyrics-line" data-time="69.63">在这个瞬间你是唯一主角</div>
+			<div class="lyrics-line" data-time="73.67">祝你生日快乐</div>
+			<div class="lyrics-line" data-time="78.57"></div>
+			<div class="lyrics-line" data-time="80.60">已经过了12点</div>
+			<div class="lyrics-line" data-time="82.75">所以赶快闭上眼</div>
+			<div class="lyrics-line" data-time="84.95">这是属于你的节</div>
+			<div class="lyrics-line" data-time="87.04">许下属于你的愿</div>
+			<div class="lyrics-line" data-time="89.26">融化不安的错觉</div>
+			<div class="lyrics-line" data-time="91.41">镜子里迷人的脸</div>
+			<div class="lyrics-line" data-time="93.61">要和太阳肩并肩</div>
+			<div class="lyrics-line" data-time="95.76">每一天都是晴天</div>
+			<div class="lyrics-line" data-time="98.53">不管有没有人在你身边</div>
+			<div class="lyrics-line" data-time="102.29">都不能阻挡今夜的特别</div>
+			<div class="lyrics-line" data-time="106.91">快乐的心情一秒都别忽略</div>
+			<div class="lyrics-line" data-time="111.08">让所有心愿都完美实现</div>
+			<div class="lyrics-line" data-time="119.53">happy birthday to you</div>
+			<div class="lyrics-line" data-time="123.88">happy birthday to you</div>
+			<div class="lyrics-line" data-time="128.24">把所有的遗憾留在旧的一年</div>
+			<div class="lyrics-line" data-time="132.86">希望会出现在明天</div>
+			<div class="lyrics-line" data-time="136.97">祝你生日快乐</div>
+			<div class="lyrics-line" data-time="141.32">祝你生日快乐</div>
+			<div class="lyrics-line" data-time="146.04">在这个瞬间你是唯一主角</div>
+			<div class="lyrics-line" data-time="150.09">祝你生日快乐</div>
+			<div class="lyrics-line" data-time="154.94"></div>
+			<div style="color: #54c300; font-size: 50px; font-family: '华文隶书', serif" class="lyrics-line" data-time="155.37">生日快乐</div>
+        </div>
+        <!--音谱效果-->
+        <canvas id="my-canvas" width="400" height="200"></canvas>
+    </div>
+
+
+    <script>
+        // 音乐
+        const music = document.getElementById('music');
+        // 进度条
+        const progressBar = document.getElementById('progressBar');
+        // 显示当前时间
+        const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+        // 总时长
+        const totalTimeDisplay = document.getElementById('totalTimeDisplay');
+        // 歌词容器
+        const lyricsContainer = document.getElementById('lyrics-container');
+        // 歌词行
+        const lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
+
+        // logo
+        const h1 = document.querySelector('h1');
+
+        // 播放暂停按钮
+        const playBtn = document.getElementById('play-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+
+        // 音谱效果
+        const canvasElement = document.getElementById("my-canvas");
+
+        let activeLineIndex = null;
+        /*播放音乐*/
+        function playMusic() {
+            music.play();
+            setInterval(updateProgressBar, 500);
+            setInterval(updateTimeDisplay, 500);
+            setInterval(updateLyrics, 500);
+            // 播放音乐时添加类名
+            h1.classList.add('rotating');
+            // 隐藏播放按钮、显示暂停按钮
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline-block';
+            // 开始播放音频，并绘制音谱图
+            draw();
+        }
+        /*暂停播放*/
+        function pauseMusic() {
+            music.pause();
+            // 暂停音乐时删除类名
+            h1.classList.remove('rotating');
+            // 隐藏暂停按钮、显示播放按钮
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline-block';
+        }
+        /*更新进度条*/
+        function updateProgressBar() {
+            const a=(music.currentTime / music.duration) * 100;
+            progressBar.value = a;
+            if(a===100){
+                pauseMusic();
+            }
+        }
+        /*更新时间显示*/
+        function updateTimeDisplay() {
+            const currentTime = formatTime(music.currentTime);
+            const totalTime = formatTime(music.duration);
+            currentTimeDisplay.innerText = currentTime;
+            totalTimeDisplay.innerText = totalTime;
+        }
+        /*格式时间*/
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${padZero(minutes)}:${padZero(seconds)}`;
+        }
+        /*填充0*/
+        function padZero(number) {
+            return String(number).padStart(2, '0');
+        }
+        /*更新歌词*/
+        function updateLyrics() {
+            // 当前时间
+            const currentTime = music.currentTime;
+            // 当前行
+            let currentLineIndex = null;
+            for (let i = 0; i < lyricsLines.length; i++) {
+                const time = parseFloat(lyricsLines[i].dataset.time);
+                if (currentTime >= time) {
+                    currentLineIndex = i;
+                } else {
+                    break;
+                }
+            }
+            if (currentLineIndex !== activeLineIndex) {
+                for (let i = 0; i < lyricsLines.length; i++) {
+                    const line = lyricsLines[i];
+                    if (i === currentLineIndex) {
+                        line.classList.add('active', 'showing');
+                    } else if (i === activeLineIndex) {
+                        line.classList.remove('active');
+                    }
+                    if (i !== currentLineIndex) {
+                        line.classList.remove('showing');
+                    }
+                }
+                activeLineIndex = currentLineIndex;
+            }
+        }
+        /**更新当前播放时间和总时长的显示，以及进度条的值*/
+        music.addEventListener("timeupdate", function() {
+            updateTimeDisplay();
+            updateLyrics(this.currentTime);
+        });
+        /**当进度条的值发生变化时，会计算出当前播放时间，并将其设置为音频元素的 currentTime 属性的值*/
+        progressBar.addEventListener("input", function() {
+            // 当进度条值发生变化时更新当前播放时间
+            music.currentTime = (music.duration / 100) * progressBar.value;
+        });
+
+
+        //**************************************************************************************************************
+
+        // 创建 Web Audio API 的上下文
+        const audioContext = new AudioContext();
+
+        // 创建 analyser 对象（用于分析音频数据）
+        const analyser = audioContext.createAnalyser();
+
+        // 将音频节点连接到 analyser 对象
+        const sourceNode = audioContext.createMediaElementSource(music);
+        sourceNode.connect(analyser);
+
+        // 将 analyser 对象连接到 Web Audio API 上下文
+        analyser.connect(audioContext.destination);
+
+        // 设置频率精度和时间精度
+        analyser.fftSize = 2048;
+        // analyser.fftSize = 1024;
+        // analyser.fftSize = 4096*8;
+        // analyser.fftSize = 512;
+
+        // 获取音频数据
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        // 绘制音谱图
+        function draw() {
+            // 在下一帧继续绘制
+            requestAnimationFrame(draw);
+
+            // 获取音频数据，并绘制音谱图
+            analyser.getByteFrequencyData(dataArray);
+
+            let canvasCtx = canvasElement.getContext("2d");
+            // canvasCtx.globalAlpha = 0.8; // 将背景透明度设置为 0.2
+            // canvasCtx.fillStyle = "rgb(11,186,250)";
+            // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
+            canvasCtx.fillStyle = "#eeffdb";
+            canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+
+            const barWidth = (canvasElement.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for(let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+
+                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
+                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
+                canvasCtx.fillStyle = "rgb(161,0,255)";
+                canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
+
+                x += barWidth + 1;
+            }
+        }
+        // 开始播放音频，并绘制音谱图
+        // draw();
+
+        function updateCanvasWidth() {
+            // canvasElement.width = window.innerWidth-50;
+            canvasElement.width = window.innerWidth-20;
+        }
+        window.addEventListener("resize", updateCanvasWidth);   // 监听窗口大小变化
+        updateCanvasWidth();   // 获取初始画布宽度
+
+
+        // 播放
+        const constResize=setTimeout(playMusic, 4000);
+    </script>
+</body>
