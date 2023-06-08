@@ -86,6 +86,8 @@ export default ({
             container: true,
             // 开启标记
             mark: true,
+            // 启用 mermaid
+            mermaid: true,
         }),
 
         // 代码块复制

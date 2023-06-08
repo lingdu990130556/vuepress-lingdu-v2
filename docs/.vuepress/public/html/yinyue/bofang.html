@@ -12,102 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title style="color: deepskyblue">〇°播放器</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .current-lyric {
-            color: red;
-            font-weight: bold;
-            font-size: 24px;
-        }
-
-        #lyrics-container {
-            height: 72px;
-            overflow: hidden;
-            position: relative;
-            text-align: center;
-
-        }
-
-        .lyrics-line {
-            margin-top: 24px;
-            position: absolute;
-            left: 0;
-            right: 0;
-            opacity: 0;
-            transition: top 0.5s ease-out, opacity 0.5s ease-out;
-            /*background-color: rgba(84, 195, 0, 0.25);*/
-            text-shadow: 2px 2px 4px rgb(118, 191, 9);
-            font-size: 20px;
-            color: #3c9000;
-        }
-
-        .lyrics-line.showing {
-            opacity: 1;
-        }
-
-        .lyrics-line.active {
-            top: 0;
-        }
-
-        h1.rotating {
-            /*animation: rotate 1s linear infinite;*/
-            animation: rotate 0.545s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
-            /*color: red;*/
-
-            /* 设置元素相对于父元素定位 */
-            /*position: absolute;*/
-            /* 设置元素最左边为旋转支点 */
-            /*transform-origin: left center;*/
-            transform-origin: 49.99999% 50%;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-                color: rgb(118, 191, 9);
-            }
-            to {
-                transform: rotate(360deg);
-                color: rgb(11, 186, 250);
-            }
-        }
-
-
-        #play-btn i::before {
-            content: "\f04b"; /* Unicode 编码表示 Font Awesome 提供的播放图标 */
-        }
-
-        #pause-btn i::before {
-            content: "\f04c"; /* Unicode 编码表示 Font Awesome 提供的暂停图标 */
-        }
-
-        #play-btn,
-        #pause-btn {
-            /* 设置按钮位置 */
-            position: absolute;
-            /* 设置透明背景和无边框 */
-            background: none;
-            border: none;
-            /* 设置文本颜色 */
-            color: #76bf09;
-        }
-
-        #pause-btn {
-            /* 初始状态隐藏 */
-            display: none;
-        }
 
 
     </style>
 </head>
 <body>
 <div style="margin: 20px auto; text-align: center;">
-    <h1>〇°</h1>
+    <h1 style="width: 50px;">〇°</h1>
+    <span style="font-size: 10px">生日快乐(松鼠Eunice).mp3</span><br>
     <audio id="music" src="生日快乐(松鼠Eunice).mp3"></audio>
     <span><input type="range" id="progressBar" min="0" max="100" value="0"></span>
     <span>
@@ -122,7 +34,7 @@
         <span style="color: #0bbafa"> / </span>
         <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
     </div>
-    <div id="lyrics-container" style="margin-top: 20px; padding: 20px; border: 0 solid #ccc;">
+    <div id="lyrics-container" style="margin-top: 0; padding: 0; border: 0 solid #ccc;">
         <div class="lyrics-line" data-time="00.80">原唱：yihuik苡慧</div>
         <div class="lyrics-line" data-time="01.29">作词：钟引泓</div>
         <div class="lyrics-line" data-time="01.78">作曲：钟引泓</div>
@@ -174,11 +86,14 @@
         <div class="lyrics-line" data-time="150.09">祝你生日快乐</div>
         <div class="lyrics-line" data-time="154.94"></div>
         <div style="color: #54c300; font-size: 40px; font-family: '华文隶书', serif" class="lyrics-line"
-             data-time="155.37">生日快乐 @邱
+             data-time="155.37">生日快乐<a style="color: #00a4ff" href="https://user.qzone.qq.com/1280487827?ADUIN=990130556&ADSESSION=1686160954&ADTAG=CLIENT.QQ.5971_FriendInfo_PersonalInfo.0&ADPUBNO=27303&source=namecardstar">@邱</a>
         </div>
     </div>
     <!--音谱效果-->
-    <canvas id="my-canvas" width="400" height="200"></canvas>
+    <canvas id="my-canvas" width="400" height="150"></canvas>
+    <div class="rotate">
+        <canvas id="my-canvas2" width="400" height="70"></canvas>
+    </div>
 </div>
 
 
@@ -205,6 +120,7 @@
 
     // 音谱效果
     const canvasElement = document.getElementById("my-canvas");
+    const canvasElement2 = document.getElementById("my-canvas2");
 
     let activeLineIndex = null;
 
@@ -340,6 +256,7 @@
         function draw() {
             // 在下一帧继续绘制
             requestAnimationFrame(draw);
+            requestAnimationFrame(draw2);
 
             // 获取音频数据，并绘制音谱图
             analyser.getByteFrequencyData(dataArray);
@@ -367,6 +284,37 @@
             }
             return '〇°'
         }
+        // 绘制音谱图 [倒影]
+        function draw2() {
+            // 在下一帧继续绘制
+            // requestAnimationFrame(draw2);
+
+            // 获取音频数据，并绘制音谱图
+            analyser.getByteFrequencyData(dataArray);
+
+            let canvasCtx = canvasElement2.getContext("2d");
+            // canvasCtx.globalAlpha = 0.1; // 将背景透明度设置为 0.2
+            // canvasCtx.fillStyle = "rgb(11,186,250)";
+            // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
+            canvasCtx.fillStyle = "rgb(255,255,255)";
+            canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
+
+            const barWidth = (canvasElement2.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+                canvasCtx.globalAlpha = 0.21; // 将背景透明度设置为 0.2
+                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
+                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
+                // canvasCtx.fillStyle = `rgb(${barWidth*2},${barWidth/4},${barWidth+50},1)`;
+                canvasCtx.fillStyle = `hsla(${x/1.5},100%,75%,1)`;
+                canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
+
+                x += barWidth + 1;
+            }
+            return '〇°'
+        }
     }
 
 
@@ -376,6 +324,7 @@
     function updateCanvasWidth() {
         // canvasElement.width = window.innerWidth-50;
         canvasElement.width = window.innerWidth - 20;
+        canvasElement2.width = window.innerWidth - 20;
     }
 
     window.addEventListener("resize", updateCanvasWidth);   // 监听窗口大小变化

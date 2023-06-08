@@ -1,0 +1,98 @@
+body {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.current-lyric {
+    color: red;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#lyrics-container {
+    height: 72px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+}
+
+.lyrics-line {
+    margin-top: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: top 0.5s ease-out, opacity 0.5s ease-out;
+    /*background-color: rgba(84, 195, 0, 0.25);*/
+    text-shadow: 2px 2px 4px rgb(118, 191, 9);
+    font-size: 20px;
+    color: #3c9000;
+}
+
+.lyrics-line.showing {
+    opacity: 1;
+}
+
+.lyrics-line.active {
+    top: 0;
+}
+
+h1.rotating {
+    /*animation: rotate 1s linear infinite;*/
+    animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
+    /*color: red;*/
+
+    /* 设置元素相对于父元素定位 */
+    /*position: absolute;*/
+    /* 设置元素最左边为旋转支点 */
+    /*transform-origin: left center;*/
+    /*transform-origin: 49.99999% 50%;// 214/569 284/543*/
+    transform-origin: 49.2901% 50.492%;// 214/569 284/543
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        color: rgb(118, 191, 9);
+    }
+    to {
+        transform: rotate(360deg);
+        color: rgb(11, 186, 250);
+    }
+}
+
+
+#play-btn i::before {
+    content: "\f04b"; /* Unicode 编码表示 Font Awesome 提供的播放图标 */
+}
+
+#pause-btn i::before {
+    content: "\f04c"; /* Unicode 编码表示 Font Awesome 提供的暂停图标 */
+}
+
+#play-btn,
+#pause-btn {
+    /* 设置按钮位置 */
+    position: absolute;
+    /* 设置透明背景和无边框 */
+    background: none;
+    border: none;
+    /* 设置文本颜色 */
+    color: #76bf09;
+}
+
+#pause-btn {
+    /* 初始状态隐藏 */
+    display: none;
+}
+
+
+/* 设置样式 */
+.rotate {
+    transform: rotate(180deg) scaleX(-1); /* 水平方向镜像翻转 */
+    /* transform: rotate(180deg) scaleY(-1); */ /* 垂直方向镜像翻转 */
+    margin-top: -8px;
+}
