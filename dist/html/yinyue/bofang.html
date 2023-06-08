@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css?v=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <title>简单音乐播放器</title>
+    <title style="color: deepskyblue">〇°播放器</title>
     <style>
         body {
             display: flex;
@@ -321,10 +321,14 @@
         analyser.connect(audioContext.destination);
 
         // 设置频率精度和时间精度
-        analyser.fftSize = 2048;
-        // analyser.fftSize = 1024;
-        // analyser.fftSize = 4096*8;
+        // analyser.fftSize = 4096;
+        // analyser.fftSize = 2048;
+        analyser.fftSize = 1024;
         // analyser.fftSize = 512;
+        // analyser.fftSize = 256;
+        // analyser.fftSize = 128;
+        // analyser.fftSize = 64;
+        // analyser.fftSize = 32;
 
         // 获取音频数据
         const bufferLength = analyser.frequencyBinCount;
@@ -341,10 +345,10 @@
             analyser.getByteFrequencyData(dataArray);
 
             let canvasCtx = canvasElement.getContext("2d");
-            // canvasCtx.globalAlpha = 0.8; // 将背景透明度设置为 0.2
+            canvasCtx.globalAlpha = 0.5; // 将背景透明度设置为 0.2
             // canvasCtx.fillStyle = "rgb(11,186,250)";
             // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
-            canvasCtx.fillStyle = "#eeffdb";
+            canvasCtx.fillStyle = "#ffffff";
             canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
 
             const barWidth = (canvasElement.width / bufferLength) * 2.5;
@@ -352,10 +356,11 @@
 
             for (let i = 0; i < bufferLength; i++) {
                 const barHeight = dataArray[i];
-
+                canvasCtx.globalAlpha = 1; // 将背景透明度设置为 0.2
                 // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
                 // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                canvasCtx.fillStyle = "rgb(161,0,255)";
+                // canvasCtx.fillStyle = `rgb(${barWidth*2},${barWidth/4},${barWidth+50},1)`;
+                canvasCtx.fillStyle = `hsla(${x/1.5},100%,50%,1)`;
                 canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
 
                 x += barWidth + 1;
