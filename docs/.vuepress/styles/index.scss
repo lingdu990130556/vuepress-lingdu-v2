@@ -6,6 +6,17 @@ pageClass: liuyanban-page-class
 ---
  */
 
+
+/*卡片元素鼠标悬浮样式*/
+.vp-card:hover{
+  --card-shadow: rgb(11, 186, 250);
+  box-shadow: 4px 4px 30px 0 var(--card-shadow) ;
+  transform: scale(1.05);
+}
+
+
+
+
 /*通知框*/
 .notice-wrapper {
   --notice-width: auto;
@@ -143,7 +154,7 @@ pageClass: liuyanban-page-class
   .AudioPlayer {
     z-index: 1;
     box-shadow: 2px 2px 10px 0 var(--card-shadow);
-    --card-shadow: rgba(0, 0, 0, 0.45);
+    --card-shadow: rgba(0, 0, 0, 0.29);
 
     .plyr--audio .plyr__controls {
       --plyr-audio-controls-background: var(--vp-bg);

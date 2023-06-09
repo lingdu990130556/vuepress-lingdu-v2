@@ -28,5 +28,6 @@ export const head: HeadConfig[] = [
   ['meta', { name: 'msapplication-TileColor', content: '#3eaf7c' }],
   ['meta', { name: 'theme-color', content: '#3eaf7c' }],
 
-  ['script', { src: '/vuepress-lingdu-v2/js/gonggao.js' }]
+  ['script', { src: '/vuepress-lingdu-v2/js/gonggao.js' }],
+  ['script', { src: '/vuepress-lingdu-v2/js/myjs.js' }]
 ]
