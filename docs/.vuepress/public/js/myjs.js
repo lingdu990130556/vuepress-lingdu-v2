@@ -14,6 +14,10 @@ function lingdu_catch(){
      */
     const element = document.querySelector('.vp-card');
 
+    if (element == null){
+        return;
+    }
+
     element.addEventListener('mouseover', function() {
         element.classList.add('.vp-card');
     });

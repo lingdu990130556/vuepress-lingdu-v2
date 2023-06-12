@@ -88,6 +88,8 @@ export default ({
             mark: true,
             // 启用 mermaid
             mermaid: true,
+            // 启用自定义对齐
+            align: true,
         }),
 
         // 代码块复制

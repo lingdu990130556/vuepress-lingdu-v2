@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Three.js Ball Example</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        a {
+            position: relative;
+            display: inline-block;
+            font-size: 24px;
+            padding: 10px 20px;
+        }
+
+        .ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="canvas-container"></div>
+<a href="#">Hover me</a>
+<div class="ball"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    var scene, camera, renderer, sphere, ballElement;
+
+    init();
+
+    function init() {
+        // 创建场景、相机和渲染器
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setClearColor(0x000000, 0); // 设置背景颜色为黑色，透明度为0
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // 将渲染器输出绑定到 HTML 元素
+        var canvasContainer = document.getElementById('canvas-container');
+        canvasContainer.appendChild(renderer.domElement);
+
+        // 设置相机位置
+        camera.position.z = 50;
+
+        // 创建小球体
+        var geometry = new THREE.SphereGeometry(5, 32, 32);
+        var texture = new THREE.TextureLoader().load('2.jpg'); // 加载图片纹理
+        var material = new THREE.MeshPhongMaterial({ map: texture }); // 更改材质为 MeshPhongMaterial，开启光照效果
+        sphere = new THREE.Mesh(geometry, material);
+        sphere.castShadow = true;
+        sphere.receiveShadow = false;
+        scene.add(sphere);
+
+        // 添加点光源
+        var light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        light.castShadow = true;
+        scene.add(light);
+
+        // 开启阴影映射
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap; // 更加柔和的阴影效果
+
+        // 创建小球元素并添加到页面
+        ballElement = document.querySelector('.ball');
+        canvasContainer.appendChild(ballElement);
+
+        // 监听鼠标移动事件，显示小球
+        document.addEventListener('mousemove', onMouseMove, false);
+
+        // 监听 a 标签上的鼠标移动事件，显示小球
+        var aElement = document.querySelector('a');
+        aElement.addEventListener('mousemove', onLinkMouseMove, false);
+        aElement.addEventListener('mouseleave', onLinkMouseLeave, false);
+    }
+
+    function onMouseMove(event) {
+        // 如果事件源是 a 标签或者鼠标位置不在指定区域内，则不显示小球
+        if (event.target.tagName.toLowerCase() === 'a' || event.clientX < window.innerWidth * 0.3 || event.clientX > window.innerWidth * 0.7 ||
+            event.clientY < window.innerHeight * 0.3 || event.clientY > window.innerHeight * 0.7) {
+            sphere.visible = false;
+            return;
+        }
+
+        // 计算鼠标位置在指定区域内的占比
+        var mouseX = (event.clientX - window.innerWidth * 0.3) / (window.innerWidth * 0.4) * 2 - 1;
+        var mouseY = -(event.clientY - window.innerHeight * 0.3) / (window.innerHeight * 0.4) * 2 + 1;
+
+        // 将鼠标坐标转换为 Three.js 中的向量
+        var vector = new THREE.Vector3(mouseX, mouseY, 0.5);
+        vector.unproject(camera);
+
+        // 计算射线与球体的交点
+        var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+        var intersects = raycaster.intersectObject(sphere);
+
+        // 如果鼠标位置在小球上，则将球体设置为可见并将其移动到鼠标位置处
+        if (intersects.length > 0) {
+            sphere.visible = true;
+            sphere.position.copy(intersects[0].point);
+        } else {
+            sphere.visible = false;
+        }
+    }
+
+    function onLinkMouseMove(event) {
+        var rect = event.currentTarget.getBoundingClientRect();
+
+        // 将鼠标位置转换为相对于 a 标签左上角的坐标
+        var mouseX = event.clientX - rect.left;
+        var mouseY = event.clientY - rect.top;
+
+        // 将小球元素的显示位置设为鼠标位置，并将其显示出来
+        ballElement.style.top = mouseY + 'px';
+        ballElement.style.left = mouseX + 'px';
+        ballElement.style.visibility = 'visible';
+    }
+
+    function onLinkMouseLeave() {
+        // 隐藏小球元素
+        ballElement.style.visibility = 'hidden';
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+    }
+
+    animate();
+</script>
+</body>
+</html>

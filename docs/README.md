@@ -5,25 +5,12 @@ heroImage: /img/logo.png
 bgImage: /img/1.jpg
 heroText: ⭕°
 tagline: 今天快乐
+head:
+- ['script', { src: '/vuepress-lingdu-v2/js/three.js' }]
+- ['script', { src: '/vuepress-lingdu-v2/js/xuanfuqiu.js' }]
 ---
 
-
-[//]: # (<SiteInfo)
-
-[//]: # (name="Mr.Hope's Blog")
-
-[//]: # (desc="Where there is light, there is hope")
-
-[//]: # (url="https://mrhope.site")
-
-[//]: # (logo="https://mrhope.site/logo.svg")
-
-[//]: # (repo="https://github.com/Mister-Hope/Mister-Hope.github.io")
-
-[//]: # (preview="https://theme-hope.vuejs.press/assets/image/mrhope.jpg")
-
-[//]: # (/>)
-
+<div id="canvas-container"></div>
 
 ```card
 title: 书签

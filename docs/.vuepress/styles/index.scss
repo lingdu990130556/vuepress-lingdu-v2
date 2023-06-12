@@ -6,6 +6,13 @@ pageClass: liuyanban-page-class
 ---
  */
 
+/*使小球可拖动*/
+#my-canvas {
+  position: fixed;
+  cursor: move;
+  z-index: 999;
+}
+
 
 /*卡片元素鼠标悬浮样式*/
 .vp-card:hover{

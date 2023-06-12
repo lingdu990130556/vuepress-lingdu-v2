@@ -62,7 +62,11 @@
 - [linux 安装redis 完整步骤](https://www.cnblogs.com/happywish/p/10944253.html)
 - [linux 某个文件夹执行命令完全卡死完美解决方法](https://blog.csdn.net/u010801696/article/details/78490103)
 - [如何在CentOS 7上安装MySQL](https://linux265.com/news/3379.html)
-- []()
+
+
+### 地球
+
+- [地球](https://wa.qq.com/xplan/earth/index.html?_wv=1)
 - []()
 - []()
 - []()
