@@ -26,7 +26,7 @@
 /**
  * 延时调用
  */
-setTimeout(lingdu_xiaoqiu, 2000);
+setTimeout(lingdu_xiaoqiu, 4000);
 
 /**
  * 创建悬浮球
@@ -164,7 +164,7 @@ function lingdu_xiaoqiu(){
 function lingdu_xiaoqiu_tuodong(){
     // 使可拖拽移动
 
-    setTimeout(aaa, 1000);
+    setTimeout(aaa, 2000);
 
     function aaa() {
         // var myDiv = document.getElementById('lingdu-tuo');
