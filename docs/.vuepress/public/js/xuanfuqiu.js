@@ -37,13 +37,13 @@ function lingdu_xiaoqiu(){
 
     // 创建场景、相机和渲染器
     var scene = new THREE.Scene();
-    let fanwei = 200;
+    let fanwei = 150;
     // var camera = new THREE.PerspectiveCamera(155, window.innerWidth / window.innerHeight, 0.1, 1000);
-    var camera = new THREE.PerspectiveCamera(70, (canvasContainer.offsetWidth + fanwei) / (canvasContainer.offsetHeight + fanwei), 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(70, (fanwei) / (fanwei), 0.1, 1000);
     var renderer = new THREE.WebGLRenderer({alpha: true});
     renderer.setClearColor(0x000000, 0); // 设置背景颜色为黑色，透明度为0
     // renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(canvasContainer.offsetWidth + fanwei, canvasContainer.offsetHeight + fanwei);
+    renderer.setSize(fanwei, fanwei);
 
     // 开启阴影映射
     renderer.shadowMap.enabled = true;
