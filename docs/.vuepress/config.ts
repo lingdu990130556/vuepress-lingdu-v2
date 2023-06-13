@@ -90,6 +90,8 @@ export default ({
             mermaid: true,
             // 启用自定义对齐
             align: true,
+            // 启用 ECharts 图表
+            echarts: true,
         }),
 
         // 代码块复制

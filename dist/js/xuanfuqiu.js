@@ -56,7 +56,7 @@ function lingdu_xiaoqiu(){
 
     // 创建球体几何体和纹理贴图
     var geometry = new THREE.SphereGeometry(5, 32, 32);
-    var texture = new THREE.TextureLoader().load('/img/dadoudou.jpg');
+    var texture = new THREE.TextureLoader().load('/vuepress-lingdu-v2/img/dadoudou.jpg');
     // 设置纹理
     var material = new THREE.MeshPhongMaterial({map: texture});
     // 创建球体

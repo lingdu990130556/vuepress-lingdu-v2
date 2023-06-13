@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-34dc975e","path":"/docs/kaifa/echarts/","title":"Echarts","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"docs/kaifa/echarts/README.md"}');export{t as data};

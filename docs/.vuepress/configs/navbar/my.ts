@@ -25,6 +25,7 @@ export const navbarMy: NavbarConfig = [
                     {text: "maven", link: "/docs/kaifa/maven/"},
                     {text: "node", link: "/docs/kaifa/node/"},
                     {text: "vue", link: "/docs/kaifa/vue/"},
+                    {text: "Echarts", link: "/docs/kaifa/echarts/"},
                     {text: "http", link: "/docs/kaifa/http/"},
                     {text: "webservice", link: "/docs/kaifa/webservice/"},
                     {text: "activiti", link: "/docs/kaifa/activiti/"},
@@ -94,6 +95,7 @@ export const navbarMy: NavbarConfig = [
             {text: "版本v2.x GitHub", link: "https://lingdu990130556.github.io/vuepress-lingdu-v2/"},
         ]
     },
+    {text: '站点统计', link: '/statstics/'},
     {text: '空间', link: '/space/'},
     {text: '青春日记', link: '/space/qzone/日志.md'},
     {text: "留言板", link: "/plugin/留言板.md"},

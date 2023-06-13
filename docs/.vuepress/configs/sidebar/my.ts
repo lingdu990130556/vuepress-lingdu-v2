@@ -38,8 +38,10 @@ export const sidebarMy: SidebarConfig = {
         {text: 'webservice',collapsible: true, children: getChildren('/docs/kaifa/webservice/')},
         {text: 'window',collapsible: true, children: getChildren('/docs/kaifa/window/')},
         {text: 'zookeeper',collapsible: true, children: getChildren('/docs/kaifa/zookeeper/')},
+        {text: 'Echarts',collapsible: true, children: getChildren('/docs/kaifa/Echarts/')},
     ],
     '/space/qzone/':[{text:'青春日记',children:getChildren('/space/qzone/')}],
+    '/statstics/':[{text:'站点统计',children:getChildren('/statstics/')}],
     // '/docs/me/':[{text:'关于我',children:['/docs/me/README.md']}],
 
 

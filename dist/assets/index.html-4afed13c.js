@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-48e70cb8","path":"/statstics/","title":"站点统计","lang":"en-US","frontmatter":{"pageClass":"站点统计"},"headers":[{"level":2,"title":"网站浏览数据","slug":"网站浏览数据","link":"#网站浏览数据","children":[]}],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"statstics/README.md"}');export{t as data};
