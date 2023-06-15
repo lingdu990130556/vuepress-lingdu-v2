@@ -6,7 +6,7 @@ const csv = require('csv-parser');
 
 
 
-const dataset = convertCsvToDataset('实时访客.csv','实时访客2.js',{
+const dataset = convertCsvToDataset('实时访客2.csv','../docs/.vuepress/public/js/utils/实时访客2.js',{
     delimiter: ',',
     isFirstRowHeader: true
 });
