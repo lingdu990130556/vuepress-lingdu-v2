@@ -8,9 +8,81 @@ tagline: 今天快乐
 head:
 - ['script', { src: '/vuepress-lingdu-v2/js/three.js' }]
 - ['script', { src: '/vuepress-lingdu-v2/js/xuanfuqiu.js' }]
+- ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]
 ---
 
-<div id="canvas-container"></div>
+
+[//]: # (访问者地域分布图)
+<!-- #region demo -->
+
+::: echarts
+
+```js
+// 统计地域信息
+const areaData = {};
+let total = 0;
+dataset.rows.forEach(row => {
+    const area = row[2];
+    if (area == undefined || area === '') {
+        return;
+    }
+    if (!areaData[area]) {
+        areaData[area] = 0;
+    }
+    areaData[area]++;
+    total++;
+});
+
+// 转化为 ECharts 数据格式
+const chartData = [];
+for (const area in areaData) {
+    const count = areaData[area];
+    chartData.push({
+        value: count,
+        name: area
+    });
+}
+
+// 指定图表的配置项和数据
+const option = {
+    title: {
+        text: '访问者地域分布图',
+        x: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: Object.keys(areaData)
+    },
+    series: [
+        {
+            name: '地域分布',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: chartData,
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+```
+
+:::
+
+<!-- #endregion demo -->
+
+
+[//]: # (<div id="canvas-container"></div>)
 
 ```card
 title: 书签
