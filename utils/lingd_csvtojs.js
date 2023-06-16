@@ -2,11 +2,18 @@ const fs = require('fs');
 const iconv = require('iconv-lite');
 const csv = require('csv-parser');
 
+const csvFilePath = '实时访客1.csv';
+const jsFilePath = '../docs/.vuepress/public/js/utils/实时访客1.js';
+const csvFilePath2 = '实时访客2.csv';
+const jsFilePath2 = '../docs/.vuepress/public/js/utils/实时访客2.js';
 
 
 
-
-const dataset = convertCsvToDataset('实时访客2.csv','../docs/.vuepress/public/js/utils/实时访客2.js',{
+const dataset = convertCsvToDataset(csvFilePath,jsFilePath,{
+    delimiter: ',',
+    isFirstRowHeader: true
+});
+const dataset2 = convertCsvToDataset(csvFilePath2,jsFilePath2,{
     delimiter: ',',
     isFirstRowHeader: true
 });
@@ -34,7 +41,8 @@ async function convertCsvToDataset(csvFilePath, jsFilePath, options = {}) {
     });
 
     // 写入 dataset 对象转换相关代码
-    outputStream.write(`const dataset = {\n`);
+    // outputStream.write(`const dataset = {\n`);
+    outputStream.write(`dataset = {\n`);
     outputStream.write(`\tcolumns: [],\n`);
     outputStream.write(`\trows: []\n`);
     outputStream.write(`};\n`);
@@ -66,4 +74,5 @@ async function convertCsvToDataset(csvFilePath, jsFilePath, options = {}) {
                 reject(err);
             });
     });
-}
+};
+console.log("执行结束。");

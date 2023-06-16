@@ -95,7 +95,13 @@ export const navbarMy: NavbarConfig = [
             {text: "版本v2.x GitHub", link: "https://lingdu990130556.github.io/vuepress-lingdu-v2/"},
         ]
     },
-    {text: '站点统计', link: '/statstics/'},
+    {
+        text: '站点统计', children: [
+            {text: "版本v1.x", link: "/statstics/README1.md"},
+            {text: "版本v2.x Gitee", link: "/statstics/README.md"},
+            // {text: "版本v2.x GitHub", link: "/statstics/"},
+        ]
+    },
     {text: '空间', link: '/space/'},
     {text: '青春日记', link: '/space/qzone/日志.md'},
     {text: "留言板", link: "/plugin/留言板.md"},

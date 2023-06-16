@@ -58,13 +58,15 @@ for (var i = 1; i < dataset.rows.length; i++) {
 
 
 const option = {
-    // title: {
-    //     text: '访问量趋势图',
-    //     x: 'center',
-    //     textStyle: {
-    //         color: '#666'
-    //     }
-    // },
+    title: {
+        subtext: '站点统计',
+        sublink: './statstics/',
+        // text: '访问量趋势图',
+        // x: 'center',
+        // textStyle: {
+        //     color: '#666'
+        // }
+    },
     // ECharts 中的 toolbox 是一个工具箱，提供了多种常用的工具，如数据区域缩放、导出图片、数据视图等，可以帮助用户更方便地查看和操作图表。
     toolbox: {
         show: true,
