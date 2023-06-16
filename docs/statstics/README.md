@@ -1,6 +1,7 @@
 ---
 pageClass: 站点统计
 head:
+
 - ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]
 
 ---
@@ -16,17 +17,18 @@ head:
 [//]: # (访问量趋势图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts 访问量趋势图
 
 ```js
 const dateList = [];
 const visitData = [];
+var dateString;
 for (var i = 1; i < dataset.rows.length; i++) {
     var date = new Date(dataset.rows[i][1]);
-    if (date == undefined || date == 'Invalid Date') {
-        continue;
+    if (date != undefined && date != 'Invalid Date') {
+        // continue;
+        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     }
-    var dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     if (!dateList.includes(dateString)) {
         dateList.push(dateString);
         visitData.push(1);
@@ -36,14 +38,35 @@ for (var i = 1; i < dataset.rows.length; i++) {
     }
 }
 
-const option = {
-    title: {
-        text: '访问量趋势图',
-        x: 'center',
-        textStyle: {
-            color: '#666'
+const dateList2 = [];
+const durationData = [];
+
+for (var i = 1; i < dataset.rows.length; i++) {
+    var date = new Date(dataset.rows[i][1]);
+    if (date != undefined && date != 'Invalid Date') {
+        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+    var duration = parseInt(dataset.rows[i][24]); // 获取停留时长并转化为整型
+    if (!isNaN(duration) && duration > 0) { // 判断是否为数字且大于0
+        if (!dateList2.includes(dateString)) {
+            dateList2.push(dateString);
+            durationData.push(duration);
+        } else {
+            var index = dateList2.indexOf(dateString);
+            durationData[index] += duration;
         }
-    },
+    }
+}
+
+
+const option = {
+    // title: {
+    //     text: '访问量趋势图',
+    //     x: 'center',
+    //     textStyle: {
+    //         color: '#666'
+    //     }
+    // },
     // ECharts 中的 toolbox 是一个工具箱，提供了多种常用的工具，如数据区域缩放、导出图片、数据视图等，可以帮助用户更方便地查看和操作图表。
     toolbox: {
         show: true,
@@ -67,6 +90,10 @@ const option = {
             type: 'cross'
         }
     },
+    legend: {
+        data: ['访问量','页面停留时长'],
+        // left: '15%'
+    },
     xAxis: {
         type: 'category',
         boundaryGap: false,
@@ -76,16 +103,35 @@ const option = {
             rotate: 45
         }
     },
-    yAxis: {
-        type: 'value',
-        name: '访问次数'
-    },
-    series: [{
-        name: '访问量',
-        type: 'line',
-        smooth: true,
-        data: visitData
-    }]
+    yAxis: [
+        {
+            type: 'value',
+            name: '访问次数'
+        },
+        {
+            type: 'value',
+            name: '页面停留时长/s',
+            min: 0,
+            splitLine: {
+                show: false
+            }
+        }
+    ],
+    series: [
+        {
+            name: '访问量',
+            type: 'line',
+            smooth: true,
+            data: visitData
+        },
+        {
+            name: '页面停留时长',
+            type: 'bar',
+            yAxisIndex: 1,
+            smooth: true,
+            data: durationData
+        }
+    ]
 };
 
 ```
@@ -102,7 +148,7 @@ const option = {
 
 ```js
 // 解析数据集
-const columns = dataset.columns.slice(1, -3);
+const columns = dataset.columns.slice(1);
 const data = [];
 const xAxisData = [];
 const timeRange = getTimeRange(); // 获取时间范围
@@ -113,7 +159,7 @@ console.log(timeRange)
 // }
 for (let j = 0; j < dataset.rows.length; j++) {
     const t = dataset.rows[j][1];
-    if(t!=undefined&&t!=""){
+    if (t != undefined && t != "") {
         xAxisData.push(formatTime(new Date(t).getTime()));
     }
 }
@@ -122,12 +168,17 @@ for (let i = 0; i < columns.length; i++) {
     const columnData = [];
     for (let j = 1; j < dataset.rows.length; j++) {
         const row = dataset.rows[j];
+        const t = row[1];
+        if (t == undefined || t == "") {
+            continue;
+        }
         if (i === 0) {
             // 将访问时间转换为时间戳格式
             columnData.push(new Date(row[i+1]).getTime());
         } else {
-            const value = row[i+1];
-            columnData.push(value); 
+            let value = row[i + 1];
+            value = decodeURIComponent(value); // 使用 decodeURIComponent 函数进行URL中文解码
+            columnData.push(value);
         }
     }
     data.push({
@@ -200,12 +251,12 @@ const option = {
     series: data
 };
 
-function getTimeRange () {
+function getTimeRange() {
     const rows = dataset.rows;
-    let t = rows[rows.length-1][1];
-    let i=2;
-    while (t==undefined||t==""){
-        t=rows[rows.length-i][1];
+    let t = rows[rows.length - 1][1];
+    let i = 2;
+    while (t == undefined || t == "") {
+        t = rows[rows.length - i][1];
         i++;
     }
     const start = new Date(t).getTime(); // 获取起始时间
@@ -216,7 +267,7 @@ function getTimeRange () {
     };
 }
 
-function formatTime (time) {
+function formatTime(time) {
     const date = new Date(time);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -226,9 +277,10 @@ function formatTime (time) {
     return `${year}-${padZero(month)}-${padZero(day)} ${padZero(hour)}:${padZero(minute)}`;
 }
 
-function padZero (num) {
+function padZero(num) {
     return num < 10 ? `0${num}` : num;
 }
+
 // const height = 450;
 
 ```
@@ -240,7 +292,7 @@ function padZero (num) {
 [//]: # (访问者地域分布图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 // 统计地域信息
@@ -309,7 +361,7 @@ const option = {
 [//]: # (访问时间分布图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 const timeData = [];
@@ -396,7 +448,7 @@ const option = {
 [//]: # (访问入口页面图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 const pageData = {};
@@ -405,6 +457,7 @@ for (var i = 1; i < dataset.rows.length; i++) {
     if (page == "") {
         continue;
     }
+    page = decodeURIComponent(page); // 使用 decodeURIComponent 函数进行解码
     if (!pageData[page]) {
         pageData[page] = 1;
     } else {
@@ -425,9 +478,21 @@ const option = {
         formatter: "{a} <br/>{b}: {c} ({d}%)"
     },
     legend: {
+        type: 'scroll', // 设置为 scroll 类型
         orient: 'vertical',
         left: 'left',
-        data: Object.keys(pageData)
+        top: 'center',
+        data: Object.keys(pageData),
+        formatter: function (name) {
+            var maxLength = 45;
+            if (name.length > maxLength) {
+                // return name.substr(45, maxLength) + '...';
+                return 'http...'+name.substr(45);
+            }
+            else {
+                return name;
+            }
+        },
     },
     series: [{
         name: '页面',
@@ -435,10 +500,10 @@ const option = {
         // radius: ['50%', '70%'],
         avoidLabelOverlap: false,
         label: {
-            normal: {
-                show: false,
-                position: 'center'
-            },
+            // normal: {
+            //     show: false,
+            //     position: 'center'
+            // },
             emphasis: {
                 show: true,
                 textStyle: {
@@ -447,16 +512,19 @@ const option = {
                 }
             }
         },
-        labelLine: {
-            normal: {
-                show: false
-            }
-        },
+        // labelLine: {
+        //     normal: {
+        //         show: false
+        //     }
+        // },
+        radius: '70%',
         data: Object.keys(pageData).map(function (key) {
             return {value: pageData[key], name: key};
         })
     }]
 };
+
+const height = 500;
 
 ```
 
@@ -468,7 +536,7 @@ const option = {
 [//]: # (访问页面平均停留时长图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 const stayData = [];
@@ -525,13 +593,13 @@ const option = {
 [//]: # (页面停留时长与访问次数的关系图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 const stayCountData = {};
 for (var i = 1; i < dataset.rows.length; i++) {
     let time = dataset.rows[i][24]
-    if (time != undefined) {
+    // if (time != undefined) {
         time = time.split('s')[0]
         var stay = parseInt(time);
         if (!isNaN(stay) && stay > 0) {
@@ -542,7 +610,7 @@ for (var i = 1; i < dataset.rows.length; i++) {
                 stayCountData[stay] = 1;
             }
         }
-    }
+    // }
 }
 
 const option = {
@@ -595,14 +663,14 @@ const option = {
     dataZoom: [
         {
             type: "inside",
-            start: 50,
+            start: 0,
             end: 100,
         },
         {
             show: true,
             type: "slider",
             top: "90%",
-            start: 50,
+            start: 0,
             end: 100,
         },
     ],
@@ -624,7 +692,7 @@ const option = {
 [//]: # (访问设备类型分布图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 const deviceData = {
@@ -670,24 +738,24 @@ const option = {
         type: 'pie',
         // radius: ['50%', '70%'],
         avoidLabelOverlap: false,
-        label: {
-            normal: {
-                show: false,
-                position: 'center'
-            },
-            emphasis: {
-                show: true,
-                textStyle: {
-                    fontSize: '12',
-                    fontWeight: 'bold'
-                }
-            }
-        },
-        labelLine: {
-            normal: {
-                show: false
-            }
-        },
+        // label: {
+        //     normal: {
+        //         show: false,
+        //         position: 'center'
+        //     },
+        //     emphasis: {
+        //         show: true,
+        //         textStyle: {
+        //             fontSize: '12',
+        //             fontWeight: 'bold'
+        //         }
+        //     }
+        // },
+        // labelLine: {
+        //     normal: {
+        //         show: false
+        //     }
+        // },
         data: [
             {value: deviceData["PC"], name: 'PC'},
             {value: deviceData["移动端"], name: '移动端'},
@@ -706,7 +774,7 @@ const option = {
 [//]: # (访问来源分布图)
 <!-- #region demo -->
 
-::: echarts 
+::: echarts
 
 ```js
 
@@ -751,24 +819,24 @@ const option = {
         type: 'pie',
         // radius: ['50%', '70%'],
         avoidLabelOverlap: false,
-        label: {
-            normal: {
-                show: false,
-                position: 'center'
-            },
-            emphasis: {
-                show: true,
-                textStyle: {
-                    fontSize: '30',
-                    fontWeight: 'bold'
-                }
-            }
-        },
-        labelLine: {
-            normal: {
-                show: false
-            }
-        },
+        // label: {
+        //     normal: {
+        //         show: false,
+        //         position: 'center'
+        //     },
+        //     emphasis: {
+        //         show: true,
+        //         textStyle: {
+        //             fontSize: '30',
+        //             fontWeight: 'bold'
+        //         }
+        //     }
+        // },
+        // labelLine: {
+        //     normal: {
+        //         show: false
+        //     }
+        // },
         data: [
             {value: sourceData["直接访问"], name: '直接访问'},
             {value: sourceData["搜索引擎"], name: '搜索引擎'},

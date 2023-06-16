@@ -42,7 +42,10 @@ body {
 
 h1.rotating {
     /*animation: rotate 1s linear infinite;*/
-    animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
+    /*生日快乐bpm*/
+    /*animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
+    /*听悲伤的情歌BPM 60s/80 0.75*/
+    animation: rotate 0.749999s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
     /*color: red;*/
 
     /* 设置元素相对于父元素定位 */

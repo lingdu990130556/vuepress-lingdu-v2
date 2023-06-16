@@ -12,10 +12,137 @@ head:
 ---
 
 
+[//]: # (访问量趋势图)
+<!-- #region demo -->
+
+::: echarts 访问量趋势图
+
+```js
+const dateList = [];
+const visitData = [];
+var dateString;
+for (var i = 1; i < dataset.rows.length; i++) {
+    var date = new Date(dataset.rows[i][1]);
+    if (date != undefined && date != 'Invalid Date') {
+        // continue;
+        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+    if (!dateList.includes(dateString)) {
+        dateList.push(dateString);
+        visitData.push(1);
+    } else {
+        var index = dateList.indexOf(dateString);
+        visitData[index]++;
+    }
+}
+
+const dateList2 = [];
+const durationData = [];
+
+for (var i = 1; i < dataset.rows.length; i++) {
+    var date = new Date(dataset.rows[i][1]);
+    if (date != undefined && date != 'Invalid Date') {
+        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+    var duration = parseInt(dataset.rows[i][24]); // 获取停留时长并转化为整型
+    if (!isNaN(duration) && duration > 0) { // 判断是否为数字且大于0
+        if (!dateList2.includes(dateString)) {
+            dateList2.push(dateString);
+            durationData.push(duration);
+        } else {
+            var index = dateList2.indexOf(dateString);
+            durationData[index] += duration;
+        }
+    }
+}
+
+
+const option = {
+    // title: {
+    //     text: '访问量趋势图',
+    //     x: 'center',
+    //     textStyle: {
+    //         color: '#666'
+    //     }
+    // },
+    // ECharts 中的 toolbox 是一个工具箱，提供了多种常用的工具，如数据区域缩放、导出图片、数据视图等，可以帮助用户更方便地查看和操作图表。
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: {
+                readOnly: false
+            },
+            magicType: {
+                type: [
+                    "line",
+                    "bar"
+                ]
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
+    legend: {
+        data: ['访问量','页面停留时长'],
+        // left: '15%'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: dateList,
+        axisLabel: {
+            interval: 0,
+            rotate: 45
+        }
+    },
+    yAxis: [
+        {
+            type: 'value',
+            name: '访问次数'
+        },
+        {
+            type: 'value',
+            name: '页面停留时长/s',
+            min: 0,
+            splitLine: {
+                show: false
+            }
+        }
+    ],
+    series: [
+        {
+            name: '访问量',
+            type: 'line',
+            smooth: true,
+            data: visitData
+        },
+        {
+            name: '页面停留时长',
+            type: 'bar',
+            yAxisIndex: 1,
+            smooth: true,
+            data: durationData
+        }
+    ]
+};
+
+```
+
+:::
+
+<!-- #endregion demo -->
+
+
 [//]: # (访问者地域分布图)
 <!-- #region demo -->
 
-::: echarts
+::: echarts 访问者地域分布图
 
 ```js
 // 统计地域信息
@@ -45,17 +172,17 @@ for (const area in areaData) {
 
 // 指定图表的配置项和数据
 const option = {
-    title: {
-        text: '访问者地域分布图',
-        x: 'center'
-    },
+    // title: {
+    //     text: '访问者地域分布图',
+    //     x: 'center'
+    // },
     tooltip: {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"
     },
     legend: {
-        orient: 'vertical',
-        left: 'left',
+        // orient: 'vertical',
+        // left: 'left',
         data: Object.keys(areaData)
     },
     series: [
