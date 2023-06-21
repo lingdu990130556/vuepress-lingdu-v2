@@ -12,17 +12,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title style="color: deepskyblue">〇°播放器</title>
     <style>
+        h1.rotating {
+            /*animation: rotate 1s linear infinite;*/
+            /*生日快乐bpm*/
+            animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
+            /*听悲伤的情歌BPM 60s/80 0.75*/
+            /*animation: rotate 0.749999s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
+            /*color: red;*/
 
+            /* 设置元素相对于父元素定位 */
+            /*position: absolute;*/
+            /* 设置元素最左边为旋转支点 */
+            /*transform-origin: left center;*/
+            /*transform-origin: 49.99999% 50%;// 214/569 284/543*/
+            transform-origin: 49.2901% 50.492%;// 214/569 284/543
+        }
 
     </style>
 </head>
 <body>
 <div style="margin: 20px auto; text-align: center;">
     <h1 style="width: 50px;">〇°</h1>
-<!--    <span style="font-size: 10px">生日快乐(松鼠Eunice).mp3</span><br>-->
-    <span style="font-size: 10px">听悲伤的情歌(麦小兜).mp3</span><br>
-<!--    <audio id="music" src="生日快乐(松鼠Eunice).mp3"></audio>-->
-    <audio id="music" src="/vuepress-lingdu-v2/bgm/听悲伤的情歌(麦小兜).mp3"></audio>
+    <span style="font-size: 10px">生日快乐(松鼠Eunice).mp3</span><br>
+<!--    <span style="font-size: 10px">听悲伤的情歌(麦小兜).mp3</span><br>-->
+    <audio id="music" src="生日快乐(松鼠Eunice).mp3"></audio>
+<!--    <audio id="music" src="/vuepress-lingdu-v2/bgm/听悲伤的情歌(麦小兜).mp3"></audio>-->
     <span><input type="range" id="progressBar" min="0" max="100" value="0"></span>
     <span>
             <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
@@ -37,61 +51,61 @@
         <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
     </div>
     <div id="lyrics-container" style="margin-top: 0; padding: 0; border: 0 solid #ccc;">
-<!--        <div class="lyrics-line" data-time="00.80">原唱：yihuik苡慧</div>-->
-<!--        <div class="lyrics-line" data-time="01.29">作词：钟引泓</div>-->
-<!--        <div class="lyrics-line" data-time="01.78">作曲：钟引泓</div>-->
-<!--        <div class="lyrics-line" data-time="02.34">编曲：百川Rebellious</div>-->
-<!--        <div class="lyrics-line" data-time="02.71">翻唱：松鼠Eunice</div>-->
-<!--        <div class="lyrics-line" data-time="03.07">美工：松鼠Eunice</div>-->
-<!--        <div class="lyrics-line" data-time="03.44">贴唱：谁谁</div>-->
-<!--        <div class="lyrics-line" data-time="03.81"></div>-->
-<!--        <div class="lyrics-line" data-time="04.30">已经过了12点</div>-->
-<!--        <div class="lyrics-line" data-time="06.32">所以赶快闭上眼</div>-->
-<!--        <div class="lyrics-line" data-time="08.59">这是属于你的节</div>-->
-<!--        <div class="lyrics-line" data-time="10.72">许下属于你的愿</div>-->
-<!--        <div class="lyrics-line" data-time="12.93">考上梦想的大学</div>-->
-<!--        <div class="lyrics-line" data-time="15.13">要赚好多好多钱</div>-->
-<!--        <div class="lyrics-line" data-time="17.22">这三百六十五天</div>-->
-<!--        <div class="lyrics-line" data-time="19.43">会有人为你思念</div>-->
-<!--        <div class="lyrics-line" data-time="22.19">不管有没有人在你身边</div>-->
-<!--        <div class="lyrics-line" data-time="25.98">都不能阻挡今夜的特别</div>-->
-<!--        <div class="lyrics-line" data-time="30.58">快乐的心情一秒都别忽略</div>-->
-<!--        <div class="lyrics-line" data-time="34.68">让所有心愿都完美实现</div>-->
-<!--        <div class="lyrics-line" data-time="43.19">happy birthday to you</div>-->
-<!--        <div class="lyrics-line" data-time="47.53">happy birthday to you</div>-->
-<!--        <div class="lyrics-line" data-time="51.87">把所有的遗憾留在旧的一年</div>-->
-<!--        <div class="lyrics-line" data-time="56.53">希望会出现在明天</div>-->
-<!--        <div class="lyrics-line" data-time="60.57">祝你生日快乐</div>-->
-<!--        <div class="lyrics-line" data-time="64.97">祝你生日快乐</div>-->
-<!--        <div class="lyrics-line" data-time="69.63">在这个瞬间你是唯一主角</div>-->
-<!--        <div class="lyrics-line" data-time="73.67">祝你生日快乐</div>-->
-<!--        <div class="lyrics-line" data-time="78.57"></div>-->
-<!--        <div class="lyrics-line" data-time="80.60">已经过了12点</div>-->
-<!--        <div class="lyrics-line" data-time="82.75">所以赶快闭上眼</div>-->
-<!--        <div class="lyrics-line" data-time="84.95">这是属于你的节</div>-->
-<!--        <div class="lyrics-line" data-time="87.04">许下属于你的愿</div>-->
-<!--        <div class="lyrics-line" data-time="89.26">融化不安的错觉</div>-->
-<!--        <div class="lyrics-line" data-time="91.41">镜子里迷人的脸</div>-->
-<!--        <div class="lyrics-line" data-time="93.61">要和太阳肩并肩</div>-->
-<!--        <div class="lyrics-line" data-time="95.76">每一天都是晴天</div>-->
-<!--        <div class="lyrics-line" data-time="98.53">不管有没有人在你身边</div>-->
-<!--        <div class="lyrics-line" data-time="102.29">都不能阻挡今夜的特别</div>-->
-<!--        <div class="lyrics-line" data-time="106.91">快乐的心情一秒都别忽略</div>-->
-<!--        <div class="lyrics-line" data-time="111.08">让所有心愿都完美实现</div>-->
-<!--        <div class="lyrics-line" data-time="119.53">happy birthday to you</div>-->
-<!--        <div class="lyrics-line" data-time="123.88">happy birthday to you</div>-->
-<!--        <div class="lyrics-line" data-time="128.24">把所有的遗憾留在旧的一年</div>-->
-<!--        <div class="lyrics-line" data-time="132.86">希望会出现在明天</div>-->
-<!--        <div class="lyrics-line" data-time="136.97">祝你生日快乐</div>-->
-<!--        <div class="lyrics-line" data-time="141.32">祝你生日快乐</div>-->
-<!--        <div class="lyrics-line" data-time="146.04">在这个瞬间你是唯一主角</div>-->
-<!--        <div class="lyrics-line" data-time="150.09">祝你生日快乐</div>-->
-<!--        <div class="lyrics-line" data-time="154.94"></div>-->
-<!--        <div style="color: #54c300; font-size: 40px; font-family: '华文隶书', serif" class="lyrics-line"-->
-<!--             data-time="155.37">-->
-<!--            生日快乐-->
-<!--&lt;!&ndash;            <a style="color: #00a4ff" href="https://user.qzone.qq.com/1280487827?ADUIN=990130556&ADSESSION=1686160954&ADTAG=CLIENT.QQ.5971_FriendInfo_PersonalInfo.0&ADPUBNO=27303&source=namecardstar">@邱</a>&ndash;&gt;-->
-<!--        </div>-->
+        <div class="lyrics-line" data-time="00.80">原唱：yihuik苡慧</div>
+        <div class="lyrics-line" data-time="01.29">作词：钟引泓</div>
+        <div class="lyrics-line" data-time="01.78">作曲：钟引泓</div>
+        <div class="lyrics-line" data-time="02.34">编曲：百川Rebellious</div>
+        <div class="lyrics-line" data-time="02.71">翻唱：松鼠Eunice</div>
+        <div class="lyrics-line" data-time="03.07">美工：松鼠Eunice</div>
+        <div class="lyrics-line" data-time="03.44">贴唱：谁谁</div>
+        <div class="lyrics-line" data-time="03.81"></div>
+        <div class="lyrics-line" data-time="04.30">已经过了12点</div>
+        <div class="lyrics-line" data-time="06.32">所以赶快闭上眼</div>
+        <div class="lyrics-line" data-time="08.59">这是属于你的节</div>
+        <div class="lyrics-line" data-time="10.72">许下属于你的愿</div>
+        <div class="lyrics-line" data-time="12.93">考上梦想的大学</div>
+        <div class="lyrics-line" data-time="15.13">要赚好多好多钱</div>
+        <div class="lyrics-line" data-time="17.22">这三百六十五天</div>
+        <div class="lyrics-line" data-time="19.43">会有人为你思念</div>
+        <div class="lyrics-line" data-time="22.19">不管有没有人在你身边</div>
+        <div class="lyrics-line" data-time="25.98">都不能阻挡今夜的特别</div>
+        <div class="lyrics-line" data-time="30.58">快乐的心情一秒都别忽略</div>
+        <div class="lyrics-line" data-time="34.68">让所有心愿都完美实现</div>
+        <div class="lyrics-line" data-time="43.19">happy birthday to you</div>
+        <div class="lyrics-line" data-time="47.53">happy birthday to you</div>
+        <div class="lyrics-line" data-time="51.87">把所有的遗憾留在旧的一年</div>
+        <div class="lyrics-line" data-time="56.53">希望会出现在明天</div>
+        <div class="lyrics-line" data-time="60.57">祝你生日快乐</div>
+        <div class="lyrics-line" data-time="64.97">祝你生日快乐</div>
+        <div class="lyrics-line" data-time="69.63">在这个瞬间你是唯一主角</div>
+        <div class="lyrics-line" data-time="73.67">祝你生日快乐</div>
+        <div class="lyrics-line" data-time="78.57"></div>
+        <div class="lyrics-line" data-time="80.60">已经过了12点</div>
+        <div class="lyrics-line" data-time="82.75">所以赶快闭上眼</div>
+        <div class="lyrics-line" data-time="84.95">这是属于你的节</div>
+        <div class="lyrics-line" data-time="87.04">许下属于你的愿</div>
+        <div class="lyrics-line" data-time="89.26">融化不安的错觉</div>
+        <div class="lyrics-line" data-time="91.41">镜子里迷人的脸</div>
+        <div class="lyrics-line" data-time="93.61">要和太阳肩并肩</div>
+        <div class="lyrics-line" data-time="95.76">每一天都是晴天</div>
+        <div class="lyrics-line" data-time="98.53">不管有没有人在你身边</div>
+        <div class="lyrics-line" data-time="102.29">都不能阻挡今夜的特别</div>
+        <div class="lyrics-line" data-time="106.91">快乐的心情一秒都别忽略</div>
+        <div class="lyrics-line" data-time="111.08">让所有心愿都完美实现</div>
+        <div class="lyrics-line" data-time="119.53">happy birthday to you</div>
+        <div class="lyrics-line" data-time="123.88">happy birthday to you</div>
+        <div class="lyrics-line" data-time="128.24">把所有的遗憾留在旧的一年</div>
+        <div class="lyrics-line" data-time="132.86">希望会出现在明天</div>
+        <div class="lyrics-line" data-time="136.97">祝你生日快乐</div>
+        <div class="lyrics-line" data-time="141.32">祝你生日快乐</div>
+        <div class="lyrics-line" data-time="146.04">在这个瞬间你是唯一主角</div>
+        <div class="lyrics-line" data-time="150.09">祝你生日快乐</div>
+        <div class="lyrics-line" data-time="154.94"></div>
+        <div style="color: #54c300; font-size: 40px; font-family: '华文隶书', serif" class="lyrics-line"
+             data-time="155.37">
+            生日快乐
+<!--            <a style="color: #00a4ff" href="https://user.qzone.qq.com/1280487827?ADUIN=990130556&ADSESSION=1686160954&ADTAG=CLIENT.QQ.5971_FriendInfo_PersonalInfo.0&ADPUBNO=27303&source=namecardstar">@邱</a>-->
+        </div>
     </div>
     <!--音谱效果-->
     <canvas id="my-canvas" width="400" height="150"></canvas>

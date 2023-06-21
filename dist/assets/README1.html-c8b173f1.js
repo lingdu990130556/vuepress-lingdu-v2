@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-7c0cae1a","path":"/statstics/README1.html","title":"站点统计v1.x","lang":"en-US","frontmatter":{"pageClass":"站点统计","head":[["script",{"src":"/vuepress-lingdu-v2/js/utils/实时访客1.js"}]]},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"statstics/README1.md"}');export{t as data};
