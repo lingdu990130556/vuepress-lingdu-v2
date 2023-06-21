@@ -67,6 +67,7 @@ async function convertCsvToDataset(csvFilePath, jsFilePath, options = {}) {
                 outputStream.write(`dataset.rows.push(${JSON.stringify(values)});\n`);
             })
             .on('end', () => {
+                // outputStream.write(`dataset.rows.reverse();// 反转\n`);
                 outputStream.end();
                 resolve();
             })

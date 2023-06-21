@@ -35,6 +35,11 @@ for (var i = 1; i < dataset.rows.length; i++) {
         visitData[index]++;
     }
 }
+const cumulativeData = [visitData[0]];
+for (let i = 1; i < visitData.length; i++) {
+    cumulativeData.push(cumulativeData[i - 1] + visitData[i]);
+}
+// cumulativeData.reverse();// 反转
 
 const dateList2 = [];
 const durationData = [];
@@ -55,18 +60,21 @@ for (var i = 1; i < dataset.rows.length; i++) {
         }
     }
 }
+const cumulativeDurationData = [durationData[0]];
+for (let i = 1; i < durationData.length; i++) {
+    cumulativeDurationData.push(cumulativeDurationData[i - 1] + durationData[i]);
+}
+// cumulativeDurationData.reverse();// 反转
 
 
 const option = {
-    title: {
-        subtext: '站点统计',
-        sublink: './statstics/',
-        // text: '访问量趋势图',
-        // x: 'center',
-        // textStyle: {
-        //     color: '#666'
-        // }
-    },
+    // title: {
+    //     text: '访问量趋势图',
+    //     x: 'center',
+    //     textStyle: {
+    //         color: '#666'
+    //     }
+    // },
     // ECharts 中的 toolbox 是一个工具箱，提供了多种常用的工具，如数据区域缩放、导出图片、数据视图等，可以帮助用户更方便地查看和操作图表。
     toolbox: {
         show: true,
@@ -91,13 +99,17 @@ const option = {
         }
     },
     legend: {
-        data: ['访问量','页面停留时长'],
+        selected: {
+            '访问量': false,  // 将需要隐藏的图例名称设置为 false
+            '页面停留时长': false  // 将需要隐藏的图例名称设置为 false
+        },
+        data: ['访问量','累计访问量','页面停留时长','累计页面停留时长'],
         // left: '15%'
     },
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: dateList,
+        data: dateList.reverse(), // 反转
         axisLabel: {
             interval: 0,
             rotate: 45
@@ -110,7 +122,19 @@ const option = {
         },
         {
             type: 'value',
+            name: '累计访问量'
+        },
+        {
+            type: 'value',
             name: '页面停留时长/s',
+            min: 0,
+            splitLine: {
+                show: false
+            }
+        },
+        {
+            type: 'value',
+            name: '累计页面停留时长/s',
             min: 0,
             splitLine: {
                 show: false
@@ -122,14 +146,30 @@ const option = {
             name: '访问量',
             type: 'line',
             smooth: true,
-            data: visitData
+            data: visitData.reverse(), // 反转
+            // itemStyle: {
+            //     color: 'red'  // 设置该系列对应图例的颜色
+            // }
+        },
+        {
+            name: '累计访问量',
+            type: 'line',
+            smooth: true,
+            data: cumulativeData
         },
         {
             name: '页面停留时长',
             type: 'bar',
-            yAxisIndex: 1,
+            yAxisIndex: 2,
             smooth: true,
-            data: durationData
+            data: durationData.reverse(), // 反转
+        },
+        {
+            name: '累计页面停留时长',
+            type: 'bar',
+            yAxisIndex: 2,
+            smooth: true,
+            data: cumulativeDurationData
         }
     ]
 };

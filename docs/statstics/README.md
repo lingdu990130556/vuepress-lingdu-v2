@@ -37,6 +37,11 @@ for (var i = 1; i < dataset.rows.length; i++) {
         visitData[index]++;
     }
 }
+const cumulativeData = [visitData[0]];
+for (let i = 1; i < visitData.length; i++) {
+    cumulativeData.push(cumulativeData[i - 1] + visitData[i]);
+}
+// cumulativeData.reverse();// 反转
 
 const dateList2 = [];
 const durationData = [];
@@ -57,6 +62,11 @@ for (var i = 1; i < dataset.rows.length; i++) {
         }
     }
 }
+const cumulativeDurationData = [durationData[0]];
+for (let i = 1; i < durationData.length; i++) {
+    cumulativeDurationData.push(cumulativeDurationData[i - 1] + durationData[i]);
+}
+// cumulativeDurationData.reverse();// 反转
 
 
 const option = {
@@ -91,13 +101,17 @@ const option = {
         }
     },
     legend: {
-        data: ['访问量','页面停留时长'],
+        selected: {
+            '累计访问量': false,  // 将需要隐藏的图例名称设置为 false
+            '累计页面停留时长': false  // 将需要隐藏的图例名称设置为 false
+        },
+        data: ['访问量','累计访问量','页面停留时长','累计页面停留时长'],
         // left: '15%'
     },
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: dateList,
+        data: dateList.reverse(), // 反转
         axisLabel: {
             interval: 0,
             rotate: 45
@@ -110,7 +124,19 @@ const option = {
         },
         {
             type: 'value',
+            name: '累计访问量'
+        },
+        {
+            type: 'value',
             name: '页面停留时长/s',
+            min: 0,
+            splitLine: {
+                show: false
+            }
+        },
+        {
+            type: 'value',
+            name: '累计页面停留时长/s',
             min: 0,
             splitLine: {
                 show: false
@@ -122,14 +148,30 @@ const option = {
             name: '访问量',
             type: 'line',
             smooth: true,
-            data: visitData
+            data: visitData.reverse(), // 反转
+            // itemStyle: {
+            //     color: 'red'  // 设置该系列对应图例的颜色
+            // }
+        },
+        {
+            name: '累计访问量',
+            type: 'line',
+            smooth: true,
+            data: cumulativeData
         },
         {
             name: '页面停留时长',
             type: 'bar',
-            yAxisIndex: 1,
+            yAxisIndex: 2,
             smooth: true,
-            data: durationData
+            data: durationData.reverse(), // 反转
+        },
+        {
+            name: '累计页面停留时长',
+            type: 'bar',
+            yAxisIndex: 2,
+            smooth: true,
+            data: cumulativeDurationData
         }
     ]
 };
@@ -225,7 +267,7 @@ const option = {
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: xAxisData
+        data: xAxisData.reverse(), // 反转
     },
     yAxis: {
         type: 'value',
@@ -237,18 +279,18 @@ const option = {
     dataZoom: [
         {
             type: "inside",
-            start: 0,
-            end: 20,
+            start: 80,
+            end: 100,
         },
         {
             show: true,
             type: "slider",
             top: "90%",
-            start: 0,
-            end: 20,
+            start: 80,
+            end: 100,
         },
     ],
-    series: data
+    series: data.reverse(), // 反转
 };
 
 function getTimeRange() {
