@@ -260,9 +260,9 @@ link: /bookmark/
 color: rgb(154 219 190 / 44%)
 ```
 ```card
-title: 博弈AI
-logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
-link: https://chat.bo-e.com/
+title: Java 全栈知识体系
+logo: https://pdai.tech/images/index-read.gif
+link: https://pdai.tech/
 color: rgb(154 219 190 / 44%)
 ```
 ```card
@@ -284,6 +284,13 @@ title: VuePress
 desc: Vue 驱动的静态网站生成器
 logo: https://v2.vuepress.vuejs.org/images/hero.png
 link: https://v2.vuepress.vuejs.org/zh/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: 二丫讲梵
+desc: 坐而言不如起而行
+logo: https://wiki.eryajf.net/img/dengxia.gif
+link: https://wiki.eryajf.net/
 color: rgb(154 219 190 / 44%)
 ```
 ```card
@@ -391,48 +398,5 @@ color: rgb(154 219 190 / 44%)
 
 
 
-[//]: # (::: tip 网易云音乐)
 
-[//]: # (<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1423366098&auto=0&height=66"></iframe>)
-
-[//]: # (<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430"></iframe>)
-
-[//]: # (:::)
-
-
-|网站|网名|网址|
-|:-:|:-:|:-:|
-|CSDN|零〇°豆|[https://blog.csdn.net/lingdu_dou](https://blog.csdn.net/lingdu_dou)|
-|Gitee|零〇°度|[https://gitee.com/lingdu_dou](https://gitee.com/lingdu_dou)|
-|Gitee博客|〇°|[https://lingdu_dou.gitee.io/lingdu/](https://lingdu_dou.gitee.io/lingdu/)|
-|GitHub|零度|[https://github.com/lingdu990130556](https://github.com/lingdu990130556)|
-|博客园|了赢零的雾度|[https://www.cnblogs.com/990130556-lingdu/](https://www.cnblogs.com/990130556-lingdu/)|
-|知乎|零度|[https://www.zhihu.com/people/ling-du-47-17-93](https://www.zhihu.com/people/ling-du-47-17-93)|
-|[〇〇〇〇〇〇〇〇〇〇〇〇〇](/)|[〇〇〇〇〇〇〇〇〇〇〇〇〇](/)|[〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇](/)|
-
-
-
-
-[//]: # (<BiliBili )
-
-[//]: # (aid="313718550" )
-
-[//]: # (cid="1131151039" )
-
-[//]: # (ratio="16:9" )
-
-[//]: # (time="60" )
-
-[//]: # (autoplay )
-
-[//]: # (page="1" />)
-
-
-[//]: # (<XiGua)
-
-[//]: # (id="7238728608691585569")
-
-[//]: # (autoplay)
-
-[//]: # (time="0" />)
-
+<CommentService />

@@ -68,3 +68,17 @@ date: 2023年2月4日10点47分
 >>>>>> 学校名称：[里仁小学](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=%E9%87%91%E6%8B%B1%E9%95%87%E9%87%8C%E4%BB%81%E5%B0%8F%E5%AD%A6&rsv_spt=1&oq=%25E9%2587%2591%25E6%258B%25B1%25E9%2595%2587%25E9%2587%258C%25E4%25BB%2581%25E5%25B0%258F%25E5%25AD%25A6&rsv_pq=c17b6e5400005c68&rsv_t=5a46BR1o8Mfs%2FSC1spvxATMNu2DVSKo%2Bc7OgQ2GhR8f5QeW6EfLmXiyo0OJxokS7O9RS&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t)  
 >>>>>> 学历：小学  
 :::
+
+
+
+
+
+|网站|网名|网址|
+|:-:|:-:|:-:|
+|CSDN|零〇°豆|[https://blog.csdn.net/lingdu_dou](https://blog.csdn.net/lingdu_dou)|
+|Gitee|零〇°度|[https://gitee.com/lingdu_dou](https://gitee.com/lingdu_dou)|
+|Gitee博客|〇°|[https://lingdu_dou.gitee.io/lingdu/](https://lingdu_dou.gitee.io/lingdu/)|
+|GitHub|零度|[https://github.com/lingdu990130556](https://github.com/lingdu990130556)|
+|博客园|了赢零的雾度|[https://www.cnblogs.com/990130556-lingdu/](https://www.cnblogs.com/990130556-lingdu/)|
+|知乎|零度|[https://www.zhihu.com/people/ling-du-47-17-93](https://www.zhihu.com/people/ling-du-47-17-93)|
+|[〇〇〇〇〇〇〇〇〇〇〇〇〇](/)|[〇〇〇〇〇〇〇〇〇〇〇〇〇](/)|[〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇](/)|

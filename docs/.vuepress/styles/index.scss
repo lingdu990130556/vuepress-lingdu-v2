@@ -30,26 +30,20 @@ pageClass: liuyanban-page-class
 
 
 /*通知框*/
-.notice-wrapper {
+.vp-notice-wrapper {
   --notice-width: auto;
-
-  .notice-title {
-    background: rgb(193, 241, 241);
-  }
-
-  .notice-content {
-    background: rgba(238, 255, 219, 0);
-    margin: auto;
-  }
-
-  height: auto;
+  transition: right 0.5s ease-in-out;
+}
+#btnMove{
+  left: -10px;
+  position: relative;
 }
 
 
 /*搜索框*/
-//.search-box {
-//  background-color: #c1f1f1;
-//}
+.search-box {
+  //background-color: #c1f1f1;
+}
 
 /*留言板页面单独的样式配置*/
 .liuyanban-page-class {

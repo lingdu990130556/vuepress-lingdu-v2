@@ -3,7 +3,7 @@ import {defaultTheme} from '@vuepress/theme-default';
 // 复制
 import {copyCodePlugin} from 'vuepress-plugin-copy-code2';
 // 本地搜索
-// import {searchPlugin} from '@vuepress/plugin-search';
+import {searchPlugin} from '@vuepress/plugin-search';
 // 搜索
 // import { docsearchPlugin } from '@vuepress/plugin-docsearch';
 // 配置
@@ -17,6 +17,8 @@ import {getDirname, path} from '@vuepress/utils'
 const __dirname = getDirname(import.meta.url)
 // 组件库
 import {componentsPlugin} from "vuepress-plugin-components";
+// .vuepress/config.ts
+import { commentPlugin } from "vuepress-plugin-comment2";
 
 
 /*
@@ -35,7 +37,7 @@ import {componentsPlugin} from "vuepress-plugin-components";
 
 
 export default ({
-
+    lang: 'zh-CN',// 设置默认语言为中文
     head,
     description: 'vuepress-lingdu-v2',
     // 目的地
@@ -44,6 +46,15 @@ export default ({
 
     plugins: [
 
+        commentPlugin({
+            // 插件选项
+            provider: "Giscus", // Artalk | Giscus | Waline | Twikoo
+            repo: 'lingdu990130556/vuepress-lingdu-v2',
+            repoId: 'R_kgDOJpnrJw',
+            category: 'Announcements',
+            categoryId: 'DIC_kwDOJpnrJ84CXcpe',
+            lazyLoading: false
+        },true),
         componentsPlugin({
             // 插件选项
             components: ["BiliBili", "XiGua", "SiteInfo","VideoPlayer","AudioPlayer"],
@@ -52,7 +63,7 @@ export default ({
                 notice: [
                     {
                         path: "/",
-                        title: '<div id="lingdu-tishi"><button id="btnMove" type="button" class="notice-footer-action primary">〇°</button></div>',
+                        title: '<div id="lingdu-tishi"><button id="btnMove" type="button" style="background-color: transparent;border: none;">〇°</button></div>',
                         // content: "Notice Content",// 内容
                         // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430\"></iframe>",
                         content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://lingdu_dou.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
@@ -109,13 +120,13 @@ export default ({
         }),
 
         // 本地搜索
-        // searchPlugin({
-        //     locales: {
-        //         '/': {
-        //             placeholder: '搜索',
-        //         },
-        //     },
-        // }),
+        searchPlugin({
+            locales: {
+                '/': {
+                    placeholder: '搜索',
+                },
+            },
+        }),
         // 搜索
         // docsearchPlugin({
         //     appId: 'lingdu',
