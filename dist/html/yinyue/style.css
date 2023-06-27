@@ -4,6 +4,10 @@ body {
     align-items: center;
     height: 100vh;
 }
+/*细化滚动条*/
+body::-webkit-scrollbar {
+    width: 1px;
+}
 
 .current-lyric {
     color: red;
@@ -45,7 +49,9 @@ h1.rotating {
     /*生日快乐bpm*/
     /*animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
     /*听悲伤的情歌BPM 60s/80 0.75*/
-    animation: rotate 0.749999s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
+    /*animation: rotate 0.749999s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
+    /*通用匀速*/
+    animation: rotate 1.92s linear infinite;
     /*color: red;*/
 
     /* 设置元素相对于父元素定位 */
@@ -98,4 +104,47 @@ h1.rotating {
     transform: rotate(180deg) scaleX(-1); /* 水平方向镜像翻转 */
     /* transform: rotate(180deg) scaleY(-1); */ /* 垂直方向镜像翻转 */
     margin-top: -8px;
+}
+
+
+/*音乐列表*/
+#music-list-container {
+    position: fixed;
+    top: 0;
+    right: -50%; /* 初始时隐藏在右侧 */
+    width: 50%;
+    /*height: 100vh;*/
+    height: 60%;
+    overflow: auto;
+    background-color: rgb(11, 186, 250);
+    transition: right 0.3s ease-in-out;
+    z-index: 9999;
+}
+/*细化滚动条*/
+#music-list-container::-webkit-scrollbar {
+    width: 2px;
+}
+
+.music-list-button {
+    /* 默认状态下的样式 */
+    background-color: transparent;
+    border: none;
+    padding: 5px 5px;
+    color: white;
+}
+.music-list-button:hover {
+    /* 鼠标悬浮状态下的样式 */
+    color: black;
+}
+
+#music-list-button {
+    /*position: fixed;*/
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    color: #76bf09;
+    border: none;
+    cursor: pointer;
+    z-index: 99999;
+    font-size: 30px;
 }
