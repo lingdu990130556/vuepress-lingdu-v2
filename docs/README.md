@@ -397,6 +397,7 @@ color: rgb(154 219 190 / 44%)
 ```
 
 
-
-
-<CommentService />
+----
+----
+**评论** ~若加载不出可以尝试进入~[版本v2.x GitHub](https://lingdu990130556.github.io/vuepress-lingdu-v2/)
+<CommentService :darkmode="isDarkMode" />

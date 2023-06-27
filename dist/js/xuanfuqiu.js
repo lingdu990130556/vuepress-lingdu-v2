@@ -35,6 +35,10 @@ function lingdu_xiaoqiu(){
     // 将渲染器输出绑定到 HTML 元素
     var canvasContainer = document.getElementById('canvas-container');
 
+    if(canvasContainer == null){
+        return;
+    }
+
     // 创建场景、相机和渲染器
     var scene = new THREE.Scene();
     let fanwei = 150;

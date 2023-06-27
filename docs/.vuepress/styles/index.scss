@@ -34,6 +34,9 @@ pageClass: liuyanban-page-class
   --notice-width: auto;
   transition: right 0.5s ease-in-out;
 }
+.vp-notice-title{
+  --vp-tc: #0bbafa
+}
 #btnMove{
   left: -10px;
   position: relative;

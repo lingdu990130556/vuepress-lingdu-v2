@@ -49,12 +49,7 @@ export default ({
         commentPlugin({
             // 插件选项
             provider: "Giscus", // Artalk | Giscus | Waline | Twikoo
-            repo: 'lingdu990130556/vuepress-lingdu-v2',
-            repoId: 'R_kgDOJpnrJw',
-            category: 'Announcements',
-            categoryId: 'DIC_kwDOJpnrJ84CXcpe',
-            lazyLoading: false
-        },true),
+        }),
         componentsPlugin({
             // 插件选项
             components: ["BiliBili", "XiGua", "SiteInfo","VideoPlayer","AudioPlayer"],
@@ -66,8 +61,8 @@ export default ({
                         title: '<div id="lingdu-tishi"><button id="btnMove" type="button" style="background-color: transparent;border: none;">〇°</button></div>',
                         // content: "Notice Content",// 内容
                         // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430\"></iframe>",
-                        content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://lingdu_dou.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
-                        // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://localhost:8080/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
+                        // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://lingdu_dou.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
+                        content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://localhost:8080/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
                         // 全屏显示
                         fullscreen: false,
                         // 需要确认才关闭否则延时关闭
@@ -104,6 +99,10 @@ export default ({
             align: true,
             // 启用 ECharts 图表
             echarts: true,
+            // 启用下角标功能
+            sub: true,
+            // 启用上角标
+            sup: true,
         }),
 
         // 代码块复制

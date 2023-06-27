@@ -16,6 +16,7 @@ specifiers:
   csvtojson: ^2.0.10
   file-type: ^18.5.0
   glob: ^7.2.3
+  iconv-lite: ^0.6.3
   jschardet: ^3.0.0
   papaparse: ^5.4.1
   vue: ^3.3.4
@@ -30,6 +31,7 @@ dependencies:
   csv-parser: registry.npmmirror.com/csv-parser/3.0.0
   csvtojson: registry.npmmirror.com/csvtojson/2.0.10
   file-type: registry.npmmirror.com/file-type/18.5.0
+  iconv-lite: registry.npmmirror.com/iconv-lite/0.6.3
   jschardet: registry.npmmirror.com/jschardet/3.0.0
   papaparse: registry.npmmirror.com/papaparse/5.4.1
 
@@ -3312,7 +3314,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       safer-buffer: registry.npmmirror.com/safer-buffer/2.1.2
-    dev: true
 
   registry.npmmirror.com/ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ieee754/-/ieee754-1.2.1.tgz}
@@ -4596,7 +4597,6 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/safer-buffer/-/safer-buffer-2.1.2.tgz}
     name: safer-buffer
     version: 2.1.2
-    dev: true
 
   registry.npmmirror.com/sass/1.63.6:
     resolution: {integrity: sha512-MJuxGMHzaOW7ipp+1KdELtqKbfAWbH7OLIdoSMnVe3EXPMTmxTmlaZDCTsgIpPCs3w99lLo9/zDKkOrJuT5byw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sass/-/sass-1.63.6.tgz}
