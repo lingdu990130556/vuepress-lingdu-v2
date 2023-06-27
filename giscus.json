@@ -2,7 +2,7 @@
   "origins": [
     "https://giscus.app",
     "https://giscus.vercel.app",
-    "https://lingdu_dou.gitee.io",
+    "https://lingdu\_dou.gitee.io",
     "https://lingdu990130556.github.io"
   ],
   "originsRegex": [
