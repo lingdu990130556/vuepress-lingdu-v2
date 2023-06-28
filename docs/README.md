@@ -6,8 +6,6 @@ bgImage: /img/1.jpg
 heroText: ⭕°
 tagline: 今天快乐
 head:
-- ['script', { src: '/vuepress-lingdu-v2/js/three.js' }]
-- ['script', { src: '/vuepress-lingdu-v2/js/xuanfuqiu.js' }]
 - ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]
 ---
 

@@ -12,7 +12,7 @@ export const head: HeadConfig[] = [
           var _hmt = _hmt || [];
           (function() {
               var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?818a998594ddab3837a4fa71de17c4ec";
+              hm.src = "https://hm.baidu.com/hm.js?4a9891b3899967e538a88e44298b05d6";
               var s = document.getElementsByTagName("script")[0]; 
               s.parentNode.insertBefore(hm, s);
           })();
@@ -30,18 +30,6 @@ export const head: HeadConfig[] = [
           })();
         `
     ],
-    // http://lingdu_dou.gitee.io/vuepress-lingdu-v2/
-    // [
-    //     'script', {}, `
-    //       var _hmt = _hmt || [];
-    //       (function() {
-    //           var hm = document.createElement("script");
-    //           hm.src = "https://hm.baidu.com/hm.js?fddff21fe87378460c65d52a8ef00b27";
-    //           var s = document.getElementsByTagName("script")[0];
-    //           s.parentNode.insertBefore(hm, s);
-    //       })();
-    //     `
-    // ],
     // https://lingdu990130556.github.io/vuepress-lingdu-v2/
     [
         'script', {}, `
@@ -63,7 +51,4 @@ export const head: HeadConfig[] = [
     ['link', {rel: 'mask-icon', href: '/images/icons/safari-pinned-tab.svg', color: '#3eaf7c',},],
     ['meta', {name: 'msapplication-TileColor', content: '#3eaf7c'}],
     ['meta', {name: 'theme-color', content: '#3eaf7c'}],
-
-    ['script', {src: '/vuepress-lingdu-v2/js/gonggao.js'}],
-    ['script', {src: '/vuepress-lingdu-v2/js/myjs.js'}]
 ]

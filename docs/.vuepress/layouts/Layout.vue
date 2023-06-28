@@ -14,7 +14,7 @@ const isDarkMode = ref(false);
 
 onMounted(() => {
   const html = document.documentElement;
-
+  setTimeout(resize, 4800);
   isDarkMode.value = html.classList.contains("dark");
 
   // watch theme change
@@ -31,4 +31,8 @@ onMounted(() => {
     observer.disconnect();
   });
 });
+
+// 引用全局js
+import resize from "../public/js/gonggao";
+
 </script>
