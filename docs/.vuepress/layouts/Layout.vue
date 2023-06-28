@@ -14,6 +14,7 @@ const isDarkMode = ref(false);
 
 onMounted(() => {
   const html = document.documentElement;
+  // 在这个方法中调用才能正常使用document
   setTimeout(resize, 4800);
   isDarkMode.value = html.classList.contains("dark");
 
