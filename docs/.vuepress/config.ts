@@ -58,7 +58,7 @@ export default ({
                 notice: [
                     {
                         path: "/",
-                        title: '<div id="lingdu-tishi"><button id="btnMove" type="button" style="background-color: transparent;border: none;">〇°</button></div>',
+                        title: '<button id="btnMove" style="background-color: transparent;border: none;">〇°</button>',
                         // content: "Notice Content",// 内容
                         // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430\"></iframe>",
                         content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
@@ -170,7 +170,7 @@ export default ({
         // 我们会将它作为一个 GitHub 仓库 源码地址
         // repo: 'vuejs/vuepress',
         // 你也可以直接将它设置为一个 URL
-        repo: 'https://gitee.com/lingdu_dou/vuepress-lingdu-v2',
+        repo: 'https://gitee.com/lingdu990130556/vuepress-lingdu-v2',
         // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
         // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
         repoLabel: 'Gitee源码',
@@ -181,7 +181,7 @@ export default ({
         sidebarDepth: 3, // 嵌套的标题链接（这里设置为3层）[全局设置]
         /// 以下为可选的编辑链接选项
         // 假如你的文档仓库和项目本身不在一个仓库：
-        docsRepo: 'https://gitee.com/lingdu_dou/vuepress-lingdu-v2',
+        docsRepo: 'https://gitee.com/lingdu990130556/vuepress-lingdu-v2',
         // 假如文档不是放在仓库的根目录下：
         docsDir: '../../tree/master/docs/',
         // 假如文档放在一个特定的分支下：
