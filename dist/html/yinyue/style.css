@@ -74,29 +74,45 @@ h1.rotating {
 }
 
 
-#play-btn i::before {
-    content: "\f04b"; /* Unicode 编码表示 Font Awesome 提供的播放图标 */
-}
+/*#play-btn i::before {*/
+/*    content: "\f04b"; !* Unicode 编码表示 Font Awesome 提供的播放图标 *!*/
+/*}*/
 
-#pause-btn i::before {
-    content: "\f04c"; /* Unicode 编码表示 Font Awesome 提供的暂停图标 */
-}
+/*#pause-btn i::before {*/
+/*    content: "\f04c"; !* Unicode 编码表示 Font Awesome 提供的暂停图标 *!*/
+/*}*/
 
-#play-btn,
-#pause-btn {
+#play-btn,#pause-btn {
     /* 设置按钮位置 */
-    position: absolute;
+    /*position: absolute;*/
     /* 设置透明背景和无边框 */
     background: none;
     border: none;
+    /*光标变化*/
+    cursor: pointer;
     /* 设置文本颜色 */
     color: #76bf09;
 }
 
-#pause-btn {
+#pause-btn,#sync-alt-btn,
+#random-btn {
     /* 初始状态隐藏 */
     display: none;
 }
+
+#step-backward-btn,
+#step-forward-btn,
+#undo-alt-btn,
+#sync-alt-btn,
+#random-btn{
+    /* 设置透明背景和无边框 */
+    background: none;
+    color: #76bf09;
+    border: none;
+    /*光标变化*/
+    cursor: pointer;
+}
+
 
 
 /* 设置样式 */
@@ -139,12 +155,15 @@ h1.rotating {
 
 #music-list-button {
     /*position: fixed;*/
-    top: 20px;
-    right: 20px;
-    padding: 10px;
+    /*top: 20px;*/
+    /*right: 20px;*/
+    /*padding: 10px;*/
+    /* 设置透明背景和无边框 */
+    background: none;
     color: #76bf09;
     border: none;
+    /*光标变化*/
     cursor: pointer;
-    z-index: 99999;
-    font-size: 30px;
+    /*z-index: 99999;*/
+    /*font-size: 30px;*/
 }

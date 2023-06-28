@@ -9,7 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="style.css?v=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <title style="color: deepskyblue">〇°播放器</title>
     <style>
 
@@ -19,13 +19,20 @@
 <body>
 <div style="margin: 20px auto; text-align: center;">
 
-    <h1 style="width: 50px;"><button id="music-list-button" style="background-color: transparent;">〇°</button></h1>
+    <h1 style="width: 50px;">〇°</h1>
     <span id="gequming" style="font-size: 10px">不能握的手（秋秋）.mp3</span><br>
     <audio id="music" src="../../bgm/不能握的手（秋秋）.mp3"></audio>
-    <span><input type="range" id="progressBar" min="0" max="100" value="0"></span>
+    <span>
+        <!--列表按钮-->
+        <button id="music-list-button"><i class="fa fa-list" aria-hidden="true"></i></button>
+        <!--上一曲按钮-->
+        <button id="step-backward-btn" onclick=""><i class="fas fa-step-backward"></i></button>
+        <input type="range" id="progressBar" min="0" max="100" value="0"></span>
     <span>
         <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
         <button id="pause-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
+        <!--下一曲按钮-->
+        <button id="step-forward-btn" onclick=""><i class="fas fa-step-forward"></i></button>
     </span>
 
     <div id="music-list-container">
@@ -43,6 +50,11 @@
 
 
     <div id="timeDisplay" style="margin-top: 10px;">
+        <span>
+            <button id="undo-alt-btn" onclick="boFangMoShi(this)"><i class="fas fa-undo-alt"></i></button><!--单曲循环-->
+            <button id="sync-alt-btn" onclick="boFangMoShi(this)"><i class="fas fa-sync-alt"></i></button><!--列表循环-->
+            <button id="random-btn" onclick="boFangMoShi(this)"><i class="fas fa-random"></i></button><!--随机循环-->
+        </span>
         <span style="color: #0bbafa" id="currentTimeDisplay">00:00</span>
         <span style="color: #0bbafa"> / </span>
         <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
@@ -120,26 +132,80 @@
         let buttonText = buttons[i].textContent;
         buttonTexts.push(buttonText);
     }
+    // 已随机过的歌曲记录
+    let suijijilu = buttonTexts;
 
+    // 播放模式 1单曲循环2列表循环3随机训话
+    let moShi = 1;
     /*更新进度条*/
     function updateProgressBar() {
         const a = (music.currentTime / music.duration) * 100;
         progressBar.value = a;
         if (a === 100) {
             pauseMusic();
-            // playMusic();// 单曲循环
-            // 列表循环
-            for (let i = 0; i < buttonTexts.length; i++) {
-                console.log(decodeURIComponent(music.src))
-                if(decodeURIComponent(music.src).includes(buttonTexts[i])){
-                    let obj={};
-                    i=i===buttonTexts.length-1?0:++i;
-                    obj.textContent=buttonTexts[i];
-                    qiege(obj);
-                    break;
+            if(moShi===3){
+                // 清完后重置
+                if(suijijilu.length===1){
+                    suijijilu=buttonTexts;
                 }
+                // 随机循环
+                for (let i = 0; i < suijijilu.length; i++) {
+                    if(decodeURIComponent(music.src).includes(suijijilu[i])){
+                        // suijijilu.remove(suijijilu[i]);// 删除当前播放的
+                        suijijilu=suijijilu.filter(item => item !== suijijilu[i]);
+                        break;
+                    }
+                }
+                let num = getRandomInt(0,suijijilu.length-1);// 随机数
+                let obj={};
+                obj.textContent=suijijilu[num];
+                qiege(obj);
+            }else if(moShi===2){
+                // 列表循环
+                for (let i = 0; i < buttonTexts.length; i++) {
+                    if(decodeURIComponent(music.src).includes(buttonTexts[i])){
+                        let obj={};
+                        i=i===buttonTexts.length-1?0:++i;
+                        obj.textContent=buttonTexts[i];
+                        qiege(obj);
+                        break;
+                    }
+                }
+            }else {
+                playMusic();// 单曲循环
             }
         }
+    }
+    /*获取随机数*/
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // 播放模式按钮
+    const undoAltBtn = document.getElementById('undo-alt-btn');// 单曲循环
+    const syncAltBtn = document.getElementById('sync-alt-btn');// 列表循环
+    const randomBtn = document.getElementById('random-btn');// 随机循环
+    /*播放模式*/
+    function boFangMoShi(d){
+        switch (d.id){
+            case "undo-alt-btn":
+                undoAltBtn.style.display = 'none';
+                syncAltBtn.style.display = 'inline-block';
+                moShi=2;
+                break;
+            case "sync-alt-btn":
+                syncAltBtn.style.display = 'none';
+                randomBtn.style.display = 'inline-block';
+                moShi=3;
+                break;
+            case "random-btn":
+            default:
+                undoAltBtn.style.display = 'inline-block';
+                randomBtn.style.display = 'none';
+                moShi=1;
+                break;
+        }
+
     }
 
     /*更新时间显示*/
