@@ -255,7 +255,7 @@ const option = {
 
 ```card
 title: 书签
-logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
+logo: http://lingdu990130556.gitee.io/lingdu/img/logo.png
 link: /bookmark/
 color: rgb(154 219 190 / 44%)
 ```
@@ -303,7 +303,7 @@ color: rgb(154 219 190 / 44%)
 ```card
 title: Java技术指北
 desc: 分享Java技术相关的东西，包括但不限于源码解析、面试宝典、日常问题排查、工作趣文等等。
-logo: http://lingdu_dou.gitee.io/lingdu/img/logo.png
+logo: http://lingdu990130556.gitee.io/lingdu/img/logo.png
 link: https://www.javanorth.cn/
 color: rgb(154 219 190 / 44%)
 ```
@@ -336,7 +336,7 @@ color: rgb(154 219 190 / 44%)
 ```card:json
 {
   "title": "Mr.理",
-  "logo": "http://lingdu_dou.gitee.io/lingdu/img/logo.png",
+  "logo": "http://lingdu990130556.gitee.io/lingdu/img/logo.png",
   "link": "https://itwangxl.gitee.io/",
   "color": "rgb(154 219 190 / 44%)"
 }
@@ -381,7 +381,7 @@ color: rgb(154 219 190 / 44%)
 {
   "title": "原创技术博客大联盟",
   "desc": "欢迎同样写技术博客的你入群，加群请提供博客地址。QQ群:531982415，或者加微信puresmilea，备注“原创技术博客”。",
-  "logo": "http://lingdu_dou.gitee.io/lingdu/img/logo.png",
+  "logo": "http://lingdu990130556.gitee.io/lingdu/img/logo.png",
   "link": "http://techblog.pub/",
   "color": "rgb(154 219 190 / 44%)"
 }
@@ -401,3 +401,27 @@ color: rgb(154 219 190 / 44%)
 ----
 **评论** ~若加载不出可以尝试进入~[版本v2.x GitHub](https://lingdu990130556.github.io/vuepress-lingdu-v2/)
 <CommentService :darkmode="isDarkMode" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

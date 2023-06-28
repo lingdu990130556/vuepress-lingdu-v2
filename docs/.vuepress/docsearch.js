@@ -5,7 +5,7 @@ new Crawler({
     startUrls: [
         // 这是 Algolia 开始抓取网站的初始地址
         // 如果你的网站被分为数个独立部分，你可能需要在此设置多个入口链接
-        'http://lingdu_dou.gitee.io/vuepress-lingdu-v2/',
+        'http://lingdu990130556.gitee.io/vuepress-lingdu-v2/',
     ],
     sitemaps: [
         // 如果你在使用 Sitemap 插件 (如: vuepress-plugin-sitemap2)，你可以提供 Sitemap 链接
@@ -17,7 +17,7 @@ new Crawler({
     ],
     discoveryPatterns: [
         // 这是 Algolia 抓取 URL 的范围
-        'http://lingdu_dou.gitee.io/vuepress-lingdu-v2/**',
+        'http://lingdu990130556.gitee.io/vuepress-lingdu-v2/**',
     ],
     // 爬虫执行的计划时间，可根据文档更新频率设置
     schedule: 'at 02:00 every 1 day',
@@ -27,7 +27,7 @@ new Crawler({
             // 使用适当的名称为索引命名
             indexName: 'lingdu',
             // 索引生效的路径
-            pathsToMatch: ['http://lingdu_dou.gitee.io/vuepress-lingdu-v2/**'],
+            pathsToMatch: ['http://lingdu990130556.gitee.io/vuepress-lingdu-v2/**'],
             // 控制 Algolia 如何抓取你的站点
             recordExtractor: ({ $, helpers }) => {
                 // @vuepress/theme-default 的选项

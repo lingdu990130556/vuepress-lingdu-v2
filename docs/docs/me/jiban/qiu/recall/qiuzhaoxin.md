@@ -9,7 +9,7 @@ date: 2023年6月6日08点51分
 
 
 <div id="background" class="background">
-    <iframe src="http://lingdu_dou.gitee.io/vuepress-lingdu-v2/html/qiuzhaoxin/index.html"></iframe>
+    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/qiuzhaoxin/index.html"></iframe>
 </div>
 
 

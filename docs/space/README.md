@@ -3,7 +3,7 @@ pageClass: space
 ---
 # 空间
 <div class="background">
-    <iframe src="http://lingdu_dou.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>
+    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>
 </div>
 
 <style>

@@ -90,8 +90,8 @@ export const navbarMy: NavbarConfig = [
     },
     {
         text: '版本v2.x', children: [
-            {text: "版本v1.x", link: "http://lingdu_dou.gitee.io/lingdu/"},
-            {text: "版本v2.x Gitee", link: "http://lingdu_dou.gitee.io/vuepress-lingdu-v2/"},
+            {text: "版本v1.x", link: "http://lingdu990130556.gitee.io/lingdu/"},
+            {text: "版本v2.x Gitee", link: "http://lingdu990130556.gitee.io/vuepress-lingdu-v2/"},
             {text: "版本v2.x GitHub", link: "https://lingdu990130556.github.io/vuepress-lingdu-v2/"},
         ]
     },

@@ -399,7 +399,7 @@ var navbarMy = [
   {
     text: "\u7248\u672Cv2.x",
     children: [
-      { text: "\u7248\u672Cv1.x", link: "http://lingdu_dou.gitee.io/lingdu/" },
+      { text: "\u7248\u672Cv1.x", link: "http://lingdu990130556.gitee.io/lingdu/" },
       { text: "\u7248\u672Cv2.x", link: "/" }
     ]
   },

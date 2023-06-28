@@ -6,7 +6,7 @@ export const head: HeadConfig[] = [
     // 添加浏览器图标
     // ["link", {rel: "icon",href: '/img/logo.png', type: 'image/jpg'}],
     // 站点访问统计 百度
-    // http://lingdu_dou.gitee.io/lingdu/
+    // http://lingdu990130556.gitee.io/lingdu/
     [
         'script', {}, `
           var _hmt = _hmt || [];
@@ -18,18 +18,30 @@ export const head: HeadConfig[] = [
           })();
         `
     ],
-    // http://lingdu_dou.gitee.io/vuepress-lingdu-v2/
+    // http://lingdu990130556.gitee.io/vuepress-lingdu-v2/
     [
         'script', {}, `
           var _hmt = _hmt || [];
           (function() {
               var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?fddff21fe87378460c65d52a8ef00b27";
+              hm.src = "https://hm.baidu.com/hm.js?9222123671a98ea25bca43b8fdf06169";
               var s = document.getElementsByTagName("script")[0]; 
               s.parentNode.insertBefore(hm, s);
           })();
         `
     ],
+    // http://lingdu_dou.gitee.io/vuepress-lingdu-v2/
+    // [
+    //     'script', {}, `
+    //       var _hmt = _hmt || [];
+    //       (function() {
+    //           var hm = document.createElement("script");
+    //           hm.src = "https://hm.baidu.com/hm.js?fddff21fe87378460c65d52a8ef00b27";
+    //           var s = document.getElementsByTagName("script")[0];
+    //           s.parentNode.insertBefore(hm, s);
+    //       })();
+    //     `
+    // ],
     // https://lingdu990130556.github.io/vuepress-lingdu-v2/
     [
         'script', {}, `
