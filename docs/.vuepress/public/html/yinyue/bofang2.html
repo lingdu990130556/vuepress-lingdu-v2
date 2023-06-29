@@ -4,17 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <!--不缓存设置-->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+<!--    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">-->
+<!--    <meta http-equiv="Pragma" content="no-cache">-->
+<!--    <meta http-equiv="Expires" content="0">-->
     <link rel="stylesheet" href="style.css?v=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <title style="color: deepskyblue">〇°播放器</title>
-    <style>
-
-
-    </style>
 </head>
 <body>
 <div style="margin: 20px auto; text-align: center;">
@@ -26,13 +22,13 @@
         <!--列表按钮-->
         <button id="music-list-button"><i class="fa fa-list" aria-hidden="true"></i></button>
         <!--上一曲按钮-->
-        <button id="step-backward-btn" onclick=""><i class="fas fa-step-backward"></i></button>
-        <input type="range" id="progressBar" min="0" max="100" value="0"></span>
+        <button id="step-backward-btn" onclick="qiege(this,-1)"><i class="fas fa-step-backward"></i></button>
+        <input style="height: 8px;width: 150px" type="range" id="progressBar" min="0" max="100" value="0"></span>
     <span>
         <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
         <button id="pause-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
         <!--下一曲按钮-->
-        <button id="step-forward-btn" onclick=""><i class="fas fa-step-forward"></i></button>
+        <button id="step-forward-btn" onclick="qiege(this,1)"><i class="fas fa-step-forward"></i></button>
     </span>
 
     <div id="music-list-container">
@@ -47,13 +43,11 @@
         <!-- 添加其他歌曲 -->
     </div>
 
-
-
-    <div id="timeDisplay" style="margin-top: 10px;">
+    <div id="timeDisplay" style="margin-top: 6px;">
         <span>
-            <button id="undo-alt-btn" onclick="boFangMoShi(this)"><i class="fas fa-undo-alt"></i></button><!--单曲循环-->
-            <button id="sync-alt-btn" onclick="boFangMoShi(this)"><i class="fas fa-sync-alt"></i></button><!--列表循环-->
-            <button id="random-btn" onclick="boFangMoShi(this)"><i class="fas fa-random"></i></button><!--随机循环-->
+            <button id="undo-alt-btn" onclick="boFangMoShi(this)" title="单曲循环"><i class="fas fa-undo-alt"></i></button><!--单曲循环-->
+            <button id="sync-alt-btn" onclick="boFangMoShi(this)" title="列表循环"><i class="fas fa-sync-alt"></i></button><!--列表循环-->
+            <button id="random-btn" onclick="boFangMoShi(this)" title="随机循环"><i class="fas fa-random"></i></button><!--随机循环-->
         </span>
         <span style="color: #0bbafa" id="currentTimeDisplay">00:00</span>
         <span style="color: #0bbafa"> / </span>
@@ -71,8 +65,14 @@
 
 
 <script>
+    let name='不能握的手（秋秋）.mp3';// 歌名
+    const gequming=document.getElementById('gequming')
+    gequming.textContent=name;
     // 音乐
     const music = document.getElementById('music');
+    music.src = '../../bgm/'+name;
+    // 设置音量
+    music.volume = 0.8;
     // 进度条
     const progressBar = document.getElementById('progressBar');
     // 显示当前时间
@@ -83,10 +83,8 @@
     const lyricsContainer = document.getElementById('lyrics-container');
     // 歌词行
     const lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
-
     // logo
     const h1 = document.querySelector('h1');
-
     // 播放暂停按钮
     const playBtn = document.getElementById('play-btn');
     const pauseBtn = document.getElementById('pause-btn');
@@ -99,6 +97,7 @@
 
     /*播放音乐*/
     function playMusic() {
+        update();
         music.play();
         setInterval(updateProgressBar, 500);
         setInterval(updateTimeDisplay, 500);
@@ -127,7 +126,7 @@
     let musicListContainer = document.getElementById('music-list-container');
     let buttons = musicListContainer.getElementsByTagName('button');
     // 存放歌曲名称
-    var buttonTexts = [];
+    const buttonTexts = [];
     for (let i = 0; i < buttons.length; i++) {
         let buttonText = buttons[i].textContent;
         buttonTexts.push(buttonText);
@@ -144,38 +143,49 @@
         if (a === 100) {
             pauseMusic();
             if(moShi===3){
-                // 清完后重置
-                if(suijijilu.length===1){
-                    suijijilu=buttonTexts;
-                }
-                // 随机循环
-                for (let i = 0; i < suijijilu.length; i++) {
-                    if(decodeURIComponent(music.src).includes(suijijilu[i])){
-                        // suijijilu.remove(suijijilu[i]);// 删除当前播放的
-                        suijijilu=suijijilu.filter(item => item !== suijijilu[i]);
-                        break;
-                    }
-                }
-                let num = getRandomInt(0,suijijilu.length-1);// 随机数
-                let obj={};
-                obj.textContent=suijijilu[num];
-                qiege(obj);
-            }else if(moShi===2){
-                // 列表循环
-                for (let i = 0; i < buttonTexts.length; i++) {
-                    if(decodeURIComponent(music.src).includes(buttonTexts[i])){
-                        let obj={};
-                        i=i===buttonTexts.length-1?0:++i;
-                        obj.textContent=buttonTexts[i];
-                        qiege(obj);
-                        break;
-                    }
-                }
+                suijiqiege();
+            }else if(moShi===2){// 顺序循环播放
+                shunxuqiege(1);
             }else {
                 playMusic();// 单曲循环
             }
         }
     }
+    /*随机切歌*/
+    function suijiqiege(){
+        // 清完后重置
+        if(suijijilu.length===1){
+            suijijilu=buttonTexts;
+        }
+        // 随机循环
+        for (let i = 0; i < suijijilu.length; i++) {
+            if(decodeURIComponent(music.src).includes(suijijilu[i])){
+                suijijilu=suijijilu.filter(item => item !== suijijilu[i]);// 删除当前播放的
+                break;
+            }
+        }
+        let num = getRandomInt(0,suijijilu.length-1);// 随机数
+        let obj={};
+        obj.textContent=suijijilu[num];
+        qiege(obj);
+    }
+    /*顺序切歌*/
+    function shunxuqiege(j){
+        j=j==null?1:j;// 歌曲下标增减数
+        // 列表循环
+        for (let i = 0; i < buttonTexts.length; i++) {
+            if(decodeURIComponent(music.src).includes(buttonTexts[i])){
+                let obj={};
+                i=i===buttonTexts.length?0:i+j;
+                i=i===-1?buttonTexts.length-1:i;
+                i=i===buttonTexts.length?0:i;
+                obj.textContent=buttonTexts[i];
+                qiege(obj);
+                break;
+            }
+        }
+    }
+
     /*获取随机数*/
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -259,10 +269,12 @@
     }
 
     /**更新当前播放时间和总时长的显示，以及进度条的值*/
-    music.addEventListener("timeupdate", function () {
-        updateTimeDisplay();
-        updateLyrics(this.currentTime);
-    });
+    function update(){
+        music.addEventListener("timeupdate", function () {
+            updateTimeDisplay();
+            updateLyrics(this.currentTime);
+        });
+    }
     /**当进度条的值发生变化时，会计算出当前播放时间，并将其设置为音频元素的 currentTime 属性的值*/
     progressBar.addEventListener("input", function () {
         // 当进度条值发生变化时更新当前播放时间
@@ -273,123 +285,85 @@
     //**************************************************************************************************************
 
     function init() {
-        // 创建 Web Audio API 的上下文
-        let audioContext = new AudioContext();
+        try {
+            // 创建 Web Audio API 的上下文
+            let audioContext = new AudioContext();
+            // 创建 analyser 对象（用于分析音频数据）
+            const analyser = audioContext.createAnalyser();
+            // 将音频节点连接到 analyser 对象
+            const sourceNode = audioContext.createMediaElementSource(music);
+            sourceNode.connect(analyser);
+            // 将 analyser 对象连接到 Web Audio API 上下文
+            analyser.connect(audioContext.destination);
 
-        // 创建 analyser 对象（用于分析音频数据）
-        const analyser = audioContext.createAnalyser();
+            // 设置频率精度和时间精度
+            // analyser.fftSize = 4096;
+            // analyser.fftSize = 2048;
+            analyser.fftSize = 1024;
+            // analyser.fftSize = 512;
+            // analyser.fftSize = 256;
+            // analyser.fftSize = 128;
+            // analyser.fftSize = 64;
+            // analyser.fftSize = 32;
 
-        // 将音频节点连接到 analyser 对象
-        const sourceNode = audioContext.createMediaElementSource(music);
-        sourceNode.connect(analyser);
-
-        // 将 analyser 对象连接到 Web Audio API 上下文
-        analyser.connect(audioContext.destination);
-
-        // 设置频率精度和时间精度
-        // analyser.fftSize = 4096;
-        // analyser.fftSize = 2048;
-        analyser.fftSize = 1024;
-        // analyser.fftSize = 512;
-        // analyser.fftSize = 256;
-        // analyser.fftSize = 128;
-        // analyser.fftSize = 64;
-        // analyser.fftSize = 32;
-
-        // 获取音频数据
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        const s = draw();
-
-        // 绘制音谱图
-        function draw() {
-            // 在下一帧继续绘制
-            requestAnimationFrame(draw);
-            requestAnimationFrame(draw2);
-
-            // 获取音频数据，并绘制音谱图
-            analyser.getByteFrequencyData(dataArray);
-
-            let canvasCtx = canvasElement.getContext("2d");
-            canvasCtx.globalAlpha = 0.5; // 将背景透明度设置为 0.2
-            // canvasCtx.fillStyle = "rgb(11,186,250)";
-            // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
-            canvasCtx.fillStyle = "#ffffff";
-            canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
-
-            const barWidth = (canvasElement.width / bufferLength) * 2.5;
-            let x = 0;
-
-            for (let i = 0; i < bufferLength; i++) {
-                const barHeight = dataArray[i];
-                canvasCtx.globalAlpha = 1; // 将背景透明度设置为 0.2
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barWidth*2},${barWidth/4},${barWidth+50},1)`;
-                canvasCtx.fillStyle = `hsla(${x / 1.5},100%,50%,1)`;
-                canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
-
-                x += barWidth + 1;
+            // 获取音频数据
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            draw();
+            // 绘制音谱图
+            function draw() {
+                // 在下一帧继续绘制
+                requestAnimationFrame(draw);
+                requestAnimationFrame(draw2);
+                // 获取音频数据，并绘制音谱图
+                analyser.getByteFrequencyData(dataArray);
+                let canvasCtx = canvasElement.getContext("2d");
+                canvasCtx.globalAlpha = 0.5; // 将背景透明度设置为 0.2
+                canvasCtx.fillStyle = "#ffffff";
+                canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+                const barWidth = (canvasElement.width / bufferLength) * 2.5;
+                let x = 0;
+                for (let i = 0; i < bufferLength; i++) {
+                    const barHeight = dataArray[i];
+                    canvasCtx.globalAlpha = 1; // 将背景透明度设置为 0.2
+                    canvasCtx.fillStyle = `hsla(${x / 1.5},100%,50%,1)`;
+                    canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
+                    x += barWidth + 1;
+                }
+                return '〇°'
             }
-            return '〇°'
-        }
-
-        // 绘制音谱图 [倒影]
-        function draw2() {
-            // 在下一帧继续绘制
-            // requestAnimationFrame(draw2);
-
-            // 获取音频数据，并绘制音谱图
-            analyser.getByteFrequencyData(dataArray);
-
-            let canvasCtx = canvasElement2.getContext("2d");
-            // canvasCtx.globalAlpha = 0.1; // 将背景透明度设置为 0.2
-            // canvasCtx.fillStyle = "rgb(11,186,250)";
-            // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
-            canvasCtx.fillStyle = "rgb(255,255,255)";
-            canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
-
-            const barWidth = (canvasElement2.width / bufferLength) * 2.5;
-            let x = 0;
-
-            for (let i = 0; i < bufferLength; i++) {
-                const barHeight = dataArray[i];
-                canvasCtx.globalAlpha = 0.21; // 将背景透明度设置为 0.2
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barWidth*2},${barWidth/4},${barWidth+50},1)`;
-                canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
-                canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
-
-                x += barWidth + 1;
+            // 绘制音谱图 [倒影]
+            function draw2() {
+                // 获取音频数据，并绘制音谱图
+                analyser.getByteFrequencyData(dataArray);
+                let canvasCtx = canvasElement2.getContext("2d");
+                canvasCtx.fillStyle = "rgb(255,255,255)";
+                canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
+                const barWidth = (canvasElement2.width / bufferLength) * 2.5;
+                let x = 0;
+                for (let i = 0; i < bufferLength; i++) {
+                    const barHeight = dataArray[i];
+                    canvasCtx.globalAlpha = 0.21; // 将背景透明度设置为 0.2
+                    canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
+                    canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
+                    x += barWidth + 1;
+                }
+                return '〇°'
             }
-            return '〇°'
+        }catch (e){
+            // 忽略错误
         }
     }
 
-
-    // 开始播放音频，并绘制音谱图
-    // draw();
-
+    /**更新宽度*/
     function updateCanvasWidth() {
-        // canvasElement.width = window.innerWidth-50;
         canvasElement.width = window.innerWidth - 20;
         canvasElement2.width = window.innerWidth - 20;
     }
-
     window.addEventListener("resize", updateCanvasWidth);   // 监听窗口大小变化
     updateCanvasWidth();   // 获取初始画布宽度
 
-
-    // 播放 最近的浏览器版本开始采用更加严格的策略来防止页面在没有用户交互的情况下自动播放音视频
-    // const constResize=setTimeout(playMusic, 4000);
-</script>
-
-
-<script>
     let musicListButton = document.getElementById('music-list-button');
-    // let musicListContainer = document.getElementById('music-list-container');
     musicListButton.addEventListener('click', function() {
         if (musicListContainer.style.right === '-50%') {   // 如果音乐列表隐藏，则显示出来
             musicListContainer.style.right = '0%';
@@ -399,17 +373,24 @@
     });
 
     // 切换歌曲
-    function qiege(d){
-        let name=d.textContent;//
-        let gequming=document.getElementById('gequming')
-        gequming.textContent=name;
-        let music=document.getElementById('music')
-        music.src='../../bgm/'+name;
-
-        playMusic()
+    function qiege(d,t){
+        if(t!=null){
+            if(moShi===1||moShi===2){// 单曲和顺序
+                shunxuqiege(t);
+            }else {// 随机
+                suijiqiege();
+            }
+        }else {
+            name=d.textContent;//
+            let gequming=document.getElementById('gequming')
+            gequming.textContent=name;
+            music.src='../../bgm/'+name;
+            playMusic()
+        }
     }
 
 
 </script>
+
 
 </body>
