@@ -22,25 +22,23 @@
     "@vuepress/shared": "2.0.0-beta.63",
     "@vuepress/theme-default": "2.0.0-beta.63",
     "@vuepress/utils": "2.0.0-beta.63",
+    "axios": "^1.4.0",
+    "csv-parser": "^3.0.0",
+    "csvtojson": "^2.0.10",
+    "file-type": "^18.5.0",
     "glob": "^7.2.3",
+    "iconv-lite": "^0.6.3",
+    "jschardet": "^3.0.0",
+    "papaparse": "^5.4.1",
+    "valine": "^1.5.1",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.63",
     "vuepress-plugin-comment2": "2.0.0-beta.228",
     "vuepress-plugin-components": "2.0.0-beta.228",
     "vuepress-plugin-copy-code2": "2.0.0-beta.228",
-    "vuepress-plugin-md-enhance": "2.0.0-beta.228",
-
-
-
-    "axios": "^1.4.0",
-    "csv-parser": "^3.0.0",
-    "csvtojson": "^2.0.10",
-    "file-type": "^18.5.0",
-    "iconv-lite": "^0.6.3",
-    "jschardet": "^3.0.0",
-    "papaparse": "^5.4.1"
+    "vuepress-plugin-md-enhance": "2.0.0-beta.228"
   },
   "dependencies": {
-
+    "leancloud-storage": "^4.15.0"
   }
 }

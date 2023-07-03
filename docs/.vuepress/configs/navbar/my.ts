@@ -57,55 +57,19 @@ export const navbarMy: NavbarConfig = [
         ]
     },
     {
-        text: "相关官方文档",
-        children: [
-            {text: "默认主题配置", link: "https://v2.vuepress.vuejs.org/zh/"},
-            {text: "评论插件", link: "https://vssue.js.org/zh/"},
-            {text: "若依", link: "http://doc.ruoyi.vip/"},
-            // {text: "评论无法使用相关说明", link: "https://www.zhihu.com/question/392358467"},
-        ]
-    },
-    {
-        text: "友情链接",
-        children: [
-            {text: "汉格瑞", link: "http://linchenggu.gitee.io/blog/"},
-            {text: "Mr.理", link: "https://itwangxl.gitee.io/"},
-            {text: "阿虚同学的储物间", link: "https://axutongxue.com/"},
-            {text: "zhoukaishun", link: "https://zhoukaishun.gitee.io/"},
-            {text: "TiAmo🚶", link: "https://www.yuque.com/tiamo-f7tfy/xr139y/id1u7g"},
-            {text: "一枚前端程序媛的blog", link: "https://panjingyi.top/"},
-            {text: "yyshino", link: "https://v-blog.yyshino.top/"},
-            {text: " _鹅不食草_", link: "https://haveyuan.github.io/"},
-            {text: "山月行", link: "https://shanyue.tech/"},
-            {text: "程序员导航", link: "https://cxy521.com/index.html"},
-            {text: "开源小分队", link: "https://sourceteam.gitee.io/blog/"},
-            {text: "前端实验室", link: "https://frontlab.gitee.io/blog/"},
-            {text: "Java技术指北", link: "https://www.javanorth.cn/"},
-            {text: "python技术", link: "http://www.justdopython.com/"},
-            {text: "技术博客联盟", link: "http://techblog.pub/"},
-            {text: "spring boot中文导航", link: "http://springboot.fun/"},
-            {text: "spring cloud中文导航", link: "http://springcloud.fun/"},
-            {text: "NiFi中文文档", link: "https://nifichina.gitee.io/"},
-        ]
-    },
-    {
         text: '版本v2.x', children: [
             {text: "版本v1.x", link: "http://lingdu990130556.gitee.io/lingdu/"},
             {text: "版本v2.x Gitee", link: "http://lingdu990130556.gitee.io/vuepress-lingdu-v2/"},
             {text: "版本v2.x GitHub", link: "https://lingdu990130556.github.io/vuepress-lingdu-v2/"},
         ]
     },
-    {
-        text: '站点统计', children: [
-            {text: "版本v1.x", link: "/statstics/README1.md"},
-            {text: "版本v2.x Gitee", link: "/statstics/README.md"},
-            // {text: "版本v2.x GitHub", link: "/statstics/"},
-        ]
-    },
-    {text: '空间', link: '/space/'},
-    {text: '青春日记', link: '/space/qzone/日志.md'},
+    {text: '统计', link: '/statstics/'},
+    {text: '友链', link: '/plugin/yl/youlian.md'},
     {text: "留言板", link: "/plugin/留言板.md"},
-    {text: "我", link: "/docs/me/"},
-    {text: "GitHub源码", link: "https://github.com/lingdu990130556/vuepress-lingdu-v2/"},
+    {text: "关于", link: "/docs/me/"},
+    {text: "源码", children:[
+            {text: "Gitee", link: "https://gitee.com/lingdu990130556/vuepress-lingdu-v2"},
+            {text: "GitHub", link: "https://github.com/lingdu990130556/vuepress-lingdu-v2/"},
+        ]},
 
 ]

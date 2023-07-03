@@ -1,0 +1,288 @@
+# 博客圈〇°
+
+## 友链
+
+
+<SiteInfo
+name="Hungry's Blog"
+desc="记录， 成为更好的自己。"
+url="http://linchenggu.gitee.io/blog/"
+logo="http://linchenggu.gitee.io/blog/avatar.jpg"
+repo="https://gitee.com/linchenggu/blog"
+preview="http://linchenggu.gitee.io/blog/avatar.jpg"
+/>
+
+<SiteInfo
+name="〇°"
+desc="今天快乐"
+url="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/"
+logo="http://lingdu990130556.gitee.io/lingdu/img/logo.png"
+repo="https://gitee.com/lingdu990130556/vuepress-lingdu-v2"
+preview="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/1.jpg"
+/>
+
+
+```card
+title: 书签
+logo: http://lingdu990130556.gitee.io/lingdu/img/logo.png
+link: /bookmark/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: Java 全栈知识体系
+logo: https://pdai.tech/images/index-read.gif
+link: https://pdai.tech/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: Markdown 增强
+desc: 为 VuePress2 提供更多 Markdown 增强功能
+logo: https://plugin-md-enhance.vuejs.press/logo.svg
+link: https://plugin-md-enhance.vuejs.press/zh/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: RuoYi
+desc: 使用若依快速构建web应用程序
+logo: http://doc.ruoyi.vip/images/logo.png
+link: http://doc.ruoyi.vip/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: VuePress
+desc: Vue 驱动的静态网站生成器
+logo: https://v2.vuepress.vuejs.org/images/hero.png
+link: https://v2.vuepress.vuejs.org/zh/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: 二丫讲梵
+desc: 坐而言不如起而行
+logo: https://wiki.eryajf.net/img/dengxia.gif
+link: https://wiki.eryajf.net/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: 后来的我们
+desc: 
+logo: https://zyj_yida.gitee.io/source/img/ico/logo.png
+link: https://zhangyujie.top/blog/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: Java技术指北
+desc: 分享Java技术相关的东西，包括但不限于源码解析、面试宝典、日常问题排查、工作趣文等等。
+logo: http://lingdu990130556.gitee.io/lingdu/img/logo.png
+link: https://www.javanorth.cn/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: 汉格瑞
+desc: Hungry's Blog 记录， 成为更好的自己。
+logo: http://linchenggu.gitee.io/blog/avatar.jpg
+link: http://linchenggu.gitee.io/blog/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: zhoukaishun
+desc: 群山听懂我悲欢
+logo: https://zhoukaishun.gitee.io/images/catAndDog.jpg
+link: https://zhoukaishun.gitee.io/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: TiAmo🚶
+desc: Java面试题
+logo: https://cdn.nlark.com/yuque/0/2021/jpeg/anonymous/1624540739642-76935098-3a9f-42f3-b643-8767a9e4a1ab.jpeg?x-oss-process=image%2Fresize%2Cm_fill%2Cw_328%2Ch_328%2Fformat%2Cpng
+link: https://www.yuque.com/tiamo-f7tfy/xr139y/id1u7g
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: yyshino
+desc: 放开些大胆的记录下来 人活着总得留下点什么
+logo: https://shinoimg.yyshino.top/img/avatar.png
+link: https://v-blog.yyshino.top/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: _鹅不食草_
+desc: 就老去吧，孤独别醒来
+logo: https://haveyuan.github.io/head.png
+link: https://haveyuan.github.io/
+color: rgb(154 219 190 / 44%)
+```
+```card
+title: 山月行
+desc: 关于平常工作中在前端，后端以及运维中遇到问题的一些文章总结。以后也会做系列文章进行输出，如前端高级进阶系列，个人服务器指南系列。
+logo: https://shanyue.tech/favicon.ico
+link: https://shanyue.tech/
+color: rgb(154 219 190 / 44%)
+```
+
+```card:json
+{
+  "title": "一枚前端程序媛的blog",
+  "desc": "小飞侠Pan",
+  "logo": "https://panjingyi.top/img/logo.jpg",
+  "link": "https://panjingyi.top/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "Mr.理",
+  "logo": "http://lingdu990130556.gitee.io/lingdu/img/logo.png",
+  "link": "https://itwangxl.gitee.io/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "静水深流",
+  "desc": "为梦想而年轻，为年轻而坚定",
+  "logo": "https://slbblog.oss-cn-beijing.aliyuncs.com/head.jpeg",
+  "link": "https://slbyml.github.io/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "程序员导航",
+  "desc": "程序员一站式导航",
+  "logo": "https://cxy521.com/static/img/logo.png",
+  "link": "https://cxy521.com/index.html",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "Mr.Hope",
+  "desc": "Where there is light, there is hope",
+  "logo": "https://mrhope.site/logo.svg",
+  "link": "https://mrhope.site",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "Spring Cloud 中文索引",
+  "desc": "Spring Cloud 中文索引",
+  "logo": "http://springcloud.fun/img/favicon.png",
+  "link": "http://springcloud.fun/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "spring boot中文导航",
+  "desc": "spring boot中文导航",
+  "logo": "http://springboot.fun/img/favicon.png",
+  "link": "http://springboot.fun/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "NiFi中文文档",
+  "desc": "NiFi中文文档",
+  "logo": "https://nifichina.gitee.io/logo.png",
+  "link": "https://nifichina.gitee.io/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "原创技术博客大联盟",
+  "desc": "欢迎同样写技术博客的你入群，加群请提供博客地址。QQ群:531982415，或者加微信puresmilea，备注“原创技术博客”。",
+  "logo": "http://lingdu990130556.gitee.io/lingdu/img/logo.png",
+  "link": "http://techblog.pub/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "阿虚同学",
+  "desc": "阿虚同学的储物间",
+  "logo": "https://pic.rmb.bdstatic.com/bjh/cf893a875aa0bbdf8add1dc58a9c1c4d.png",
+  "link": "https://axutongxue.com/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+```card:json
+{
+  "title": "魏无羡",
+  "desc": "我手里拿着刀，没法抱你，我放下刀，没法保护你！",
+  "logo": "http://dodo.ipyingshe.com/files/downloads/Joe/tu/avata-1.jpg",
+  "link": "http://dodo.ipyingshe.com/",
+  "color": "rgb(154 219 190 / 44%)"
+}
+```
+
+
+## 友链格式参考
+
+:::tip 友链参数：
+
+<CodeGroup>
+  <CodeGroupItem title="json格式" active>
+
+```json
+{
+  "title": "标题",
+  "desc": "描述",
+  "logo": "头像链接",
+  "link": "主页地址",
+  "color": "颜色（默认rgb(154 219 190 / 44%)）"
+}
+```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="文本格式">
+
+```文本格式
+title: 标题
+desc: 描述
+logo: 头像链接
+link: 主页链接
+color: 颜色默认 rgb(154 219 190 / 44%)
+```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="html标签格式">
+
+```html
+<SiteInfo
+name="标题"
+desc="描述"
+url="主页链接"
+logo="logo"
+repo="代码地址（非必填）"
+preview="预览地址"
+/>
+```
+
+  </CodeGroupItem>
+</CodeGroup>
+
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

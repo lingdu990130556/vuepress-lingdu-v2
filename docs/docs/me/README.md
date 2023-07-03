@@ -76,8 +76,8 @@ date: 2023年2月4日10点47分
 |网站|网名|网址|
 |:-:|:-:|:-:|
 |CSDN|零〇°豆|[https://blog.csdn.net/lingdu_dou](https://blog.csdn.net/lingdu_dou)|
-|Gitee|零〇°度|[https://gitee.com/lingdu_dou](https://gitee.com/lingdu_dou)|
-|Gitee博客|〇°|[https://lingdu_dou.gitee.io/lingdu/](https://lingdu_dou.gitee.io/lingdu/)|
+|Gitee|零〇°度|[https://gitee.com/lingdu990130556](https://gitee.com/lingdu990130556)|
+|Gitee博客|〇°|[http://lingdu990130556.gitee.io/vuepress-lingdu-v2/](http://lingdu990130556.gitee.io/vuepress-lingdu-v2/)|
 |GitHub|零度|[https://github.com/lingdu990130556](https://github.com/lingdu990130556)|
 |博客园|了赢零的雾度|[https://www.cnblogs.com/990130556-lingdu/](https://www.cnblogs.com/990130556-lingdu/)|
 |知乎|零度|[https://www.zhihu.com/people/ling-du-47-17-93](https://www.zhihu.com/people/ling-du-47-17-93)|

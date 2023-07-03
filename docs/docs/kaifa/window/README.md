@@ -1,5 +1,26 @@
 # window
 
+
+## tracert
+
+在Windows中，你可以使用`tracert`命令来执行网络跟踪（类似于Unix/Linux下的`traceroute`命令）。
+
+以下是在Windows上使用`tracert`命令执行网络跟踪的示例：
+
+```
+tracert <目标主机或IP地址>
+```
+
+例如，要追踪到目标主机www.example.com的网络路径，你可以在命令提示符（Command Prompt）中执行以下命令：
+
+```
+tracert www.example.com
+```
+
+命令执行后，会显示从源主机到目标主机的网络路径，并输出每个路由节点的 IP 地址和往返时间（Round-Trip Time，RTT）。`tracert`命令还提供了一些可选参数，你可以通过`tracert /?`命令查看更多使用说明。
+
+请注意，具体的命令参数和输出格式可能因Windows版本的不同而有所差异。如果`tracert`命令在你的系统中不可用或无法正常工作，可能需要检查系统设置或联系网络管理员以获取支持。
+
 ## Mysql 10055 错误原因及解决方案 (错误提示：Can't connect to MySQL
 
 

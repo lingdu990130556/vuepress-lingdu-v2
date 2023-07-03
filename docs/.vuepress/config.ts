@@ -35,10 +35,17 @@ import { commentPlugin } from "vuepress-plugin-comment2";
     "vuepress-plugin-copy-code2": "^2.0.0-beta.62"
  */
 
+let newHead=head;
+if (process.env.NODE_ENV === 'production') {// 打包配置
+
+}else {// 测试环境配置
+    // 测试环境排除百度统计配置
+    newHead=newHead.filter(item => item !== newHead[0]&&item !== newHead[1]&&item !== newHead[2]);// 删除当前播放的
+}
 
 export default ({
     lang: 'zh-CN',// 设置默认语言为中文
-    head,
+    newHead,
     description: 'vuepress-lingdu-v2',
     // 目的地
     dest: './dist',
@@ -72,9 +79,11 @@ export default ({
             },
         }),
 
-        // registerComponentsPlugin({
-        //     componentsDir: path.resolve(__dirname, './components'),
-        // }),
+        registerComponentsPlugin({
+            // componentsDir: path.resolve(__dirname, './layouts'),
+            componentsDir: path.resolve(__dirname, './components'),
+            // componentsPatterns: [path.resolve(__dirname, './layouts'),path.resolve(__dirname, './components')]
+        }),
 
         // markdown 增强
         mdEnhancePlugin({
@@ -170,10 +179,10 @@ export default ({
         // 我们会将它作为一个 GitHub 仓库 源码地址
         // repo: 'vuejs/vuepress',
         // 你也可以直接将它设置为一个 URL
-        repo: 'https://gitee.com/lingdu990130556/vuepress-lingdu-v2',
+        // repo: 'https://gitee.com/lingdu990130556/vuepress-lingdu-v2',
         // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
         // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-        repoLabel: 'Gitee源码',
+        // repoLabel: 'Gitee',
         // 导航栏
         navbar: navbarMy,
         // 侧边栏

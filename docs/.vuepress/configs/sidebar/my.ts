@@ -21,7 +21,6 @@ export const sidebarMy: SidebarConfig = {
         {text: 'http',collapsible: true, children: getChildren('/docs/kaifa/http/')},
         {text: 'idea',collapsible: true, children: getChildren('/docs/kaifa/idea/')},
         {text: 'java',collapsible: true, children: getChildren('/docs/kaifa/java/')},
-        // {text: 'kaika',collapsible: true, children: getChildren('/docs/kaifa/kaika/')},
         {text: '消息中间件kafka',collapsible: true, children: getChildren('/docs/kaifa/kafka/')},
         {text: 'linux',collapsible: true, children: getChildren('/docs/kaifa/linux/')},
         {text: 'maven',collapsible: true, children: getChildren('/docs/kaifa/maven/')},
@@ -40,9 +39,9 @@ export const sidebarMy: SidebarConfig = {
         {text: 'zookeeper',collapsible: true, children: getChildren('/docs/kaifa/zookeeper/')},
         {text: 'Echarts',collapsible: true, children: getChildren('/docs/kaifa/Echarts/')},
     ],
-    '/space/qzone/':[{text:'青春日记',children:getChildren('/space/qzone/')}],
     '/statstics/':[{text:'站点统计',children:getChildren('/statstics/')}],
-    // '/docs/me/':[{text:'关于我',children:['/docs/me/README.md']}],
+    '/plugin/yl/':[{text:'友情链接',children:getChildren('/plugin/yl/')}],
+    '/docs/me/':[{text:'青春日记',children:getChildren('/docs/me/space/qzone/')}],
 
 
 
