@@ -14,6 +14,7 @@
 export default {
   name: 'Valine',
   async mounted() {
+    // 动态导入
     const Valine = () => import('valine');
     // 初始化Valine
     const valineConfig = {
