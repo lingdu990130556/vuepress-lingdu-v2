@@ -36,9 +36,11 @@ import { commentPlugin } from "vuepress-plugin-comment2";
  */
 
 let newHead=head;
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'production') {// 打包配置
-
+    console.log('打包')
 }else {// 测试环境配置
+    console.log('本地运行')
     // 测试环境排除百度统计配置
     newHead=newHead.filter(item => item !== newHead[0]&&item !== newHead[1]&&item !== newHead[2]);// 删除当前播放的
 }
