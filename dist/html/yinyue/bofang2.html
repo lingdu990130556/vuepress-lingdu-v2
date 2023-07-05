@@ -128,6 +128,7 @@
         // 隐藏暂停按钮、显示播放按钮
         pauseBtn.style.display = 'none';
         playBtn.style.display = 'inline-block';
+        setTimeout(stopDrawing, 600);
     }
 
 
@@ -293,17 +294,21 @@
 
     //**************************************************************************************************************
 
+    let animationId = null;
+    let animationId2 = null;
+
+    // 创建 Web Audio API 的上下文
+    let audioContext = new AudioContext();
+    // 创建 analyser 对象（用于分析音频数据）
+    const analyser = audioContext.createAnalyser();
+    // 将音频节点连接到 analyser 对象
+    const sourceNode = audioContext.createMediaElementSource(music);
+    sourceNode.connect(analyser);
+    // 将 analyser 对象连接到 Web Audio API 上下文
+    analyser.connect(audioContext.destination);
     function init() {
         try {
-            // 创建 Web Audio API 的上下文
-            let audioContext = new AudioContext();
-            // 创建 analyser 对象（用于分析音频数据）
-            const analyser = audioContext.createAnalyser();
-            // 将音频节点连接到 analyser 对象
-            const sourceNode = audioContext.createMediaElementSource(music);
-            sourceNode.connect(analyser);
-            // 将 analyser 对象连接到 Web Audio API 上下文
-            analyser.connect(audioContext.destination);
+
 
             // 设置频率精度和时间精度
             // analyser.fftSize = 4096;
@@ -322,47 +327,80 @@
             // 绘制音谱图
             function draw() {
                 // 在下一帧继续绘制
-                requestAnimationFrame(draw);
-                requestAnimationFrame(draw2);
+                animationId = requestAnimationFrame(draw);
+                animationId2 = requestAnimationFrame(draw2);
+
                 // 获取音频数据，并绘制音谱图
                 analyser.getByteFrequencyData(dataArray);
                 let canvasCtx = canvasElement.getContext("2d");
-                canvasCtx.globalAlpha = 0.5; // 将背景透明度设置为 0.2
-                canvasCtx.fillStyle = "#ffffff";
+                canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height); // 清除画布内容
+                canvasCtx.globalAlpha = 0.5;
+                canvasCtx.fillStyle = "rgba(255, 255, 255, 0)";
                 canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+
                 const barWidth = (canvasElement.width / bufferLength) * 2.5;
                 let x = 0;
+
                 for (let i = 0; i < bufferLength; i++) {
                     const barHeight = dataArray[i];
-                    canvasCtx.globalAlpha = 1; // 将背景透明度设置为 0.2
+                    canvasCtx.globalAlpha = 1;
                     canvasCtx.fillStyle = `hsla(${x / 1.5},100%,50%,1)`;
                     canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
                     x += barWidth + 1;
                 }
-                return '〇°'
+
+                return '〇°';
             }
+
             // 绘制音谱图 [倒影]
             function draw2() {
                 // 获取音频数据，并绘制音谱图
                 analyser.getByteFrequencyData(dataArray);
                 let canvasCtx = canvasElement2.getContext("2d");
-                canvasCtx.fillStyle = "rgb(255,255,255)";
+                canvasCtx.clearRect(0, 0, canvasElement2.width, canvasElement2.height); // 清除画布内容
+                canvasCtx.fillStyle = "rgba(255,255,255,0)";
                 canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
+
                 const barWidth = (canvasElement2.width / bufferLength) * 2.5;
                 let x = 0;
+
                 for (let i = 0; i < bufferLength; i++) {
                     const barHeight = dataArray[i];
-                    canvasCtx.globalAlpha = 0.21; // 将背景透明度设置为 0.2
+                    canvasCtx.globalAlpha = 0.21;
                     canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
                     canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
                     x += barWidth + 1;
                 }
-                return '〇°'
+
+                return '〇°';
             }
+
         }catch (e){
             // 忽略错误
         }
     }
+    // 停止绘制
+    function stopDrawing() {
+        cancelAnimationFrame(animationId);
+        cancelAnimationFrame(animationId2);
+        // 清除画布内容
+        // let canvasCtx = canvasElement.getContext("2d");
+        // canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+        //
+        // let canvasCtx2 = canvasElement2.getContext("2d");
+        // canvasCtx2.clearRect(0, 0, canvasElement2.width, canvasElement2.height);
+        // 重置 animationId 和 animationId2
+        animationId = null;
+        animationId2 = null;
+    }
+    // 判断页面是否右移至窗口外的函数
+    function checkIfPageShifted() {
+        if (window.pageXOffset >= document.documentElement.clientWidth) {
+            stopDrawing();
+        }
+    }
+    // 监听滚动事件
+    window.addEventListener('scroll', checkIfPageShifted);
 
     /**更新宽度*/
     function updateCanvasWidth() {

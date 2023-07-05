@@ -3,7 +3,7 @@ pageClass: 首页
 home: true
 heroImage: /img/logo.png
 bgImage: /img/1.jpg
-heroText: ⭕°
+heroText: 〇°
 tagline: 今天快乐
 head:
 - ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]
@@ -14,7 +14,7 @@ head:
 [//]: # (访问者地域分布图)
 <!-- #region demo -->
 
-::: echarts 访问者地域分布图
+::: echarts
 
 ```js
 // 统计地域信息
@@ -41,22 +41,30 @@ for (const area in areaData) {
         name: area
     });
 }
-
+var keys = Object.keys(areaData);
+var halfLength = Math.ceil(keys.length / 2);
 // 指定图表的配置项和数据
 const option = {
-    // title: {
-    //     text: '访问者地域分布图',
-    //     x: 'center'
-    // },
+    title: {
+        text: '访问者地域分布图',
+        x: 'center'
+    },
     tooltip: {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"
     },
-    legend: {
-        // orient: 'vertical',
-        // left: 'left',
-        data: Object.keys(areaData)
-    },
+    legend: [
+        {
+            orient: 'vertical',
+            left: '10%',
+            data: keys.slice(0, halfLength+1)
+        },
+        {
+            orient: 'vertical',
+            right: '10%',
+            data: keys.slice(halfLength+1)
+        }
+    ],
     series: [
         {
             name: '地域分布',
@@ -253,18 +261,9 @@ const option = {
 
 
 
-[//]: # (<div id="canvas-container"></div>)
-
-
 <div class="background" id="shizhong">
     <iframe src="https://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/shizhong/shizhong.html"></iframe>
 </div>
-
-
-
-
-
-
 
 
 

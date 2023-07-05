@@ -6,6 +6,12 @@ pageClass: liuyanban-page-class
 ---
  */
 
+
+/*使背景透明*/
+iframe {
+  background-color: transparent;
+}
+
 .站点统计{
   --content-width: 100%;
 }
@@ -121,6 +127,33 @@ pageClass: liuyanban-page-class
       overflow: hidden;
     }
   }
+  #main-title {
+    animation-name: color-transition;
+    animation-duration: 3s;
+    animation-iteration-count: infinite; /* 可选，控制动画循环次数 */
+    //text-shadow: 9px 9px 9px rgba(0, 0, 0, 0.59);/* 阴影 */
+    animation: color-transition 200000ms  infinite;
+    //transform-origin: 49.2901% 50.492%;// 214/569 284/543
+    transform-origin: 50% 50%;// 214/569 284/543
+  }
+  @keyframes color-transition {
+    /* 循环生成 1% 到 100% 的关键帧 */
+    @for $i from 0 through 100 {
+      #{($i - 1)%100}% {
+        //color: interpolate(#76bf09, #0bbafa, $i / 100);
+        color: hsl($i, 100%, 50%);
+        //text-shadow: 9px 9px 9px hsla($i, 100%, 50%,0.5);
+      }
+    }
+    from {
+      transform: rotate(0deg);
+      //text-shadow: 9px 9px 10px rgba(0, 0, 0, 0.5); /* 正向阴影 */
+    }
+    to {
+      transform: rotate(3600000deg);
+      //text-shadow: -9px -9px 10px rgba(0, 0, 0, 0.5); /* 相反方向阴影 */
+    }
+  }
 }
 
 /*自我介绍页独有样式*/
@@ -133,45 +166,6 @@ pageClass: liuyanban-page-class
   .theme-default-content:not(.custom) img {
     max-width: 10%;
   }
-
-  //#我 {
-  //  color: #f2ff82;
-  //  position: center;
-  //}
-
-  ///* 加载背景图 */
-  //background-image: url("/img/1.jpg");
-  //
-  ///* 背景图垂直、水平均居中 */
-  //background-position: center center;
-  ///* 背景图不平铺 */
-  //background-repeat: no-repeat;
-  ///* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  //background-attachment: fixed;
-  ///* 让背景图基于容器大小伸缩 */
-  //background-size: cover;
-  ///* 设置背景颜色，背景图加载过程中会显示背景色 */
-  //background-color: #464646;
-  ///*透明度*/
-  //opacity: 1;
-  //
-  //.sidebar {
-  //  background-color: rgba(255, 255, 255, 0);
-  //}
-  //
-  ///*导航栏*/
-  //.navbar {
-  //  background-color: #9adbbe70;
-  //}
-  //
-  ///*导航栏内容*/
-  //.navbar .links {
-  //  background-color: rgba(154, 219, 190, 0);
-  //}
-  //
-  //.v[data-class=v] .vtime, .v[data-class=v] .vsys {
-  //  color: #584646
-  //}
 
 }
 

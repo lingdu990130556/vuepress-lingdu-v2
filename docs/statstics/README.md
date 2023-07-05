@@ -361,7 +361,8 @@ for (const area in areaData) {
         name: area
     });
 }
-
+var keys = Object.keys(areaData);
+var halfLength = Math.ceil(keys.length / 2);
 // 指定图表的配置项和数据
 const option = {
     title: {
@@ -372,11 +373,18 @@ const option = {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"
     },
-    legend: {
-        orient: 'vertical',
-        left: 'left',
-        data: Object.keys(areaData)
-    },
+    legend: [
+        {
+            orient: 'vertical',
+            left: '10%',
+            data: keys.slice(0, halfLength+1)
+        },
+        {
+            orient: 'vertical',
+            right: '10%',
+            data: keys.slice(halfLength+1)
+        }
+    ],
     series: [
         {
             name: '地域分布',
