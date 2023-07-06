@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- id 将作为查询条件 -->
-    <span id="/vuepress-lingdu-v2/plugin/留言板.html" class="leancloud_visitors" data-flag-title="Your Article Title">
+    <span :id="spanId" class="leancloud_visitors" data-flag-title="Your Article Title">
       <em class="post-meta-item-text">阅读量 </em>
       <i class="leancloud-visitors-count"></i>
     </span>
@@ -13,9 +13,15 @@
 // import Valine from 'valine';
 export default {
   name: 'Valine',
+  data() {
+    return {
+      spanId: null,
+    }
+  },
   async mounted() {
     // 动态导入
     const Valine = () => import('valine');
+    this.spanId=window.location.pathname
     // 初始化Valine
     const valineConfig = {
       el: this.$refs.valineContainer,
@@ -24,7 +30,7 @@ export default {
       appKey: 'S32hNw0vE6Vy1d8s9JIbs9Nt', // your appKey
       notify: true,// 通知
       verify: false,
-      path: window.location.pathname,
+      path: this.spanId,
       visitor: true,// 文章访问量统计。
       avatar: 'mm',
       placeholder: 'write here',

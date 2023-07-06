@@ -3,46 +3,90 @@ import type {SidebarConfig} from '@vuepress/theme-default';
 import {getChildren} from '../../util';
 
 
-// 我的侧边栏配置
-export const sidebarMy: SidebarConfig = {
-    '/docs/basics/': [{text: '基础', children: getChildren('/docs/basics/'),}],
-    '/bookmark/': [{text: '书签', children: getChildren('/bookmark/'),}],
-    '/docs/boke/':[
-        {text: '博客',collapsible: true, children: getChildren('/docs/boke/')},
-        {text: 'markdown',collapsible: true, children: getChildren('/docs/boke/markdown/')},
+const sidebar = {
+    '/本站建设/': [
+        {
+            text: '文档网站建设', children: [
+                {text: '站点统计', children: getChildren('/本站建设/站点统计/')},
+                {text: "vuepresss", children: getChildren("/本站建设/")},
+                {text: "markdown", children: getChildren("/本站建设/markdown/")},
+            ]
+        }
     ],
     // 开发相关
-    '/docs/kaifa/':[
-        {text: '工作流activiti',collapsible: true, children: getChildren('/docs/kaifa/activiti/')},
-        {text: '操作系统',collapsible: true, children: getChildren('/docs/kaifa/basics/')},
-        {text: 'canal',collapsible: true, children: getChildren('/docs/kaifa/canal/')},
-        {text: '数据库',collapsible: true, children: getChildren('/docs/kaifa/db/')},
-        {text: 'docker',collapsible: true, children: getChildren('/docs/kaifa/docker/')},
-        {text: 'http',collapsible: true, children: getChildren('/docs/kaifa/http/')},
-        {text: 'idea',collapsible: true, children: getChildren('/docs/kaifa/idea/')},
-        {text: 'java',collapsible: true, children: getChildren('/docs/kaifa/java/')},
-        {text: '消息中间件kafka',collapsible: true, children: getChildren('/docs/kaifa/kafka/')},
-        {text: 'linux',collapsible: true, children: getChildren('/docs/kaifa/linux/')},
-        {text: 'maven',collapsible: true, children: getChildren('/docs/kaifa/maven/')},
-        {text: '注册、配置中心nacos',collapsible: true, children: getChildren('/docs/kaifa/nacos/')},
-        {text: 'nginx',collapsible: true, children: getChildren('/docs/kaifa/nginx/')},
-        {text: 'nifi',collapsible: true, children: getChildren('/docs/kaifa/nifi/')},
-        {text: 'node',collapsible: true, children: getChildren('/docs/kaifa/node/')},
-        {text: 'ogg',collapsible: true, children: getChildren('/docs/kaifa/ogg/')},
-        {text: 'redis',collapsible: true, children: getChildren('/docs/kaifa/redis/')},
-        {text: 'seata',collapsible: true, children: getChildren('/docs/kaifa/seata/')},
-        {text: '熔断降级sentinel',collapsible: true, children: getChildren('/docs/kaifa/sentinel/')},
-        {text: '链路追踪skywalking',collapsible: true, children: getChildren('/docs/kaifa/skywalking/')},
-        {text: 'vue',collapsible: true, children: getChildren('/docs/kaifa/vue/')},
-        {text: 'webservice',collapsible: true, children: getChildren('/docs/kaifa/webservice/')},
-        {text: 'window',collapsible: true, children: getChildren('/docs/kaifa/window/')},
-        {text: 'zookeeper',collapsible: true, children: getChildren('/docs/kaifa/zookeeper/')},
-        {text: 'Echarts',collapsible: true, children: getChildren('/docs/kaifa/Echarts/')},
+    '/Java周边/': [
+        {
+            text: '基础', children: [
+                {text: "Java", children: getChildren("/Java周边/基础/java/")},
+                {text: "IDEA", children: getChildren("/Java周边/基础/idea/")},
+                {text: "数据库", children: getChildren("/Java周边/基础/db/")},
+                {text: "maven", children: getChildren("/Java周边/基础/maven/")},
+                {text: "node", children: getChildren("/Java周边/基础/node/")},
+                {text: "vue", children: getChildren("/Java周边/基础/vue/")},
+                {text: "Echarts", children: getChildren("/Java周边/基础/echarts/")},
+                {text: "http", children: getChildren("/Java周边/基础/http/")},
+                {text: "webservice", children: getChildren("/Java周边/基础/webservice/")},
+                {text: "activiti", children: getChildren("/Java周边/基础/activiti/")},
+            ]
+        },
+        {
+            text: '第三方插件', children: [
+                {text: "nginx", children: getChildren("/Java周边/第三方插件/nginx/")},
+                {text: "nacos", children: getChildren("/Java周边/第三方插件/nacos/")},
+                {text: "redis", children: getChildren("/Java周边/第三方插件/redis/")},
+                {text: "seata", children: getChildren("/Java周边/第三方插件/seata/")},
+                {text: "sentinel", children: getChildren("/Java周边/第三方插件/sentinel/")},
+                {text: "skywalking", children: getChildren("/Java周边/第三方插件/skywalking/")},
+                {text: "Kafka", children: getChildren("/Java周边/第三方插件/kafka/")},
+                {text: "NiFi", children: getChildren("/Java周边/第三方插件/nifi/")},
+                {text: "OGG", children: getChildren("/Java周边/第三方插件/ogg/")},
+                {text: "Canal", children: getChildren("/Java周边/第三方插件/canal/")},
+                {text: "zookeeper", children: getChildren("/Java周边/第三方插件/zookeeper/")},
+            ]
+        },
+        {
+            text: '系统', children: [
+                {text: "操作系统", children: getChildren("/Java周边/系统/操作系统/操作系统.md")},
+                {text: "Docker", children: getChildren("/Java周边/系统/docker/")},
+                {text: "linux", children: getChildren("/Java周边/系统/linux/")},
+                {text: "Windows", children: getChildren("/Java周边/系统/windows/")},
+            ]
+        },
+
     ],
-    '/statstics/':[{text:'站点统计',children:getChildren('/statstics/')}],
-    '/plugin/yl/':[{text:'友情链接',children:getChildren('/plugin/yl/')}],
-    '/docs/me/':[{text:'青春日记',children:getChildren('/docs/me/space/qzone/')}],
-
-
+    '/友链/': [{text: '友情链接', children: getChildren('/友链/')}],
+    '/关于/我/': [{text: '青春日记', children: getChildren('/关于/我/空间/QQ空间/')}],
 
 }
+
+/**
+ * 递归设置可折叠
+ * @param obj 递归对象
+ */
+function addCollapsible(obj) {
+    for (const key in obj) {
+        const item = obj[key];
+        if (typeof item === 'object') {
+            item.collapsible = true;
+            addCollapsible(item);
+        }
+    }
+}
+
+// 使所有对象可折叠
+addCollapsible(sidebar);
+// 解决中文文件夹问题
+const encodedObj = {};
+// 只对中文进行URI编码
+for (const key in sidebar) {
+    let encodedKey = encodeURIComponent(key);
+    if (key.includes("/")) {
+        encodedKey = encodedKey.replace(/%2F/g, '/');
+    }
+    encodedObj[encodedKey] = sidebar[key];
+}
+// console.log(encodedObj);
+// 我的侧边栏配置
+export const sidebarMy: SidebarConfig = encodedObj;
+
+
