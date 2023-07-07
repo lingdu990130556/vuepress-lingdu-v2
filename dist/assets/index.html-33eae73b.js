@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7a366f73","path":"/Java%E5%91%A8%E8%BE%B9/%E5%9F%BA%E7%A1%80/webservice/","title":"webservice","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1688630204000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":1}]},"filePathRelative":"Java周边/基础/webservice/README.md"}');export{e as data};

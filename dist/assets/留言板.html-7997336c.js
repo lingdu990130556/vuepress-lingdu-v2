@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-3ba131a6","path":"/%E5%8F%8B%E9%93%BE/%E7%95%99%E8%A8%80%E6%9D%BF.html","title":"留言板","lang":"zh-CN","frontmatter":{"pageClass":"liuyanban-page-class"},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"友链/留言板.md"}');export{a as data};

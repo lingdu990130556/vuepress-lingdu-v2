@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="valine">
     <!-- id 将作为查询条件 -->
     <span :id="spanId" class="leancloud_visitors" data-flag-title="Your Article Title">
       <em class="post-meta-item-text">阅读量 </em>

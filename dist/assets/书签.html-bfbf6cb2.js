@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-13084eaf","path":"/%E5%8F%8B%E9%93%BE/%E4%B9%A6%E7%AD%BE.html","title":"书签","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"友链/书签.md"}');export{t as data};

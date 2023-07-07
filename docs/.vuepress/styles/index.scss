@@ -6,6 +6,13 @@ pageClass: liuyanban-page-class
 ---
  */
 
+@keyframes light {
+  0%{box-shadow: 0 0 4px #f00;}
+  25%{box-shadow: 0 0 16px #0f0;}
+  50%{box-shadow: 0 0 4px #00f;}
+  75%{box-shadow: 0 0 16px #0f0;}
+  100%{box-shadow: 0 0 4px #f00;}
+}
 
 /*使背景透明*/
 iframe {
@@ -14,6 +21,29 @@ iframe {
 
 .站点统计{
   --content-width: 100%;
+}
+.书签{
+  --content-width: 100%;
+  .page-meta,.page-nav,#comment{
+    //width: 50%;
+    //max-width: 740px;;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+.博客圈{
+  --content-width: 100%;
+
+  .vp-site-info{
+    max-width: 300px;
+    //width: calc(20% - 24px);
+  }
+  #友链格式参考,.CodeGroup,.hint-container,.tip,#valine,.page-meta,.page-nav,#comment{
+    //width: 50%;
+    //max-width: 740px;;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
 
@@ -30,6 +60,15 @@ iframe {
   --card-shadow: rgb(11, 186, 250);
   box-shadow: 4px 4px 30px 0 var(--card-shadow) ;
   transform: scale(1.05);
+
+  /*头像呼吸光环和鼠标悬停旋转放大*/
+  .vp-card-logo{
+    animation: light 4s ease-in-out infinite;
+    transition: 0.5s;
+  }
+  .vp-card-logo:hover {
+    transform: scale(1.15) rotate(720deg);
+  }
 }
 
 
@@ -41,11 +80,26 @@ iframe {
   transition: right 0.5s ease-in-out;
 }
 .vp-notice-title{
-  --vp-tc: #0bbafa
+  --vp-tc: rgba(11, 186, 250, 0)
 }
 #btnMove{
   left: -10px;
   position: relative;
+  animation: breathe 4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0% {
+    color: #ff0000; /* 起始颜色 */
+    text-shadow: 0 0 4px rgb(255, 2, 2);
+  }
+  50% {
+    color: #00ff00; /* 中间颜色 */
+    text-shadow: 0 0 16px rgb(2, 255, 2);
+  }
+  100% {
+    color: #0000ff; /* 结束颜色 */
+    text-shadow: 0 0 4px rgb(2, 2, 255);
+  }
 }
 
 
@@ -107,6 +161,12 @@ iframe {
   .hero {
     img {
       height: auto;
+      animation: light 4s ease-in-out infinite;
+      border-radius: 50%; /* 将图片显示为圆形 */
+      transition: 0.5s;
+    }
+    img:hover {
+      transform: scale(1.215) rotate(720deg);
     }
   }
   .background{
@@ -127,12 +187,13 @@ iframe {
       overflow: hidden;
     }
   }
+  //疯狂旋转
   #main-title {
     animation-name: color-transition;
     animation-duration: 3s;
     animation-iteration-count: infinite; /* 可选，控制动画循环次数 */
     //text-shadow: 9px 9px 9px rgba(0, 0, 0, 0.59);/* 阴影 */
-    animation: color-transition 200000ms  infinite;
+    animation: color-transition 2000ms  infinite cubic-bezier(0, 1.44, 1, -0.4);
     //transform-origin: 49.2901% 50.492%;// 214/569 284/543
     transform-origin: 50% 50%;// 214/569 284/543
   }
@@ -150,7 +211,7 @@ iframe {
       //text-shadow: 9px 9px 10px rgba(0, 0, 0, 0.5); /* 正向阴影 */
     }
     to {
-      transform: rotate(3600000deg);
+      transform: rotate(360deg);
       //text-shadow: -9px -9px 10px rgba(0, 0, 0, 0.5); /* 相反方向阴影 */
     }
   }

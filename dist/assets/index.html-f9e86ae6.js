@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-43656184","path":"/%E5%85%B3%E4%BA%8E/%E6%88%91/","title":"我","lang":"zh-CN","frontmatter":{"pageClass":"me","date":"2023年2月4日10点47分"},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"关于/我/README.md"}');export{t as data};

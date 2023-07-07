@@ -67,9 +67,8 @@ export default ({
                 notice: [
                     {
                         path: "/",
-                        title: '<button id="btnMove" style="background-color: transparent;border: none;">〇°</button>',
+                        title: '<button id="btnMove" style="background-color: transparent;border: none;cursor: pointer;">〇°</button>',
                         // content: "Notice Content",// 内容
-                        // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"//music.163.com/outchain/player?type=0&id=5163968960&auto=1&height=430\"></iframe>",
                         content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
                         // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://localhost:8080/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
                         // 全屏显示
