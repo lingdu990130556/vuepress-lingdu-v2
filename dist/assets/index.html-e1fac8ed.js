@@ -1,0 +1,1 @@
+import{_ as t,o as r,c as s,d as e,e as a}from"./app-f1621839.js";const c={},d=e("h1",{id:"redis",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#redis","aria-hidden":"true"},"#"),a(" redis")],-1),n=[d];function o(i,_){return r(),s("div",null,n)}const l=t(c,[["render",o],["__file","index.html.vue"]]);export{l as default};
