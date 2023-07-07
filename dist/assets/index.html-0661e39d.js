@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-50b7ae79","path":"/%E5%85%B3%E4%BA%8E/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/","title":"禅","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"关于/名人名言/README.md"}');export{t as data};

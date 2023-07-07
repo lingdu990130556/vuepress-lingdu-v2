@@ -7,7 +7,7 @@
 <!--    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">-->
 <!--    <meta http-equiv="Pragma" content="no-cache">-->
 <!--    <meta http-equiv="Expires" content="0">-->
-    <link rel="stylesheet" href="style.css?v=1.0">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <title style="color: deepskyblue">〇°播放器</title>
@@ -70,10 +70,11 @@
         <canvas id="my-canvas2" width="400" height="70"></canvas>
     </div>
 
-<!--    <div class="background" id="shizhong">-->
-<!--        <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>-->
-<!--    </div>-->
 </div>
+
+<!--<div class="background" id="shizhong">-->
+<!--    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>-->
+<!--</div>-->
 
 
 <script>
@@ -311,73 +312,73 @@
     // 将 analyser 对象连接到 Web Audio API 上下文
     analyser.connect(audioContext.destination);
     function init() {
+        // 设置频率精度和时间精度
+        // analyser.fftSize = 4096;
+        // analyser.fftSize = 2048;
+        analyser.fftSize = 1024;
+        // analyser.fftSize = 512;
+        // analyser.fftSize = 256;
+        // analyser.fftSize = 128;
+        // analyser.fftSize = 64;
+        // analyser.fftSize = 32;
+
+        // 获取音频数据
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        draw();
+        // 绘制音谱图
+        function draw() {
+            // 在下一帧继续绘制
+            animationId = requestAnimationFrame(draw);
+            animationId2 = requestAnimationFrame(draw2);
+
+            // 获取音频数据，并绘制音谱图
+            analyser.getByteFrequencyData(dataArray);
+            let canvasCtx = canvasElement.getContext("2d");
+            canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height); // 清除画布内容
+            canvasCtx.globalAlpha = 0.5;
+            canvasCtx.fillStyle = "rgba(255, 255, 255, 0)";
+            canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+
+            const barWidth = (canvasElement.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+                canvasCtx.globalAlpha = 1;
+                canvasCtx.fillStyle = `hsla(${x / 1.5},100%,50%,1)`;
+                canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
+                x += barWidth + 1;
+            }
+
+            return '〇°';
+        }
+
+        // 绘制音谱图 [倒影]
+        function draw2() {
+            // 获取音频数据，并绘制音谱图
+            analyser.getByteFrequencyData(dataArray);
+            let canvasCtx = canvasElement2.getContext("2d");
+            canvasCtx.clearRect(0, 0, canvasElement2.width, canvasElement2.height); // 清除画布内容
+            canvasCtx.fillStyle = "rgba(255,255,255,0)";
+            canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
+
+            const barWidth = (canvasElement2.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+                canvasCtx.globalAlpha = 0.21;
+                canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
+                canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
+                x += barWidth + 1;
+            }
+
+            return '〇°';
+        }
         try {
 
 
-            // 设置频率精度和时间精度
-            // analyser.fftSize = 4096;
-            // analyser.fftSize = 2048;
-            analyser.fftSize = 1024;
-            // analyser.fftSize = 512;
-            // analyser.fftSize = 256;
-            // analyser.fftSize = 128;
-            // analyser.fftSize = 64;
-            // analyser.fftSize = 32;
-
-            // 获取音频数据
-            const bufferLength = analyser.frequencyBinCount;
-            const dataArray = new Uint8Array(bufferLength);
-            draw();
-            // 绘制音谱图
-            function draw() {
-                // 在下一帧继续绘制
-                animationId = requestAnimationFrame(draw);
-                animationId2 = requestAnimationFrame(draw2);
-
-                // 获取音频数据，并绘制音谱图
-                analyser.getByteFrequencyData(dataArray);
-                let canvasCtx = canvasElement.getContext("2d");
-                canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height); // 清除画布内容
-                canvasCtx.globalAlpha = 0.5;
-                canvasCtx.fillStyle = "rgba(255, 255, 255, 0)";
-                canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
-
-                const barWidth = (canvasElement.width / bufferLength) * 2.5;
-                let x = 0;
-
-                for (let i = 0; i < bufferLength; i++) {
-                    const barHeight = dataArray[i];
-                    canvasCtx.globalAlpha = 1;
-                    canvasCtx.fillStyle = `hsla(${x / 1.5},100%,50%,1)`;
-                    canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
-                    x += barWidth + 1;
-                }
-
-                return '〇°';
-            }
-
-            // 绘制音谱图 [倒影]
-            function draw2() {
-                // 获取音频数据，并绘制音谱图
-                analyser.getByteFrequencyData(dataArray);
-                let canvasCtx = canvasElement2.getContext("2d");
-                canvasCtx.clearRect(0, 0, canvasElement2.width, canvasElement2.height); // 清除画布内容
-                canvasCtx.fillStyle = "rgba(255,255,255,0)";
-                canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
-
-                const barWidth = (canvasElement2.width / bufferLength) * 2.5;
-                let x = 0;
-
-                for (let i = 0; i < bufferLength; i++) {
-                    const barHeight = dataArray[i];
-                    canvasCtx.globalAlpha = 0.21;
-                    canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
-                    canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
-                    x += barWidth + 1;
-                }
-
-                return '〇°';
-            }
 
         }catch (e){
             // 忽略错误
