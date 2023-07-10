@@ -72,9 +72,9 @@
 
 </div>
 
-<!--<div class="background" id="shizhong">-->
-<!--    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>-->
-<!--</div>-->
+<div class="background" id="shizhong">
+    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>
+</div>
 
 
 <script>
@@ -109,13 +109,17 @@
 
     let activeLineIndex = null;
 
+    let timer_updateProgressBar = null;
+    let timer_updateTimeDisplay = null;
+    let timer_updateLyrics = null;
+
     /*播放音乐*/
     function playMusic() {
         update();
         music.play();
-        setInterval(updateProgressBar, 500);
-        setInterval(updateTimeDisplay, 500);
-        setInterval(updateLyrics, 500);
+        timer_updateProgressBar = setInterval(updateProgressBar, 500);
+        timer_updateTimeDisplay = setInterval(updateTimeDisplay, 500);
+        timer_updateLyrics = setInterval(updateLyrics, 500);
         // 播放音乐时添加类名
         h1.classList.add('rotating');
         // 隐藏播放按钮、显示暂停按钮
@@ -128,6 +132,9 @@
     /*暂停播放*/
     function pauseMusic() {
         music.pause();
+        clearInterval(timer_updateProgressBar);
+        clearInterval(timer_updateTimeDisplay);
+        clearInterval(timer_updateLyrics);
         // 暂停音乐时删除类名
         h1.classList.remove('rotating');
         // 隐藏暂停按钮、显示播放按钮
@@ -303,15 +310,27 @@
     let animationId2 = null;
 
     // 创建 Web Audio API 的上下文
-    let audioContext = new AudioContext();
-    // 创建 analyser 对象（用于分析音频数据）
-    const analyser = audioContext.createAnalyser();
-    // 将音频节点连接到 analyser 对象
-    const sourceNode = audioContext.createMediaElementSource(music);
-    sourceNode.connect(analyser);
-    // 将 analyser 对象连接到 Web Audio API 上下文
-    analyser.connect(audioContext.destination);
+    let audioContext = null;
+    let analyser = null;
+    let sourceNode =null;
+
+        // 在用户点击页面上的按钮时启动 AudioContext
+    function startAudioContext() {
+        if (audioContext === null) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+            // 创建 analyser 对象（用于分析音频数据）
+            analyser = audioContext.createAnalyser();
+            // 将音频节点连接到 analyser 对象
+            sourceNode = audioContext.createMediaElementSource(music);
+            sourceNode.connect(analyser);
+            // 将 analyser 对象连接到 Web Audio API 上下文
+            analyser.connect(audioContext.destination);
+        }
+    }
+
     function init() {
+        startAudioContext();
         // 设置频率精度和时间精度
         // analyser.fftSize = 4096;
         // analyser.fftSize = 2048;
