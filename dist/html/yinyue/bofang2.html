@@ -3,10 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <!--不缓存设置-->
-<!--    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">-->
-<!--    <meta http-equiv="Pragma" content="no-cache">-->
-<!--    <meta http-equiv="Expires" content="0">-->
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -15,9 +11,9 @@
 <body>
 <div style="margin: 20px auto; text-align: center;">
 
-    <h1 style="width: 50px;">〇°</h1>
-    <span id="gequming" style="font-size: 10px">不能握的手（秋秋）.mp3</span><br>
-    <audio id="music" src="../../bgm/不能握的手（秋秋）.mp3"></audio>
+    <h1 id="lingdu_bofangqi" style="width: 50px;cursor: pointer;">〇°</h1>
+    <span id="gequming" style="font-size: 10px;color: #ffef5d;">毛不易 - 像我这样的人</span><br>
+    <audio id="music" src="../../bgm/毛不易 - 像我这样的人.flac"></audio>
     <span>
         <!--列表按钮-->
         <button id="music-list-button"><i class="fa fa-list" aria-hidden="true"></i></button>
@@ -33,21 +29,21 @@
 
     <div id="music-list-container">
         <button class="music-list-button" onclick="qiege(this)">不能握的手（秋秋）.mp3</button>
-        <button class="music-list-button" onclick="qiege(this)">一生所爱.mp3</button>
-<!--        <button class="music-list-button" onclick="qiege(this)">听悲伤的情歌(麦小兜).mp3</button>-->
+        <button class="music-list-button" onclick="qiege(this)">一生所爱 - 卢冠廷.mp3</button>
+        <button class="music-list-button" onclick="qiege(this)">听悲伤的情歌 - 麦小兜.mp3</button>
         <button class="music-list-button" onclick="qiege(this)">圈住你（cover：一口甜）翻唱（淮却）.mp3</button>
         <button class="music-list-button" onclick="qiege(this)">普通disco.mp3</button>
-<!--        <button class="music-list-button" onclick="qiege(this)">生日快乐(松鼠Eunice).mp3</button>-->
-        <button class="music-list-button" onclick="qiege(this)">走马(而羡人间).mp3</button>
-        <button class="music-list-button" onclick="qiege(this)">走马(陈粒).mp3</button>
-        <button class="music-list-button" onclick="qiege(this)">你不是真正的快乐【邓紫琪】.aac</button>
-        <button class="music-list-button" onclick="qiege(this)">周杰伦 - 稻香 [mqms2].flac</button>
-        <button class="music-list-button" onclick="qiege(this)">本兮 - 下雪的季节 [mqms2].flac</button>
-        <button class="music-list-button" onclick="qiege(this)">本兮单小源 - 你在看孤独的风景 [mqms2].flac</button>
+        <button class="music-list-button" onclick="qiege(this)">生日快乐(松鼠Eunice).mp3</button>
+        <button class="music-list-button" onclick="qiege(this)">走马 - 而羡人间.mp3</button>
+        <button class="music-list-button" onclick="qiege(this)">走马 - 陈粒.mp3</button>
+        <button class="music-list-button" onclick="qiege(this)">你不是真正的快乐 - G.E.M. 邓紫棋.aac</button>
+        <button class="music-list-button" onclick="qiege(this)">稻香 - 周杰伦.flac</button>
+        <button class="music-list-button" onclick="qiege(this)">下雪的季节 - 本兮.flac</button>
+        <button class="music-list-button" onclick="qiege(this)">你在看孤独的风景 - 本兮,单小源.flac</button>
         <button class="music-list-button" onclick="qiege(this)">毛不易 - 像我这样的人.flac</button>
-        <button class="music-list-button" onclick="qiege(this)">毛不易 - 呓语.flac</button>
-        <button class="music-list-button" onclick="qiege(this)">陈奕迅 - 好久不见 [mqms2].flac</button>
-        <button class="music-list-button" onclick="qiege(this)">陈奕迅 - 爱情转移 [mqms2].flac</button>
+        <button class="music-list-button" onclick="qiege(this)">呓语 - 毛不易.flac</button>
+        <button class="music-list-button" onclick="qiege(this)">好久不见 - 陈奕迅.flac</button>
+        <button class="music-list-button" onclick="qiege(this)">爱情转移 - 陈奕迅.flac</button>
         <!-- 添加其他歌曲 -->
     </div>
 
@@ -81,7 +77,7 @@
     // let name='不能握的手（秋秋）.mp3';// 歌名
     let name='毛不易 - 像我这样的人.flac';// 歌名
     const gequming=document.getElementById('gequming')
-    gequming.textContent=name;
+    gequming.textContent=name.split('.').slice(0, -1).join('.');
     // 音乐
     const music = document.getElementById('music');
     music.src = '../../bgm/'+name;
@@ -94,9 +90,11 @@
     // 总时长
     const totalTimeDisplay = document.getElementById('totalTimeDisplay');
     // 歌词容器
-    const lyricsContainer = document.getElementById('lyrics-container');
+    let lyricsContainer = document.getElementById('lyrics-container');
     // 歌词行
-    const lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
+    let lyricsLines = null;
+    geci();
+    // let lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
     // logo
     const h1 = document.querySelector('h1');
     // 播放暂停按钮
@@ -453,13 +451,77 @@
             }
         }else {
             name=d.textContent;//
-            let gequming=document.getElementById('gequming')
-            gequming.textContent=name;
+            gequming.textContent=name.split('.').slice(0, -1).join('.');
             music.src='../../bgm/'+name;
-            playMusic()
+            geci();
+            playMusic();
         }
     }
 
+
+    /**
+     * 初始化歌词
+     * @returns {Promise<void>}
+     */
+    async function geci() {
+        function parseLrcFromUrl(url) {
+            return fetch(url)
+                .then(response => response.text())
+                .then(lrc => {
+                    var lines = lrc.split('\n');
+                    var lyrics = [];
+
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i].trim();
+
+                        var match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+                        if (match) {
+                            var minutes = parseInt(match[1]);
+                            var seconds = parseFloat(match[2]);
+                            var time = minutes * 60 + seconds;
+                            var lyricText = match[3];
+
+                            var lyricElement = document.createElement('div');
+                            lyricElement.className = 'lyrics-line';
+                            lyricElement.setAttribute('data-time', time.toFixed(2));
+                            lyricElement.innerText = lyricText;
+
+                            lyrics.push(lyricElement);
+                        }
+                    }
+
+                    return lyrics;
+                });
+        }
+
+        var lrcUrl = '../../bgm/geci/'+name.split('.').slice(0, -1).join('.')+'.lrc';
+        // var lyricsContainer = document.getElementById('lyrics-container');
+
+        // 清空之前生成的内容
+        while (lyricsContainer.firstChild) {
+            lyricsContainer.removeChild(lyricsContainer.firstChild);
+        }
+
+        parseLrcFromUrl(lrcUrl)
+            .then(lyrics => {
+                lyrics.forEach(lyric => {
+                    lyricsContainer.appendChild(lyric);
+                });
+
+                lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
+                // 使用 lyricsLines 进行进一步操作
+            })
+            .catch(error => {
+                console.error('Failed to fetch and parse LRC:', error);
+            });
+    }
+
+
+
+    const lingdu_bofangqi = document.getElementById('lingdu_bofangqi');
+    lingdu_bofangqi.addEventListener('click', function() {
+        window.open('https://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html', '_blank');
+    });
 
 </script>
 

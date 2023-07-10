@@ -70,7 +70,7 @@ body::-webkit-scrollbar {
     /*background-color: rgba(84, 195, 0, 0.25);*/
     text-shadow: 2px 2px 4px rgb(118, 191, 9);
     font-size: 20px;
-    color: #3c9000;
+    color: #e1ffbe;
 }
 
 .lyrics-line.showing {
@@ -82,6 +82,7 @@ body::-webkit-scrollbar {
 }
 
 h1.rotating {
+    cursor: pointer;
     /*animation: rotate 1s linear infinite;*/
     /*生日快乐bpm*/
     /*animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
