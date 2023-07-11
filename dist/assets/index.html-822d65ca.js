@@ -1,1 +1,0 @@
-import{_ as c,o as t,c as r,d as e,e as s}from"./app-e27751eb.js";const a={},n=e("h1",{id:"webservice",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#webservice","aria-hidden":"true"},"#"),s(" webservice")],-1),o=[n];function d(i,_){return t(),r("div",null,o)}const l=c(a,[["render",d],["__file","index.html.vue"]]);export{l as default};
