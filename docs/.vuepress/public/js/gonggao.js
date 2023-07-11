@@ -18,6 +18,14 @@ function resize() {
             myDiv.style.height = h;
         }
     });
+
+    document.addEventListener('click', function(event) {
+        if (!myDiv.contains(event.target)) {
+            // 鼠标点击了<div>之外的位置
+            myDiv.style.right = r;
+            myDiv.style.height = h;
+        }
+    });
 }
 export default resize;
 

@@ -175,8 +175,10 @@ iframe {
     left: 10px;
     //border: none;
     //overflow: hidden;
-    width: 260px;
-    height: 260px;
+    //width: 260px;
+    //height: 260px;
+    width: 12%;
+    padding-bottom: 12%;// 使高度与宽度保持一致
     iframe {
       position: absolute;
       top: 0;

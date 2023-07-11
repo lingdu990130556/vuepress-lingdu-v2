@@ -41,6 +41,16 @@ body {
     border: none; /* 去除 iframe 的边框 */
 }
 
+#container{
+    position: relative;
+}
+#child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);/*垂直居中*/
+}
+
 /*细化滚动条*/
 body::-webkit-scrollbar {
     width: 1px;
@@ -61,7 +71,7 @@ body::-webkit-scrollbar {
 }
 
 .lyrics-line {
-    margin-top: 10px;
+    margin-top: 20px;
     position: absolute;
     left: 0;
     right: 0;
@@ -167,10 +177,11 @@ h1.rotating {
     top: 0;
     right: -50%; /* 初始时隐藏在右侧 */
     width: 50%;
+    max-width: 200px;
     /*height: 100vh;*/
-    height: 60%;
+    height: 80%;
     overflow: auto;
-    background-color: rgb(11, 186, 250);
+    background-color: rgba(11, 186, 250, 0.46);
     transition: right 0.3s ease-in-out;
     z-index: 9999;
 }

@@ -199,6 +199,10 @@ fatal: unable to access 'https://github.com/lingdu990130556/vuepress-lingdu-v2.g
 ```
 这时候可以在控制台单独执行`node git-commit.js`命令提交代码：
 ![](./img/img_10.png)
+
+或者直接在`git-commit.js`中右击，然后点击`运行`
+![](./img/img_12.png)
+
 :::
 
 ## 4. GitHub开启Pages

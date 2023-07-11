@@ -70,7 +70,7 @@ export default ({
                         title: '<button id="btnMove" style="background-color: transparent;border: none;cursor: pointer;">〇°</button>',
                         // content: "Notice Content",// 内容
                         content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"https://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
-                        // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=450 src=\"http://localhost:8080/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
+                        // content: "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=100% height=500 src=\"http://localhost:8080/vuepress-lingdu-v2/html/yinyue/bofang2.html\"></iframe>",
                         // 全屏显示
                         fullscreen: false,
                         // 需要确认才关闭否则延时关闭
