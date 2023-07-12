@@ -179,15 +179,29 @@ h1.rotating {
 #music-list-container {
     position: fixed;
     top: 0;
-    right: -50%; /* 初始时隐藏在右侧 */
+    right: 10%;
     width: 50%;
     max-width: 200px;
-    /*height: 100vh;*/
-    height: 80%;
+    /*height: 80vh;*/
+    height: 70%;
     overflow: auto;
     background-color: rgba(11, 186, 250, 0.46);
-    transition: right 0.3s ease-in-out;
+}
+/*隐藏*/
+.visible0 {
+    opacity: 0;
+    visibility: visible;
+    transition-delay: 0s;
+    z-index: -1;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+/*显示*/
+.visible1 {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
     z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 /*细化滚动条*/
 #music-list-container::-webkit-scrollbar {
@@ -204,6 +218,9 @@ h1.rotating {
 .music-list-button:hover {
     /* 鼠标悬浮状态下的样式 */
     color: black;
+}
+.bofang-name{
+    color: #dc0015;
 }
 
 #music-list-button {

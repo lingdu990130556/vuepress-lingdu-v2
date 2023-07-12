@@ -15,7 +15,7 @@
     <div id="child" style="text-align: center;">
 
         <h1 id="lingdu_bofangqi" style="width: 50px;cursor: pointer;">〇°</h1>
-        <span id="gequming" style="font-size: 10px;color: #ffef5d;">毛不易 - 像我这样的人</span><br>
+        <span id="gequming" style="font-size: clamp(1rem, 3vw, 2rem);color: #ffef5d;">毛不易 - 像我这样的人</span><br>
         <audio id="music" src="../../bgm/毛不易 - 像我这样的人.flac"></audio>
         <span>
         <!--列表按钮-->
@@ -174,16 +174,18 @@
 
     /*暂停播放*/
     function pauseMusic() {
-        music.pause();
-        clearInterval(timer_updateProgressBar);
-        clearInterval(timer_updateTimeDisplay);
-        clearInterval(timer_updateLyrics);
-        // 暂停音乐时删除类名
-        h1.classList.remove('rotating');
-        // 隐藏暂停按钮、显示播放按钮
-        pauseBtn.style.display = 'none';
-        playBtn.style.display = 'inline-block';
-        setTimeout(stopDrawing, 600);
+        if(timer_updateProgressBar!=null){
+            music.pause();
+            clearInterval(timer_updateProgressBar);
+            clearInterval(timer_updateTimeDisplay);
+            clearInterval(timer_updateLyrics);
+            // 暂停音乐时删除类名
+            h1.classList.remove('rotating');
+            // 隐藏暂停按钮、显示播放按钮
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline-block';
+            setTimeout(stopDrawing, 600);
+        }
     }
 
 
@@ -341,7 +343,7 @@
                     // line.style.transition = "transform 0.9s ease-in-out"; // 添加滚动过渡效果
                     line.style.transition = "font-size 0.5s ease-in-out, transform 0.5s ease-in-out"; // 添加过渡效果
                     line.style.transform = `translateY(${-40 * currentLineIndex}px)`;
-                    line.style.fontSize = "25px"; // 设置目标字体大小
+                    line.style.fontSize = "20px"; // 设置目标字体大小
                     // line.style.transition = "font-size 0.7s ease-in-out"; // 添加过渡效果
                     // line.style.fontSize = "22px"; // 设置目标字体大小
                 } else if (i === activeLineIndex) {
@@ -535,17 +537,29 @@
     updateCanvasWidth();   // 获取初始画布宽度
 
     let musicListButton = document.getElementById('music-list-button');
-    musicListButton.addEventListener('click', function (event) {
-        if (musicListContainer.style.right === '-50%') {   // 如果音乐列表隐藏，则显示出来
-            musicListContainer.style.right = '0%';
-        } else {   // 如果音乐列表显示中，则隐藏起来
-            musicListContainer.style.right = '-50%';
+    musicListButton.addEventListener('click', function () {
+        if (musicListContainer.classList.contains('visible0')) {
+            musicListContainer.classList.remove('visible0');
+            musicListContainer.classList.add('visible1');
+        } else {
+            musicListContainer.classList.remove('visible1');
+            musicListContainer.classList.add('visible0');
         }
     });
     document.addEventListener('click', function(event) {
-        if (!musicListButton.contains(event.target)&&!musicListContainer.contains(event.target)) {
+        if (!musicListButton.contains(event.target)&&
+            !musicListContainer.contains(event.target)&&
+            !document.getElementById('step-backward-btn').contains(event.target)&&
+            !document.getElementById('progressBar').contains(event.target)&&
+            !document.getElementById('play-btn').contains(event.target)&&
+            !document.getElementById('pause-btn').contains(event.target)&&
+            !document.getElementById('step-forward-btn').contains(event.target)&&
+            !document.getElementById('undo-alt-btn').contains(event.target)&&
+            !document.getElementById('sync-alt-btn').contains(event.target)&&
+            !document.getElementById('random-btn').contains(event.target)) {
             // 鼠标点击了<div>之外的位置
-            musicListContainer.style.right = '-50%';
+            musicListContainer.classList.add('visible0');
+            musicListContainer.classList.remove('visible1');
         }
     });
 
@@ -559,6 +573,18 @@
                 suijiqiege();
             }
         } else {
+
+            for (let i = 0; i < buttons.length; i++) {
+                let buttonText = buttons[i].textContent;
+                if(buttonText===name){
+                    buttons[i].classList.remove('bofang-name')
+                }
+                if(buttonText===d.textContent){
+                    buttons[i].classList.add('bofang-name')
+                }
+            }
+
+
             name = d.textContent;//
             gequming.textContent = name.split('.').slice(0, -1).join('.');
             music.src = '../../bgm/' + name;
