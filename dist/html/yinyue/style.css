@@ -63,23 +63,26 @@ body::-webkit-scrollbar {
 }
 
 #lyrics-container {
-    height: 72px;
+    height: 50px;
     overflow: hidden;
-    position: relative;
+    /*position: relative;*/
     text-align: center;
 
 }
 
 .lyrics-line {
     margin-top: 20px;
-    position: absolute;
+    position: relative;
+    height: 20px; /* 设置合适的高度 */
+    line-height: 20px; /* 设置与容器高度一致的行高 */
+    /*overflow: hidden;*/
     left: 0;
     right: 0;
     opacity: 0;
     transition: top 0.5s ease-out, opacity 0.5s ease-out;
     /*background-color: rgba(84, 195, 0, 0.25);*/
     text-shadow: 2px 2px 4px rgb(118, 191, 9);
-    font-size: 20px;
+    font-size: 16px;
     color: #e1ffbe;
 }
 
@@ -89,6 +92,7 @@ body::-webkit-scrollbar {
 
 .lyrics-line.active {
     top: 0;
+    opacity: 0.5;
 }
 
 h1.rotating {

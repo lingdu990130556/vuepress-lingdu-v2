@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--禁止缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="style.css">
 
@@ -20,7 +22,7 @@
         <button id="music-list-button"><i class="fa fa-list" aria-hidden="true"></i></button>
             <!--上一曲按钮-->
         <button id="step-backward-btn" onclick="qiege(this,-1)"><i class="fas fa-step-backward"></i></button>
-        <input style="height: 8px;width: 150px" type="range" id="progressBar" min="0" max="100" value="0"></span>
+        <input style="height: 8px;width: 70%;max-width: 450px" type="range" id="progressBar" min="0" max="100" value="0"></span>
         <span>
             <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
             <button id="pause-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
@@ -34,6 +36,8 @@
             <button class="music-list-button" onclick="qiege(this)">时间煮雨 - 郁可唯.mp3</button>
             <br>
             <button class="music-list-button" onclick="qiege(this)">不能握的手（秋秋）.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">阿拉斯加海湾 - 蓝心羽.mp3</button>
             <br>
             <button class="music-list-button" onclick="qiege(this)">一生所爱 - 卢冠廷.mp3</button>
             <br>
@@ -327,13 +331,28 @@
         if (currentLineIndex !== activeLineIndex) {
             for (let i = 0; i < lyricsLines.length; i++) {
                 const line = lyricsLines[i];
+                const distanceToMove = -40 * currentLineIndex;
+                line.style.transition = "transform 0.5s ease-in-out"; // 添加过渡效果
+                line.style.transform = `translateY(${distanceToMove}px)`;
+                line.classList.add('active');
                 if (i === currentLineIndex) {
-                    line.classList.add('active', 'showing');
+                    line.classList.add('showing');
+                    line.classList.remove('active');
+                    // line.style.transition = "transform 0.9s ease-in-out"; // 添加滚动过渡效果
+                    line.style.transition = "font-size 0.5s ease-in-out, transform 0.5s ease-in-out"; // 添加过渡效果
+                    line.style.transform = `translateY(${-40 * currentLineIndex}px)`;
+                    line.style.fontSize = "25px"; // 设置目标字体大小
+                    // line.style.transition = "font-size 0.7s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "22px"; // 设置目标字体大小
                 } else if (i === activeLineIndex) {
                     line.classList.remove('active');
+                    // line.style.transition = "font-size 0.5s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "20px"; // 恢复默认字体大小
                 }
                 if (i !== currentLineIndex) {
                     line.classList.remove('showing');
+                    // line.style.transition = "font-size 0.5s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "20px"; // 恢复默认字体大小
                 }
             }
             activeLineIndex = currentLineIndex;
@@ -504,6 +523,12 @@
         let w = window.innerWidth;
         canvasElement.width = w-1;
         canvasElement2.width = w-1;
+        let h = window.innerHeight;
+        if(h>700){
+            lyricsContainer.style.height=(h-700)+'px';
+        }else {
+            lyricsContainer.style.height='50px';
+        }
     }
 
     window.addEventListener("resize", updateCanvasWidth);   // 监听窗口大小变化
