@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-d7010f20","path":"/%E5%85%B3%E4%BA%8E/%E6%88%91/%E7%BE%81%E7%BB%8A/qiu/","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1688630204000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":1}]},"filePathRelative":"关于/我/羁绊/qiu/README.md"}');export{t as data};
