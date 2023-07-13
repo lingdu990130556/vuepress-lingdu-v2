@@ -11,6 +11,7 @@
     <title style="color: deepskyblue">〇°</title>
 </head>
 <body>
+<button id="fullscreen-button">全屏</button>
 <div id="container ">
     <div id="child" style="text-align: center;">
 
@@ -108,7 +109,55 @@
     <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>
 </div>
 
+<!--全屏逻辑-->
+<script>
+    var fullscreenButton = document.getElementById('fullscreen-button');
 
+    // 检查浏览器是否支持全屏模式
+    if (document.fullscreenEnabled || document.webkitFullscreenEnabled ||
+        document.mozFullScreenEnabled || document.msFullscreenEnabled) {
+        fullscreenButton.style.display = 'block';
+    }
+
+    // 进入全屏模式
+    function enterFullscreen() {
+        var element = document.documentElement;
+
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+
+    // 退出全屏模式
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+
+    fullscreenButton.addEventListener('click', function () {
+        if (document.fullscreenElement || document.webkitFullscreenElement ||
+            document.mozFullScreenElement || document.msFullscreenElement) {
+            exitFullscreen();
+            fullscreenButton.textContent = '全屏';
+        } else {
+            enterFullscreen();
+            fullscreenButton.textContent = '退出全屏';
+        }
+    });
+</script>
 <script>
     // let name='不能握的手（秋秋）.mp3';// 歌名
     let name = localStorage.getItem('name') || '毛不易 - 像我这样的人.flac';// 歌名
@@ -656,7 +705,7 @@
 
     const lingdu_bofangqi = document.getElementById('lingdu_bofangqi');
     lingdu_bofangqi.addEventListener('click', function () {
-        window.open('https://lingdu990130556.gitee.io/vuepress-lingdu-v2/本站建设/插件/音乐播放器.html', '_blank');
+        window.open('/vuepress-lingdu-v2/本站建设/插件/音乐播放器.html', '_blank');
     });
 
 </script>

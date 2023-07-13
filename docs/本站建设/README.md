@@ -17,7 +17,7 @@ sidebarDepth: 4
 ```
 **效果如下**
 <div style="width: 150%;height: 600px;margin-left: -25%">
-  <iframe style="transform: scale(0.80,0.80)" width="100%" height="100%" src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/"></iframe>
+  <iframe style="transform: scale(0.80,0.80)" width="100%" height="100%" src="/vuepress-lingdu-v2/"></iframe>
 </div>
 
 
@@ -51,7 +51,6 @@ module.exports = {
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
-        </script>        
         `
       ]
     ]
