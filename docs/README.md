@@ -261,7 +261,7 @@ const option = {
 
 
 
-<div class="background" id="shizhong">
+<div id="shizhong">
     <iframe src="https://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/shizhong/shizhong.html"></iframe>
 </div>
 

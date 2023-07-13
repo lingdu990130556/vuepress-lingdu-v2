@@ -1,1 +1,0 @@
-import{_ as e,o as t,c,d as n}from"./app-1a0b2d7a.js";const o={},_=n("p",null,"不知道怎么回事， 今年过完年， 每天都在回忆想念， 想联系又害怕打扰， 好像聊天不如从前， 前些年还没这感觉， 应该是意识到时间， 流逝得飞快了些，",-1),s=[_];function r(a,l){return t(),c("div",null,s)}const i=e(o,[["render",r],["__file","index.html.vue"]]);export{i as default};

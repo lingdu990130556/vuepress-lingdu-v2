@@ -5,7 +5,7 @@
 官网地址：[https://cxf.apache.org/download.html](https://cxf.apache.org/download.html)  
 腾讯镜像：[https://mirrors.cloud.tencent.com/apache/cxf/](https://mirrors.cloud.tencent.com/apache/cxf/)  
 清华镜像：[https://mirrors.tuna.tsinghua.edu.cn/apache/cxf/](https://mirrors.tuna.tsinghua.edu.cn/apache/cxf/)  
-[更多镜像地址。。。](/vuepress-lingdu-v2/友链/镜像网站)  
+[更多镜像地址。。。](/vuepress-lingdu-v2/友链/镜像网站.html)  
 测试demo使用的是 apache-cxf-3.5.0.zip 基于java8运行  
 目前已知最新版是基于java11运行的
 

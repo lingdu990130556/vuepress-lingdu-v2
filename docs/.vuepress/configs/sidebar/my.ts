@@ -56,7 +56,12 @@ const sidebar = {
 
     ],
     '/友链/': [{text: '友情链接', children: getChildren('/友链/')}],
-    '/关于/我/': [{text: '青春日记', children: getChildren('/关于/我/空间/QQ空间/')}],
+    '/关于/我/': [
+        {text: '青春日记', children: [
+                {text: '便签', children: getChildren('/关于/我/空间/便签/')},
+                {text: 'QQ空间', children: getChildren('/关于/我/空间/QQ空间/')}
+            ]
+        }],
 
 }
 
