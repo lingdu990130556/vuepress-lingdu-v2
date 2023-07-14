@@ -2,122 +2,172 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--禁止缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!--不缓存设置-->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <link rel="stylesheet" href="style.css?v=1.0">
+    <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <title style="color: deepskyblue">〇°播放器</title>
-    <style>
-        h1.rotating {
-            /*animation: rotate 1s linear infinite;*/
-            /*生日快乐bpm*/
-            animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;
-            /*听悲伤的情歌BPM 60s/80 0.75*/
-            /*animation: rotate 0.749999s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
-            /*color: red;*/
-
-            /* 设置元素相对于父元素定位 */
-            /*position: absolute;*/
-            /* 设置元素最左边为旋转支点 */
-            /*transform-origin: left center;*/
-            /*transform-origin: 49.99999% 50%;// 214/569 284/543*/
-            transform-origin: 49.2901% 50.492%;// 214/569 284/543
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <title style="color: deepskyblue">〇°</title>
 </head>
 <body>
-<div style="margin: 20px auto; text-align: center;">
-    <h1 style="width: 50px;">〇°</h1>
-    <span style="font-size: 10px">生日快乐(松鼠Eunice).mp3</span><br>
-<!--    <span style="font-size: 10px">听悲伤的情歌(麦小兜).mp3</span><br>-->
-    <audio id="music" src="生日快乐(松鼠Eunice).mp3"></audio>
-<!--    <audio id="music" src="/vuepress-lingdu-v2/bgm/听悲伤的情歌(麦小兜).mp3"></audio>-->
-    <span><input type="range" id="progressBar" min="0" max="100" value="0"></span>
-    <span>
+<button id="fullscreen-button">全屏</button>
+<div id="container ">
+    <div id="child" style="text-align: center;">
+
+        <h1 id="lingdu_bofangqi" style="width: 50px;cursor: pointer;">〇°</h1>
+        <span id="gequming" style="font-size: clamp(1rem, 3vw, 2rem);color: #ffef5d;">毛不易 - 像我这样的人</span><br>
+        <audio id="music" src="../../bgm/毛不易 - 像我这样的人.flac"></audio>
+        <span>
+        <!--列表按钮-->
+        <button id="music-list-button"><i class="fa fa-list" aria-hidden="true"></i></button>
+            <!--上一曲按钮-->
+        <button id="step-backward-btn" onclick="qiege(this,-1)"><i class="fas fa-step-backward"></i></button>
+        <input style="height: 8px;width: 60%;max-width: 450px" type="range" id="progressBar" min="0" max="100" value="0"></span>
+        <span>
             <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
             <button id="pause-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
+            <!--下一曲按钮-->
+            <button id="step-forward-btn" onclick="qiege(this,1)"><i class="fas fa-step-forward"></i></button>
         </span>
-    <!--        <button onclick="playMusic()">播放</button>-->
-    <!--        <button onclick="pauseMusic()">暂停</button>-->
 
-    <div id="timeDisplay" style="margin-top: 10px;">
-        <span style="color: #0bbafa" id="currentTimeDisplay">00:00</span>
-        <span style="color: #0bbafa"> / </span>
-        <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
-    </div>
-    <div id="lyrics-container" style="margin-top: 0; padding: 0; border: 0 solid #ccc;">
-        <div class="lyrics-line" data-time="00.80">原唱：yihuik苡慧</div>
-        <div class="lyrics-line" data-time="01.29">作词：钟引泓</div>
-        <div class="lyrics-line" data-time="01.78">作曲：钟引泓</div>
-        <div class="lyrics-line" data-time="02.34">编曲：百川Rebellious</div>
-        <div class="lyrics-line" data-time="02.71">翻唱：松鼠Eunice</div>
-        <div class="lyrics-line" data-time="03.07">美工：松鼠Eunice</div>
-        <div class="lyrics-line" data-time="03.44">贴唱：谁谁</div>
-        <div class="lyrics-line" data-time="03.81"></div>
-        <div class="lyrics-line" data-time="04.30">已经过了12点</div>
-        <div class="lyrics-line" data-time="06.32">所以赶快闭上眼</div>
-        <div class="lyrics-line" data-time="08.59">这是属于你的节</div>
-        <div class="lyrics-line" data-time="10.72">许下属于你的愿</div>
-        <div class="lyrics-line" data-time="12.93">考上梦想的大学</div>
-        <div class="lyrics-line" data-time="15.13">要赚好多好多钱</div>
-        <div class="lyrics-line" data-time="17.22">这三百六十五天</div>
-        <div class="lyrics-line" data-time="19.43">会有人为你思念</div>
-        <div class="lyrics-line" data-time="22.19">不管有没有人在你身边</div>
-        <div class="lyrics-line" data-time="25.98">都不能阻挡今夜的特别</div>
-        <div class="lyrics-line" data-time="30.58">快乐的心情一秒都别忽略</div>
-        <div class="lyrics-line" data-time="34.68">让所有心愿都完美实现</div>
-        <div class="lyrics-line" data-time="43.19">happy birthday to you</div>
-        <div class="lyrics-line" data-time="47.53">happy birthday to you</div>
-        <div class="lyrics-line" data-time="51.87">把所有的遗憾留在旧的一年</div>
-        <div class="lyrics-line" data-time="56.53">希望会出现在明天</div>
-        <div class="lyrics-line" data-time="60.57">祝你生日快乐</div>
-        <div class="lyrics-line" data-time="64.97">祝你生日快乐</div>
-        <div class="lyrics-line" data-time="69.63">在这个瞬间你是唯一主角</div>
-        <div class="lyrics-line" data-time="73.67">祝你生日快乐</div>
-        <div class="lyrics-line" data-time="78.57"></div>
-        <div class="lyrics-line" data-time="80.60">已经过了12点</div>
-        <div class="lyrics-line" data-time="82.75">所以赶快闭上眼</div>
-        <div class="lyrics-line" data-time="84.95">这是属于你的节</div>
-        <div class="lyrics-line" data-time="87.04">许下属于你的愿</div>
-        <div class="lyrics-line" data-time="89.26">融化不安的错觉</div>
-        <div class="lyrics-line" data-time="91.41">镜子里迷人的脸</div>
-        <div class="lyrics-line" data-time="93.61">要和太阳肩并肩</div>
-        <div class="lyrics-line" data-time="95.76">每一天都是晴天</div>
-        <div class="lyrics-line" data-time="98.53">不管有没有人在你身边</div>
-        <div class="lyrics-line" data-time="102.29">都不能阻挡今夜的特别</div>
-        <div class="lyrics-line" data-time="106.91">快乐的心情一秒都别忽略</div>
-        <div class="lyrics-line" data-time="111.08">让所有心愿都完美实现</div>
-        <div class="lyrics-line" data-time="119.53">happy birthday to you</div>
-        <div class="lyrics-line" data-time="123.88">happy birthday to you</div>
-        <div class="lyrics-line" data-time="128.24">把所有的遗憾留在旧的一年</div>
-        <div class="lyrics-line" data-time="132.86">希望会出现在明天</div>
-        <div class="lyrics-line" data-time="136.97">祝你生日快乐</div>
-        <div class="lyrics-line" data-time="141.32">祝你生日快乐</div>
-        <div class="lyrics-line" data-time="146.04">在这个瞬间你是唯一主角</div>
-        <div class="lyrics-line" data-time="150.09">祝你生日快乐</div>
-        <div class="lyrics-line" data-time="154.94"></div>
-        <div style="color: #54c300; font-size: 40px; font-family: '华文隶书', serif" class="lyrics-line"
-             data-time="155.37">
-            生日快乐
-<!--            <a style="color: #00a4ff" href="https://user.qzone.qq.com/1280487827?ADUIN=990130556&ADSESSION=1686160954&ADTAG=CLIENT.QQ.5971_FriendInfo_PersonalInfo.0&ADPUBNO=27303&source=namecardstar">@邱</a>-->
+        <div id="music-list-container">
+            <button class="music-list-button" onclick="qiege(this)">一笑倾城 - 汪苏泷.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">时间煮雨 - 郁可唯.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">不能握的手（秋秋）.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">阿拉斯加海湾 - 蓝心羽.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">一生所爱 - 卢冠廷.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">听悲伤的情歌 - 麦小兜.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">圈住你（cover：一口甜）翻唱（淮却）.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">普通disco.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">生日快乐(松鼠Eunice).mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">走马 - 而羡人间.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">走马 - 陈粒.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">你不是真正的快乐 - G.E.M. 邓紫棋.aac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">稻香 - 周杰伦.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">下雪的季节 - 本兮.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">你在看孤独的风景 - 本兮,单小源.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">毛不易 - 像我这样的人.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">呓语 - 毛不易.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">好久不见 - 陈奕迅.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">爱情转移 - 陈奕迅.flac</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">迟来的情话 - 张家旺.mp3</button>
+            <br>
+            <button class="music-list-button" onclick="qiege(this)">卜卦 - 崔子格.mp3</button>
+            <br>
+            <!-- 添加其他歌曲 -->
         </div>
+
+        <div id="timeDisplay" style="margin-top: 6px;">
+        <span>
+            <button id="undo-alt-btn" onclick="boFangMoShi(this)" title="单曲循环"><i
+                    class="fas fa-undo-alt"></i></button><!--单曲循环-->
+            <button id="sync-alt-btn" onclick="boFangMoShi(this)" title="列表循环"><i
+                    class="fas fa-sync-alt"></i></button><!--列表循环-->
+            <button id="random-btn" onclick="boFangMoShi(this)" title="随机循环"><i class="fas fa-random"></i></button>
+            <!--随机循环-->
+        </span>
+            <span style="color: #0bbafa" id="currentTimeDisplay">00:00</span>
+            <span style="color: #0bbafa"> / </span>
+            <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
+        </div>
+        <!--歌词容器-->
+        <div id="lyrics-container" style="margin-top: 0; padding: 0; border: 0 solid #ccc;">
+
+        </div>
+        <!--音谱效果-->
+        <div>
+            <canvas id="my-canvas" width="400" height="200"></canvas>
+            <div class="rotate">
+                <canvas id="my-canvas2" width="400" height="70"></canvas>
+            </div>
+        </div>
+
     </div>
-    <!--音谱效果-->
-    <canvas id="my-canvas" width="400" height="150"></canvas>
-    <div class="rotate">
-        <canvas id="my-canvas2" width="400" height="70"></canvas>
-    </div>
+
+</div>
+<div class="background" id="shizhong">
+    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>
 </div>
 
-
+<!--全屏逻辑-->
 <script>
+    var fullscreenButton = document.getElementById('fullscreen-button');
+
+    // 检查浏览器是否支持全屏模式
+    if (document.fullscreenEnabled || document.webkitFullscreenEnabled ||
+        document.mozFullScreenEnabled || document.msFullscreenEnabled) {
+        fullscreenButton.style.display = 'block';
+    }
+
+    // 进入全屏模式
+    function enterFullscreen() {
+        var element = document.documentElement;
+
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+
+    // 退出全屏模式
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+
+    fullscreenButton.addEventListener('click', function () {
+        if (document.fullscreenElement || document.webkitFullscreenElement ||
+            document.mozFullScreenElement || document.msFullscreenElement) {
+            exitFullscreen();
+            fullscreenButton.textContent = '全屏';
+        } else {
+            enterFullscreen();
+            fullscreenButton.textContent = '退出全屏';
+        }
+    });
+</script>
+<script>
+    // let name='不能握的手（秋秋）.mp3';// 歌名
+    let name = localStorage.getItem('name') || '毛不易 - 像我这样的人.flac';// 歌名
+    const gequming = document.getElementById('gequming')
+    gequming.textContent = name.split('.').slice(0, -1).join('.');
     // 音乐
     const music = document.getElementById('music');
+    music.src = '../../bgm/' + name;
+    // 设置音量
+    music.volume = 0.8;
     // 进度条
     const progressBar = document.getElementById('progressBar');
     // 显示当前时间
@@ -125,13 +175,23 @@
     // 总时长
     const totalTimeDisplay = document.getElementById('totalTimeDisplay');
     // 歌词容器
-    const lyricsContainer = document.getElementById('lyrics-container');
+    let lyricsContainer = document.getElementById('lyrics-container');
     // 歌词行
-    const lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
-
+    let lyricsLines = null;
+    // 歌词时间偏移量
+    const lyricsConfig={
+        '一生所爱 - 卢冠廷.mp3':10.2,
+        '你不是真正的快乐 - G.E.M. 邓紫棋.aac':4,
+        '听悲伤的情歌 - 麦小兜.mp3':-1.5,
+        '圈住你（cover：一口甜）翻唱（淮却）.mp3':-0.5,
+        '下雪的季节 - 本兮.flac':-0.5,
+        '时间煮雨 - 郁可唯.mp3':1,
+        '不能握的手（秋秋）.mp3':-0.5,
+    }
+    geci();
+    // let lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
     // logo
     const h1 = document.querySelector('h1');
-
     // 播放暂停按钮
     const playBtn = document.getElementById('play-btn');
     const pauseBtn = document.getElementById('pause-btn');
@@ -142,12 +202,17 @@
 
     let activeLineIndex = null;
 
+    let timer_updateProgressBar = null;
+    let timer_updateTimeDisplay = null;
+    let timer_updateLyrics = null;
+
     /*播放音乐*/
     function playMusic() {
+        update();
         music.play();
-        setInterval(updateProgressBar, 500);
-        setInterval(updateTimeDisplay, 500);
-        setInterval(updateLyrics, 500);
+        timer_updateProgressBar = setInterval(updateProgressBar, 500);
+        timer_updateTimeDisplay = setInterval(updateTimeDisplay, 500);
+        timer_updateLyrics = setInterval(updateLyrics, 500);
         // 播放音乐时添加类名
         h1.classList.add('rotating');
         // 隐藏播放按钮、显示暂停按钮
@@ -159,21 +224,126 @@
 
     /*暂停播放*/
     function pauseMusic() {
-        music.pause();
-        // 暂停音乐时删除类名
-        h1.classList.remove('rotating');
-        // 隐藏暂停按钮、显示播放按钮
-        pauseBtn.style.display = 'none';
-        playBtn.style.display = 'inline-block';
+        if(timer_updateProgressBar!=null){
+            music.pause();
+            clearInterval(timer_updateProgressBar);
+            clearInterval(timer_updateTimeDisplay);
+            clearInterval(timer_updateLyrics);
+            // 暂停音乐时删除类名
+            h1.classList.remove('rotating');
+            // 隐藏暂停按钮、显示播放按钮
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline-block';
+            setTimeout(stopDrawing, 600);
+        }
     }
 
+
+    // 获取歌曲信息
+    let musicListContainer = document.getElementById('music-list-container');
+    let buttons = musicListContainer.getElementsByTagName('button');
+    // 存放歌曲名称
+    const buttonTexts = [];
+    for (let i = 0; i < buttons.length; i++) {
+        let buttonText = buttons[i].textContent;
+        buttonTexts.push(buttonText);
+    }
+    // 已随机过的歌曲记录
+    let suijijilu = buttonTexts;
+
+    // 播放模式 1单曲循环2列表循环3随机训话
+    let moShi = 1;
     /*更新进度条*/
     function updateProgressBar() {
         const a = (music.currentTime / music.duration) * 100;
         progressBar.value = a;
         if (a === 100) {
             pauseMusic();
+            if (moShi === 3) {
+                suijiqiege();
+            } else if (moShi === 2) {// 顺序循环播放
+                shunxuqiege(1);
+            } else {
+                playMusic();// 单曲循环
+            }
         }
+    }
+
+    /*随机切歌*/
+    function suijiqiege() {
+        // 清完后重置
+        if (suijijilu.length === 1) {
+            suijijilu = buttonTexts;
+        }
+        // 随机循环
+        for (let i = 0; i < suijijilu.length; i++) {
+            if (decodeURIComponent(music.src).includes(suijijilu[i])) {
+                suijijilu = suijijilu.filter(item => item !== suijijilu[i]);// 删除当前播放的
+                break;
+            }
+        }
+        let num = getRandomInt(0, suijijilu.length - 1);// 随机数
+        let obj = {};
+        obj.textContent = suijijilu[num];
+        qiege(obj);
+    }
+
+    /*顺序切歌*/
+    function shunxuqiege(j) {
+        j = j == null ? 1 : j;// 歌曲下标增减数
+        // 列表循环
+        for (let i = 0; i < buttonTexts.length; i++) {
+            if (decodeURIComponent(music.src).includes(buttonTexts[i])) {
+                let obj = {};
+                i = i === buttonTexts.length ? 0 : i + j;
+                i = i === -1 ? buttonTexts.length - 1 : i;
+                i = i === buttonTexts.length ? 0 : i;
+                obj.textContent = buttonTexts[i];
+                qiege(obj);
+                break;
+            }
+        }
+    }
+
+    /*获取随机数*/
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // 播放模式按钮
+    const undoAltBtn = document.getElementById('undo-alt-btn');// 单曲循环
+    const syncAltBtn = document.getElementById('sync-alt-btn');// 列表循环
+    const randomBtn = document.getElementById('random-btn');// 随机循环
+    if(localStorage.getItem('moShi')){
+        const obj={};
+        obj.id=localStorage.getItem('moShi');
+        boFangMoShi(obj);
+    }
+    /*播放模式*/
+    function boFangMoShi(d) {
+        switch (d.id) {
+            case "undo-alt-btn":
+                undoAltBtn.style.display = 'none';
+                randomBtn.style.display = 'none';
+                syncAltBtn.style.display = 'inline-block';
+                moShi = 2;
+                break;
+            case "sync-alt-btn":
+                syncAltBtn.style.display = 'none';
+                undoAltBtn.style.display = 'none';
+                randomBtn.style.display = 'inline-block';
+                moShi = 3;
+                break;
+            case "random-btn":
+            default:
+                undoAltBtn.style.display = 'inline-block';
+                randomBtn.style.display = 'none';
+                syncAltBtn.style.display = 'none';
+                moShi = 1;
+                break;
+        }
+        // 设置本地缓存变量
+        localStorage.setItem('moShi', d.id);
     }
 
     /*更新时间显示*/
@@ -213,13 +383,28 @@
         if (currentLineIndex !== activeLineIndex) {
             for (let i = 0; i < lyricsLines.length; i++) {
                 const line = lyricsLines[i];
+                const distanceToMove = -40 * currentLineIndex;
+                line.style.transition = "transform 0.5s ease-in-out"; // 添加过渡效果
+                line.style.transform = `translateY(${distanceToMove}px)`;
+                line.classList.add('active');
                 if (i === currentLineIndex) {
-                    line.classList.add('active', 'showing');
+                    line.classList.add('showing');
+                    line.classList.remove('active');
+                    // line.style.transition = "transform 0.9s ease-in-out"; // 添加滚动过渡效果
+                    line.style.transition = "font-size 0.5s ease-in-out, transform 0.5s ease-in-out"; // 添加过渡效果
+                    line.style.transform = `translateY(${-40 * currentLineIndex}px)`;
+                    line.style.fontSize = "20px"; // 设置目标字体大小
+                    // line.style.transition = "font-size 0.7s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "22px"; // 设置目标字体大小
                 } else if (i === activeLineIndex) {
                     line.classList.remove('active');
+                    // line.style.transition = "font-size 0.5s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "20px"; // 恢复默认字体大小
                 }
                 if (i !== currentLineIndex) {
                     line.classList.remove('showing');
+                    // line.style.transition = "font-size 0.5s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "20px"; // 恢复默认字体大小
                 }
             }
             activeLineIndex = currentLineIndex;
@@ -227,10 +412,13 @@
     }
 
     /**更新当前播放时间和总时长的显示，以及进度条的值*/
-    music.addEventListener("timeupdate", function () {
-        updateTimeDisplay();
-        updateLyrics(this.currentTime);
-    });
+    function update() {
+        music.addEventListener("timeupdate", function () {
+            updateTimeDisplay();
+            updateLyrics(this.currentTime);
+        });
+    }
+
     /**当进度条的值发生变化时，会计算出当前播放时间，并将其设置为音频元素的 currentTime 属性的值*/
     progressBar.addEventListener("input", function () {
         // 当进度条值发生变化时更新当前播放时间
@@ -240,50 +428,81 @@
 
     //**************************************************************************************************************
 
+    let animationId = null;
+    let animationId2 = null;
+
+    // 创建 Web Audio API 的上下文
+    let audioContext = null;
+    let analyser = null;
+    let sourceNode = null;
+
+    // 在用户点击页面上的按钮时启动 AudioContext
+    function startAudioContext() {
+        if (audioContext === null) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+            // 创建 analyser 对象（用于分析音频数据）
+            analyser = audioContext.createAnalyser();
+            // 将音频节点连接到 analyser 对象
+            sourceNode = audioContext.createMediaElementSource(music);
+            sourceNode.connect(analyser);
+            // 将 analyser 对象连接到 Web Audio API 上下文
+            analyser.connect(audioContext.destination);
+        }
+    }
+
     function init() {
-        // 创建 Web Audio API 的上下文
-        let audioContext = new AudioContext();
-
-        // 创建 analyser 对象（用于分析音频数据）
-        const analyser = audioContext.createAnalyser();
-
-        // 将音频节点连接到 analyser 对象
-        const sourceNode = audioContext.createMediaElementSource(music);
-        sourceNode.connect(analyser);
-
-        // 将 analyser 对象连接到 Web Audio API 上下文
-        analyser.connect(audioContext.destination);
-
+        startAudioContext();
         // 设置频率精度和时间精度
         // analyser.fftSize = 4096;
         // analyser.fftSize = 2048;
-        analyser.fftSize = 1024;
+        // analyser.fftSize = 1024;
         // analyser.fftSize = 512;
         // analyser.fftSize = 256;
         // analyser.fftSize = 128;
         // analyser.fftSize = 64;
         // analyser.fftSize = 32;
+        // 根据页面宽度计算fftSize的值
+        const pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        let fftSize = 0;
+        let xx = 0;
+
+        if (pageWidth < 768) {
+            fftSize = 1024;
+            xx=1.5;
+        } else if (pageWidth < 1280) {
+            fftSize = 2048;
+            xx=2.5;
+        } else if (pageWidth < 1440) {
+            fftSize = 4096;
+            xx=5.2;
+        } else {
+            fftSize = 4096;
+            xx=5.2;
+        }
+        analyser.fftSize = fftSize;
+
+
+
+
 
         // 获取音频数据
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
-
-        const s = draw();
+        draw();
 
         // 绘制音谱图
         function draw() {
             // 在下一帧继续绘制
-            requestAnimationFrame(draw);
-            requestAnimationFrame(draw2);
+            animationId = requestAnimationFrame(draw);
+            animationId2 = requestAnimationFrame(draw2);
 
             // 获取音频数据，并绘制音谱图
             analyser.getByteFrequencyData(dataArray);
-
             let canvasCtx = canvasElement.getContext("2d");
-            canvasCtx.globalAlpha = 0.5; // 将背景透明度设置为 0.2
-            // canvasCtx.fillStyle = "rgb(11,186,250)";
-            // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
-            canvasCtx.fillStyle = "#ffffff";
+            canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height); // 清除画布内容
+            canvasCtx.globalAlpha = 0.5;
+            canvasCtx.fillStyle = "rgba(255, 255, 255, 0)";
             canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
 
             const barWidth = (canvasElement.width / bufferLength) * 2.5;
@@ -291,30 +510,23 @@
 
             for (let i = 0; i < bufferLength; i++) {
                 const barHeight = dataArray[i];
-                canvasCtx.globalAlpha = 1; // 将背景透明度设置为 0.2
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barWidth*2},${barWidth/4},${barWidth+50},1)`;
-                canvasCtx.fillStyle = `hsla(${x/1.5},100%,50%,1)`;
+                canvasCtx.globalAlpha = 1;
+                canvasCtx.fillStyle = `hsla(${x / xx},100%,50%,0.7)`;
+                // canvasCtx.fillStyle = `hsl(0,100%,50%)`;
                 canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
-
                 x += barWidth + 1;
             }
-            return '〇°'
+
+            return '〇°';
         }
+
         // 绘制音谱图 [倒影]
         function draw2() {
-            // 在下一帧继续绘制
-            // requestAnimationFrame(draw2);
-
             // 获取音频数据，并绘制音谱图
             analyser.getByteFrequencyData(dataArray);
-
             let canvasCtx = canvasElement2.getContext("2d");
-            // canvasCtx.globalAlpha = 0.1; // 将背景透明度设置为 0.2
-            // canvasCtx.fillStyle = "rgb(11,186,250)";
-            // canvasCtx.fillStyle = "rgba(118,191,9,0.33)";
-            canvasCtx.fillStyle = "rgb(255,255,255)";
+            canvasCtx.clearRect(0, 0, canvasElement2.width, canvasElement2.height); // 清除画布内容
+            canvasCtx.fillStyle = "rgba(255,255,255,0)";
             canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
 
             const barWidth = (canvasElement2.width / bufferLength) * 2.5;
@@ -322,34 +534,182 @@
 
             for (let i = 0; i < bufferLength; i++) {
                 const barHeight = dataArray[i];
-                canvasCtx.globalAlpha = 0.21; // 将背景透明度设置为 0.2
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barHeight + 100},191,9)`;
-                // canvasCtx.fillStyle = `rgb(${barWidth*2},${barWidth/4},${barWidth+50},1)`;
-                canvasCtx.fillStyle = `hsla(${x/1.5},100%,75%,1)`;
+                canvasCtx.globalAlpha = 0.21;
+                canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
                 canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
-
                 x += barWidth + 1;
             }
-            return '〇°'
+
+            return '〇°';
+        }
+
+        try {
+
+
+        } catch (e) {
+            // 忽略错误
         }
     }
 
+    // 停止绘制
+    function stopDrawing() {
+        cancelAnimationFrame(animationId);
+        cancelAnimationFrame(animationId2);
+        // 重置 animationId 和 animationId2
+        animationId = null;
+        animationId2 = null;
+    }
 
-    // 开始播放音频，并绘制音谱图
-    // draw();
+    // 判断页面是否右移至窗口外的函数
+    function checkIfPageShifted() {
+        if (window.pageXOffset >= document.documentElement.clientWidth) {
+            stopDrawing();
+        }
+    }
 
+    // 监听滚动事件
+    window.addEventListener('scroll', checkIfPageShifted);
+
+    /**更新宽度*/
     function updateCanvasWidth() {
-        // canvasElement.width = window.innerWidth-50;
-        canvasElement.width = window.innerWidth - 20;
-        canvasElement2.width = window.innerWidth - 20;
+        let w = window.innerWidth;
+        canvasElement.width = w-1;
+        canvasElement2.width = w-1;
+        let h = window.innerHeight;
+        if(h>700){
+            lyricsContainer.style.height=(h-700)+'px';
+        }else {
+            lyricsContainer.style.height='50px';
+        }
     }
 
     window.addEventListener("resize", updateCanvasWidth);   // 监听窗口大小变化
     updateCanvasWidth();   // 获取初始画布宽度
 
+    let musicListButton = document.getElementById('music-list-button');
+    musicListButton.addEventListener('click', function () {
+        if (musicListContainer.classList.contains('visible0')) {
+            musicListContainer.classList.remove('visible0');
+            musicListContainer.classList.add('visible1');
+        } else {
+            musicListContainer.classList.remove('visible1');
+            musicListContainer.classList.add('visible0');
+        }
+    });
+    document.addEventListener('click', function(event) {
+        if (!musicListButton.contains(event.target)&&
+            !musicListContainer.contains(event.target)&&
+            !document.getElementById('step-backward-btn').contains(event.target)&&
+            !document.getElementById('progressBar').contains(event.target)&&
+            !document.getElementById('play-btn').contains(event.target)&&
+            !document.getElementById('pause-btn').contains(event.target)&&
+            !document.getElementById('step-forward-btn').contains(event.target)&&
+            !document.getElementById('undo-alt-btn').contains(event.target)&&
+            !document.getElementById('sync-alt-btn').contains(event.target)&&
+            !document.getElementById('random-btn').contains(event.target)) {
+            // 鼠标点击了<div>之外的位置
+            musicListContainer.classList.add('visible0');
+            musicListContainer.classList.remove('visible1');
+        }
+    });
 
-    // 播放 最近的浏览器版本开始采用更加严格的策略来防止页面在没有用户交互的情况下自动播放音视频
-    // const constResize=setTimeout(playMusic, 4000);
+    // 切换歌曲
+    function qiege(d, t) {
+        pauseMusic();// 切歌之前先暂停播放
+        if (t != null) {
+            if (moShi === 1 || moShi === 2) {// 单曲和顺序
+                shunxuqiege(t);
+            } else {// 随机
+                suijiqiege();
+            }
+        } else {
+
+            for (let i = 0; i < buttons.length; i++) {
+                let buttonText = buttons[i].textContent;
+                if(buttonText===name){
+                    buttons[i].classList.remove('bofang-name')
+                }
+                if(buttonText===d.textContent){
+                    buttons[i].classList.add('bofang-name')
+                }
+            }
+
+
+            name = d.textContent;//
+            gequming.textContent = name.split('.').slice(0, -1).join('.');
+            music.src = '../../bgm/' + name;
+            geci();
+            playMusic();
+            // 设置本地缓存变量
+            localStorage.setItem('name', name);
+        }
+    }
+
+
+    /**
+     * 初始化歌词
+     * @returns {Promise<void>}
+     */
+    async function geci() {
+        function parseLrcFromUrl(url) {
+            return fetch(url)
+                .then(response => response.text())
+                .then(lrc => {
+                    var lines = lrc.split('\n');
+                    var lyrics = [];
+
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i].trim();
+
+                        var match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+                        if (match) {
+                            var minutes = parseInt(match[1]);
+                            var seconds = parseFloat(match[2]);
+                            var time = minutes * 60 + seconds+(lyricsConfig[name] || 0);
+                            var lyricText = match[3];
+
+                            var lyricElement = document.createElement('div');
+                            lyricElement.className = 'lyrics-line';
+                            lyricElement.setAttribute('data-time', time.toFixed(2));
+                            lyricElement.innerText = lyricText;
+
+                            lyrics.push(lyricElement);
+                        }
+                    }
+
+                    return lyrics;
+                });
+        }
+
+        var lrcUrl = '../../bgm/geci/' + name.split('.').slice(0, -1).join('.') + '.lrc';
+        // var lyricsContainer = document.getElementById('lyrics-container');
+
+        // 清空之前生成的内容
+        while (lyricsContainer.firstChild) {
+            lyricsContainer.removeChild(lyricsContainer.firstChild);
+        }
+
+        parseLrcFromUrl(lrcUrl)
+            .then(lyrics => {
+                lyrics.forEach(lyric => {
+                    lyricsContainer.appendChild(lyric);
+                });
+
+                lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
+                // 使用 lyricsLines 进行进一步操作
+            })
+            .catch(error => {
+                console.error('Failed to fetch and parse LRC:', error);
+            });
+    }
+
+
+    const lingdu_bofangqi = document.getElementById('lingdu_bofangqi');
+    lingdu_bofangqi.addEventListener('click', function () {
+        window.open('/vuepress-lingdu-v2/本站建设/插件/音乐播放器.html', '_blank');
+    });
+
 </script>
+
+
 </body>
