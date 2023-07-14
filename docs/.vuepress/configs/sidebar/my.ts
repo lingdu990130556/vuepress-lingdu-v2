@@ -10,7 +10,8 @@ const sidebar = {
                 {text: '站点统计', children: getChildren('/本站建设/站点统计/')},
                 {text: "vuepresss", children: getChildren("/本站建设/")},
                 {text: "markdown", children: getChildren("/本站建设/markdown/")},
-                {text: "音乐播放器", children: getChildren("/本站建设/插件/")},
+                {text: "插件", children: getChildren("/本站建设/插件/")},
+                {text: "工具", children: getChildren("/本站建设/工具/LRC滚动歌词编辑器/")},
             ]
         }
     ],
