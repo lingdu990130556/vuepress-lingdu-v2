@@ -1,0 +1,426 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        html,-->
+<!--        body {-->
+<!--            height: 100%;-->
+<!--            margin: 0;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+<!--        #container {-->
+<!--            width: 100%;-->
+<!--            height: 100vh;-->
+<!--            background: linear-gradient(to bottom right, #fff, #000);-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            perspective: 1000px;-->
+<!--        }-->
+
+<!--        .cube {-->
+<!--            width: 200px;-->
+<!--            height: 200px;-->
+<!--            position: relative;-->
+<!--            transform-style: preserve-3d;-->
+<!--            animation: rotate 10s infinite linear;-->
+<!--        }-->
+
+<!--        .face {-->
+<!--            width: 200px;-->
+<!--            height: 200px;-->
+<!--            position: absolute;-->
+<!--            border: 1px solid #ccc;-->
+<!--        }-->
+
+<!--        .front {-->
+<!--            transform: translateZ(100px);-->
+<!--        }-->
+
+<!--        .back {-->
+<!--            transform: translateZ(-100px) rotateY(180deg);-->
+<!--        }-->
+
+<!--        .top {-->
+<!--            transform: translateY(-100px) rotateX(90deg);-->
+<!--        }-->
+
+<!--        .bottom {-->
+<!--            transform: translateY(100px) rotateX(-90deg);-->
+<!--        }-->
+
+<!--        .left {-->
+<!--            transform: translateX(-100px) rotateY(-90deg);-->
+<!--        }-->
+
+<!--        .right {-->
+<!--            transform: translateX(100px) rotateY(90deg);-->
+<!--        }-->
+
+<!--        .face img {-->
+<!--            width: 100%;-->
+<!--            height: 100%;-->
+<!--            object-fit: cover;-->
+<!--        }-->
+
+<!--        @keyframes rotate {-->
+<!--            from { transform: rotateX(0) rotateY(0) rotateZ(0); }-->
+<!--            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="container">-->
+<!--    <div class="cube">-->
+<!--        <div class="face front"><img src="anni.jpg" alt="Photo 1"></div>-->
+<!--        <div class="face back"><img src="anni.jpg" alt="Photo 2"></div>-->
+<!--        <div class="face top"><img src="anni.jpg" alt="Photo 3"></div>-->
+<!--        <div class="face bottom"><img src="anni.jpg" alt="Photo 4"></div>-->
+<!--        <div class="face left"><img src="anni.jpg" alt="Photo 5"></div>-->
+<!--        <div class="face right"><img src="anni.jpg" alt="Photo 6"></div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #fff, #000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 12s infinite linear;
+
+            font-size: 50px;
+            color: #6eff00;
+            display: flex; /* 添加这行 */
+            justify-content: center; /* 添加这行 */
+            align-items: center; /* 添加这行 */
+        }
+
+        .face {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            border: 1px solid #ffffff;
+            font-family: Arial, sans-serif; /* 可以根据需要更换字体 */
+            font-size: 20px;
+            color: #e2fa0b;
+            line-height: 100px;
+            display: flex; /* 添加这行 */
+            justify-content: center; /* 添加这行 */
+            align-items: center; /* 添加这行 */
+        }
+
+        .front {
+            transform: translateZ(200px);
+        }
+        /*.front2 {*/
+        /*    transform: translateZ(100px) translateY(-100px) translateX(-100px) rotateY(100deg) rotateX(130deg) rotateZ(130deg);*/
+        /*}*/
+
+        .back {
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+
+        .top {
+            transform: translateY(-200px) rotateX(90deg);
+        }
+
+        .bottom {
+            transform: translateY(200px) rotateX(-90deg);
+        }
+
+        .left {
+            transform: translateX(-200px) rotateY(-90deg);
+        }
+
+        .right {
+            transform: translateX(200px) rotateY(90deg);
+        }
+
+        .face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes rotate {
+            from { transform: rotateX(0) rotateY(0) rotateZ(0); }
+            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="cube" style="width: 100px;height: 100px;background-color: rgba(171,196,120,0);">
+        〇°
+        <div style="width: 100px;height: 100px" class="face front">〇°</div>
+<!--        <div style="width: 100px;height: 100px" class="face front2">〇°</div>-->
+        <div style="width: 100px;height: 100px" class="face back">〇°</div>
+        <div style="width: 100px;height: 100px" class="face top">〇°</div>
+        <div style="width: 100px;height: 100px" class="face bottom">〇°</div>
+        <div style="width: 100px;height: 100px" class="face left">〇°</div>
+        <div style="width: 100px;height: 100px" class="face right">〇°</div>
+    </div>
+<!--    <div class="cube" style="margin-left: 200px;">-->
+<!--        <div class="face front"><img src="anni.jpg" alt="Photo 1"></div>-->
+<!--        <div class="face back"><img src="anni.jpg" alt="Photo 2"></div>-->
+<!--        <div class="face top"><img src="anni.jpg" alt="Photo 3"></div>-->
+<!--        <div class="face bottom"><img src="anni.jpg" alt="Photo 4"></div>-->
+<!--        <div class="face left"><img src="anni.jpg" alt="Photo 5"></div>-->
+<!--        <div class="face right"><img src="anni.jpg" alt="Photo 6"></div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; 添加更多的正方体 &ndash;&gt;-->
+<!--    <div class="cube" style="margin-left: 200px;">-->
+<!--        <div style="width: 100px;height: 100px" class="face front"><img src="anni.jpg" alt="Photo 1"></div>-->
+<!--        <div style="width: 100px;height: 100px" class="face back"><img src="anni.jpg" alt="Photo 2"></div>-->
+<!--        <div style="width: 100px;height: 100px" class="face top"><img src="anni.jpg" alt="Photo 3"></div>-->
+<!--        <div style="width: 100px;height: 100px" class="face bottom"><img src="anni.jpg" alt="Photo 4"></div>-->
+<!--        <div style="width: 100px;height: 100px" class="face left"><img src="anni.jpg" alt="Photo 5"></div>-->
+<!--        <div style="width: 100px;height: 100px" class="face right"><img src="anni.jpg" alt="Photo 6"></div>-->
+<!--    </div>-->
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--两个正方体-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <style>-->
+<!--        html,-->
+<!--        body {-->
+<!--            height: 100%;-->
+<!--            margin: 0;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+<!--        #container {-->
+<!--            width: 100%;-->
+<!--            height: 100vh;-->
+<!--            background: linear-gradient(to bottom right, #fff, #000);-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            perspective: 1000px;-->
+<!--        }-->
+
+<!--        .octahedron {-->
+<!--            width: 200px;-->
+<!--            height: 200px;-->
+<!--            position: relative;-->
+<!--            transform-style: preserve-3d;-->
+<!--            animation: rotate 10s infinite linear;-->
+<!--        }-->
+
+<!--        .face {-->
+<!--            position: absolute;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--            width: 100%;-->
+<!--            height: 100%;-->
+<!--            background-color: rgba(0, 0, 0, 0.5);-->
+<!--            text-align: center;-->
+<!--            font-size: 24px;-->
+<!--            font-family: Arial, sans-serif; /* 可以根据需要更换字体 */-->
+<!--            line-height: 200px;-->
+<!--            color: white;-->
+<!--            opacity: 0.9;-->
+<!--        }-->
+
+<!--        .face:nth-child(1) {-->
+<!--            transform: rotateX(-45deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(2) {-->
+<!--            transform: rotateX(-45deg) rotateY(90deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(3) {-->
+<!--            transform: rotateX(-45deg) rotateY(180deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(4) {-->
+<!--            transform: rotateX(-45deg) rotateY(-90deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(5) {-->
+<!--            transform: rotateX(45deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(6) {-->
+<!--            transform: rotateX(45deg) rotateY(180deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(7) {-->
+<!--            transform: rotateX(45deg) rotateY(-90deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        .face:nth-child(8) {-->
+<!--            transform: rotateX(45deg) rotateY(90deg) translateY(-50%) translateZ(100px);-->
+<!--        }-->
+
+<!--        @keyframes rotate {-->
+<!--            from { transform: rotateX(0) rotateY(0) rotateZ(0); }-->
+<!--            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="container">-->
+<!--    <div class="octahedron">-->
+<!--        <div class="face">Face 1</div>-->
+<!--        <div class="face">Face 2</div>-->
+<!--        <div class="face">Face 3</div>-->
+<!--        <div class="face">Face 4</div>-->
+<!--        <div class="face">Face 5</div>-->
+<!--        <div class="face">Face 6</div>-->
+<!--        <div class="face">Face 7</div>-->
+<!--        <div class="face">Face 8</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

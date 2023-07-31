@@ -1,0 +1,17 @@
+{
+  "origins": [
+    "https://giscus.app",
+    "https://giscus.vercel.app",
+    "https://lingdu990130556.github.io",
+    "https://lingdu990130556.gitee.io",
+    "http://lingdu990130556.gitee.io"
+  ],
+  "originsRegex": [
+    "https://giscus-git-([A-z0-9]|-)*giscus\\.vercel\\.app",
+    "http://localhost:[0-9]+",
+    "http://lingdu990130556\\.gitee\\.io/*",
+    "https://lingdu990130556\\.gitee\\.io/*",
+    "https://lingdu990130556\\.github\\.io/*"
+  ],
+  "defaultCommentOrder": "newest"
+}

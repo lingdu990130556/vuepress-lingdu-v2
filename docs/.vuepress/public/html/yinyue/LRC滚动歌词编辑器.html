@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LRC滚动歌词编辑器</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            height: 100vh;
+            background-color: #fefeff;
+        }
+        #progress {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            position: relative;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        #progress-bar {
+            width: 0;
+            height: 90%;
+            background-color: #00aaff;
+        }
+
+        #current-time {
+            position: absolute;
+            top: 0;
+            /*right: 10px;*/
+            line-height: 20px;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>LRC滚动歌词编辑器</h1><br>
+
+<br>
+
+<div>
+    <a href="/vuepress-lingdu-v2/本站建设/工具/LRC滚动歌词编辑器/">本页面实现渊源</a>
+</div>
+<br>
+
+<label for="music">音乐文件：</label>
+<input type="file" id="music">
+
+<br>
+
+<button id="play">播放</button>
+<button id="pause">暂停</button>
+<button id="addTimestamp" disabled>加入时间标记</button>
+<button id="saveLRC">保存为LRC文件</button>
+
+<div id="progress">
+    <div id="progress-bar"></div>
+    <div id="current-time">00:00</div>
+</div>
+
+
+<label for="lyrics">歌词：</label>
+<textarea id="lyrics" rows="10" cols="50"></textarea>
+
+<script src="//aeu.alicdn.com/waf/interfaceacting220819.js"></script><script src="//aeu.alicdn.com/waf/antidomxss_v640.js"></script><script>
+    var audio = new Audio();
+    var startTime = 0;
+    var currentTime = 0;
+    var isPlaying = false;
+
+    audio.addEventListener('timeupdate', function() {
+        if (isPlaying && !isDragging) {
+            currentTime = (performance.now() - startTime) / 1000;
+            updateProgressBar();
+        }
+    });
+
+    audio.addEventListener('canplaythrough', function() {
+        document.getElementById('addTimestamp').disabled = false;
+    });
+
+    document.getElementById('music').addEventListener('change', function() {
+        var file = this.files[0];
+        var url = URL.createObjectURL(file);
+
+        audio.src = url;
+        audio.load();
+    });
+
+    document.getElementById('play').addEventListener('click', function() {
+        if (!isPlaying) {
+            startTime = performance.now() - (currentTime * 1000);
+            isPlaying = true;
+            audio.play();
+        }
+    });
+
+    document.getElementById('pause').addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+        }
+    });
+
+    document.getElementById('addTimestamp').addEventListener('click', function() {
+        let lyrics = document.getElementById('lyrics');
+        let cursorPos = lyrics.selectionStart;
+
+        let lines = lyrics.value.split('\n');
+        let currentLine = 0;
+        for (let i = 0; i < lines.length; i++) {
+            if (cursorPos >= lines[i].length) {
+                cursorPos -= lines[i].length + 1; // 加上换行符的长度
+                currentLine++;
+            } else {
+                break;
+            }
+        }
+
+        let minutes = Math.floor(currentTime / 60);
+        let seconds = Math.floor(currentTime % 60);
+        let milliseconds = Math.floor((currentTime % 1) * 100);
+        let timestamp = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2) + '.' + ('0' + milliseconds).slice(-2);
+
+        let updatedLyrics = lyrics.value;
+        let lineBeginIndex = 0;
+        for (let i = 0; i < currentLine; i++) {
+            lineBeginIndex += lines[i].length + 1;
+        }
+
+        updatedLyrics = updatedLyrics.slice(0, lineBeginIndex) + '[' + timestamp + ']' + updatedLyrics.slice(lineBeginIndex);
+        lyrics.value = updatedLyrics;
+
+        // 更新光标位置
+        let newCursorPos = lineBeginIndex + timestamp.length + 2; // '[' 和 ']' 的长度为2
+        lyrics.setSelectionRange(newCursorPos, newCursorPos);
+
+        // 移动光标到下一行开头，如果没有下一行则创建下一行
+        let nextLineIndex = currentLine + 1;
+        if (nextLineIndex < lines.length) {
+            let newLinePos = updatedLyrics.indexOf('\n', lineBeginIndex) + 1; // 找到下一个换行符的位置
+            setTimeout(function() {
+                lyrics.setSelectionRange(newLinePos, newLinePos);
+            }, 0);
+        } else {
+            setTimeout(function() {
+                lyrics.value += '\n'; // 创建新行
+                let newLinePos = lyrics.value.length;
+                lyrics.setSelectionRange(newLinePos, newLinePos);
+            }, 0);
+        }
+    });
+
+    document.getElementById('saveLRC').addEventListener('click', function() {
+        var lyrics = document.getElementById('lyrics').value;
+
+        var blob = new Blob([lyrics], { type: 'text/plain' });
+
+        var downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = 'lyrics.lrc';
+        downloadLink.click();
+    });
+
+    var progress = document.getElementById('progress');
+    var progressBar = document.getElementById('progress-bar');
+    var isDragging = false;
+
+    progress.addEventListener('mousedown', function(event) {
+        isDragging = true;
+        updateProgressBar(event);
+    });
+
+    document.addEventListener('mousemove', function(event) {
+        if (isDragging) {
+            updateProgressBar(event);
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+    });
+
+    function updateProgressBar(event) {
+        if (!event) {
+            var progressWidth = progress.offsetWidth;
+            var barWidth = (currentTime / audio.duration) * progressWidth;
+            progressBar.style.width = barWidth + 'px';
+            document.getElementById('current-time').innerText = formatTime(currentTime);
+        } else {
+            var progressRect = progress.getBoundingClientRect();
+            var offsetX = event.clientX - progressRect.left;
+            var progressWidth = progress.offsetWidth;
+            var duration = audio.duration;
+            var clickedTime = (offsetX / progressWidth) * duration;
+            currentTime = clickedTime;
+
+            if (isPlaying) {
+                startTime = performance.now() - (currentTime * 1000);
+                audio.currentTime = currentTime;
+                audio.play();
+            } else {
+                audio.currentTime = currentTime;
+                updateProgressBar();
+            }
+        }
+    }
+
+    function formatTime(time) {
+        var minutes = Math.floor(time / 60);
+        var seconds = Math.floor(time % 60);
+        var formattedTime = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+        return formattedTime;
+    }
+
+    function moveCursorToNextLine() {
+        var textarea = document.getElementById('lyrics');
+        var cursorPosition = textarea.selectionStart;
+
+        var lines = textarea.value.split('\n');
+        var currentLineIndex = 0;
+        var charCount = 0;
+        for (var i = 0; i < lines.length; i++) {
+            charCount += lines[i].length + 1;
+
+            if (charCount > cursorPosition) {
+                currentLineIndex = i;
+                break;
+            }
+        }
+
+        var nextLineIndex = currentLineIndex + 1;
+        if (nextLineIndex < lines.length) {
+            var nextLineStartPosition = charCount;
+            textarea.setSelectionRange(nextLineStartPosition, nextLineStartPosition);
+            textarea.focus();
+        }
+    }
+</script>
+</body>
+</html>

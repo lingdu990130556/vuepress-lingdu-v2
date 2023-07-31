@@ -1,0 +1,271 @@
+body {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+
+    /* 加载背景图 */
+    /*background-image: url("../../img/2.jpeg");*/
+    /*background-color: #00a4ff;*/
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+    /* 设置背景颜色，背景图加载过程中会显示背景色 */
+    /*background-color: #464646;*/
+    /*透明度*/
+    opacity: 1;
+}
+
+#fullscreen-button {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    /*background-color: #0bbafa;*/
+    /* 设置透明背景和无边框 */
+    background: none;
+    border: none;
+    /*光标变化*/
+    cursor: pointer;
+    /* 设置文本颜色 */
+    color: rgb(255, 255, 255);
+    font-size: clamp(0.5rem, 3vw, 1.2rem);
+    z-index: 9999;
+}
+#yuanma{
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    /*光标变化*/
+    cursor: pointer;
+    /* 设置文本颜色 */
+    color: rgb(0, 0, 0);
+    font-size: clamp(0.5rem, 3vw, 1.2rem);
+    z-index: 9999;
+}
+/* 使用html作为背景*/
+.background {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: -20;
+   width: 100%;
+   height: 100%;
+}
+
+.background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* 去除 iframe 的边框 */
+}
+
+#container{
+    position: relative;
+}
+#child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);/*垂直居中*/
+}
+
+/*细化滚动条*/
+body::-webkit-scrollbar {
+    width: 1px;
+}
+
+.current-lyric {
+    color: red;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#lyrics-container {
+    height: 50px;
+    overflow: hidden;
+    /*position: relative;*/
+    text-align: center;
+
+}
+
+.lyrics-line {
+    margin-top: 20px;
+    position: relative;
+    height: 20px; /* 设置合适的高度 */
+    line-height: 20px; /* 设置与容器高度一致的行高 */
+    /*overflow: hidden;*/
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: top 0.5s ease-out, opacity 0.5s ease-out;
+    /*background-color: rgba(84, 195, 0, 0.25);*/
+    text-shadow: 2px 2px 4px rgb(118, 191, 9);
+    font-size: 16px;
+    color: #e1ffbe;
+}
+
+.lyrics-line.showing {
+    opacity: 1;
+}
+
+.lyrics-line.active {
+    top: 0;
+    opacity: 0.5;
+}
+
+.rotating {
+    cursor: pointer;
+    /*animation: rotate 1s linear infinite;*/
+    /*生日快乐bpm*/
+    /*animation: rotate 0.5455s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
+    /*听悲伤的情歌BPM 60s/80 0.75*/
+    /*animation: rotate 0.749999s cubic-bezier(0.08, 0.65, 0.46, 0.67) infinite;*/
+    /*通用匀速*/
+    animation: rotate 1.92s linear infinite;
+    /*color: red;*/
+
+    /* 设置元素相对于父元素定位 */
+    /*position: absolute;*/
+    /* 设置元素最左边为旋转支点 */
+    /*transform-origin: left center;*/
+    /*transform-origin: 49.99999% 50%;// 214/569 284/543*/
+    transform-origin: 49.2901% 50.492%;// 214/569 284/543
+}
+.fengmianxuanzhuan{
+    cursor: pointer;
+    animation: rotate 10s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        color: rgb(118, 191, 9);
+    }
+    to {
+        transform: rotate(360deg);
+        color: rgb(11, 186, 250);
+    }
+}
+
+
+/*#play-btn i::before {*/
+/*    content: "\f04b"; !* Unicode 编码表示 Font Awesome 提供的播放图标 *!*/
+/*}*/
+
+/*#pause-btn i::before {*/
+/*    content: "\f04c"; !* Unicode 编码表示 Font Awesome 提供的暂停图标 *!*/
+/*}*/
+
+#play-btn,#pause-btn {
+    /* 设置按钮位置 */
+    /*position: absolute;*/
+    /* 设置透明背景和无边框 */
+    background: none;
+    border: none;
+    /*光标变化*/
+    cursor: pointer;
+    /* 设置文本颜色 */
+    color: #76bf09;
+}
+
+#pause-btn,#sync-alt-btn,
+#random-btn {
+    /* 初始状态隐藏 */
+    display: none;
+}
+
+#step-backward-btn,
+#step-forward-btn,
+#undo-alt-btn,
+#sync-alt-btn,
+#random-btn{
+    /* 设置透明背景和无边框 */
+    background: none;
+    color: #76bf09;
+    border: none;
+    /*光标变化*/
+    cursor: pointer;
+}
+
+
+
+/* 设置样式 */
+.rotate {
+    transform: rotate(180deg) scaleX(-1); /* 水平方向镜像翻转 */
+    /* transform: rotate(180deg) scaleY(-1); */ /* 垂直方向镜像翻转 */
+    margin-top: -8px;
+}
+
+
+/*音乐列表*/
+#music-list-container {
+    position: fixed;
+    top: 0;
+    right: 10%;
+    width: 50%;
+    max-width: 200px;
+    /*height: 80vh;*/
+    height: 70%;
+    overflow: auto;
+    background-color: rgba(11, 186, 250, 0.46);
+}
+/*隐藏*/
+.visible0 {
+    opacity: 0;
+    visibility: visible;
+    transition-delay: 0s;
+    z-index: -1;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+/*显示*/
+.visible1 {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+/*细化滚动条*/
+#music-list-container::-webkit-scrollbar {
+    width: 2px;
+}
+
+.music-list-button {
+    /* 默认状态下的样式 */
+    background-color: transparent;
+    border: none;
+    padding: 5px 5px;
+    color: white;
+}
+.music-list-button:hover {
+    /* 鼠标悬浮状态下的样式 */
+    color: black;
+}
+.bofang-name{
+    color: #dc0015;
+}
+
+#music-list-button {
+    /*position: fixed;*/
+    /*top: 20px;*/
+    /*right: 20px;*/
+    /*padding: 10px;*/
+    /* 设置透明背景和无边框 */
+    background: none;
+    color: #76bf09;
+    border: none;
+    /*光标变化*/
+    cursor: pointer;
+    /*z-index: 99999;*/
+    /*font-size: 30px;*/
+}
