@@ -1,0 +1,27 @@
+/*通知框*/
+.vp-notice-wrapper {
+  --notice-width: auto;
+  transition: right 0.5s ease-in-out;
+}
+.vp-notice-title{
+  --vp-tc: rgba(11, 186, 250, 0)
+}
+#btnMove{
+  left: -10px;
+  position: relative;
+  animation: breathe 4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0% {
+    color: #ff0000; /* 起始颜色 */
+    text-shadow: 0 0 4px rgb(255, 2, 2);
+  }
+  50% {
+    color: #00ff00; /* 中间颜色 */
+    text-shadow: 0 0 16px rgb(2, 255, 2);
+  }
+  100% {
+    color: #0000ff; /* 结束颜色 */
+    text-shadow: 0 0 4px rgb(2, 2, 255);
+  }
+}

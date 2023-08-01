@@ -1,0 +1,22 @@
+/*卡片元素鼠标悬浮样式*/
+.vp-card:hover{
+  --card-shadow: rgb(11, 186, 250);
+  box-shadow: 4px 4px 30px 0 var(--card-shadow) ;
+  transform: scale(1.05);
+
+  /*头像呼吸光环和鼠标悬停旋转放大*/
+  .vp-card-logo{
+    animation: light 4s ease-in-out infinite;
+    transition: 0.5s;
+  }
+  .vp-card-logo:hover {
+    transform: scale(1.15) rotate(720deg);
+  }
+  @keyframes light {
+    0%{box-shadow: 0 0 4px #f00;}
+    25%{box-shadow: 0 0 16px #0f0;}
+    50%{box-shadow: 0 0 4px #00f;}
+    75%{box-shadow: 0 0 16px #0f0;}
+    100%{box-shadow: 0 0 4px #f00;}
+  }
+}

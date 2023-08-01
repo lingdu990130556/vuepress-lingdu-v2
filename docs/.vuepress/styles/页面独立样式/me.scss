@@ -1,0 +1,12 @@
+/*自我介绍页独有样式*/
+.me {
+  .custom-block.tip {
+    background-color: #eeffdb;
+    border-color: #eeffdb;
+  }
+
+  .theme-default-content:not(.custom) img {
+    max-width: 10%;
+  }
+
+}

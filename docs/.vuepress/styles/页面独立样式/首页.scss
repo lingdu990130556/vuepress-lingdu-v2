@@ -1,0 +1,72 @@
+/*
+这是首页的单独样式
+ */
+.首页 {
+  /*导航栏*/
+  .navbar {
+    background-color: #9adbbe70;
+  }
+  /*导航栏内容*/
+  .navbar .links {
+    background-color: rgba(154, 219, 190, 0);
+  }
+  .hero {
+    img {
+      height: auto;
+      animation: light 4s ease-in-out infinite;
+      border-radius: 50%; /* 将图片显示为圆形 */
+      transition: 0.5s;
+    }
+    img:hover {
+      transform: scale(1.215) rotate(720deg);
+    }
+  }
+  #shizhong{
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    //border: none;
+    //overflow: hidden;
+    //width: 260px;
+    //height: 260px;
+    width: 12%;
+    padding-bottom: 12%;// 使高度与宽度保持一致
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none; /* 去除 iframe 的边框 */
+      overflow: hidden;
+    }
+  }
+  //疯狂旋转
+  #main-title {
+    animation-name: color-transition;
+    animation-duration: 3s;
+    animation-iteration-count: infinite; /* 可选，控制动画循环次数 */
+    //text-shadow: 9px 9px 9px rgba(0, 0, 0, 0.59);/* 阴影 */
+    animation: color-transition 2000ms  infinite cubic-bezier(0, 1.44, 1, -0.4);
+    //transform-origin: 49.2901% 50.492%;// 214/569 284/543
+    transform-origin: 50% 50%;// 214/569 284/543
+  }
+  @keyframes color-transition {
+    /* 循环生成 1% 到 100% 的关键帧 */
+    @for $i from 0 through 100 {
+      #{($i - 1)%100}% {
+        //color: interpolate(#76bf09, #0bbafa, $i / 100);
+        color: hsl($i, 100%, 50%);
+        //text-shadow: 9px 9px 9px hsla($i, 100%, 50%,0.5);
+      }
+    }
+    from {
+      transform: rotate(0deg);
+      //text-shadow: 9px 9px 10px rgba(0, 0, 0, 0.5); /* 正向阴影 */
+    }
+    to {
+      transform: rotate(360deg);
+      //text-shadow: -9px -9px 10px rgba(0, 0, 0, 0.5); /* 相反方向阴影 */
+    }
+  }
+}
