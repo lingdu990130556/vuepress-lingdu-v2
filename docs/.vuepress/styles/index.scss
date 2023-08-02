@@ -8,6 +8,10 @@ pageClass: liuyanban-page-class
 
 @import "docs/.vuepress/public/html/gpt/iframestyle/gpt_html_iframe.scss";
 
+/*GPT聊天页面样式*/
+@import "docs/.vuepress/public/html/gpt/assets/index-b0f8cc2a-1.scss";
+@import "docs/.vuepress/public/html/gpt/assets/index-a6c9935d-2.scss";
+
 /*使背景透明*/
 iframe {
   background-color: transparent;

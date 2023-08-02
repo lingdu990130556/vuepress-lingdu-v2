@@ -5,6 +5,7 @@ heroImage: /img/logo.png
 bgImage: /img/1.jpg
 heroText: 〇°
 tagline: 今天快乐
+title: 〇°
 head:
 - ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]
 ---
