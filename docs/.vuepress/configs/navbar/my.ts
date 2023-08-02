@@ -17,7 +17,7 @@ export const navbarMy: NavbarConfig = [
         text: 'Java周边', children: [
             {
                 text: '基础', children: [
-                    {text: "Java", link: "/Java周边/基础/java/"},
+                    {text: "Java", link: "/Java周边/基础/java/1知识架构.md"},
                     {text: "IDEA", link: "/Java周边/基础/idea/"},
                     {text: "数据库", link: "/Java周边/基础/db/"},
                     {text: "maven", link: "/Java周边/基础/maven/"},
