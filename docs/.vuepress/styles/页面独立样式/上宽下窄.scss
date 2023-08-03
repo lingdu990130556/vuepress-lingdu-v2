@@ -1,0 +1,8 @@
+.上宽下窄{
+  --content-width: 80%;
+  /*评论等页脚元素*/
+  .page-meta,.page-nav,#comment{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
