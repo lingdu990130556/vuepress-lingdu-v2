@@ -2,6 +2,7 @@ import type {NavbarConfig} from '@vuepress/theme-default'
 import {version} from '../meta.js'
 // 我的导航栏配置
 export const navbarMy: NavbarConfig = [
+    {text: "chatGPT", link: "https://c.binjie.fun/"},
     {text: "首页", link: "/"},
     {
         text: '本站建设', children: [
