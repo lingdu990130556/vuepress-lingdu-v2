@@ -62,7 +62,7 @@ Maven 执行 clean、compile、package等操作时控制台 中文乱码问题�
 ![img_5.png](./imgs/img_5.png)
 ### 3. 阿里代码规范插件 Alibaba Java Coding
 ![img_6.png](./imgs/img_6.png)
-
+### 4. [IDEA配置JRebel热部署](https://blog.csdn.net/weixin_42694593/article/details/126448828)
 
 
 

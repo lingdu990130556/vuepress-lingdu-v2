@@ -52,6 +52,7 @@ export default ({
     // 目的地
     dest: './dist',
     base: '/vuepress-lingdu-v2/',
+    title: '⭕°',
 
     plugins: [
 

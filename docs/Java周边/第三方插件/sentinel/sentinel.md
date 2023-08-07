@@ -1,3 +1,5 @@
+# 启动
+
 ## sentinel 启动命令
 - - -
 ```shell

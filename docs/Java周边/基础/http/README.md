@@ -1,7 +1,102 @@
 # HTTP
+
+<div  class="gpt_html_div">
+    <div id="scrollRef" class="h-full overflow-hidden overflow-y-auto">
+        <div id="image-wrapper" class="w-full max-w-screen-xl m-auto dark:bg-[#101014] p-4">
+<!--问-->
+<div class="flex w-full mb-6 overflow-hidden flex-row-reverse"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 ml-2"><span class="n-avatar" style="--n-font-size:14px; --n-border:none; --n-border-radius:3px; --n-color:rgba(204, 204, 204, 1); --n-color-modal:rgba(204, 204, 204, 1); --n-color-popover:rgba(204, 204, 204, 1); --n-bezier:cubic-bezier(0.4, 0, 0.2, 1); --n-merged-size:var(--n-avatar-size-override, 34px);"><img loading="eager" src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png" data-image-src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png"><!----></span></div><div class="overflow-hidden text-sm items-end"><p class="text-xs text-[#b4bbc4] text-right">2023/8/7 16:55:08</p><div class="flex items-end gap-1 mt-2 flex-row-reverse"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#d2f9d1] dark:bg-[#a1dc95]"><div class="leading-relaxed break-words"><div class="whitespace-pre-wrap">简述http</div></div></div><div class="flex flex-col"><!----><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+<!--答-->
+<div class="flex w-full mb-6 overflow-hidden"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 mr-2"><span class="text-[28px] dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" width="1em" height="1em"><path d="M29.71,13.09A8.09,8.09,0,0,0,20.34,2.68a8.08,8.08,0,0,0-13.7,2.9A8.08,8.08,0,0,0,2.3,18.9,8,8,0,0,0,3,25.45a8.08,8.08,0,0,0,8.69,3.87,8,8,0,0,0,6,2.68,8.09,8.09,0,0,0,7.7-5.61,8,8,0,0,0,5.33-3.86A8.09,8.09,0,0,0,29.71,13.09Zm-12,16.82a6,6,0,0,1-3.84-1.39l.19-.11,6.37-3.68a1,1,0,0,0,.53-.91v-9l2.69,1.56a.08.08,0,0,1,.05.07v7.44A6,6,0,0,1,17.68,29.91ZM4.8,24.41a6,6,0,0,1-.71-4l.19.11,6.37,3.68a1,1,0,0,0,1,0l7.79-4.49V22.8a.09.09,0,0,1,0,.08L13,26.6A6,6,0,0,1,4.8,24.41ZM3.12,10.53A6,6,0,0,1,6.28,7.9v7.57a1,1,0,0,0,.51.9l7.75,4.47L11.85,22.4a.14.14,0,0,1-.09,0L5.32,18.68a6,6,0,0,1-2.2-8.18Zm22.13,5.14-7.78-4.52L20.16,9.6a.08.08,0,0,1,.09,0l6.44,3.72a6,6,0,0,1-.9,10.81V16.56A1.06,1.06,0,0,0,25.25,15.67Zm2.68-4-.19-.12-6.36-3.7a1,1,0,0,0-1.05,0l-7.78,4.49V9.2a.09.09,0,0,1,0-.09L19,5.4a6,6,0,0,1,8.91,6.21ZM11.08,17.15,8.38,15.6a.14.14,0,0,1-.05-.08V8.1a6,6,0,0,1,9.84-4.61L18,3.6,11.61,7.28a1,1,0,0,0-.53.91ZM12.54,14,16,12l3.47,2v4L16,20l-3.47-2Z" fill="currentColor"></path></svg></span></div><div class="overflow-hidden text-sm items-start"><p class="text-xs text-[#b4bbc4] text-left">2023/8/7 16:55:28</p><div class="flex items-end gap-1 mt-2 flex-row"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-[#1e1e20]"><div class="leading-relaxed break-words"><div class="markdown-body"><p>HTTP（Hypertext Transfer Protocol）是一种用于在Web上进行数据传输的协议。它是基于客户端-服务器模型的，用于客户端和服务器之间的通信。</p>
+<p>以下是对HTTP的简述：</p>
+<ol>
+<li>
+<p><strong>请求-响应模型</strong>：HTTP使用请求-响应模型，客户端发送HTTP请求到服务器，服务器处理请求并返回响应给客户端。</p>
+</li>
+<li>
+<p><strong>无状态协议</strong>：HTTP是无状态的，也就是说服务器不会保留与客户端之前的通信状态。每个请求都是独立的，服务器只关注当前请求，并不知道之前的请求和操作。</p>
+</li>
+<li>
+<p><strong>URI（统一资源标识符）</strong>：URI是用来标识和定位资源的字符串，它包括URL（统一资源定位符）和URN（统一资源名称）。URL是URI的一种常见形式，用于指定资源的位置。</p>
+</li>
+<li>
+<p><strong>请求方法</strong>：HTTP定义了一些常用的请求方法，如GET、POST、PUT、DELETE等。这些方法用于指定客户端希望服务器执行的操作类型。</p>
+</li>
+<li>
+<p><strong>状态码</strong>：服务器在返回响应时会包含一个状态码，用于表示请求的处理结果。常见的状态码包括200（成功）、404（未找到资源）、500（服务器错误）等。</p>
+</li>
+<li>
+<p><strong>报文格式</strong>：HTTP使用特定的格式来组织请求和响应报文。请求报文包括请求行、请求头和请求体，而响应报文包括状态行、响应头和响应体。</p>
+</li>
+<li>
+<p><strong>持久连接</strong>：为了提高性能，HTTP支持持久连接，也就是在单个TCP连接上可以发送多个请求和响应。这样可以减少建立和关闭TCP连接的开销。</p>
+</li>
+<li>
+<p><strong>安全性</strong>：HTTP本身是不安全的，数据传输是明文的，容易被窃听和篡改。为了保证通信安全，可以使用HTTPS协议，它在HTTP上加入了SSL/TLS协议来进行数据加密和身份认证。</p>
+</li>
+</ol>
+<p>总结：HTTP是用于Web通信的协议，它采用请求-响应模型，通过定义请求方法、状态码和报文格式等实现客户端和服务器之间的数据传输。了解HTTP对于理解Web开发、网络通信和安全性非常重要。</p>
+</div></div></div><div class="flex flex-col"><button class="mb-2 transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-300"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795Z"></path></svg></button><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+<!--问-->
+<div class="flex w-full mb-6 overflow-hidden flex-row-reverse"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 ml-2"><span class="n-avatar" style="--n-font-size:14px; --n-border:none; --n-border-radius:3px; --n-color:rgba(204, 204, 204, 1); --n-color-modal:rgba(204, 204, 204, 1); --n-color-popover:rgba(204, 204, 204, 1); --n-bezier:cubic-bezier(0.4, 0, 0.2, 1); --n-merged-size:var(--n-avatar-size-override, 34px);"><img loading="eager" src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png" data-image-src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png"><!----></span></div><div class="overflow-hidden text-sm items-end"><p class="text-xs text-[#b4bbc4] text-right">2023/8/7 16:55:58</p><div class="flex items-end gap-1 mt-2 flex-row-reverse"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#d2f9d1] dark:bg-[#a1dc95]"><div class="leading-relaxed break-words"><div class="whitespace-pre-wrap">简述https</div></div></div><div class="flex flex-col"><!----><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+<!--答-->
+<div class="flex w-full mb-6 overflow-hidden"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 mr-2"><span class="text-[28px] dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" width="1em" height="1em"><path d="M29.71,13.09A8.09,8.09,0,0,0,20.34,2.68a8.08,8.08,0,0,0-13.7,2.9A8.08,8.08,0,0,0,2.3,18.9,8,8,0,0,0,3,25.45a8.08,8.08,0,0,0,8.69,3.87,8,8,0,0,0,6,2.68,8.09,8.09,0,0,0,7.7-5.61,8,8,0,0,0,5.33-3.86A8.09,8.09,0,0,0,29.71,13.09Zm-12,16.82a6,6,0,0,1-3.84-1.39l.19-.11,6.37-3.68a1,1,0,0,0,.53-.91v-9l2.69,1.56a.08.08,0,0,1,.05.07v7.44A6,6,0,0,1,17.68,29.91ZM4.8,24.41a6,6,0,0,1-.71-4l.19.11,6.37,3.68a1,1,0,0,0,1,0l7.79-4.49V22.8a.09.09,0,0,1,0,.08L13,26.6A6,6,0,0,1,4.8,24.41ZM3.12,10.53A6,6,0,0,1,6.28,7.9v7.57a1,1,0,0,0,.51.9l7.75,4.47L11.85,22.4a.14.14,0,0,1-.09,0L5.32,18.68a6,6,0,0,1-2.2-8.18Zm22.13,5.14-7.78-4.52L20.16,9.6a.08.08,0,0,1,.09,0l6.44,3.72a6,6,0,0,1-.9,10.81V16.56A1.06,1.06,0,0,0,25.25,15.67Zm2.68-4-.19-.12-6.36-3.7a1,1,0,0,0-1.05,0l-7.78,4.49V9.2a.09.09,0,0,1,0-.09L19,5.4a6,6,0,0,1,8.91,6.21ZM11.08,17.15,8.38,15.6a.14.14,0,0,1-.05-.08V8.1a6,6,0,0,1,9.84-4.61L18,3.6,11.61,7.28a1,1,0,0,0-.53.91ZM12.54,14,16,12l3.47,2v4L16,20l-3.47-2Z" fill="currentColor"></path></svg></span></div><div class="overflow-hidden text-sm items-start"><p class="text-xs text-[#b4bbc4] text-left">2023/8/7 16:56:20</p><div class="flex items-end gap-1 mt-2 flex-row"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-[#1e1e20]"><div class="leading-relaxed break-words"><div class="markdown-body"><p>HTTPS（Hypertext Transfer Protocol Secure）是一种加密的、安全的通信协议，它是HTTP协议的安全版本。HTTPS在HTTP之上添加了 SSL/TLS 协议，用于对数据进行加密和身份认证，以保证通信的安全性。</p>
+<p>以下是对HTTPS的简述：</p>
+<ol>
+<li>
+<p><strong>加密通信</strong>：HTTPS使用SSL/TLS协议对通信数据进行加密，通过使用公钥和私钥加密和解密数据，确保传输过程中的数据机密性，防止第三方窃听和篡改。</p>
+</li>
+<li>
+<p><strong>身份验证</strong>：HTTPS使用了数字证书来验证服务器和客户端的身份。服务器拥有一个数字证书，由可信任的证书颁发机构（Certificate Authority，CA）签发，客户端可以通过校验证书的有效性来确认服务器身份的真实性。</p>
+</li>
+<li>
+<p><strong>数据完整性</strong>：HTTPS使用消息摘要算法和数字签名来验证数据的完整性。在传输过程中，数据被摘要算法计算生成摘要，然后使用私钥进行签名，接收方可以使用公钥对签名进行验证，确保数据在传输过程中没有被篡改。</p>
+</li>
+<li>
+<p><strong>使用的端口</strong>：默认情况下，HTTP使用80端口进行通信，而HTTPS使用443端口。当浏览器访问一个网站时，如果URL以 "https://" 开头，就会通过443端口与服务器建立安全连接。</p>
+</li>
+<li>
+<p><strong>影响性能</strong>：由于HTTPS在通信过程中进行了加密和解密的操作，相对于HTTP会增加一些计算和处理的开销，因此可能会对网络性能产生一定的影响。</p>
+</li>
+</ol>
+<p>总结：HTTPS是HTTP协议的安全版本，通过使用SSL/TLS协议对通信数据进行加密和身份认证，保障数据的机密性、完整性和服务器身份的真实性。在进行敏感数据传输（如登录、支付等）时，使用HTTPS能够提供更高的安全性保障。</p>
+</div></div></div><div class="flex flex-col"><button class="mb-2 transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-300"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795Z"></path></svg></button><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+        </div>
+    </div>
+</div>
+
 ##  HTTP Content-type
 
-
+<div  class="gpt_html_div">
+    <div id="scrollRef" class="h-full overflow-hidden overflow-y-auto">
+        <div id="image-wrapper" class="w-full max-w-screen-xl m-auto dark:bg-[#101014] p-4">
+<!--问-->
+<div class="flex w-full mb-6 overflow-hidden flex-row-reverse"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 ml-2"><span class="n-avatar" style="--n-font-size:14px; --n-border:none; --n-border-radius:3px; --n-color:rgba(204, 204, 204, 1); --n-color-modal:rgba(204, 204, 204, 1); --n-color-popover:rgba(204, 204, 204, 1); --n-bezier:cubic-bezier(0.4, 0, 0.2, 1); --n-merged-size:var(--n-avatar-size-override, 34px);"><img loading="eager" src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png" data-image-src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png"><!----></span></div><div class="overflow-hidden text-sm items-end"><p class="text-xs text-[#b4bbc4] text-right">2023/8/7 16:58:14</p><div class="flex items-end gap-1 mt-2 flex-row-reverse"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#d2f9d1] dark:bg-[#a1dc95]"><div class="leading-relaxed break-words"><div class="whitespace-pre-wrap">HTTP Content-type</div></div></div><div class="flex flex-col"><!----><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+<!--答-->
+<div class="flex w-full mb-6 overflow-hidden"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 mr-2"><span class="text-[28px] dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" width="1em" height="1em"><path d="M29.71,13.09A8.09,8.09,0,0,0,20.34,2.68a8.08,8.08,0,0,0-13.7,2.9A8.08,8.08,0,0,0,2.3,18.9,8,8,0,0,0,3,25.45a8.08,8.08,0,0,0,8.69,3.87,8,8,0,0,0,6,2.68,8.09,8.09,0,0,0,7.7-5.61,8,8,0,0,0,5.33-3.86A8.09,8.09,0,0,0,29.71,13.09Zm-12,16.82a6,6,0,0,1-3.84-1.39l.19-.11,6.37-3.68a1,1,0,0,0,.53-.91v-9l2.69,1.56a.08.08,0,0,1,.05.07v7.44A6,6,0,0,1,17.68,29.91ZM4.8,24.41a6,6,0,0,1-.71-4l.19.11,6.37,3.68a1,1,0,0,0,1,0l7.79-4.49V22.8a.09.09,0,0,1,0,.08L13,26.6A6,6,0,0,1,4.8,24.41ZM3.12,10.53A6,6,0,0,1,6.28,7.9v7.57a1,1,0,0,0,.51.9l7.75,4.47L11.85,22.4a.14.14,0,0,1-.09,0L5.32,18.68a6,6,0,0,1-2.2-8.18Zm22.13,5.14-7.78-4.52L20.16,9.6a.08.08,0,0,1,.09,0l6.44,3.72a6,6,0,0,1-.9,10.81V16.56A1.06,1.06,0,0,0,25.25,15.67Zm2.68-4-.19-.12-6.36-3.7a1,1,0,0,0-1.05,0l-7.78,4.49V9.2a.09.09,0,0,1,0-.09L19,5.4a6,6,0,0,1,8.91,6.21ZM11.08,17.15,8.38,15.6a.14.14,0,0,1-.05-.08V8.1a6,6,0,0,1,9.84-4.61L18,3.6,11.61,7.28a1,1,0,0,0-.53.91ZM12.54,14,16,12l3.47,2v4L16,20l-3.47-2Z" fill="currentColor"></path></svg></span></div><div class="overflow-hidden text-sm items-start"><p class="text-xs text-[#b4bbc4] text-left">2023/8/7 16:58:27</p><div class="flex items-end gap-1 mt-2 flex-row"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-[#1e1e20]"><div class="leading-relaxed break-words"><div class="markdown-body"><p>Content-Type是HTTP头部字段之一，用于指示请求或响应中携带的实体（如消息体）的媒体类型。</p>
+<p>在HTTP请求中，Content-Type用于告知服务器发送的数据的类型。常见的Content-Type值包括：</p>
+<ul>
+<li>text/plain：纯文本格式</li>
+<li>text/html：HTML文档</li>
+<li>application/json：JSON数据</li>
+<li>application/xml：XML数据</li>
+<li>multipart/form-data：用于文件上传</li>
+<li>application/x-www-form-urlencoded：用于普通表单数据提交</li>
+</ul>
+<p>在HTTP响应中，Content-Type用于指示发送回客户端的数据类型。常见的Content-Type值包括：</p>
+<ul>
+<li>text/plain：纯文本</li>
+<li>text/html：HTML文档</li>
+<li>application/json：JSON数据</li>
+<li>application/xml：XML数据</li>
+<li>image/jpeg：JPEG图像</li>
+<li>application/octet-stream：二进制数据流</li>
+</ul>
+<p>Content-Type字段通常还可以包含字符集编码信息，比如"charset=utf-8"表示使用UTF-8字符集编码。</p>
+<p>通过正确设置Content-Type，可以确保服务器和客户端之间能够正确解析和处理传输的数据。如果Content-Type不正确或缺失，接收方可能无法正确解析和处理数据，导致出现错误或乱码。因此，在HTTP通信中，正确使用和设置Content-Type非常重要。</p>
+</div></div></div><div class="flex flex-col"><button class="mb-2 transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-300"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795Z"></path></svg></button><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+        </div>
+    </div>
+</div>
 
 | 文件扩展名                          | Content-Type(Mime-Type)                 | 文件扩展名 |       Content-Type(Mime-Type)       |
 | :---------------------------------- | :-------------------------------------- | :--------- | :---------------------------------: |
@@ -180,54 +275,124 @@
 
 ##  HTML转义字符
 
-| 字符                           | 十进制 | 转义字符 |
-| ------------------------------ | ------ | -------- |
-| "                              | &#34;  | &quot;   |
-| &                              | &#38;  | &amp;    |
-| <                              | &#60;  | &lt;     |
-| >                              | &#62;  | &gt;     |
-| 不断开空格(non-breaking space) | &#160; | &nbsp;   |
+<div  class="gpt_html_div">
+    <div id="scrollRef" class="h-full overflow-hidden overflow-y-auto">
+        <div id="image-wrapper" class="w-full max-w-screen-xl m-auto dark:bg-[#101014] p-4">
+<!--问-->
+<div class="flex w-full mb-6 overflow-hidden flex-row-reverse"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 ml-2"><span class="n-avatar" style="--n-font-size:14px; --n-border:none; --n-border-radius:3px; --n-color:rgba(204, 204, 204, 1); --n-color-modal:rgba(204, 204, 204, 1); --n-color-popover:rgba(204, 204, 204, 1); --n-bezier:cubic-bezier(0.4, 0, 0.2, 1); --n-merged-size:var(--n-avatar-size-override, 34px);"><img loading="eager" src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png" data-image-src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png"><!----></span></div><div class="overflow-hidden text-sm items-end"><p class="text-xs text-[#b4bbc4] text-right">2023/8/7 17:01:59</p><div class="flex items-end gap-1 mt-2 flex-row-reverse"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#d2f9d1] dark:bg-[#a1dc95]"><div class="leading-relaxed break-words"><div class="whitespace-pre-wrap">HTML转义字符</div></div></div><div class="flex flex-col"><!----><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+<!--答-->
+<div class="flex w-full mb-6 overflow-hidden"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 mr-2"><span class="text-[28px] dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" width="1em" height="1em"><path d="M29.71,13.09A8.09,8.09,0,0,0,20.34,2.68a8.08,8.08,0,0,0-13.7,2.9A8.08,8.08,0,0,0,2.3,18.9,8,8,0,0,0,3,25.45a8.08,8.08,0,0,0,8.69,3.87,8,8,0,0,0,6,2.68,8.09,8.09,0,0,0,7.7-5.61,8,8,0,0,0,5.33-3.86A8.09,8.09,0,0,0,29.71,13.09Zm-12,16.82a6,6,0,0,1-3.84-1.39l.19-.11,6.37-3.68a1,1,0,0,0,.53-.91v-9l2.69,1.56a.08.08,0,0,1,.05.07v7.44A6,6,0,0,1,17.68,29.91ZM4.8,24.41a6,6,0,0,1-.71-4l.19.11,6.37,3.68a1,1,0,0,0,1,0l7.79-4.49V22.8a.09.09,0,0,1,0,.08L13,26.6A6,6,0,0,1,4.8,24.41ZM3.12,10.53A6,6,0,0,1,6.28,7.9v7.57a1,1,0,0,0,.51.9l7.75,4.47L11.85,22.4a.14.14,0,0,1-.09,0L5.32,18.68a6,6,0,0,1-2.2-8.18Zm22.13,5.14-7.78-4.52L20.16,9.6a.08.08,0,0,1,.09,0l6.44,3.72a6,6,0,0,1-.9,10.81V16.56A1.06,1.06,0,0,0,25.25,15.67Zm2.68-4-.19-.12-6.36-3.7a1,1,0,0,0-1.05,0l-7.78,4.49V9.2a.09.09,0,0,1,0-.09L19,5.4a6,6,0,0,1,8.91,6.21ZM11.08,17.15,8.38,15.6a.14.14,0,0,1-.05-.08V8.1a6,6,0,0,1,9.84-4.61L18,3.6,11.61,7.28a1,1,0,0,0-.53.91ZM12.54,14,16,12l3.47,2v4L16,20l-3.47-2Z" fill="currentColor"></path></svg></span></div><div class="overflow-hidden text-sm items-start"><p class="text-xs text-[#b4bbc4] text-left">2023/8/7 17:02:10</p><div class="flex items-end gap-1 mt-2 flex-row"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-[#1e1e20]"><div class="leading-relaxed break-words"><div class="markdown-body"><p>在HTML中，有一些特殊字符具有特殊含义，如果直接在HTML文档中使用这些字符，会导致解析错误或显示不正常。为了正确显示这些特殊字符，需要使用HTML转义字符（HTML entity）来表示它们。</p>
+<p>以下是一些常用的HTML转义字符：</p>
+<ul>
+<li><code>&amp;lt;</code> ：小于号（&lt;）</li>
+<li><code>&amp;gt;</code> ：大于号（&gt;）</li>
+<li><code>&amp;amp;</code> ：与号（&amp;）</li>
+<li><code>&amp;quot;</code> ：双引号（"）</li>
+<li><code>&amp;apos;</code> ：单引号（'）</li>
+<li><code>&amp;nbsp;</code> ：非断行空格（）</li>
+<li><code>&amp;copy;</code> ：版权符号（©）</li>
+<li><code>&amp;reg;</code> ：注册商标符号（®）</li>
+<li><code>&amp;euro;</code> ：欧元符号（€）</li>
+</ul>
+<p>通过使用以上的转义字符，可以在HTML中正确地显示这些特殊字符，而不会被解析为HTML标签或其他特殊含义。</p>
+<p>例如，如果要在HTML中显示一个小于号，可以使用&lt;表示：<code>&lt;span&gt;5 &amp;lt; 10&lt;/span&gt;</code>。</p>
+<p>注意：虽然大多数现代浏览器会自动处理特殊字符的显示，但为了确保最大的兼容性和可读性，仍然建议在HTML中使用转义字符来表示特殊字符。</p>
+</div></div></div><div class="flex flex-col"><button class="mb-2 transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-300"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795Z"></path></svg></button><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+        </div>
+    </div>
+</div>
+
+| 字符                        | 十进制     | 转义字符    |
+|---------------------------|---------|---------|
+| \"                        | \&#34;  | \&quot; |
+| \&                        | \&#38;  | \&amp;  |
+| \<                        | \&#60;  | \&lt;   |
+| \>                        | \&#62;  | \&gt;   |
+| 不断开空格(non-breaking space) | \&#160; | \&nbsp; |
 
 
 
-| 字符 | 十进制 | 转义字符 | 字符    | 十进制 | 转义字符 | 字符 | 十进制 | 转义字符 |
-| :--- | :----- | :------- | :------ | :----- | :------- | :--- | :----- | :------- |
-| ?    | &#161; | &iexcl;  | Á       | &#193; | &Aacute; | á    | &#225; | &aacute; |
-| ￠   | &#162; | &cent;   | Â       | &#194; | &circ;   | â    | &#226  | &acirc;  |
-| ￡   | &#163; | &pound;  | Ã       | &#195; | &Atilde; | ã    | &#227; | &atilde; |
-| ¤    | &#164; | &curren; | Ä       | &#196; | &Auml    | ä    | &#228; | &auml;   |
-| ￥   | &#165; | &yen;    | Å       | &#197; | &ring;   | å    | &#229; | &aring;  |
-| \|   | &#166; | &brvbar; | Æ       | &#198; | &AElig;  | æ    | &#230; | &aelig;  |
-| §    | &#167; | &sect;   | Ç       | &#199; | &Ccedil; | ç    | &#231; | &ccedil; |
-| ¨    | &#168; | &uml;    | È       | &#200; | &Egrave; | è    | &#232; | &egrave; |
-| ©    | &#169; | &copy;   | É       | &#201; | &Eacute; | é    | &#233; | &eacute; |
-| a    | &#170; | &ordf;   | Ê       | &#202; | &Ecirc;  | ê    | &#234; | &ecirc;  |
-| ?    | &#171; | &laquo;  | Ë       | &#203; | &Euml;   | ë    | &#235; | &euml;   |
-| ?    | &#172; | &not;    | Ì       | &#204; | &Igrave; | ì    | &#236; | &igrave; |
-| /x7f | &#173; | &shy;    | Í       | &#205; | &Iacute; | í    | &#237; | &iacute; |
-| ®    | &#174; | &reg;    | Î       | &#206; | &Icirc;  | î    | &#238; | &icirc;  |
-| ˉ    | &#175; | &macr;   | Ï       | &#207; | &Iuml;   | ï    | &#239; | &iuml;   |
-| °    | &#176; | &deg;    | Ð       | &#208; | &ETH;    | ð    | &#240; | &ieth;   |
-| ±    | &#177; | &plusmn; | Ñ       | &#209; | &Ntilde; | ñ    | &#241; | &ntilde; |
-| 2    | &#178; | &sup2;   | Ò       | &#210; | &Ograve; | ò    | &#242; | &ograve; |
-| 3    | &#179; | &sup3;   | Ó       | &#211; | &Oacute; | ó    | &#243; | &oacute; |
-| ′    | &#180; | &acute;  | Ô       | &#212; | &Ocirc;  | ô    | &#244; | &ocirc;  |
-| μ    | &#181; | &micro;  | Õ       | &#213; | &Otilde; | õ    | &#245; | &otilde; |
-| ?    | &#182; | &para;   | Ö       | &#214; | &Ouml;   | ö    | &#246; | &ouml;   |
-| ·    | &#183; | &middot; | &times; | &#215; | &times;  | ÷    | &#247; | &divide; |
-| ?    | &#184; | &cedil;  | Ø       | &#216; | &Oslash; | ø    | &#248; | &oslash; |
-| 1    | &#185; | &sup1;   | Ù       | &#217; | &Ugrave; | ù    | &#249; | &ugrave; |
-| o    | &#186; | &ordm;   | Ú       | &#218; | &Uacute; | ú    | &#250; | &uacute; |
-| ?    | &#187; | &raquo;  | Û       | &#219; | &Ucirc;  | û    | &#251; | &ucirc;  |
-| ?    | &#188; | &frac14; | Ü       | &#220; | &Uuml;   | ü    | &#252; | &uuml;   |
-| ?    | &#189; | &frac12; | Ý       | &#221; | &Yacute; | ý    | &#253; | &yacute; |
-| ?    | &#190; | &frac34; | Þ       | &#222; | &THORN;  | þ    | &#254; | &thorn;  |
-| ?    | &#191; | &iquest; | ß       | &#223; | &szlig;  | ÿ    | &#255; | &yuml;   |
-| À    | &#192; | &Agrave; | à       | &#224; | &agrave; |      |        |          |
+| 字符   | 十进制     | 转义字符      | 字符        | 十进制     | 转义字符      | 字符 | 十进制     | 转义字符     |
+|:-----|:--------|:----------|:----------|:--------|:----------| :--- |:--------|:---------|
+| ?    | \&#161; | \&iexcl;  | Á         | \&#193; | \&Aacute; | á    | \&#225; | \&aacute; |
+| ￠    | \&#162; | \&cent;   | Â         | \&#194; | \&circ;   | â    | \&#226  | \&acirc; |
+| ￡    | \&#163; | \&pound;  | Ã         | \&#195; | \&Atilde; | ã    | \&#227; | \&atilde; |
+| ¤    | \&#164; | \&curren; | Ä         | \&#196; | \&Auml    | ä    | \&#228; | \&auml;  |
+| ￥    | \&#165; | \&yen;    | Å         | \&#197; | \&ring;   | å    | \&#229; | \&aring; |
+| \\   | \&#166;  | \&brvbar; | Æ       | \&#198; | \&AElig;  | æ    | \&#230; | \&aelig; |
+| §    | \&#167; | \&sect;   | Ç         | \&#199; | \&Ccedil; | ç    | \&#231; | \&ccedil; |
+| ¨    | \&#168; | \&uml;    | È         | \&#200; | \&Egrave; | è    | \&#232; | \&egrave; |
+| ©    | \&#169; | \&copy;   | É         | \&#201; | \&Eacute; | é    | \&#233; | \&eacute; |
+| a    | \&#170; | \&ordf;   | Ê         | \&#202; | \&Ecirc;  | ê    | \&#234; | \&ecirc; |
+| ?    | \&#171; | \&laquo;  | Ë         | \&#203; | \&Euml;   | ë    | \&#235; | \&euml;  |
+| ?    | \&#172; | \&not;    | Ì         | \&#204; | \&Igrave; | ì    | \&#236; | \&igrave; |
+| /x7f | \&#173; | \&shy;    | Í         | \&#205; | \&Iacute; | í    | \&#237; | \&iacute; |
+| ®    | \&#174; | \&reg;    | Î         | \&#206; | \&Icirc;  | î    | \&#238; | \&icirc; |
+| ˉ    | \&#175; | \&macr;   | Ï         | \&#207; | \&Iuml;   | ï    | \&#239; | \&iuml;  |
+| °    | \&#176; | \&deg;    | Ð         | \&#208; | \&ETH;    | ð    | \&#240; | \&ieth;  |
+| ±    | \&#177; | \&plusmn; | Ñ         | \&#209; | \&Ntilde; | ñ    | \&#241; | \&ntilde; |
+| 2    | \&#178; | \&sup2;   | Ò         | \&#210; | \&Ograve; | ò    | \&#242; | \&ograve; |
+| 3    | \&#179; | \&sup3;   | Ó         | \&#211; | \&Oacute; | ó    | \&#243; | \&oacute; |
+| ′    | \&#180; | \&acute;  | Ô         | \&#212; | \&Ocirc;  | ô    | \&#244; | \&ocirc; |
+| μ    | \&#181; | \&micro;  | Õ         | \&#213; | \&Otilde; | õ    | \&#245; | \&otilde; |
+| ?    | \&#182; | \&para;   | Ö         | \&#214; | \&Ouml;   | ö    | \&#246; | \&ouml;  |
+| ·    | \&#183; | \&middot; | &times;   | \&#215; | \&times;  | ÷    | \&#247; | \&divide; |
+| ?    | \&#184; | \&cedil;  | Ø         | \&#216; | \&Oslash; | ø    | \&#248; | \&oslash; |
+| 1    | \&#185; | \&sup1;   | Ù         | \&#217; | \&Ugrave; | ù    | \&#249; | \&ugrave; |
+| o    | \&#186; | \&ordm;   | Ú         | \&#218; | \&Uacute; | ú    | \&#250; | \&uacute; |
+| ?    | \&#187; | \&raquo;  | Û         | \&#219; | \&Ucirc;  | û    | \&#251; | \&ucirc; |
+| ?    | \&#188; | \&frac14; | Ü         | \&#220; | \&Uuml;   | ü    | \&#252; | \&uuml;  |
+| ?    | \&#189; | \&frac12; | Ý         | \&#221; | \&Yacute; | ý    | \&#253; | \&yacute; |
+| ?    | \&#190; | \&frac34; | Þ         | \&#222; | \&THORN;  | þ    | \&#254; | \&thorn; |
+| ?    | \&#191; | \&iquest; | ß         | \&#223; | \&szlig;  | ÿ    | \&#255; | \&yuml;  |
+| À    | \&#192; | \&Agrave; | à         | \&#224; | \&agrave; |      |         |          |
 
 
 
 ##  HTTP状态码详解
+
+<div  class="gpt_html_div">
+    <div id="scrollRef" class="h-full overflow-hidden overflow-y-auto">
+        <div id="image-wrapper" class="w-full max-w-screen-xl m-auto dark:bg-[#101014] p-4">
+<!--问-->
+<div class="flex w-full mb-6 overflow-hidden flex-row-reverse"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 ml-2"><span class="n-avatar" style="--n-font-size:14px; --n-border:none; --n-border-radius:3px; --n-color:rgba(204, 204, 204, 1); --n-color-modal:rgba(204, 204, 204, 1); --n-color-popover:rgba(204, 204, 204, 1); --n-bezier:cubic-bezier(0.4, 0, 0.2, 1); --n-merged-size:var(--n-avatar-size-override, 34px);"><img loading="eager" src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png" data-image-src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/img/logo.png"><!----></span></div><div class="overflow-hidden text-sm items-end"><p class="text-xs text-[#b4bbc4] text-right">2023/8/7 17:21:55</p><div class="flex items-end gap-1 mt-2 flex-row-reverse"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#d2f9d1] dark:bg-[#a1dc95]"><div class="leading-relaxed break-words"><div class="whitespace-pre-wrap">HTTP状态码详解</div></div></div><div class="flex flex-col"><!----><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+<!--答-->
+<div class="flex w-full mb-6 overflow-hidden"><div class="flex items-center justify-center flex-shrink-0 h-8 overflow-hidden rounded-full basis-8 mr-2"><span class="text-[28px] dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" width="1em" height="1em"><path d="M29.71,13.09A8.09,8.09,0,0,0,20.34,2.68a8.08,8.08,0,0,0-13.7,2.9A8.08,8.08,0,0,0,2.3,18.9,8,8,0,0,0,3,25.45a8.08,8.08,0,0,0,8.69,3.87,8,8,0,0,0,6,2.68,8.09,8.09,0,0,0,7.7-5.61,8,8,0,0,0,5.33-3.86A8.09,8.09,0,0,0,29.71,13.09Zm-12,16.82a6,6,0,0,1-3.84-1.39l.19-.11,6.37-3.68a1,1,0,0,0,.53-.91v-9l2.69,1.56a.08.08,0,0,1,.05.07v7.44A6,6,0,0,1,17.68,29.91ZM4.8,24.41a6,6,0,0,1-.71-4l.19.11,6.37,3.68a1,1,0,0,0,1,0l7.79-4.49V22.8a.09.09,0,0,1,0,.08L13,26.6A6,6,0,0,1,4.8,24.41ZM3.12,10.53A6,6,0,0,1,6.28,7.9v7.57a1,1,0,0,0,.51.9l7.75,4.47L11.85,22.4a.14.14,0,0,1-.09,0L5.32,18.68a6,6,0,0,1-2.2-8.18Zm22.13,5.14-7.78-4.52L20.16,9.6a.08.08,0,0,1,.09,0l6.44,3.72a6,6,0,0,1-.9,10.81V16.56A1.06,1.06,0,0,0,25.25,15.67Zm2.68-4-.19-.12-6.36-3.7a1,1,0,0,0-1.05,0l-7.78,4.49V9.2a.09.09,0,0,1,0-.09L19,5.4a6,6,0,0,1,8.91,6.21ZM11.08,17.15,8.38,15.6a.14.14,0,0,1-.05-.08V8.1a6,6,0,0,1,9.84-4.61L18,3.6,11.61,7.28a1,1,0,0,0-.53.91ZM12.54,14,16,12l3.47,2v4L16,20l-3.47-2Z" fill="currentColor"></path></svg></span></div><div class="overflow-hidden text-sm items-start"><p class="text-xs text-[#b4bbc4] text-left">2023/8/7 17:22:16</p><div class="flex items-end gap-1 mt-2 flex-row"><div class="text-black text-wrap min-w-[20px] rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-[#1e1e20]"><div class="leading-relaxed break-words"><div class="markdown-body"><p>HTTP（Hypertext Transfer Protocol）状态码是在进行HTTP通信过程中，服务器返回给客户端的一个三位数的数字代码。它们用来指示请求的处理状态或结果。</p>
+<p>以下是常见的HTTP状态码及其简要说明：</p>
+<p>1xx（信息性状态码）：指示请求已被接收并且正在处理。</p>
+<ul>
+<li>100 Continue：服务器已收到请求的初始部分，客户端应继续发送剩余部分。</li>
+<li>101 Switching Protocols：服务器要求客户端切换协议。</li>
+</ul>
+<p>2xx（成功状态码）：指示请求已成功被服务器接受、理解和处理。</p>
+<ul>
+<li>200 OK：请求已成功。常用于GET和POST请求。</li>
+<li>201 Created：请求成功并且服务器创建了新的资源。</li>
+<li>204 No Content：请求已成功处理，但没有返回任何内容。</li>
+</ul>
+<p>3xx（重定向状态码）：指示客户端需要执行额外的步骤来完成请求。</p>
+<ul>
+<li>301 Moved Permanently：请求的资源已永久移动到新位置。</li>
+<li>302 Found：请求的资源暂时移动到不同的位置。</li>
+<li>304 Not Modified：客户端可以使用缓存的版本。</li>
+</ul>
+<p>4xx（客户端错误状态码）：指示客户端发出了错误的请求。</p>
+<ul>
+<li>400 Bad Request：请求无效，服务器无法理解。</li>
+<li>403 Forbidden：服务器拒绝请求访问。</li>
+<li>404 Not Found：请求的资源不存在。</li>
+</ul>
+<p>5xx（服务器错误状态码）：指示服务器在处理请求时发生错误。</p>
+<ul>
+<li>500 Internal Server Error：服务器遇到了意外情况，无法完成请求。</li>
+<li>502 Bad Gateway：作为网关或代理的服务器从上游服务器接收到无效响应。</li>
+<li>503 Service Unavailable：服务器暂时不可用，通常由于过载或维护。</li>
+</ul>
+<p>以上是一些常见的HTTP状态码，每个状态码都有特定的含义。在进行Web开发、网络通信时，了解和正确处理这些状态码对于调试和排除问题非常重要。</p>
+</div></div></div><div class="flex flex-col"><button class="mb-2 transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-300"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795Z"></path></svg></button><!----><button class="transition text-neutral-300 hover:text-neutral-800 dark:hover:text-neutral-200"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class=" iconify iconify--ri" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"></path></svg></button><!----></div></div></div></div>
+        </div>
+    </div>
+</div>
 
 | 状态码 | 含义                                                         |
 | :----- | :----------------------------------------------------------- |
