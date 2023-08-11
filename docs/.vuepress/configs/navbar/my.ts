@@ -2,14 +2,15 @@ import type {NavbarConfig} from '@vuepress/theme-default'
 import {version} from '../meta.js'
 // 我的导航栏配置
 export const navbarMy: NavbarConfig = [
+    {text: "首页\n〇°", link: "/"},
     {text: "chatGPT", link: "https://c.binjie.fun/"},
-    {text: "首页", link: "/"},
     {
         text: '本站建设', children: [
             {
                 text: '文档网站建设', children: [
                     {text: "vuepresss", link: "/本站建设/"},
                     {text: "markdown", link: "/本站建设/markdown/"},
+                    {text: "音乐播放器", link: "https://lingdu990130556.gitee.io/yinyue/"},
                 ]
             }
         ]
