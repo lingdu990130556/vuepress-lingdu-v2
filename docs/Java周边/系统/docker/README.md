@@ -3,6 +3,108 @@
 ## 基本介绍
 **[http://doc.ruoyi.vip/ruoyi-cloud/cloud/dokcer.html](http://doc.ruoyi.vip/ruoyi-cloud/cloud/dokcer.html)**
 
+## Docker 开启远程访问
+
+### 1、配置docker远程连接端口
+
+```shell
+vim /usr/lib/systemd/system/docker.service
+```
+
+### 2、找到 ExecStart，在最后面添加 -H tcp://0.0.0.0:2375
+
+```service
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target docker.socket firewalld.service containerd.service time-set.target
+Wants=network-online.target containerd.service
+Requires=docker.socket
+
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375 # 这里添加
+ExecReload=/bin/kill -s HUP $MAINPID
+TimeoutStartSec=0
+RestartSec=2
+Restart=always
+
+# Note that StartLimit* options were moved from "Service" to "Unit" in systemd 229.
+# Both the old, and new location are accepted by systemd 229 and up, so using the old location
+# to make them work for either version of systemd.
+StartLimitBurst=3
+
+# Note that StartLimitInterval was renamed to StartLimitIntervalSec in systemd 230.
+# Both the old, and new name are accepted by systemd 230 and up, so using the old name to make
+# this option work for either version of systemd.
+StartLimitInterval=60s
+
+# Having non-zero Limit*s causes performance problems due to accounting overhead
+# in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+
+# Comment TasksMax if your systemd version does not support it.
+# Only systemd 226 and above support this option.
+TasksMax=infinity
+
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
+
+# kill only the docker process, not all processes in the cgroup
+KillMode=process
+OOMScoreAdjust=-500
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 3、重启docker
+
+```shell
+systemctl daemon-reload && systemctl start docker
+
+systemctl restart docker
+```
+
+### 4、开放端口和防火墙
+
+```shell
+firewall-cmd --zone=public --add-port=2375/tcp --permanent
+iptables -I INPUT -p tcp --dport 2375 -j ACCEPT
+```
+
+### 5、验证
+
+```shell
+
+curl http://192.168.0.205:2375/version
+
+# 返回结果
+{"Platform":{"Name":"Docker Engine - Community"},"Components":[{"Name":"Engine","Version":"24.0.5","Details":{"ApiVersion":"1.43","Arch":"amd64","BuildTime":"2023-07-21T20:38:05.000000000+00:00","Experimental":"false","GitCommit":"a61e2b4","GoVersion":"go1.20.6","KernelVersion":"3.10.0-957.21.3.el7.x86_64","MinAPIVersion":"1.12","Os":"linux"}},{"Name":"containerd","Version":"1.6.22","Details":{"GitCommit":"8165feabfdfe38c65b599c4993d227328c231fca"}},{"Name":"runc","Version":"1.1.8","Details":{"GitCommit":"v1.1.8-0-g82f18fe"}},{"Name":"docker-init","Version":"0.19.0","Details":{"GitCommit":"de40ad0"}}],"Version":"24.0.5","ApiVersion":"1.43","MinAPIVersion":"1.12","GitCommit":"a61e2b4","GoVersion":"go1.20.6","Os":"linux","Arch":"amd64","KernelVersion":"3.10.0-957.21.3.el7.x86_64","BuildTime":"2023-07-21T20:38:05.000000000+00:00"}
+```
+
+## IDEA远程访问
+
+### 1、安装docker插件并重启
+
+File->Settings->Plugins->Marketplace->搜索docker->Docker安装
+![](./imgs/img_1.png)
+
+### 2、配置连接远程docker
+
+![](./imgs/img_2.png)
+
+[//]: # (### 3、配置docker远程仓库)
+
+
+[//]: # (### 4、创建一个Dockerfile配置)
+
+
 ## DockerFile
 
 **示例**
