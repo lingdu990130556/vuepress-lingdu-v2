@@ -10,7 +10,7 @@ export const navbarMy: NavbarConfig = [
                 text: '文档网站建设', children: [
                     {text: "vuepresss", link: "/本站建设/"},
                     {text: "markdown", link: "/本站建设/markdown/"},
-                    {text: "音乐播放器", link: "https://lingdu990130556.gitee.io/yinyue/"},
+                    {text: "音乐播放器", link: "http://lingdu.love/yinyue/"},
                 ]
             }
         ]
@@ -61,6 +61,7 @@ export const navbarMy: NavbarConfig = [
             {text: "版本v1.x", link: "http://lingdu990130556.gitee.io/lingdu/"},
             {text: "版本v2.x Gitee", link: "http://lingdu990130556.gitee.io/vuepress-lingdu-v2/"},
             {text: "版本v2.x GitHub", link: "https://lingdu990130556.github.io/vuepress-lingdu-v2/"},
+            {text: "版本v2.x 个人网站", link: "http://lingdu.love"},
         ]
     },
     {text: '友链', link: '/友链/博客圈.md'},

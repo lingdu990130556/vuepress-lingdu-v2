@@ -13,7 +13,7 @@ defineGiscusConfig({
 
 export default defineClientConfig({
     // 百度站点统计 辅助代码 数据统计页面地址：https://tongji.baidu.com/main/overview/10000521075/overview/index?siteId=18688698
-    enhance({ router ,app}) {
+    async enhance({ router ,app}) {
         router.beforeEach((to, from, next) => {
             if (typeof _hmt !== "undefined") {
                 if (to.path) {

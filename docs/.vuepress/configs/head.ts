@@ -6,6 +6,18 @@ export const head: HeadConfig[] = [
     // 添加浏览器图标
     // ["link", {rel: "icon",href: '/img/logo.png', type: 'image/jpg'}],
     // 站点访问统计 百度
+    // https://www.lingdu.love
+    [
+        'script', {}, `
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?800a9c4e9d5ae1edf2054b2bc45b89dc";
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(hm, s);
+          })();
+        `
+    ],
     // http://lingdu990130556.gitee.io/lingdu/
     [
         'script', {}, `
