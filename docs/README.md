@@ -277,9 +277,18 @@ const option = {
 <br><br>
 
 <!--   备案标注   -->
-<div style="position: relative;margin-left: auto;margin-right: auto;text-align: center; color: #8b949e; font-size: 12px" data-v-99bcade8="" class="copyright">
-    <a data-v-99bcade8="" href="https://beian.miit.gov.cn/#/Integrated/index">皖ICP备2023014487号-1</a>&nbsp;&nbsp;
-<!--        <a rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=123456789" target="_blank">公安备案号123456789</a>&nbsp;&nbsp;-->
+<div style="width:300px;margin:0 auto; padding:20px 0; position: relative;text-align: center; color: #8b949e; font-size: 12px" data-v-99bcade8="" class="copyright">
+<a target="_blank"  data-v-99bcade8="" href="https://beian.miit.gov.cn/#/Integrated/index">
+  <p style="height:20px;line-height:20px;margin: 0 0 0 5px; color:#939393;">
+    皖ICP备2023014487号-1
+  </p>
+</a>
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34010402704001" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+  <img src="/img/备案图标.png" style="float:left;" alt=""/>
+  <p style="float:left;height:20px;line-height:20px;margin: 0 0 0 5px; color:#939393;">
+    皖公网安备 34010402704001号
+  </p>
+</a><br>
 Copyright © 2023-2033 <a href="http://lingdu.love">〇°</a>
 </div>
 
