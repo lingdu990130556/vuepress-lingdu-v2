@@ -18,42 +18,6 @@ export const head: HeadConfig[] = [
           })();
         `
     ],
-    // http://lingdu990130556.gitee.io/lingdu/
-    [
-        'script', {}, `
-          var _hmt = _hmt || [];
-          (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?4a9891b3899967e538a88e44298b05d6";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-          })();
-        `
-    ],
-    // http://lingdu990130556.gitee.io/vuepress-lingdu-v2/
-    [
-        'script', {}, `
-          var _hmt = _hmt || [];
-          (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?9222123671a98ea25bca43b8fdf06169";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-          })();
-        `
-    ],
-    // https://lingdu990130556.github.io/vuepress-lingdu-v2/
-    [
-        'script', {}, `
-          var _hmt = _hmt || [];
-          (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?cd090cc8a46bfe4d084c0460dad876fc";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-          })();
-        `
-    ],
     ['link', {rel: 'icon', type: 'image/png', sizes: '16x16', href: `/vuepress-lingdu-v2/img/logo.png`,},],
     ['link', {rel: 'icon', type: 'image/png', sizes: '32x32', href: `/vuepress-lingdu-v2/img/logo.png`,},],
     ['meta', {name: 'application-name', content: 'VuePress'}],

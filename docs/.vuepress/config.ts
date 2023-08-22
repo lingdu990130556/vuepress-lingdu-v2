@@ -42,7 +42,8 @@ if (process.env.NODE_ENV === 'production') {// 打包配置
 }else {// 测试环境配置
     console.log('本地运行')
     // 测试环境排除百度统计配置
-    newHead=newHead.filter(item => item !== newHead[0]&&item !== newHead[1]&&item !== newHead[2]);// 删除当前播放的
+    // newHead=newHead.filter(item => item !== newHead[0]&&item !== newHead[1]&&item !== newHead[2]);// 删除
+    newHead=newHead.filter(item => item !== newHead[0]);// 删除
 }
 
 export default ({
