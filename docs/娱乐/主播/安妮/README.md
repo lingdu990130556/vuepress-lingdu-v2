@@ -69,7 +69,7 @@ link: https://music.163.com/#/song?id=1948119377
 color: rgb(108 195 226 / 55%)
 ```
 <div style="width: 100%;height: 900px;">
-  <iframe style="transform: scale(1,1)" width="100%" height="100%" src="https://lingdu990130556.gitee.io/yinyue/?name=安妮哟-杨安妮.mp3&moShi_id=random-btn"></iframe>
+  <iframe style="transform: scale(1,1)" width="100%" height="100%" src="https://lingdu.love/yinyue/?name=安妮哟-杨安妮.mp3&moShi_id=random-btn"></iframe>
 </div>
 
 ## 直播回放大事件
