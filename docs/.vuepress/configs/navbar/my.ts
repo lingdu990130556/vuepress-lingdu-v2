@@ -15,6 +15,7 @@ export const navbarMy: NavbarConfig = [
             }
         ]
     },
+    {text: "标签", link: "/标签/标签.md"},
     {
         text: 'Java周边', children: [
             {

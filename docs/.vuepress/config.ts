@@ -115,6 +115,8 @@ export default ({
             sub: true,
             // 启用上角标
             sup: true,
+            // 启用属性支持
+            attrs: true,
         }),
 
         // 代码块复制

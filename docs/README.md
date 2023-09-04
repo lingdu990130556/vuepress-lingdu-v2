@@ -83,6 +83,7 @@ const option = {
         }
     ]
 };
+const height = 700;// 设置高度
 ```
 
 :::

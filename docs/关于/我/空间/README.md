@@ -4,7 +4,7 @@
 
 
 <div class="background" id="shizhong">
-    <iframe src="/vuepress-lingdu-v2/html/空间/index.html"></iframe>
+    <iframe src="../../../html/空间/index.html"></iframe>
 </div>
 
 <style>

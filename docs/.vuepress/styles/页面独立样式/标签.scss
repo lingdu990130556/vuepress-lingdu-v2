@@ -1,0 +1,18 @@
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: #eaf2ff;
+  color: #3366cc;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 15px 15px 0 0; /* 设置上右下左的间隔为8像素 */
+  cursor: pointer;/*鼠标悬浮改变样式*/
+  //transform: scale(1.2);/*鼠标悬浮内容放大*/
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out;
+}
+.tag:hover {
+  transform: scale(1.4);/*鼠标悬浮放大内容*/
+}
