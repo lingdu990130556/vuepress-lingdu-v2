@@ -54,6 +54,11 @@ const sidebar = {
                 {text: "Windows", children: getChildren("/Java周边/系统/windows/")},
             ]
         },
+        {
+            text: '开源应用', children: [
+                {text: "若依", children: getChildren("/Java周边/若依/")},
+            ]
+        },
 
     ],
     '/友链/': [{text: '友情链接', children: getChildren('/友链/')}],

@@ -70,8 +70,8 @@ const option = {
         {
             name: '地域分布',
             type: 'pie',
-            radius: '55%',
-            center: ['50%', '60%'],
+            radius: ['0%', '55%'], // 调整内外圆的大小
+            center: ['50%', '65%'],
             data: chartData,
             itemStyle: {
                 emphasis: {
@@ -79,11 +79,31 @@ const option = {
                     shadowOffsetX: 0,
                     shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
+            },
+            label: {
+                show: true,
+                // position: 'inside', // 将标签放置在饼图内部
+                formatter: '{b}: {c}',
+                alignTo: 'none',
+                bleedMargin: 5,
+                edgeDistance: '30%',
+                emphasis: {
+                    textStyle: {
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                show: true,
+                length: 30, // 调整连线的长度，可以根据具体情况进行调整
+                length2: 30, // 调整连线的长度，可以根据具体情况进行调整
+                smooth: true
             }
         }
     ]
 };
-const height = 700;// 设置高度
+// const height = 700;// 设置高度
+
 ```
 
 :::
