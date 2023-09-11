@@ -27,7 +27,10 @@ color: rgb(227 212 217)
 
 
 ### 百度网盘集合
-[恩甜直播回放](https://pan.baidu.com/s/1x9SaEUi7_uZtBvGFFd4H7A?pwd=1jxb)
+[恩甜直播回放](https://pan.baidu.com/s/1x9SaEUi7_uZtBvGFFd4H7A?pwd=1jxb)  
+
+![百度网盘会员返现 我得红包你也得红包！](/img/百度网盘会员收益说明.png =400x)
+
 ```html
 链接：https://pan.baidu.com/s/1x9SaEUi7_uZtBvGFFd4H7A?pwd=1jxb
 提取码：1jxb

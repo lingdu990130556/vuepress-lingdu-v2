@@ -13,6 +13,9 @@ color: rgb(227 229 229)
 
 ### 百度网盘集合
 [旺仔小乔直播回放](https://pan.baidu.com/s/14G9txW5O2aRNwhti2iLzCQ?pwd=ling)
+
+![百度网盘会员返现 我得红包你也得红包！](/img/百度网盘会员收益说明.png =400x)
+
 ```html
 链接：https://pan.baidu.com/s/14G9txW5O2aRNwhti2iLzCQ?pwd=ling
 提取码：ling

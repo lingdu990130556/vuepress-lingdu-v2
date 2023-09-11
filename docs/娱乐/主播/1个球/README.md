@@ -13,6 +13,9 @@ color: rgb(231 242 248)
 
 ### 百度网盘集合
 [1个球直播回放](https://pan.baidu.com/s/1qSR81Vu9yF3L0gbzexqy1A?pwd=ling)
+
+![百度网盘会员返现 我得红包你也得红包！](/img/百度网盘会员收益说明.png =400x)
+
 ```html
 链接：https://pan.baidu.com/s/1qSR81Vu9yF3L0gbzexqy1A?pwd=ling
 提取码：ling
