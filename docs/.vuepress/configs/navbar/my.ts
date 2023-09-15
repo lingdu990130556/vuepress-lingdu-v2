@@ -10,7 +10,7 @@ export const navbarMy: NavbarConfig = [
                 text: '文档网站建设', children: [
                     {text: "vuepresss", link: "/本站建设/"},
                     {text: "markdown", link: "/本站建设/markdown/"},
-                    {text: "音乐播放器", link: "http://lingdu.love/yinyue/"},
+                    {text: "音乐播放器", link: "/本站建设/插件/音乐播放器.md"},
                 ]
             }
         ]
