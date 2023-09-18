@@ -1,0 +1,67 @@
+/* 样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 基本样式 */
+.message {
+  display: flex;
+  align-items: flex-start; /* 修改为靠左对齐 */
+  margin-bottom: 10px;
+}
+
+.message-avatar {
+  width: 30px; /* 根据实际需要调整大小 */
+  height: 30px;
+  border-radius: 50%; /* 将图片设为圆形 */
+  margin-right: 5px;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-sender {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 3px; /* 调整与消息气泡的间距 */
+}
+
+.message-bubble {
+  background: #f0f0f0;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 主题颜色 */
+.message {
+  max-width: 60%;
+}
+
+.message-avatar {
+  display: none; /* 隐藏头像 */
+}
+
+.message-sender {
+  display: none;
+}
+
+.message-bubble {
+  color: #333;
+}
+
+.message-received .message-bubble {
+  background: #fff;
+}
+
+.message-received .message-time {
+  display: none;
+}
