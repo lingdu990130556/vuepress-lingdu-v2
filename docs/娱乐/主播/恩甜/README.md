@@ -9,6 +9,8 @@ link: https://www.douyin.com/user/MS4wLjABAAAAMeTQRwXqRFQPWgwUX72o6fSVq6z5-0gcCp
 color: rgb(227 212 217)
 ```
 
+![](./imgs/zhuanji.jpg =400x)
+
 ## 直播回放
 
 

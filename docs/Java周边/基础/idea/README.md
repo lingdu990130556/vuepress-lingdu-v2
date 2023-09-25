@@ -64,5 +64,6 @@ Maven 执行 clean、compile、package等操作时控制台 中文乱码问题�
 ![img_6.png](./imgs/img_6.png)
 ### 4. [IDEA配置JRebel热部署](https://blog.csdn.net/weixin_42694593/article/details/126448828)
 
+## 项目结构显示问题
 
-
+![](./imgs/img_8.png)
