@@ -3,8 +3,8 @@ import {version} from '../meta.js'
 // 我的导航栏配置
 export const navbarMy: NavbarConfig = [
     {text: "首页", link: "/"},
+    {text: "标签云", link: "/标签/标签.md"},
     {text: "虫〇°洞", link: "/友链/博客圈.md"},
-    {text: "chatGPT", link: "https://c.binjie.fun/"},
     {
         text: '本站建设', children: [
             {
@@ -16,7 +16,6 @@ export const navbarMy: NavbarConfig = [
             }
         ]
     },
-    {text: "标签云", link: "/标签/标签.md"},
     // {
     //     text: 'Java周边', children: [
     //         {
@@ -81,6 +80,7 @@ export const navbarMy: NavbarConfig = [
             },
         ]
     },
+    {text: "chatGPT", link: "https://c.binjie.fun/"},
 
 
 ]
