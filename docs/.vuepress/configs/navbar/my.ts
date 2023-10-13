@@ -20,6 +20,11 @@ export const navbarMy: NavbarConfig = [
     {
         text: '云服务器', children: [
             {
+                text: '特惠推广', children: [
+                    {text: "特惠推广", link: "/友链/特惠推广.md"},
+                ]
+            },
+            {
                 text: '阿里云特惠', children: [
                     {text: "云小站特惠", link: "https://www.aliyun.com/minisite/goods?userCode=s5ttgz3u"},
                     {text: "免费试用", link: "https://free.aliyun.com?userCode=s5ttgz3u"},
