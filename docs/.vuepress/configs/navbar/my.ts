@@ -9,11 +9,41 @@ export const navbarMy: NavbarConfig = [
         text: '本站建设', children: [
             {
                 text: '文档网站建设', children: [
-                    {text: "vuepresss", link: "/本站建设/"},
-                    {text: "markdown", link: "/本站建设/markdown/"},
+                    {text: "本站服务器", link: "https://www.aliyun.com/minisite/goods?userCode=s5ttgz3u"},
+                    {text: "VuePresss", link: "/本站建设/"},
+                    {text: "Markdown", link: "/本站建设/markdown/"},
                     {text: "音乐播放器", link: "/本站建设/插件/音乐播放器.md"},
                 ]
             }
+        ]
+    },
+    {
+        text: '云服务器', children: [
+            {
+                text: '阿里云特惠', children: [
+                    {text: "云小站特惠", link: "https://www.aliyun.com/minisite/goods?userCode=s5ttgz3u"},
+                    {text: "免费试用", link: "https://free.aliyun.com?userCode=s5ttgz3u"},
+                    {text: "服务器省钱攻略", link: "https://www.aliyun.com/daily-act/ecs/ecs_trial_benefits?userCode=s5ttgz3u"},
+                    {text: "新人特惠专享", link: "https://www.aliyun.com/activity/new/index?userCode=s5ttgz3u"},
+                    {text: "云服务器|精选特惠", link: "https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=s5ttgz3u"},
+                    {text: "最新活动页", link: "https://www.aliyun.com/activity?userCode=s5ttgz3u"},
+                ]
+            },
+            {
+                text: '腾讯云特惠', children: [
+                    {text: "云产品特惠", link: "https://curl.qcloud.com/2OpSOLD6"},
+                    {text: "金秋上云季", link: "https://curl.qcloud.com/ZydWDT9F"},
+                    {text: "轻量应用服务器", link: "https://curl.qcloud.com/3e3UcSPZ"},
+                    {text: "音视频低代码", link: "https://curl.qcloud.com/W9bmVW8F"},
+                    {text: "即时通讯IM", link: "https://curl.qcloud.com/xdFDPqC6"},
+                    {text: "网络产品专场特惠", link: "https://curl.qcloud.com/FRXgTPym"},
+                    {text: "新客专属福利", link: "https://curl.qcloud.com/zss38JSa"},
+                    {text: "ES（Elasticsearch）", link: "https://curl.qcloud.com/qRhpCxJV"},
+                    {text: "腾讯云图", link: "https://curl.qcloud.com/pLA2xTVq"},
+                    {text: "视频通信爆款特惠", link: "https://curl.qcloud.com/ijCkxJgd"},
+                    {text: "9.9元畅享2万分钟TRTC通话", link: "https://curl.qcloud.com/bQrUo12b"},
+                ]
+            },
         ]
     },
     // {

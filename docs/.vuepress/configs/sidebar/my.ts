@@ -70,6 +70,12 @@ const sidebar = {
                 {text: 'QQ空间', children: getChildren('/关于/我/空间/QQ空间/')}
             ]
         }],
+    /*职业生涯*/
+    '/关于/我/职业生涯': [
+        {text: '职业生涯', children: [
+                {text: '项目经历', children: getChildren('/关于/我/职业生涯/臻峰信息/')},
+            ],},
+    ],
     '/娱乐/主播/安妮': [
         {
             text: '安妮', children: [
