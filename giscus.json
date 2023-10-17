@@ -7,7 +7,8 @@
     "http://lingdu990130556.gitee.io",
     "http://121.40.231.205",
     "http://lingdu.love",
-    "https://lingdu.love"
+    "https://lingdu.love",
+    "https://www.lingdu.love"
   ],
   "originsRegex": [
     "https://giscus-git-([A-z0-9]|-)*giscus\\.vercel\\.app",
@@ -17,7 +18,8 @@
     "https://lingdu990130556\\.github\\.io/*",
     "http://121\\.40\\.231\\.205/*",
     "http://lingdu\\.love/*",
-    "https://lingdu\\.love/*"
+    "https://lingdu\\.love/*",
+    "https://www.lingdu\\.love/*"
   ],
   "defaultCommentOrder": "newest"
 }
