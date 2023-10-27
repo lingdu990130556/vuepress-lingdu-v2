@@ -32,6 +32,7 @@ Maven 执行 clean、compile、package等操作时控制台 中文乱码问题�
 
 ## 类注释快捷方式生成补全模板设置
 ![img_2.png](./imgs/img_2.png)
+![img_9.png](./imgs/img_9.png)
 ::: tip 注释值
 ```java
  * 描述：TODO
@@ -46,7 +47,19 @@ Maven 执行 clean、compile、package等操作时控制台 中文乱码问题�
 
 ```
 ```java
- * @作者 <b><a class=b href="https://blog.csdn.net/lingdu_dou" color="red">⭕°</a></b>
+#foreach($param in $PARAMS)
+ * @param $param
+#end
+#if($RETURN_TYPE != "void")
+ * @return
+#end
+#foreach($param in $TYPE_PARAMS)
+ * @param <$param>
+#end
+#foreach($exception in $THROWS)
+ * @throws $exception
+#end
+ * @作者 <b><a class=b href="https://lingdu.love" color="red">⭕°</a></b>
  * @创建时间 ${YEAR}-${MONTH}-${DAY} ${TIME}
 
 ```

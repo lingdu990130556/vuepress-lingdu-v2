@@ -4,7 +4,7 @@ home: true
 heroImage: /img/logo.png
 bgImage: /img/1.jpg
 heroText: 〇°
-tagline: 今天快乐
+tagline: 10月27日电 中国共产党第十七届、十八届、十九届中央政治局常委，国务院原总理李克强同志，近日在上海休息，2023年10月26日因突发心脏病，经全力抢救无效，于10月27日0时10分在上海逝世，享年68岁。（讣告后发）
 title: 〇°
 head:
 - ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]

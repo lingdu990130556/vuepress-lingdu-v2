@@ -6,6 +6,18 @@ pageClass: liuyanban-page-class
 ---
  */
 
+
+// 设置全局黑白色
+body {
+  filter: grayscale(100%); // 将整个页面转为黑白
+}
+
+img {
+  filter: grayscale(100%); // 将所有图片转为黑白
+}
+
+
+
 @import "docs/.vuepress/public/html/gpt/iframestyle/gpt_html_iframe.scss";
 
 /*GPT聊天页面样式*/

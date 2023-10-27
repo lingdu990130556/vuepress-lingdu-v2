@@ -57,6 +57,7 @@ const sidebar = {
         {
             text: '开源应用', children: [
                 {text: "若依", children: getChildren("/Java周边/若依/")},
+                {text: "若依微服务", children: getChildren("/Java周边/若依/微服务/")},
             ]
         },
 
