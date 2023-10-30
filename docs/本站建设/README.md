@@ -196,9 +196,23 @@ module.exports = {
 [评论插件](https://blog.csdn.net/qq_33806001/article/details/126255433)
 
 
+## 哀悼模式
 
+:::tip 设置全局黑白
+:::
 
+```scss
+// 设置全局黑白色
+body {
+  filter: grayscale(100%); // 将整个页面转为黑白
+}
 
+img {
+  filter: grayscale(100%); // 将所有图片转为黑白
+}
+```
+
+![](./img/img_13.png)
 
 
 

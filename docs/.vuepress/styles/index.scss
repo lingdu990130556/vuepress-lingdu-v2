@@ -7,14 +7,13 @@ pageClass: liuyanban-page-class
  */
 
 
-// 设置全局黑白色
-body {
-  filter: grayscale(100%); // 将整个页面转为黑白
-}
-
-img {
-  filter: grayscale(100%); // 将所有图片转为黑白
-}
+// 设置全局黑白色 这里设置会导致浮动定位失效，所以建议在首页使用
+//body {
+//  filter: grayscale(100%); // 将整个页面转为黑白
+//  img {
+//    filter: grayscale(100%); // 将所有图片转为黑白
+//  }
+//}
 
 
 
