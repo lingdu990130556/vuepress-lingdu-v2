@@ -11,109 +11,52 @@ head:
 - ['meta', {name: 'baidu-site-verification', content: 'codeva-qKsrq7nPXz'}]
 ---
 
-[统计](/本站建设/站点统计/README.md)
+[//]: # ([统计]&#40;/本站建设/站点统计/README.md&#41;)
 
-[//]: # (访问者地域分布图)
-<!-- #region demo -->
-
-::: echarts
-
-```js
-// 统计地域信息
-const areaData = {};
-let total = 0;
-dataset.rows.forEach(row => {
-    const area = row[2];
-    if (area == undefined || area === '') {
-        return;
-    }
-    if (!areaData[area]) {
-        areaData[area] = 0;
-    }
-    areaData[area]++;
-    total++;
-});
-
-// 转化为 ECharts 数据格式
-const chartData = [];
-for (const area in areaData) {
-    const count = areaData[area];
-    chartData.push({
-        value: count,
-        name: area
-    });
-}
-var keys = Object.keys(areaData);
-var halfLength = Math.ceil(keys.length / 2);
-// 指定图表的配置项和数据
-const option = {
-    title: {
-        text: '',
-        x: 'center'
-    },
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
-    legend: [
-        {
-            orient: 'vertical',
-            left: '10%',
-            data: keys.slice(0, halfLength+1)
-        },
-        {
-            orient: 'vertical',
-            right: '10%',
-            data: keys.slice(halfLength+1)
-        }
-    ],
-    series: [
-        {
-            name: '地域分布',
-            type: 'pie',
-            radius: ['10%', '15%'], // 调整内外圆的大小
-            center: ['50%', '50%'],
-            data: chartData,
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            },
-            label: {
-                show: true,
-                // position: 'inside', // 将标签放置在饼图内部
-                formatter: '{b}: {c}',
-                alignTo: 'none',
-                bleedMargin: 5,
-                edgeDistance: '30%',
-                emphasis: {
-                    textStyle: {
-                        fontWeight: 'bold'
-                    }
-                }
-            },
-            labelLine: {
-                show: true,
-                length: 30, // 调整连线的长度，可以根据具体情况进行调整
-                length2: 30, // 调整连线的长度，可以根据具体情况进行调整
-                smooth: true
-            }
-        }
-    ]
-};
-// const height = 700;// 设置高度
-
+```card
+title: 统计
+desc: 
+logo: /img/logo.png
+link: /本站建设/站点统计/README.md
+color: rgb(195 233 224 / 19%)
+```
+```card
+title: 标签
+desc: 
+logo: /img/logo.png
+link: /标签/标签.md
+color: rgb(195 233 224 / 19%)
 ```
 
-:::
+```card
+title: 推广
+desc: 
+logo: /img/logo.png
+link: /友链/特惠推广.md
+color: rgb(195 233 224 / 19%)
+```
+```card
+title: 音乐
+desc: 
+logo: /img/logo.png
+link: https://lingdu.love/yinyue
+color: rgb(195 233 224 / 19%)
+```
+```card
+title: 友链
+desc: 
+logo: /img/logo.png
+link: /友链/博客圈.md
+color: rgb(195 233 224 / 19%)
+```
+```card
+title: 〇°
+desc: 
+logo: /img/logo.png
+link: https://lingdu.love/admin
+color: rgb(195 233 224 / 19%)
+```
 
-<!-- #endregion demo -->
-
-
-[//]: # (访问量趋势图)
-<!-- #region demo -->
 
 
 
