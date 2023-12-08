@@ -143,6 +143,21 @@ const option = {
             }
         }
     ],
+    // 开启缩放
+    dataZoom: [
+        {
+            type: "inside",
+            start: 80,
+            end: 100,
+        },
+        {
+            show: true,
+            type: "slider",
+            top: "90%",
+            start: 80,
+            end: 100,
+        },
+    ],
     series: [
         {
             name: '访问量',
