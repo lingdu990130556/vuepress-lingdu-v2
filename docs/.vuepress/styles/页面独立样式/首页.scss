@@ -4,15 +4,22 @@
 .首页 {
   //filter: grayscale(100%);// 使所有元素内容变成黑白色
   /*导航栏*/
-  //.navbar {
-  //  background-color: #9adbbe70;
-  //}
+  .navbar {
+    background-color: rgba(154, 219, 190, 0);
+  }
   /*导航栏内容*/
   //.navbar .links {
-  //  background-color: rgba(154, 219, 190, 0);
+  //  background-color: rgba(154, 219, 190, 0.41);
   //}
 
-  //background-image: url("/img/1.jpg");
+
+  background-image: url("/img/login-lingdu.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh; /* 设置 body 元素高度与屏幕高度一致 */
+  margin: 0; /* 去除 body 元素的默认边距 */
 
   .hero {
     img {

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" style="width: 100%; height: auto;">
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(255,255,255,0.5);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(173,216,230,0.5);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient1)" />
+
+  <ellipse cx="600" cy="400" rx="120" ry="120" fill="url(#gradient1)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0;-20;0;20;0"
+      dur="20s"
+      repeatCount="indefinite"
+    />
+  </ellipse>
+
+  <circle cx="450" cy="300" r="150" fill="none" stroke="url(#gradient1)" stroke-width="8" />
+  <circle cx="510" cy="100" r="20" fill="none" stroke="url(#gradient1)" stroke-width="7">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 450 300"
+    to="360 450 300"
+    dur="20s"
+    repeatCount="indefinite"
+    />
+  </circle>
+
+  <path d="M 100 300 Q 0 300 300 400 T 700 400" fill="none" stroke="url(#gradient1)" stroke-width="2" />
+</svg>
