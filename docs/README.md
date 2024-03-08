@@ -50,7 +50,7 @@ link: /友链/博客圈.md
 color: rgb(195 233 224 / 19%)
 ```
 ```card
-title: 〇°
+title: 系统
 desc: 
 logo: /img/logo.png
 link: https://lingdu.love/admin
