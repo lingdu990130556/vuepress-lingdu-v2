@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--禁用缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--禁止缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <title id="dynamic-title" style="color: deepskyblue">〇°</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/vuepress-lingdu-v2/img/logo.png">
+</head>
+<body>
+<button id="fullscreen-button">全屏</button>
+
+<div id="fengmian"></div>
+<div id="container ">
+        <a id="yuanma" href="https://gitee.com/lingdu990130556/yinyue/blob/master/src/index.html">源码</a>
+    <div id="child" style="text-align: center;">
+
+        <h1 id="lingdu_bofangqi" style="width: 50px;cursor: pointer;">〇°</h1>
+        <span id="gequming" style="font-size: clamp(1rem, 3vw, 2rem);color: #ffef5d;"></span><br>
+        <audio id="music" src=""></audio>
+        <span>
+        <!--列表按钮-->
+        <button id="music-list-button"><i class="fa fa-list" aria-hidden="true"></i></button>
+            <!--上一曲按钮-->
+        <button id="step-backward-btn" onclick="qiege(this,-1)"><i class="fas fa-step-backward"></i></button>
+        <label for="progressBar"></label><input style="height: 8px;width: 60%;max-width: 450px" type="range" id="progressBar" min="0" max="100" value="0"></span>
+        <span>
+            <button id="play-btn" onclick="playMusic()"><i class="fas fa-play"></i></button>
+            <button id="pause-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
+            <!--下一曲按钮-->
+            <button id="step-forward-btn" onclick="qiege(this,1)"><i class="fas fa-step-forward"></i></button>
+        </span>
+        <!--音乐列表-->
+        <div id="music-list-container">
+            <!-- 添加其他歌曲 -->
+        </div>
+
+        <div id="timeDisplay" style="margin-top: 6px;">
+        <span>
+            <button id="undo-alt-btn" onclick="boFangMoShi(this)" title="单曲循环"><i
+                    class="fas fa-undo-alt"></i></button><!--单曲循环-->
+            <button id="sync-alt-btn" onclick="boFangMoShi(this)" title="列表循环"><i
+                    class="fas fa-sync-alt"></i></button><!--列表循环-->
+            <button id="random-btn" onclick="boFangMoShi(this)" title="随机循环"><i class="fas fa-random"></i></button>
+            <!--随机循环-->
+        </span>
+            <span style="color: #0bbafa" id="currentTimeDisplay">00:00</span>
+            <span style="color: #0bbafa"> / </span>
+            <span style="color: #0bbafa" id="totalTimeDisplay">00:00</span>
+        </div>
+        <!--歌词容器-->
+        <div id="lyrics-container" style="margin-top: 0; padding: 0; border: 0 solid #ccc;">
+
+        </div>
+        <!--音谱效果-->
+        <div>
+            <canvas id="my-canvas" width="400" height="200"></canvas>
+            <div class="rotate">
+                <canvas id="my-canvas2" width="400" height="70"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="background" id="shizhong">
+    <iframe src="http://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/huaban/index.html"></iframe>
+</div>
+
+
+<!--全屏逻辑-->
+<script>
+    const fullscreenButton = document.getElementById('fullscreen-button');
+
+    // 检查浏览器是否支持全屏模式
+    if (document.fullscreenEnabled || document.webkitFullscreenEnabled ||
+        document.mozFullScreenEnabled || document.msFullscreenEnabled) {
+        fullscreenButton.style.display = 'block';
+    }
+
+    // 进入全屏模式
+    function enterFullscreen() {
+        const element = document.documentElement;
+
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+
+    // 退出全屏模式
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+
+    fullscreenButton.addEventListener('click', function () {
+        if (document.fullscreenElement || document.webkitFullscreenElement ||
+            document.mozFullScreenElement || document.msFullscreenElement) {
+            exitFullscreen();
+            fullscreenButton.textContent = '全屏';
+        } else {
+            enterFullscreen();
+            fullscreenButton.textContent = '退出全屏';
+        }
+    });
+</script>
+<!--生成音乐列表 -->
+<script>
+    const songs = [
+        "桃源恋歌 - GARNiDELiA.mp3",
+        "一笑倾城 - 汪苏泷.mp3",
+        "时间煮雨 - 郁可唯.mp3",
+        "不能握的手（秋秋）.mp3",
+        "阿拉斯加海湾 - 蓝心羽.mp3",
+        "一生所爱 - 卢冠廷.mp3",
+        "当我唱起这首歌 - 小贱,星弟.mp3",
+        "听悲伤的情歌 - 麦小兜.mp3",
+        "圈住你（cover：一口甜）翻唱（淮却）.mp3",
+        "普通disco.mp3",
+        "生日快乐(松鼠Eunice).mp3",
+        "走马 - 而羡人间.mp3",
+        "走马 - 陈粒.mp3",
+        "你不是真正的快乐 - G.E.M. 邓紫棋.aac",
+        "稻香 - 周杰伦.flac",
+        "下雪的季节 - 本兮.flac",
+        "安妮哟-杨安妮.mp3",
+        "你在看孤独的风景 - 本兮,单小源.flac",
+        "毛不易 - 像我这样的人.flac",
+        "呓语 - 毛不易.flac",
+        "好久不见 - 陈奕迅.flac",
+        "爱情转移 - 陈奕迅.flac",
+        "迟来的情话 - 张家旺.mp3",
+        "卜卦 - 崔子格.mp3",
+        "牧马城市 - 毛不易.mp3",
+        "一荤一素 - 毛不易.mp3"
+    ];
+
+    const container = document.getElementById("music-list-container");
+
+    for (let i = 0; i < songs.length; i++) {
+        const button = document.createElement("button");
+        button.className = "music-list-button";
+        button.setAttribute("onclick", "qiege(this)");
+        button.innerHTML = songs[i];
+        container.appendChild(button);
+        container.appendChild(document.createElement("br"));
+    }
+</script>
+<script>
+    // 音乐资源根路径
+    const path='http://lingdu990130556.gitee.io/yinyue/bgm/'
+    // const path='../../../yinyue/bgm/'
+    // const path='./bgm/'
+
+    // 获取当前页面地址
+    let url = window.location.href;
+    // 获取参数值
+    let parameterValue_name = getUrlParameter(url, 'name');
+    let parameterValue_moShi_id = getUrlParameter(url, 'moShi_id');// 单曲循环 undo-alt-btn
+    // 解析地址字符串获取参数值的函数
+    function getUrlParameter(url, parameterName) {
+        try{
+            let parameters = url.split('?')[1].split('&');
+
+            for (let i = 0; i < parameters.length; i++) {
+                let parameter = parameters[i].split('=');
+                if (parameter[0] === parameterName) {
+                    return parameter[1] === undefined ? true : decodeURIComponent(parameter[1]);
+                }
+            }
+        }catch (e){}
+    }
+
+
+
+    let name = parameterValue_name || localStorage.getItem('name') || '毛不易 - 像我这样的人.flac';// 歌名
+    const gequming = document.getElementById('gequming')
+    gequming.textContent = name.split('.').slice(0, -1).join('.');
+    // 音乐
+    const music = document.getElementById('music');
+    // const music = new Audio();
+    music.src = path + name;
+    // 设置音量
+    music.volume = 0.8;
+    // 预加载
+    music.preload = 'auto';
+    // 预读取
+    music.autobuffer=true;
+    // 加载
+    music.load();
+    // 进度条
+    const progressBar = document.getElementById('progressBar');
+    // 显示当前时间
+    const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+    // 总时长
+    const totalTimeDisplay = document.getElementById('totalTimeDisplay');
+    // 歌词容器
+    let lyricsContainer = document.getElementById('lyrics-container');
+    // 歌词行
+    let lyricsLines = null;
+    // 歌词时间偏移量
+    const lyricsConfig={
+        '一生所爱 - 卢冠廷.mp3':10.2,
+        '你不是真正的快乐 - G.E.M. 邓紫棋.aac':4,
+        '听悲伤的情歌 - 麦小兜.mp3':-1.5,
+        '圈住你（cover：一口甜）翻唱（淮却）.mp3':-0.5,
+        '下雪的季节 - 本兮.flac':-0.5,
+        '时间煮雨 - 郁可唯.mp3':1,
+        '不能握的手（秋秋）.mp3':-0.5,
+        '安妮哟-杨安妮.mp3':-0.5,
+        '桃源恋歌 - GARNiDELiA.mp3':-0.2,
+    }
+    geci();
+    // let lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
+    // logo
+    const h1 = document.querySelector('h1');
+    // 播放暂停按钮
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+
+    // 音谱效果
+    const canvasElement = document.getElementById("my-canvas");
+    const canvasElement2 = document.getElementById("my-canvas2");
+
+    let activeLineIndex = null;
+
+    let timer_updateProgressBar = null;
+    let timer_updateTimeDisplay = null;
+    let timer_updateLyrics = null;
+
+    // 封面元素
+    let imgElement = null;
+    function yanshiImg(type){
+        if(imgElement){
+            if (type==='add'){
+                imgElement.classList.add('fengmianxuanzhuan');
+            }
+            if (type==='remove')
+                imgElement.classList.remove('fengmianxuanzhuan');
+
+        }
+        return '';
+    }
+
+    /*播放音乐*/
+    function playMusic() {
+        update();
+        music.play();
+        timer_updateProgressBar = setInterval(updateProgressBar, 500);
+        timer_updateTimeDisplay = setInterval(updateTimeDisplay, 500);
+        timer_updateLyrics = setInterval(updateLyrics, 500);
+        // 播放音乐时添加类名
+        h1.classList.add('rotating');
+        yanshiImg('add');
+        // 隐藏播放按钮、显示暂停按钮
+        playBtn.style.display = 'none';
+        pauseBtn.style.display = 'inline-block';
+        // 开始播放音频，并绘制音谱图
+        init();
+    }
+
+    /*暂停播放*/
+    function pauseMusic() {
+        if(timer_updateProgressBar!=null){
+            music.pause();
+            clearInterval(timer_updateProgressBar);
+            clearInterval(timer_updateTimeDisplay);
+            clearInterval(timer_updateLyrics);
+            // 暂停音乐时删除类名
+            h1.classList.remove('rotating');
+            yanshiImg('remove');
+            // 隐藏暂停按钮、显示播放按钮
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline-block';
+            setTimeout(stopDrawing, 600);
+        }
+    }
+
+
+    // 获取歌曲信息
+    let musicListContainer = document.getElementById('music-list-container');
+    // 初始隐藏列表
+    musicListContainer.classList.add('visible0');
+    musicListContainer.classList.remove('visible1');
+    let buttons = musicListContainer.getElementsByTagName('button');
+    // 存放歌曲名称
+    const buttonTexts = [];
+    for (let i = 0; i < buttons.length; i++) {
+        let buttonText = buttons[i].textContent;
+        buttonTexts.push(buttonText);
+    }
+    // 已随机过的歌曲记录
+    let suijijilu = buttonTexts;
+
+    // 播放模式 1单曲循环2列表循环3随机训话
+    let moShi = 1;
+    /*更新进度条*/
+    function updateProgressBar() {
+        const a = (music.currentTime / music.duration) * 100;
+        progressBar.value = a;
+        if (a === 100) {
+            pauseMusic();
+            if (moShi === 3) {
+                suijiqiege();
+            } else if (moShi === 2) {// 顺序循环播放
+                shunxuqiege(1);
+            } else {
+                playMusic();// 单曲循环
+            }
+        }
+    }
+
+    /*随机切歌*/
+    function suijiqiege() {
+        // 清完后重置
+        if (suijijilu.length === 1) {
+            suijijilu = buttonTexts;
+        }
+        // 随机循环
+        for (let i = 0; i < suijijilu.length; i++) {
+            if (decodeURIComponent(music.src).includes(suijijilu[i])) {
+                suijijilu = suijijilu.filter(item => item !== suijijilu[i]);// 删除当前播放的
+                break;
+            }
+        }
+        let num = getRandomInt(0, suijijilu.length - 1);// 随机数
+        let obj = {};
+        obj.textContent = suijijilu[num];
+        qiege(obj);
+    }
+
+    /*顺序切歌*/
+    function shunxuqiege(j) {
+        j = j == null ? 1 : j;// 歌曲下标增减数
+        // 列表循环
+        for (let i = 0; i < buttonTexts.length; i++) {
+            if (decodeURIComponent(music.src).includes(buttonTexts[i])) {
+                let obj = {};
+                i = i === buttonTexts.length ? 0 : i + j;
+                i = i === -1 ? buttonTexts.length - 1 : i;
+                i = i === buttonTexts.length ? 0 : i;
+                obj.textContent = buttonTexts[i];
+                qiege(obj);
+                break;
+            }
+        }
+    }
+
+    /*获取随机数*/
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // 播放模式按钮
+    const undoAltBtn = document.getElementById('undo-alt-btn');// 单曲循环
+    const syncAltBtn = document.getElementById('sync-alt-btn');// 列表循环
+    const randomBtn = document.getElementById('random-btn');// 随机循环
+    // 地址栏参数
+    if(parameterValue_moShi_id){
+        const obj={};
+        obj.id=parameterValue_moShi_id;
+        boFangMoShi(obj);
+        // 本地缓存值
+    }else if(localStorage.getItem('moShi')){
+        const obj={};
+        obj.id=localStorage.getItem('moShi');
+        boFangMoShi(obj);
+    }
+    /*播放模式*/
+    function boFangMoShi(d) {
+        switch (d.id) {
+            case "undo-alt-btn":
+                undoAltBtn.style.display = 'none';
+                randomBtn.style.display = 'none';
+                syncAltBtn.style.display = 'inline-block';
+                moShi = 2;
+                break;
+            case "sync-alt-btn":
+                syncAltBtn.style.display = 'none';
+                undoAltBtn.style.display = 'none';
+                randomBtn.style.display = 'inline-block';
+                moShi = 3;
+                break;
+            case "random-btn":
+            default:
+                undoAltBtn.style.display = 'inline-block';
+                randomBtn.style.display = 'none';
+                syncAltBtn.style.display = 'none';
+                moShi = 1;
+                break;
+        }
+        // 设置本地缓存变量
+        localStorage.setItem('moShi', d.id);
+    }
+
+    /*更新时间显示*/
+    function updateTimeDisplay() {
+        const currentTime = formatTime(music.currentTime);
+        const totalTime = formatTime(music.duration);
+        currentTimeDisplay.innerText = currentTime;
+        totalTimeDisplay.innerText = totalTime;
+    }
+
+    /*格式时间*/
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${padZero(minutes)}:${padZero(seconds)}`;
+    }
+
+    /*填充0*/
+    function padZero(number) {
+        return String(number).padStart(2, '0');
+    }
+
+    /*更新歌词*/
+    function updateLyrics() {
+        // 当前时间
+        const currentTime = music.currentTime;
+        // 当前行
+        let currentLineIndex = null;
+        for (let i = 0; i < lyricsLines.length; i++) {
+            const time = parseFloat(lyricsLines[i].dataset.time);
+            if (currentTime >= time) {
+                currentLineIndex = i;
+            } else {
+                break;
+            }
+        }
+        if (currentLineIndex !== activeLineIndex) {
+            for (let i = 0; i < lyricsLines.length; i++) {
+                const line = lyricsLines[i];
+                const distanceToMove = -40 * currentLineIndex;
+                line.style.transition = "transform 0.5s ease-in-out"; // 添加过渡效果
+                line.style.transform = `translateY(${distanceToMove}px)`;
+                line.classList.add('active');
+                if (i === currentLineIndex) {
+                    line.classList.add('showing');
+                    line.classList.remove('active');
+                    // line.style.transition = "transform 0.9s ease-in-out"; // 添加滚动过渡效果
+                    line.style.transition = "font-size 0.5s ease-in-out, transform 0.5s ease-in-out"; // 添加过渡效果
+                    line.style.transform = `translateY(${-40 * currentLineIndex}px)`;
+                    line.style.fontSize = "20px"; // 设置目标字体大小
+                    // line.style.transition = "font-size 0.7s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "22px"; // 设置目标字体大小
+                    setScrollingTitle(line.textContent);// 设置标题
+                } else if (i === activeLineIndex) {
+                    line.classList.remove('active');
+                    // line.style.transition = "font-size 0.5s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "20px"; // 恢复默认字体大小
+                }
+                if (i !== currentLineIndex) {
+                    line.classList.remove('showing');
+                    // line.style.transition = "font-size 0.5s ease-in-out"; // 添加过渡效果
+                    // line.style.fontSize = "20px"; // 恢复默认字体大小
+                }
+            }
+            activeLineIndex = currentLineIndex;
+        }
+    }
+    // 获取标题元素
+    const titleElement = document.getElementById("dynamic-title");
+    /**设置新标题*/
+    function setNewTitle(newTitle){
+        // 设置新的标题
+        titleElement.innerText = newTitle;
+    }
+    let setIntervalId;
+    // 设置新的标题并实现滚动效果
+    function setScrollingTitle(newTitle) {
+        let title = newTitle + "  -  "; // 添加分隔符或其他修饰符
+        let scrollLength = 0; // 标题滚动的位置
+        // 清除之前的定时器
+        if (setIntervalId) {
+            clearInterval(setIntervalId);
+        }
+        // 定时更新标题
+        setIntervalId = setInterval(function() {
+            scrollLength++; // 每次增加滚动位置
+            let scrolledText = title.substring(scrollLength, title.length) + title.substring(0, scrollLength);
+            titleElement.innerText = scrolledText; // 设置滚动后的标题
+
+            // 检查是否滚动到标题末尾，如果是则重新开始滚动
+            if (scrollLength === title.length) {
+                scrollLength = 0;
+            }
+        }, 200); // 每300毫秒滚动一次，可以根据需要调整滚动速度
+    }
+
+
+
+    /**更新当前播放时间和总时长的显示，以及进度条的值*/
+    function update() {
+        music.addEventListener("timeupdate", function () {
+            updateTimeDisplay();
+            updateLyrics(this.currentTime);
+        });
+    }
+
+    /**当进度条的值发生变化时，会计算出当前播放时间，并将其设置为音频元素的 currentTime 属性的值*/
+    progressBar.addEventListener("input", function () {
+        // 当进度条值发生变化时更新当前播放时间
+        music.currentTime = (music.duration / 100) * progressBar.value;
+    });
+
+
+    //**************************************************************************************************************
+
+    let animationId = null;
+    let animationId2 = null;
+
+    // 创建 Web Audio API 的上下文
+    let audioContext = null;
+    let analyser = null;
+    let sourceNode = null;
+
+    // 在用户点击页面上的按钮时启动 AudioContext
+    function startAudioContext() {
+        if (audioContext === null) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+            // 创建 analyser 对象（用于分析音频数据）
+            analyser = audioContext.createAnalyser();
+            // 将音频节点连接到 analyser 对象
+            sourceNode = audioContext.createMediaElementSource(music);
+            sourceNode.connect(analyser);
+            // 将 analyser 对象连接到 Web Audio API 上下文
+            analyser.connect(audioContext.destination);
+        }
+    }
+
+    function init() {
+        startAudioContext();
+        // 设置频率精度和时间精度
+        // analyser.fftSize = 4096;
+        // analyser.fftSize = 2048;
+        // analyser.fftSize = 1024;
+        // analyser.fftSize = 512;
+        // analyser.fftSize = 256;
+        // analyser.fftSize = 128;
+        // analyser.fftSize = 64;
+        // analyser.fftSize = 32;
+        // 根据页面宽度计算fftSize的值
+        const pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        let fftSize = 0;
+        let xx = 0;
+
+        if (pageWidth < 768) {
+            fftSize = 1024;
+            xx=1.5;
+        } else if (pageWidth < 1280) {
+            fftSize = 2048;
+            xx=2.5;
+        } else if (pageWidth < 1440) {
+            fftSize = 4096;
+            xx=5.2;
+        } else {
+            fftSize = 4096;
+            xx=5.2;
+        }
+        analyser.fftSize = fftSize;
+
+
+
+
+
+        // 获取音频数据
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        draw();
+
+        // 绘制音谱图
+        function draw() {
+            // 在下一帧继续绘制
+            animationId = requestAnimationFrame(draw);
+            animationId2 = requestAnimationFrame(draw2);
+
+            // 获取音频数据，并绘制音谱图
+            analyser.getByteFrequencyData(dataArray);
+            let canvasCtx = canvasElement.getContext("2d");
+            canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height); // 清除画布内容
+            canvasCtx.globalAlpha = 0.5;
+            canvasCtx.fillStyle = "rgba(255, 255, 255, 0)";
+            canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+
+            const barWidth = (canvasElement.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+                canvasCtx.globalAlpha = 1;
+                canvasCtx.fillStyle = `hsla(${x / xx},100%,50%,0.7)`;
+                // canvasCtx.fillStyle = `hsl(0,100%,50%)`;
+                canvasCtx.fillRect(x, canvasElement.height - barHeight / 2, barWidth, barHeight / 2);
+                x += barWidth + 1;
+            }
+
+            return '〇°';
+        }
+
+        // 绘制音谱图 [倒影]
+        function draw2() {
+            // 获取音频数据，并绘制音谱图
+            analyser.getByteFrequencyData(dataArray);
+            let canvasCtx = canvasElement2.getContext("2d");
+            canvasCtx.clearRect(0, 0, canvasElement2.width, canvasElement2.height); // 清除画布内容
+            canvasCtx.fillStyle = "rgba(255,255,255,0)";
+            canvasCtx.fillRect(0, 0, canvasElement2.width, canvasElement2.height);
+
+            const barWidth = (canvasElement2.width / bufferLength) * 2.5;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i];
+                canvasCtx.globalAlpha = 0.21;
+                canvasCtx.fillStyle = `hsla(${x / 1.5},100%,75%,1)`;
+                canvasCtx.fillRect(x, canvasElement2.height - barHeight / 4, barWidth, barHeight / 4);
+                x += barWidth + 1;
+            }
+
+            return '〇°';
+        }
+
+        try {
+
+
+        } catch (e) {
+            // 忽略错误
+        }
+    }
+
+    // 停止绘制
+    function stopDrawing() {
+        if(animationId!=null){
+            cancelAnimationFrame(animationId);
+            cancelAnimationFrame(animationId2);
+            // 重置 animationId 和 animationId2
+            animationId = null;
+            animationId2 = null;
+        }
+    }
+
+    // 判断页面是否右移至窗口外的函数
+    function checkIfPageShifted() {
+        if (window.pageXOffset >= document.documentElement.clientWidth) {
+            stopDrawing();
+        }
+    }
+
+    // 监听滚动事件
+    window.addEventListener('scroll', checkIfPageShifted);
+
+    /**更新宽度*/
+    function updateCanvasWidth() {
+        let w = window.innerWidth;
+        canvasElement.width = w-1;
+        canvasElement2.width = w-1;
+        let h = window.innerHeight;
+        if(h>700){
+            lyricsContainer.style.height=(h-700)+'px';
+        }else {
+            lyricsContainer.style.height='50px';
+        }
+    }
+
+    window.addEventListener("resize", updateCanvasWidth);   // 监听窗口大小变化
+    updateCanvasWidth();   // 获取初始画布宽度
+
+    let musicListButton = document.getElementById('music-list-button');
+    musicListButton.addEventListener('click', function () {
+        if (musicListContainer.classList.contains('visible0')) {
+            musicListContainer.classList.remove('visible0');
+            musicListContainer.classList.add('visible1');
+        } else {
+            musicListContainer.classList.remove('visible1');
+            musicListContainer.classList.add('visible0');
+        }
+    });
+    document.addEventListener('click', function(event) {
+        if (!musicListButton.contains(event.target)&&
+            !musicListContainer.contains(event.target)&&
+            !document.getElementById('step-backward-btn').contains(event.target)&&
+            !document.getElementById('progressBar').contains(event.target)&&
+            !document.getElementById('play-btn').contains(event.target)&&
+            !document.getElementById('pause-btn').contains(event.target)&&
+            !document.getElementById('step-forward-btn').contains(event.target)&&
+            !document.getElementById('undo-alt-btn').contains(event.target)&&
+            !document.getElementById('sync-alt-btn').contains(event.target)&&
+            !document.getElementById('random-btn').contains(event.target)) {
+            // 鼠标点击了<div>之外的位置
+            musicListContainer.classList.add('visible0');
+            musicListContainer.classList.remove('visible1');
+        }
+    });
+
+    // 切换歌曲
+    function qiege(d, t) {
+        // pauseMusic();// 切歌之前先暂停播放
+        // stopDrawing()// 切歌之前停止绘制
+        if (t != null) {
+            if (moShi === 1 || moShi === 2) {// 单曲和顺序
+                shunxuqiege(t);
+            } else {// 随机
+                suijiqiege();
+            }
+        } else {
+
+            for (let i = 0; i < buttons.length; i++) {
+                let buttonText = buttons[i].textContent;
+                if(buttonText===name){
+                    buttons[i].classList.remove('bofang-name')
+                }
+                if(buttonText===d.textContent){
+                    buttons[i].classList.add('bofang-name')
+                }
+            }
+
+
+            name = d.textContent;//
+            gequming.textContent = name.split('.').slice(0, -1).join('.');
+            music.src = path + name;
+            geci();
+            playMusic();
+            // 设置本地缓存变量
+            localStorage.setItem('name', name);
+        }
+    }
+
+
+    /**
+     * 初始化歌词
+     * @returns {Promise<void>}
+     */
+    async function geci() {
+        function parseLrcFromUrl(url) {
+            return fetch(url)
+                .then(response => response.text())
+                .then(lrc => {
+                    var lines = lrc.split('\n');
+                    var lyrics = [];
+
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i].trim();
+
+                        var match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+                        if (match) {
+                            var minutes = parseInt(match[1]);
+                            var seconds = parseFloat(match[2]);
+                            var time = minutes * 60 + seconds+(lyricsConfig[name] || 0);
+                            var lyricText = match[3];
+
+                            var lyricElement = document.createElement('div');
+                            lyricElement.className = 'lyrics-line';
+                            lyricElement.setAttribute('data-time', time.toFixed(2));
+                            lyricElement.innerText = lyricText;
+
+                            lyrics.push(lyricElement);
+                        }
+                    }
+
+                    return lyrics;
+                });
+        }
+
+        var lrcUrl = path+'geci/' + name.split('.').slice(0, -1).join('.') + '.lrc';
+        // var lyricsContainer = document.getElementById('lyrics-container');
+
+        // 清空之前生成的内容
+        while (lyricsContainer.firstChild) {
+            lyricsContainer.removeChild(lyricsContainer.firstChild);
+        }
+
+        parseLrcFromUrl(lrcUrl)
+            .then(lyrics => {
+                lyrics.forEach(lyric => {
+                    lyricsContainer.appendChild(lyric);
+                });
+
+                lyricsLines = lyricsContainer.querySelectorAll('.lyrics-line');
+                // 使用 lyricsLines 进行进一步操作
+            })
+            .catch(error => {
+                console.error('Failed to fetch and parse LRC:', error);
+            });
+        // 设置封面
+        setFengmian(path+'封面/'+name.split('.').slice(0, -1).join('.')+'.png');
+    }
+
+
+    const lingdu_bofangqi = document.getElementById('lingdu_bofangqi');
+    lingdu_bofangqi.addEventListener('click', function () {
+        window.open('/vuepress-lingdu-v2/本站建设/插件/音乐播放器.html', '_blank');
+    });
+
+
+    /****************************************************封面************************************************************/
+
+
+    // 创建 img 元素并设置样式
+    function setFengmian(src) {
+        // 获取要添加图片的 div 元素
+        const divElement = document.getElementById("fengmian");
+
+        // 清空之前的图片元素
+        clearFengmian(divElement);
+
+        // 创建 Image 对象
+        const img = new Image();
+
+        // 设置图片加载完成时的回调函数
+        img.onload = function() {
+            // 检查图片加载状态和尺寸是否正常
+            if (img.complete && img.naturalWidth !== 0 && img.naturalHeight !== 0) {
+                // 图片加载成功，创建 img 元素并添加到 div 中
+                imgElement = document.createElement("img");
+                imgElement.className = "center-image";
+                imgElement.src = img.src;
+
+                imgElement.classList.add('fengmianxuanzhuan');
+                // 设置图片样式
+                imgElement.style.borderRadius = "50%";
+                // imgElement.style.width = "9.5%";
+                imgElement.style.height = "15%";
+                imgElement.style.objectFit = "cover";
+                imgElement.style.position = "fixed";
+                imgElement.style.top = "10px";
+                imgElement.style.left = "50px";
+
+                // 将 img 元素添加到 div 元素中
+                divElement.appendChild(imgElement);
+            }
+        };
+
+        // 设置图片加载失败时的回调函数
+        img.onerror = function() {
+            console.log("无法加载图片");
+            // 清空之前的图片元素
+            clearFengmian(divElement);
+        };
+
+        // 加载图片
+        img.src = src;
+    }
+
+    // 清空 div 元素中的所有子元素
+    function clearFengmian(divElement) {
+        while (divElement.firstChild) {
+            divElement.removeChild(divElement.firstChild);
+        }
+    }
+
+    // 设置封面
+    setFengmian(path+"封面/" + name.split(".").slice(0, -1).join(".") + ".png");
+
+
+
+
+
+</script>
+
+
+</body>
