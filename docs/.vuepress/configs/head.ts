@@ -18,6 +18,15 @@ export const head: HeadConfig[] = [
           })();
         `
     ],
+    // 站点访问统计 360
+    [
+        'script', {}, `
+          (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
+          b[h].s=!!c;g=a.getElementsByTagName(e)[0];s=a.createElement(e);
+          s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefore(s,g)
+          })(window,document,"script","_qha",555708,false);
+        `
+    ],
     ['link', {rel: 'icon', type: 'image/png', sizes: '16x16', href: `/vuepress-lingdu-v2/img/logo.png`,},],
     ['link', {rel: 'icon', type: 'image/png', sizes: '32x32', href: `/vuepress-lingdu-v2/img/logo.png`,},],
     ['meta', {name: 'application-name', content: 'VuePress'}],
