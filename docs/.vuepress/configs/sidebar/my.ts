@@ -49,7 +49,7 @@ const sidebar = {
         },
         {
             text: '系统', children: [
-                {text: "操作系统", children: getChildren("/Java周边/系统/操作系统/操作系统.md")},
+                {text: "操作系统", children: getChildren("/Java周边/系统/操作系统/")},
                 {text: "Docker", children: getChildren("/Java周边/系统/docker/")},
                 {text: "linux", children: getChildren("/Java周边/系统/linux/")},
                 {text: "Windows", children: getChildren("/Java周边/系统/windows/")},
