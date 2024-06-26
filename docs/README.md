@@ -7,7 +7,6 @@ heroText: 〇°
 tagline: 今天快乐
 title: 〇°
 head:
-- ['script', { src: '/vuepress-lingdu-v2/js/utils/实时访客2.js' }]
 - ['meta', {name: 'baidu-site-verification', content: 'codeva-qKsrq7nPXz'}]
 ---
 
