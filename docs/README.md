@@ -6,6 +6,10 @@ bgImage: /img/1.jpg
 heroText: 〇°
 tagline: 今天快乐
 title: 〇°
+actions:
+  - text: Java
+    link: /Java周边/基础/java/README.md
+    type: secondary
 head:
 - ['meta', {name: 'baidu-site-verification', content: 'codeva-qKsrq7nPXz'}]
 ---
@@ -57,29 +61,8 @@ color: rgb(195 233 224 / 19%)
 ```
 
 
-
-
-
-
-
-[//]: # (<div id="shizhong">)
-
-[//]: # (    <iframe src="https://lingdu990130556.gitee.io/vuepress-lingdu-v2/html/shizhong/shizhong.html"></iframe>)
-
-[//]: # (</div>)
-
-
-
-
-
-
-
-
-
-<br><br>
-
 <!--   备案标注   -->
-<div style="width:300px;margin:0 auto; padding:20px 0; position: relative;text-align: center; color: #8b949e; font-size: 12px" data-v-99bcade8="" class="copyright">
+<div id="fixed-bottom-center">
 <a target="_blank"  data-v-99bcade8="" href="https://beian.miit.gov.cn/#/Integrated/index">
   <p style="height:20px;line-height:20px;margin: 0 0 0 5px; color:#939393;">
     皖ICP备2023014487号-1
@@ -94,7 +77,6 @@ color: rgb(195 233 224 / 19%)
 Copyright © 2023-2033 <a href="http://lingdu.love">〇°</a>
 </div>
 
-<br>
 
 
 
