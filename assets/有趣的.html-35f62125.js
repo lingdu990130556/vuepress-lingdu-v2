@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-49ac6248","path":"/%E5%8F%8B%E9%93%BE/%E6%9C%89%E8%B6%A3%E7%9A%84.html","title":"有趣的","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1697008186000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":1}]},"filePathRelative":"友链/有趣的.md"}');export{t as data};

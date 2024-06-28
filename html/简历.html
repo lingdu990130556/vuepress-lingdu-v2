@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>模拟 Word 布局的简历</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .page {
+            width: 595px; /* A4纸的宽度 */
+            height: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            text-indent: 2em;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page">
+    <h1>我的简历</h1>
+
+    <div class="section">
+        <h2>个人信息</h2>
+        <p><strong>姓名：</strong> 张三</p>
+        <p><strong>性别：</strong> 男</p>
+        <p><strong>年龄：</strong> 25岁</p>
+        <p><strong>联系电话：</strong> 123456789</p>
+        <p><strong>邮箱：</strong> zhangsan@example.com</p>
+    </div>
+
+    <div class="section">
+        <h2>教育背景</h2>
+        <h3>学校:</h3>
+        <p>XX大学</p>
+        <h3>专业:</h3>
+        <p>计算机科学与技术</p>
+        <h3>学历:</h3>
+        <p>本科</p>
+        <h3>毕业时间:</h3>
+        <p>2022年</p>
+    </div>
+
+    <div class="section">
+        <h2>工作经验</h2>
+        <h3>公司A</h3>
+        <p><strong>职位：</strong> 前端开发工程师</p>
+        <p><strong>时间：</strong> 2022年-至今</p>
+        <p><strong>工作描述：</strong> 在项目中负责前端开发工作，包括页面设计和交互实现。</p>
+        <h3>公司B</h3>
+        <p><strong>职位：</strong> 实习生</p>
+        <p><strong>时间：</strong> 2021年</p>
+        <p><strong>工作描述：</strong> 协助团队进行前端开发工作，并参与了一个重要项目的开发。</p>
+    </div>
+
+    <div class="section">
+        <h2>技能</h2>
+        <ul>
+            <li>熟练掌握 HTML、CSS 和 JavaScript</li>
+            <li>熟悉前端框架如 React 和 Vue.js</li>
+            <li>了解后端开发技术如 Node.js 和 Express</li>
+            <li>良好的团队合作和沟通能力</li>
+        </ul>
+    </div>
+
+</div>
+</body>
+
+</html>
