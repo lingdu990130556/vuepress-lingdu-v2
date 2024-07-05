@@ -22,6 +22,7 @@ const sidebar = {
                 {text: "Java", children: getChildren("/Java周边/基础/java/")},
                 {text: "IDEA", children: getChildren("/Java周边/基础/idea/")},
                 {text: "数据库", children: getChildren("/Java周边/基础/db/")},
+                {text: "Mybatis", children: getChildren("/Java周边/基础/Mybatis/")},
                 {text: "maven", children: getChildren("/Java周边/基础/maven/")},
                 {text: "node", children: getChildren("/Java周边/基础/node/")},
                 {text: "TypeScript", children: getChildren("/Java周边/基础/TypeScript/")},
