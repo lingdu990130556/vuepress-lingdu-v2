@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Earth</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // 创建场景、相机和渲染器
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // 创建地球
+    var geometry = new THREE.SphereGeometry(5, 32, 32);
+    var textureLoader = new THREE.TextureLoader();
+    var texture = textureLoader.load('2.jpg');
+    var material = new THREE.MeshPhongMaterial({map: texture});
+    var earth = new THREE.Mesh(geometry, material);
+    scene.add(earth);
+
+    // 创建太阳光源，并设置其位置
+    var sunLight = new THREE.PointLight(0xffffff, 1);
+    sunLight.position.set(200, 0, 0);
+    scene.add(sunLight);
+
+    // 创建地球和太阳相对应的点光源，并设置其位置、颜色和强度
+    var earthLight = new THREE.PointLight(0xffffff, 0.5);
+    earthLight.position.set(-10, 0, 0);
+    scene.add(earthLight);
+
+    // 调整相机的位置和焦距
+    camera.position.z = 15;
+
+    // 渲染场景
+    function render() {
+        requestAnimationFrame(render);
+        earth.rotation.y += 0.003;
+        renderer.render(scene, camera);
+    }
+    render();
+</script>
+</body>
+</html>

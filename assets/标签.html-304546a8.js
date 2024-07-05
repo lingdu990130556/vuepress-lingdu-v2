@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-71f46b23","path":"/%E6%A0%87%E7%AD%BE/%E6%A0%87%E7%AD%BE.html","title":"标签","lang":"zh-CN","frontmatter":{"pageClass":"标签","comment":false},"headers":[],"git":{"updatedTime":1709890455000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":9}]},"filePathRelative":"标签/标签.md"}');export{t as data};

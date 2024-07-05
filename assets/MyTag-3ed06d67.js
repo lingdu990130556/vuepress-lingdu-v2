@@ -1,0 +1,1 @@
+import{_,o as s,c as t,i as a}from"./app-ac465cee.js";const n={},o={class:"my-tag"};function c(e,d){return s(),t("span",o,[a(e.$slots,"default",{},void 0,!0)])}const l=_(n,[["render",c],["__scopeId","data-v-364dd76e"],["__file","MyTag.vue"]]);export{l as default};

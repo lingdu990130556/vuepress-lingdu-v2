@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(30, 31, 33, 0.04);
+        }
+
+        /*使小球可拖动*/
+        #my-canvas {
+            position: absolute;
+            cursor: move;
+            z-index: 999;
+        }
+
+        #canvas-container {
+            background-color: rgba(115, 187, 48, 0.07);
+            width: 150px;
+            height: 150px;
+            bottom: 0;
+            z-index: -10;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="canvas-container"></div>
+<script src="three.js"></script>
+
+<script type="module">
+    // 将渲染器输出绑定到 HTML 元素
+    var canvasContainer = document.getElementById('canvas-container');
+
+    // 创建场景、相机和渲染器
+    var scene = new THREE.Scene();
+    let fanwei = 160;
+    // var camera = new THREE.PerspectiveCamera(155, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(70, (canvasContainer.offsetWidth + fanwei) / (canvasContainer.offsetHeight + fanwei), 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer({alpha: true});
+    renderer.setClearColor(0x000000, 0); // 设置背景颜色为黑色，透明度为0
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(canvasContainer.offsetWidth + fanwei, canvasContainer.offsetHeight + fanwei);
+
+    // 开启阴影映射
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // 更加柔和的阴影效果
+
+    // 为camera标签添加一个id属性
+    renderer.domElement.setAttribute('id', 'my-canvas');
+
+    canvasContainer.appendChild(renderer.domElement);
+
+    // 创建球体几何体和纹理贴图
+    var geometry = new THREE.SphereGeometry(5, 32, 32);
+    var texture = new THREE.TextureLoader().load('2.jpg');
+    // 设置纹理
+    var material = new THREE.MeshPhongMaterial({map: texture});
+    // 创建球体
+    var sphere = new THREE.Mesh(geometry, material);
+    sphere.castShadow = true; // 发射阴影
+    sphere.receiveShadow = true; // 接收阴影
+    scene.add(sphere);
+
+    // 添加光源
+    var light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(10, 9, 15);
+    // 添加光源阴影
+    light.castShadow = true;
+    light.shadow.mapSize.width = 1024;
+    light.shadow.mapSize.height = 1024;
+    light.shadow.camera.near = 0.5;
+    light.shadow.camera.far = 500;
+    scene.add(light);
+
+    // 设置环境光以增加立体感
+    var ambientLight = new THREE.AmbientLight(0x404040, 1);
+    scene.add(ambientLight);
+
+    // 设置相机位置
+    camera.position.z = 10;
+
+    var a = 0, b = 20, c = 0; // 定义起始坐标
+
+    // var a=20,b=0,c=20;
+    // 创建动画循环函数
+    function animate() {
+        requestAnimationFrame(animate);
+        sphere.rotation.x += 0.005;
+        sphere.rotation.y += -0.01;
+
+        var speed = 0.001; // 设置浮动速度
+        var height = 3; // 设置浮动高度
+
+        // 计算球体新的 y 坐标
+        var newY = Math.sin(Date.now() * speed) * height;
+
+        // 更新球体位置
+        sphere.position.y = newY;
+        // sphere.position.x = newY-2;
+        sphere.position.z = newY - 6;
+
+        renderer.render(scene, camera);
+    }
+
+    animate(); // 调用动画循环函数
+
+
+    /*
+    图签加文字
+     */
+    function asd() {
+        // 加载纹理图像
+        const textureLoader = new THREE.TextureLoader();
+
+
+        textureLoader.load('2.jpg',
+            function (backgroundImage) {
+                console.log('Background image loaded successfully:', backgroundImage);
+                const canvas = document.createElement('canvas');
+                // ...
+            },
+            function (xhr) {
+                console.log('An error occurred while loading the background image:', xhr);
+            }
+        );
+
+
+        const backgroundImage = new THREE.TextureLoader().load('2.jpg');
+
+        // 使用 CanvasTexture 创建包含图片和文字的纹理
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        const ctx = canvas.getContext('2d');
+
+        console.log("******************************************")
+        console.log("**:" + ctx)
+        // 绘制背景图像
+        ctx.fillStyle = ctx.createPattern(backgroundImage.img, 'repeat');
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 绘制文字
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.font = 'bold 40px Arial';
+        ctx.fillText('〇°〇°〇°〇°〇°〇°〇°〇°〇°〇°〇°〇°〇°〇°', canvas.width / 2, canvas.height / 2);
+
+        // 将 canvas 转换为纹理
+        const canvasTexture = new THREE.CanvasTexture(canvas);
+        canvasTexture.needsUpdate = true;
+
+        return canvasTexture;
+    }
+
+
+</script>
+
+<script>
+    // 使可拖拽移动
+
+    setTimeout(aaa, 2000);
+
+    function aaa() {
+        // var myDiv = document.getElementById('lingdu-tuo');
+        var myDiv = document.getElementById('my-canvas');
+
+        var isDragging = false; // 记录拖拽状态
+        var currentX; // 记录当前 x 坐标
+        var currentY; // 记录当前 y 坐标
+        var initialX; // 记录初始 x 坐标
+        var initialY; // 记录初始 y 坐标
+        var xOffset = 0; // 记录 x 偏移量
+        var yOffset = 0; // 记录 y 偏移量
+
+        // 鼠标按下事件
+        myDiv.addEventListener('mousedown', dragStart);
+
+        // 鼠标移动事件
+        myDiv.addEventListener('mousemove', drag);
+
+        // 鼠标释放事件
+        myDiv.addEventListener('mouseup', dragEnd);
+
+        // 鼠标双击事件，取消选择文本
+        myDiv.addEventListener('dblclick', function (event) {
+            event.preventDefault();
+        });
+
+        function dragStart(event) {
+            initialX = event.clientX - xOffset;
+            initialY = event.clientY - yOffset;
+
+            if (event.target === myDiv) {
+                isDragging = true;
+            }
+        }
+
+        function drag(event) {
+            if (isDragging) {
+                currentX = event.clientX - initialX;
+                currentY = event.clientY - initialY;
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                setTranslate(currentX, currentY, myDiv);
+            }
+        }
+
+        function dragEnd(event) {
+            initialX = currentX;
+            initialY = currentY;
+
+            isDragging = false;
+        }
+
+        // 设置元素的 transform 属性
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

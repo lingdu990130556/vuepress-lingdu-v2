@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-274be9f8","path":"/Java%E5%91%A8%E8%BE%B9/%E5%9F%BA%E7%A1%80/vue/","title":"vue","lang":"zh-CN","frontmatter":{"pageClass":"上宽下窄"},"headers":[],"git":{"updatedTime":1691403374000,"contributors":[{"name":"〇°","email":"990130556@qq.com","commits":2}]},"filePathRelative":"Java周边/基础/vue/README.md"}');export{e as data};

@@ -1,0 +1,1 @@
+import{_ as t,o as n,c as o,f as e}from"./app-ac465cee.js";const _={},c=e("p",null,"不知道怎么回事， 今年过完年， 每天都在回忆想念， 想联系又害怕打扰， 好像聊天不如从前， 前些年还没这感觉， 应该是意识到时间， 流逝得飞快了些，",-1),s=e("p",null,"好像身上的挂件觉醒了。",-1),l=[c,s];function r(a,d){return n(),o("div",null,l)}const f=t(_,[["render",r],["__file","index.html.vue"]]);export{f as default};

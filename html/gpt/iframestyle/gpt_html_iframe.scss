@@ -1,0 +1,21 @@
+/*
+页内元素模式
+在index.scss中引入了本文件
+@import "docs/.vuepress/public/html/gpt/iframestyle/gpt_html_iframe.scss";
+*/
+
+/* 使用html作为背景*/
+#gpt_html {
+  /*position: relative;*/
+  width: calc(100%); /* 宽度计算表达式 */
+  height: 100vh;
+}
+#gpt_html iframe {
+  /*position: absolute;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* 去除 iframe 的边框 */
+}
+

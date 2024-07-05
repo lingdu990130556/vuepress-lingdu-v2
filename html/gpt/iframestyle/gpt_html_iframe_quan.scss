@@ -1,0 +1,36 @@
+/*沾满屏幕模式*/
+
+/* 使用html作为背景*/
+#gpt_html {
+  position: fixed;
+  top: 58px;
+  /*left: var(--sidebar-width-mobile);*/
+  left: var(--sidebar-width);
+  z-index: 1;
+  width: calc(100% - var(--sidebar-width-mobile)); /* 宽度计算表达式 */
+  height: calc(100% - 35px);
+}
+@media (max-width: 959px){
+  #gpt_html {
+    transform: translateX(-0%);
+    left: var(--sidebar-width-mobile);
+    /*width: 100%;*/
+  }
+}
+@media (max-width: 719px){
+  #gpt_html {
+    transform: translateX(-0%);
+    left: 0;
+    width: 100%;
+  }
+}
+
+
+#gpt_html iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* 去除 iframe 的边框 */
+}
