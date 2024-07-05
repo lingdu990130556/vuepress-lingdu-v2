@@ -14,7 +14,12 @@ export const navbarMy: NavbarConfig = [
                     {text: "Markdown", link: "/本站建设/markdown/"},
                     {text: "音乐播放器", link: "/本站建设/插件/音乐播放器.md"},
                 ]
-            }
+            },
+            {
+                text: 'HowToCook', children: [
+                    {text: "HowToCook", link: "/HowToCook/README.md"},
+                ]
+            },
         ]
     },
     {

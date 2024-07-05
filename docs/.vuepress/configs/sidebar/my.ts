@@ -15,6 +15,29 @@ const sidebar = {
             ]
         }
     ],
+    '/HowToCook/':[
+        {
+            text: '程序员做饭指南', children: [
+                {text: "HowToCook", children: getChildren("/HowToCook/")},
+                {text: "做菜之前", children: getChildren("/HowToCook/tips/")},
+                {text: "熟记", children: getChildren("/HowToCook/tips/learn/")},
+                {text: "菜谱", children: [
+                        {text: "素菜", children: getChildren("/HowToCook/dishes/vegetable_dish/")},
+                        {text: "荤菜", children: getChildren("/HowToCook/dishes/meat_dish/")},
+                        {text: "水产", children: getChildren("/HowToCook/dishes/aquatic/")},
+                        {text: "早餐", children: getChildren("/HowToCook/dishes/breakfast/")},
+                        {text: "主食", children: getChildren("/HowToCook/dishes/staple/")},
+                        {text: "半成品加工", children: getChildren("/HowToCook/dishes/semi-finished/")},
+                        {text: "汤与粥", children: getChildren("/HowToCook/dishes/soup/")},
+                        {text: "饮料", children: getChildren("/HowToCook/dishes/drink/")},
+                        {text: "酱料和其他材料", children: getChildren("/HowToCook/dishes/condiment/")},
+                        {text: "甜品", children: getChildren("/HowToCook/dishes/dessert/")},
+                    ]
+                },
+                {text: "进阶知识学习", children: getChildren("/HowToCook/tips/advanced/")},
+            ],
+        }
+    ],
     // 开发相关
     '/Java周边/': [
         {
