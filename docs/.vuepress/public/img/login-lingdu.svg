@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" style="width: 100%; height: auto;">
   <defs>
     <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:rgb(255,255,255,1);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:rgb(173,216,230,1);stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(159, 143, 255, 1);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(255, 231, 247, 1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(162, 230, 255, 1);stop-opacity:1" />
     </linearGradient>
     <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:rgb(205,205,155,1);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:rgb(173,116,230,0.1);stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(162, 230, 255, 1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(159, 143, 255, 1);stop-opacity:1" />
     </linearGradient>
   </defs>
 
@@ -14,7 +15,7 @@
 
 
   <!-- 添加换行文本 -->
-  <text x="0" y="45%" font-family="楷体" font-size="50%" fill="url(#gradient2)">
+<!--  <text x="0" y="45%" font-family="楷体" font-size="50%" fill="url(#gradient2)">
     <tspan x="40%" dy="1.2em" font-family="宋体">《唤醒》</tspan>
     <tspan x="44%" dy="1.2em">你所经历的一切，都是为了唤醒你。</tspan>
     <tspan x="43%" dy="1.2em">如果爱不能唤醒你，那就用痛苦唤醒你。</tspan>
@@ -23,7 +24,7 @@
     <tspan x="43%" dy="1.2em">如果失去不能唤醒你，那就用生命唤醒你。</tspan>
     <tspan x="43%" dy="1.2em">如果生命不能唤醒你，那就用轮回唤醒你。</tspan>
     <tspan x="47.5%" dy="1.2em">直到你醒来。</tspan>
-  </text>
+  </text>-->
 
 
   <!--运动的实心球-->
@@ -37,7 +38,16 @@
     />
   </ellipse>
 
-  <circle cx="450" cy="300" r="150" fill="none" stroke="url(#gradient1)" stroke-width="8" />
+  <circle cx="450" cy="300" r="150" fill="none" stroke="url(#gradient1)" stroke-width="8">
+    <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 450 300"
+            to="360 450 300"
+            dur="10s"
+            repeatCount="indefinite"
+    />
+  </circle>
   <!--运动的空心球-->
   <circle cx="510" cy="100" r="20" fill="none" stroke="url(#gradient1)" stroke-width="7">
     <animateTransform

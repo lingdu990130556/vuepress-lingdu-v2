@@ -16,13 +16,7 @@ head:
 
 [//]: # ([统计]&#40;/本站建设/站点统计/README.md&#41;)
 
-```card
-title: 统计
-desc: 
-logo: /img/logo.png
-link: /本站建设/站点统计/README.md
-color: rgb(195 233 224 / 19%)
-```
+
 ```card
 title: 标签
 desc: 
@@ -31,27 +25,6 @@ link: /标签/标签.md
 color: rgb(195 233 224 / 19%)
 ```
 
-```card
-title: 推广
-desc: 
-logo: /img/logo.png
-link: /友链/特惠推广.md
-color: rgb(195 233 224 / 19%)
-```
-```card
-title: 音乐
-desc: 
-logo: /img/logo.png
-link: https://lingdu.love/yinyue
-color: rgb(195 233 224 / 19%)
-```
-```card
-title: 友链
-desc: 
-logo: /img/logo.png
-link: /友链/博客圈.md
-color: rgb(195 233 224 / 19%)
-```
 ```card
 title: 系统
 desc: 

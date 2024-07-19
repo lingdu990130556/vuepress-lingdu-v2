@@ -120,7 +120,7 @@ export const navbarMy: NavbarConfig = [
             },
         ]
     },
-    {text: "chatGPT", link: "https://c.binjie.fun/"},
+    {text: "chatGPT", link: "https://chat18.aichatos8.com/"},
 
 
 ]
