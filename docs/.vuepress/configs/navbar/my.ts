@@ -103,23 +103,6 @@ export const navbarMy: NavbarConfig = [
             {text: "留言板", link: "/友链/留言板.md"},
         ]
     },
-    {text: '版/源', children: [
-            {
-                text: '版本v2.x', children: [
-                    {text: "版本v1.x", link: "http://lingdu990130556.gitee.io/lingdu/"},
-                    {text: "版本v2.x Gitee", link: "http://lingdu990130556.gitee.io/vuepress-lingdu-v2/"},
-                    {text: "版本v2.x GitHub", link: "https://lingdu990130556.github.io/vuepress-lingdu-v2/"},
-                    {text: "版本v2.x 个人网站", link: "http://lingdu.love"},
-                ]
-            },
-            {
-                text: "源码", children: [
-                    {text: "Gitee", link: "https://gitee.com/lingdu990130556/vuepress-lingdu-v2"},
-                    {text: "GitHub", link: "https://github.com/lingdu990130556/vuepress-lingdu-v2/"},
-                ]
-            },
-        ]
-    },
     {text: "chatGPT", link: "https://chat18.aichatos8.com/"},
 
 

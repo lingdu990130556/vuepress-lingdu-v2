@@ -18,7 +18,7 @@ head:
 
 
 ```card
-title: 标签
+title: 标签云
 desc: 
 logo: /img/logo.png
 link: /标签/标签.md
@@ -26,7 +26,7 @@ color: rgb(195 233 224 / 19%)
 ```
 
 ```card
-title: 系统
+title: 〇°系统
 desc: 
 logo: /img/logo.png
 link: https://lingdu.love/admin
