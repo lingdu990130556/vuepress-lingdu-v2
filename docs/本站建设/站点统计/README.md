@@ -21,7 +21,11 @@ head:
 
 ```js
 const dateList = [];
-const visitData = [];
+const visitData = [];// 访问量数据
+
+const dateList2 = [];
+const durationData = [];// 页面停留时长数据
+
 var dateString;
 for (var i = 1; i < dataset.rows.length; i++) {
     var date = new Date(dataset.rows[i][1]);
@@ -36,21 +40,6 @@ for (var i = 1; i < dataset.rows.length; i++) {
         var index = dateList.indexOf(dateString);
         visitData[index]++;
     }
-}
-const cumulativeData = [visitData[0]];
-for (let i = 1; i < visitData.length; i++) {
-    cumulativeData.push(cumulativeData[i - 1] + visitData[i]);
-}
-// cumulativeData.reverse();// 反转
-
-const dateList2 = [];
-const durationData = [];
-
-for (var i = 1; i < dataset.rows.length; i++) {
-    var date = new Date(dataset.rows[i][1]);
-    if (date != undefined && date != 'Invalid Date') {
-        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-    }
     var duration = parseInt(dataset.rows[i][24]); // 获取停留时长并转化为整型
     if (!isNaN(duration) && duration > 0) { // 判断是否为数字且大于0
         if (!dateList2.includes(dateString)) {
@@ -62,6 +51,14 @@ for (var i = 1; i < dataset.rows.length; i++) {
         }
     }
 }
+// 累计访问量
+const cumulativeData = [visitData[0]];
+for (let i = 1; i < visitData.length; i++) {
+    cumulativeData.push(cumulativeData[i - 1] + visitData[i]);
+}
+// cumulativeData.reverse();// 反转
+
+
 const cumulativeDurationData = [durationData[0]];
 for (let i = 1; i < durationData.length; i++) {
     cumulativeDurationData.push(cumulativeDurationData[i - 1] + durationData[i]);

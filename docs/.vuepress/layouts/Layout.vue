@@ -50,6 +50,6 @@ onMounted(() => {
 });
 
 // 引用全局js
-import resize from "../public/js/gonggao";
+import resize from "../public/js/gonggao.js";
 
 </script>
