@@ -143,31 +143,6 @@ export default ({
                 },
             },
         }),
-        // 搜索
-        // docsearchPlugin({
-        //     appId: 'lingdu',
-        //     apiKey: 'lingdu',
-        //     indexName: 'lingdu',
-        //     locales: {
-        //         '/': {
-        //             placeholder: 'Search Documentation',
-        //             translations: {
-        //                 button: {
-        //                     buttonText: 'Search Documentation',
-        //                 },
-        //             },
-        //         },
-        //         '/zh/': {
-        //             placeholder: '搜索文档',
-        //             translations: {
-        //                 button: {
-        //                     buttonText: '搜索文档',
-        //                 },
-        //             },
-        //         },
-        //     },
-        // }),
-
     ],
 
     theme: defaultTheme({

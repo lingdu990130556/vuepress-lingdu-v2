@@ -88,7 +88,7 @@ const sidebar = {
 
     ],
     '/友链/': [{text: '友情链接', children: getChildren('/友链/')}],
-    '/关于/我/空间': [
+    '/关于/我/空间/': [
         {
             text: '青春日记', children: [
                 {text: '空间', children: getChildren('/关于/我/空间/')},
@@ -97,12 +97,12 @@ const sidebar = {
             ]
         }],
     /*职业生涯*/
-    '/关于/我/职业生涯': [
+    '/关于/我/职业生涯/': [
         {text: '职业生涯', children: [
                 {text: '项目经历', children: getChildren('/关于/我/职业生涯/臻峰信息/')},
             ],},
     ],
-    '/娱乐/主播/安妮': [
+    '/娱乐/主播/安妮/': [
         {
             text: '安妮', children: [
                 {text: '平台账号', children: getChildren('/娱乐/主播/安妮/')},
@@ -110,7 +110,7 @@ const sidebar = {
             ],
         },
     ],
-    '/娱乐/主播/恩甜': [
+    '/娱乐/主播/恩甜/': [
         {text: '恩甜', children: getChildren('/娱乐/主播/恩甜/')},
     ],
 
