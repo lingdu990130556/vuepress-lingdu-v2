@@ -102,6 +102,11 @@ const sidebar = {
                 {text: '项目经历', children: getChildren('/关于/我/职业生涯/臻峰信息/')},
             ],},
     ],
+    '/关于/我/keep/': [
+        {text: 'keep', children: [
+                {text: 'keep', children: getChildren('/关于/我/keep/')},
+            ],},
+    ],
     '/娱乐/主播/安妮/': [
         {
             text: '安妮', children: [
