@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {// 打包配置
 }
 
 export default ({
-    port: 8089,// 设置端口
+    port: 8088,// 设置端口
     lang: 'zh-CN',// 设置默认语言为中文
     head: newHead,
     description: 'vuepress-lingdu-v2',
