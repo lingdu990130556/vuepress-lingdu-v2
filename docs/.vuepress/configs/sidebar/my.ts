@@ -99,7 +99,8 @@ const sidebar = {
     /*职业生涯*/
     '/关于/我/职业生涯/': [
         {text: '职业生涯', children: [
-                {text: '项目经历', children: getChildren('/关于/我/职业生涯/臻峰信息/')},
+                {text: '臻峰', children: getChildren('/关于/我/职业生涯/臻峰信息/')},
+                {text: '万链', children: getChildren('/关于/我/职业生涯/万链科技/')},
             ],},
     ],
     '/关于/我/keep/': [
